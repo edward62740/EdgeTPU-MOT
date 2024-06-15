@@ -17,8 +17,10 @@ import argparse
 import base64
 import requests
 import sys
-
+import time
 from PIL import Image, ImageDraw
+
+import psutil
 
 """
 Displays object detection results received from the detect_objects server
@@ -84,11 +86,18 @@ def main():
   draw.text((left, bottom), text)
 
   im.show()
+  time.sleep(0.05)
+
 
 
 if __name__ == '__main__':
   try:
-    main()
+    while True:
+      main()
+      for proc in psutil.process_iter():
+        if proc.name() == "display":
+          proc.kill()
+      
   except requests.exceptions.ConnectionError:
     msg = 'ERROR: Cannot connect to Coral Dev Board Micro, make sure you specify' \
           ' the correct IP address with --host.'

@@ -720,8 +720,11 @@ CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/audio/CMakeFiles/libs_audio_f
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m7.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/camera/CMakeFiles/libs_camera_freertos.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/FreeRTOS/CMakeFiles/libs_FreeRTOS.dir/all
+CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/rpc/CMakeFiles/libs_rpc_http_server.dir/all
+CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/base/CMakeFiles/libs_base-m7_http_server.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/kissfft/CMakeFiles/libs_kissfft-m7.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/littlefs/CMakeFiles/libs_littlefs.dir/all
+CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/mjson/CMakeFiles/libs_mjson.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk-mcmgr_m7.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_lwip.dir/all
@@ -737,7 +740,7 @@ CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/usb/CMakeFiles/libs_usb_host_
 
 # Build rule for subdir invocation for target.
 CMakeFiles/coralmicro-app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 34
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 36
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/coralmicro-app.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 0
 .PHONY : CMakeFiles/coralmicro-app.dir/rule
@@ -843,12 +846,12 @@ coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m7.dir/clean:
 coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m4.dir/all:
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m4.dir/build.make coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m4.dir/depend
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m4.dir/build.make coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m4.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=12,13,14,15 "Built target libs_CMSIS-m4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=13,14,15 "Built target libs_CMSIS-m4"
 .PHONY : coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m4.dir/all
 
 # Build rule for subdir invocation for target.
 coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m4.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m4.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 0
 .PHONY : coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m4.dir/rule
@@ -1246,12 +1249,12 @@ coralmicro/libs/base/CMakeFiles/libs_base-m7_bm.dir/all: coralmicro/libs/CMSIS/C
 coralmicro/libs/base/CMakeFiles/libs_base-m7_bm.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_bm.dir/all
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/base/CMakeFiles/libs_base-m7_bm.dir/build.make coralmicro/libs/base/CMakeFiles/libs_base-m7_bm.dir/depend
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/base/CMakeFiles/libs_base-m7_bm.dir/build.make coralmicro/libs/base/CMakeFiles/libs_base-m7_bm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=24 "Built target libs_base-m7_bm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num= "Built target libs_base-m7_bm"
 .PHONY : coralmicro/libs/base/CMakeFiles/libs_base-m7_bm.dir/all
 
 # Build rule for subdir invocation for target.
 coralmicro/libs/base/CMakeFiles/libs_base-m7_bm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 coralmicro/libs/base/CMakeFiles/libs_base-m7_bm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 0
 .PHONY : coralmicro/libs/base/CMakeFiles/libs_base-m7_bm.dir/rule
@@ -1278,7 +1281,7 @@ coralmicro/libs/base/CMakeFiles/libs_base-m4_bm.dir/all: coralmicro/libs/nxp/rt1
 
 # Build rule for subdir invocation for target.
 coralmicro/libs/base/CMakeFiles/libs_base-m4_bm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 coralmicro/libs/base/CMakeFiles/libs_base-m4_bm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 0
 .PHONY : coralmicro/libs/base/CMakeFiles/libs_base-m4_bm.dir/rule
@@ -1469,7 +1472,7 @@ coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/all: coralmicro/libs/n
 coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/all: coralmicro/libs/pmic/CMakeFiles/libs_pmic_freertos-m4.dir/all
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/build.make coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/depend
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/build.make coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num= "Built target libs_base-m4_freertos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=24 "Built target libs_base-m4_freertos"
 .PHONY : coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1762,12 +1765,12 @@ coralmicro/libs/mjson/CMakeFiles/libs_mjson.dir/clean:
 coralmicro/libs/nxp/flashloader/CMakeFiles/flashloader.dir/all:
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/nxp/flashloader/CMakeFiles/flashloader.dir/build.make coralmicro/libs/nxp/flashloader/CMakeFiles/flashloader.dir/depend
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/nxp/flashloader/CMakeFiles/flashloader.dir/build.make coralmicro/libs/nxp/flashloader/CMakeFiles/flashloader.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=6,7,8,9,10,11 "Built target flashloader"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=6,7,8,9,10,11,12 "Built target flashloader"
 .PHONY : coralmicro/libs/nxp/flashloader/CMakeFiles/flashloader.dir/all
 
 # Build rule for subdir invocation for target.
 coralmicro/libs/nxp/flashloader/CMakeFiles/flashloader.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 coralmicro/libs/nxp/flashloader/CMakeFiles/flashloader.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 0
 .PHONY : coralmicro/libs/nxp/flashloader/CMakeFiles/flashloader.dir/rule
@@ -1847,7 +1850,7 @@ coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_bm-m4.dir/all: cor
 
 # Build rule for subdir invocation for target.
 coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_bm-m4.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_bm-m4.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 0
 .PHONY : coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_bm-m4.dir/rule
@@ -1901,7 +1904,7 @@ coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos-m4.dir/al
 
 # Build rule for subdir invocation for target.
 coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos-m4.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos-m4.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 0
 .PHONY : coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos-m4.dir/rule
@@ -2162,7 +2165,7 @@ coralmicro/libs/pmic/CMakeFiles/libs_pmic_freertos-m4.dir/all: coralmicro/libs/n
 
 # Build rule for subdir invocation for target.
 coralmicro/libs/pmic/CMakeFiles/libs_pmic_freertos-m4.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 coralmicro/libs/pmic/CMakeFiles/libs_pmic_freertos-m4.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 0
 .PHONY : coralmicro/libs/pmic/CMakeFiles/libs_pmic_freertos-m4.dir/rule
@@ -2215,7 +2218,7 @@ coralmicro/libs/tensorflow/CMakeFiles/libs_tensorflow-m4.dir/all: coralmicro/lib
 
 # Build rule for subdir invocation for target.
 coralmicro/libs/tensorflow/CMakeFiles/libs_tensorflow-m4.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 16
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 15
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 coralmicro/libs/tensorflow/CMakeFiles/libs_tensorflow-m4.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 0
 .PHONY : coralmicro/libs/tensorflow/CMakeFiles/libs_tensorflow-m4.dir/rule

@@ -961,6 +961,30 @@ bundling_target_libs_arduino_coral_micro_poe/fast:
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/arduino/CMakeFiles/bundling_target_libs_arduino_coral_micro_poe.dir/build.make coralmicro/libs/arduino/CMakeFiles/bundling_target_libs_arduino_coral_micro_poe.dir/build
 .PHONY : bundling_target_libs_arduino_coral_micro_poe/fast
 
+inference.obj: inference.cc.obj
+.PHONY : inference.obj
+
+# target to build an object file
+inference.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/inference.cc.obj
+.PHONY : inference.cc.obj
+
+inference.i: inference.cc.i
+.PHONY : inference.i
+
+# target to preprocess a source file
+inference.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/inference.cc.i
+.PHONY : inference.cc.i
+
+inference.s: inference.cc.s
+.PHONY : inference.s
+
+# target to generate assembly for a file
+inference.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/inference.cc.s
+.PHONY : inference.cc.s
+
 main.obj: main.cc.obj
 .PHONY : main.obj
 
@@ -1058,6 +1082,9 @@ help:
 	@echo "... libs_usb_host_edgetpu_bm"
 	@echo "... libs_usb_host_edgetpu_freertos"
 	@echo "... libs_usb_host_task_freertos"
+	@echo "... inference.obj"
+	@echo "... inference.i"
+	@echo "... inference.s"
 	@echo "... main.obj"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/administrator/security-camera/inference.cc" "CMakeFiles/coralmicro-app.dir/inference.cc.obj" "gcc" "CMakeFiles/coralmicro-app.dir/inference.cc.obj.d"
   "/home/administrator/security-camera/main.cc" "CMakeFiles/coralmicro-app.dir/main.cc.obj" "gcc" "CMakeFiles/coralmicro-app.dir/main.cc.obj.d"
   )
 

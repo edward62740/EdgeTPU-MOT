@@ -83,9 +83,24 @@ CMakeFiles/coralmicro-app.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/coralmicro-app.dir/main.cc.s"
 	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/administrator/security-camera/main.cc -o CMakeFiles/coralmicro-app.dir/main.cc.s
 
+CMakeFiles/coralmicro-app.dir/inference.cc.obj: CMakeFiles/coralmicro-app.dir/flags.make
+CMakeFiles/coralmicro-app.dir/inference.cc.obj: /home/administrator/security-camera/inference.cc
+CMakeFiles/coralmicro-app.dir/inference.cc.obj: CMakeFiles/coralmicro-app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/coralmicro-app.dir/inference.cc.obj"
+	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/coralmicro-app.dir/inference.cc.obj -MF CMakeFiles/coralmicro-app.dir/inference.cc.obj.d -o CMakeFiles/coralmicro-app.dir/inference.cc.obj -c /home/administrator/security-camera/inference.cc
+
+CMakeFiles/coralmicro-app.dir/inference.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/coralmicro-app.dir/inference.cc.i"
+	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/administrator/security-camera/inference.cc > CMakeFiles/coralmicro-app.dir/inference.cc.i
+
+CMakeFiles/coralmicro-app.dir/inference.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/coralmicro-app.dir/inference.cc.s"
+	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/administrator/security-camera/inference.cc -o CMakeFiles/coralmicro-app.dir/inference.cc.s
+
 # Object files for target coralmicro-app
 coralmicro__app_OBJECTS = \
-"CMakeFiles/coralmicro-app.dir/main.cc.obj"
+"CMakeFiles/coralmicro-app.dir/main.cc.obj" \
+"CMakeFiles/coralmicro-app.dir/inference.cc.obj"
 
 # External object files for target coralmicro-app
 coralmicro__app_EXTERNAL_OBJECTS = \
@@ -177,6 +192,7 @@ coralmicro__app_EXTERNAL_OBJECTS = \
 "/home/administrator/security-camera/out/coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk-mcmgr_m7.dir/__/__/__/third_party/nxp/rt1176-sdk/middleware/multicore/mcmgr/src/mcmgr_mu_internal.c.obj"
 
 coralmicro-app: CMakeFiles/coralmicro-app.dir/main.cc.obj
+coralmicro-app: CMakeFiles/coralmicro-app.dir/inference.cc.obj
 coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos.dir/__/__/__/third_party/nxp/rt1176-sdk/components/osa/fsl_os_abstraction_free_rtos.c.obj
 coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos.dir/__/__/__/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_lpi2c_freertos.c.obj
 coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos.dir/__/__/__/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_lpspi_freertos.c.obj
@@ -265,6 +281,8 @@ coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk-mc
 coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk-mcmgr_m7.dir/__/__/__/third_party/nxp/rt1176-sdk/middleware/multicore/mcmgr/src/mcmgr_mu_internal.c.obj
 coralmicro-app: CMakeFiles/coralmicro-app.dir/build.make
 coralmicro-app: coralmicro/libs/base/liblibs_base-m7_freertos.a
+coralmicro-app: coralmicro/libs/rpc/liblibs_rpc_http_server.a
+coralmicro-app: coralmicro/libs/base/liblibs_base-m7_freertos.a
 coralmicro-app: coralmicro/libs/cdc_acm/liblibs_cdc_acm_freertos.a
 coralmicro-app: coralmicro/libs/cdc_eem/liblibs_cdc_eem_freertos.a
 coralmicro-app: coralmicro/libs/tpu/liblibs_tpu_dfu_task_freertos.a
@@ -286,14 +304,16 @@ coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/liblibs_nxp_rt1176-sdk-mbedtls.a
 coralmicro-app: coralmicro/libs/usb/liblibs_usb_host_task_freertos.a
 coralmicro-app: coralmicro/libs/audio/liblibs_audio_freertos.a
 coralmicro-app: coralmicro/libs/littlefs/liblibs_littlefs.a
-coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/liblibs_nxp_rt1176-sdk_lwip_httpd.a
-coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/liblibs_nxp_rt1176-sdk_lwip.a
 coralmicro-app: coralmicro/libs/pmic/liblibs_pmic_freertos.a
 coralmicro-app: coralmicro/libs/tpu/liblibs_usb_host_edgetpu_freertos.a
-coralmicro-app: coralmicro/libs/CMSIS/liblibs_CMSIS-m7.a
 coralmicro-app: coralmicro/libs/kissfft/liblibs_kissfft-m7.a
+coralmicro-app: coralmicro/libs/mjson/liblibs_mjson.a
+coralmicro-app: coralmicro/libs/base/liblibs_base-m7_http_server.a
+coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/liblibs_nxp_rt1176-sdk_lwip_httpd.a
+coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/liblibs_nxp_rt1176-sdk_lwip.a
+coralmicro-app: coralmicro/libs/CMSIS/liblibs_CMSIS-m7.a
 coralmicro-app: CMakeFiles/coralmicro-app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable coralmicro-app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable coralmicro-app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/coralmicro-app.dir/link.txt --verbose=$(VERBOSE)
 	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-objcopy -O ihex coralmicro-app image.hex
 	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-objcopy -O srec coralmicro-app image.srec
