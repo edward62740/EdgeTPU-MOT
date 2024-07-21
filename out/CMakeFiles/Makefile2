@@ -720,15 +720,18 @@ CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/audio/CMakeFiles/libs_audio_f
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/CMSIS/CMakeFiles/libs_CMSIS-m7.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/camera/CMakeFiles/libs_camera_freertos.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/FreeRTOS/CMakeFiles/libs_FreeRTOS.dir/all
-CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/rpc/CMakeFiles/libs_rpc_http_server.dir/all
+CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/base/CMakeFiles/libs_base-m7_wifi.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/base/CMakeFiles/libs_base-m7_http_server.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/kissfft/CMakeFiles/libs_kissfft-m7.dir/all
+CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/libjpeg/CMakeFiles/libs_libjpeg.dir/all
+CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/libjpeg/CMakeFiles/libs_jpeg_m7.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/littlefs/CMakeFiles/libs_littlefs.dir/all
-CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/mjson/CMakeFiles/libs_mjson.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk-mcmgr_m7.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos.dir/all
+CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_sdmmc.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_lwip.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_lwip_httpd.dir/all
+CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_wiced.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk-mbedtls.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/pmic/CMakeFiles/libs_pmic_freertos.dir/all
 CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/tpu/CMakeFiles/libs_usb_host_edgetpu_freertos.dir/all
@@ -740,7 +743,7 @@ CMakeFiles/coralmicro-app.dir/all: coralmicro/libs/usb/CMakeFiles/libs_usb_host_
 
 # Build rule for subdir invocation for target.
 CMakeFiles/coralmicro-app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 43
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/coralmicro-app.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/administrator/security-camera/out/CMakeFiles 0
 .PHONY : CMakeFiles/coralmicro-app.dir/rule

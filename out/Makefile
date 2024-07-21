@@ -961,53 +961,53 @@ bundling_target_libs_arduino_coral_micro_poe/fast:
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/arduino/CMakeFiles/bundling_target_libs_arduino_coral_micro_poe.dir/build.make coralmicro/libs/arduino/CMakeFiles/bundling_target_libs_arduino_coral_micro_poe.dir/build
 .PHONY : bundling_target_libs_arduino_coral_micro_poe/fast
 
-inference.obj: inference.cc.obj
+inference.obj: inference.cpp.obj
 .PHONY : inference.obj
 
 # target to build an object file
-inference.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/inference.cc.obj
-.PHONY : inference.cc.obj
+inference.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/inference.cpp.obj
+.PHONY : inference.cpp.obj
 
-inference.i: inference.cc.i
+inference.i: inference.cpp.i
 .PHONY : inference.i
 
 # target to preprocess a source file
-inference.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/inference.cc.i
-.PHONY : inference.cc.i
+inference.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/inference.cpp.i
+.PHONY : inference.cpp.i
 
-inference.s: inference.cc.s
+inference.s: inference.cpp.s
 .PHONY : inference.s
 
 # target to generate assembly for a file
-inference.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/inference.cc.s
-.PHONY : inference.cc.s
+inference.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/inference.cpp.s
+.PHONY : inference.cpp.s
 
-main.obj: main.cc.obj
+main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
-main.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/main.cc.obj
-.PHONY : main.cc.obj
+main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/main.cpp.obj
+.PHONY : main.cpp.obj
 
-main.i: main.cc.i
+main.i: main.cpp.i
 .PHONY : main.i
 
 # target to preprocess a source file
-main.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/main.cc.i
-.PHONY : main.cc.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-main.s: main.cc.s
+main.s: main.cpp.s
 .PHONY : main.s
 
 # target to generate assembly for a file
-main.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/main.cc.s
-.PHONY : main.cc.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:

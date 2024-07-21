@@ -60,11 +60,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/administrator/security-camera/coralmicro/models/testconv1-edgetpu.tflite"
   "/home/administrator/security-camera/coralmicro/models/testconv1-expected-output.bin"
   "/home/administrator/security-camera/coralmicro/models/testconv1-test-input.bin"
-  "/home/administrator/security-camera/coralmicro/models/tf2_ssd_mobilenet_v2_coco17_ptq_edgetpu.tflite"
   "/home/administrator/security-camera/coralmicro/third_party/cyw-bt-patch/BCM4345C0_003.001.025.0144.0266.1MW.hcd"
   "/home/administrator/security-camera/coralmicro/third_party/firmware/cypress/43455C0.bin"
   "/home/administrator/security-camera/coralmicro/third_party/firmware/cypress/43455C0.clm_blob"
   "/home/administrator/security-camera/coralmicro/third_party/github/cristianadam/bundle_static_library.cmake"
+  "/home/administrator/security-camera/index.html"
   "CMakeFiles/3.29.3/CMakeASMCompiler.cmake"
   "CMakeFiles/3.29.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.29.3/CMakeCXXCompiler.cmake"
@@ -72,6 +72,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "libs_arduino_coral_micro_bundled.txt.in"
   "libs_arduino_coral_micro_poe_bundled.txt.in"
   "libs_arduino_coral_micro_wifi_bundled.txt.in"
+  "/home/administrator/security-camera/ssdlite_mobiledet_coco_qat_postprocess_edgetpu.tflite"
   )
 
 # The corresponding makefile is:
@@ -82,7 +83,8 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "coralmicro/models/tf2_ssd_mobilenet_v2_coco17_ptq_edgetpu.tflite"
+  "ssdlite_mobiledet_coco_qat_postprocess_edgetpu.tflite"
+  "index.html"
   "coralmicro-app.libs"
   "coralmicro-app.data"
   "CMakeFiles/CMakeDirectoryInformation.cmake"

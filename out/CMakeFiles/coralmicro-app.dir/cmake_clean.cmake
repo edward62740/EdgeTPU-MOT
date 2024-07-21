@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/coralmicro-app.dir/inference.cc.obj"
-  "CMakeFiles/coralmicro-app.dir/inference.cc.obj.d"
-  "CMakeFiles/coralmicro-app.dir/main.cc.obj"
-  "CMakeFiles/coralmicro-app.dir/main.cc.obj.d"
+  "CMakeFiles/coralmicro-app.dir/inference.cpp.obj"
+  "CMakeFiles/coralmicro-app.dir/inference.cpp.obj.d"
+  "CMakeFiles/coralmicro-app.dir/main.cpp.obj"
+  "CMakeFiles/coralmicro-app.dir/main.cpp.obj.d"
   "coralmicro-app"
   "coralmicro-app.pdb"
 )
