@@ -97,17 +97,27 @@ CMakeFiles/coralmicro-app.dir/main.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/tr1/poly_hermite.tcc \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/tr1/poly_laguerre.tcc \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/tr1/riemann_zeta.tcc \
- /home/administrator/security-camera/coralmicro/libs/base/filesystem.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cstdint \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdint-gcc.h \
+ /home/administrator/security-camera/coralmicro/libs/base/http_server.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cstring \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/string.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_locale.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/strings.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/string.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/functional \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/stl_function.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/backward/binders.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/tuple \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/array \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/stdexcept \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/string \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/stringfwd.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/char_traits.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/postypes.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cwchar \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/wchar.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_locale.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cstdint \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdint-gcc.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/localefwd.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/c++locale.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/clocale \
@@ -117,8 +127,6 @@ CMakeFiles/coralmicro-app.dir/main.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/ctype.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/ostream_insert.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/cxxabi_forced.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/stl_function.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/backward/binders.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/basic_string.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/ext/atomicity.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/gthr.h \
@@ -132,21 +140,6 @@ CMakeFiles/coralmicro-app.dir/main.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/errno.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/errno.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/basic_string.tcc \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs_util.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/string.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/strings.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/string.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/inttypes.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_intsup.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/stdlib.h \
- /home/administrator/security-camera/coralmicro/libs/base/http_server.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cstring \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/functional \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/tuple \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/array \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/stdexcept \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/uses_allocator.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/invoke.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/refwrap.h \
@@ -180,6 +173,8 @@ CMakeFiles/coralmicro-app.dir/main.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/port/arch/sys_arch.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/utilities/debug_console/fsl_debug_console.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_common.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/stdlib.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/fsl_device_registers.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/MIMXRT1176_cm7.h \
  /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/core_cm7.h \
@@ -210,6 +205,8 @@ CMakeFiles/coralmicro-app.dir/main.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/task.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/semphr.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/queue.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/inttypes.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_intsup.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include-fixed/limits.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include-fixed/syslimits.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/limits.h \
@@ -285,150 +282,11 @@ CMakeFiles/coralmicro-app.dir/main.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/portable.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_lpi2c.h \
  /home/administrator/security-camera/coralmicro/libs/libjpeg/jpeg.h \
- /home/administrator/security-camera/coralmicro/libs/tensorflow/detection.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_interpreter.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cstddef \
- /home/administrator/security-camera/coralmicro/third_party/flatbuffers/include/flatbuffers/flatbuffers.h \
- /home/administrator/security-camera/coralmicro/third_party/flatbuffers/include/flatbuffers/base.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/set \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/stl_set.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/stl_multiset.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/algorithm \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/pstl/glue_algorithm_defs.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/pstl/execution_defs.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/iterator \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/ostream \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/ios \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/ios_base.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/locale_classes.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/locale_classes.tcc \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/system_error \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/error_constants.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/streambuf \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/streambuf.tcc \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/basic_ios.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/locale_facets.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cwctype \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/wctype.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/ctype_base.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/streambuf_iterator.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/ctype_inline.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/locale_facets.tcc \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/basic_ios.tcc \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/ostream.tcc \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/istream \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/istream.tcc \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/stream_iterator.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/memory \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/stl_raw_storage_iter.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/ext/concurrence.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/unique_ptr.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/shared_ptr.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/shared_ptr_base.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/allocated_ptr.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/shared_ptr_atomic.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/atomic_base.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/atomic_lockfree_defines.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/backward/auto_ptr.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/pstl/glue_memory_defs.h \
- /home/administrator/security-camera/coralmicro/third_party/flatbuffers/include/flatbuffers/stl_emulation.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/c/c_api_types.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/c/common.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/core/api/error_reporter.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cstdarg \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/kernels/internal/tensor_ctypes.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/kernels/internal/types.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/kernels/internal/compatibility.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/kernels/op_macros.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/debug_log.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/kernels/internal/runtime_shape.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_allocator.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/schema/schema_generated.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/arena_allocator/single_arena_buffer_allocator.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/arena_allocator/ibuffer_allocator.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/compatibility.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/flatbuffer_utils.h \
- /home/administrator/security-camera/coralmicro/third_party/flatbuffers/include/flatbuffers/flexbuffers.h \
- /home/administrator/security-camera/coralmicro/third_party/flatbuffers/include/flatbuffers/util.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/sstream \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/sstream.tcc \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/iomanip \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/locale \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/locale_facets_nonio.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/ctime \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/time_members.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/messages_members.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/codecvt.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/locale_facets_nonio.tcc \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/locale_conv.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/quoted_string.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/memory_planner/micro_memory_planner.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_context.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_graph.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_resource_variable.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_op_resolver.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/core/api/op_resolver.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_profiler.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/portable_type_to_tflitetype.h \
- /home/administrator/security-camera/coralmicro/libs/tensorflow/utils.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/edgetpu_manager.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/edgetpu_driver.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/beagle/beagle_chip_config.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/beagle/beagle_chip_structures.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/chip_structures.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/beagle/beagle_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/apex_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/breakpoint_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/cb_bridge_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/debug_hib_user_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/debug_scalar_core_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/debug_tile_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/hib_kernel_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/hib_user_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/interrupt_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/memory_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/misc_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/msix_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/queue_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/register_file_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/scalar_core_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/scu_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/sync_flag_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/tile_config_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/tile_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/trace_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/usb_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/wire_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/chip_config.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cassert \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/config/aon_reset_csr_offsets.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/darwinn/driver/hardware_structures.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/usb_host_edgetpu.h \
- /home/administrator/security-camera/coralmicro/third_party/modified/nxp/rt1176-sdk/usb_host_config.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/usb/host/usb_host.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/usb/include/usb_misc.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/usb/include/usb_spec.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/edgetpu_executable.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/executable_generated.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/c/common.h \
- /home/administrator/security-camera/coralmicro/libs/tpu/edgetpu_op.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_error_reporter.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/kernels/conv.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/c/builtin_op_data.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/kernels/depthwise_conv.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/kernels/ethosu.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/kernels/fully_connected.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/kernels/micro_ops.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/kernels/reduce.h \
- /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/kernels/softmax.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/prot/dhcp.h \
  /home/administrator/security-camera/coralmicro/libs/base/wifi.h \
  /home/administrator/security-camera/coralmicro/third_party/modified/nxp/rt1176-sdk/rtos/freertos/libraries/abstractions/wifi/include/iot_wifi.h \
  /home/administrator/security-camera/coralmicro/third_party/modified/nxp/rt1176-sdk/aws_wifi_config.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/rtos/freertos/libraries/c_sdk/standard/common/include/types/iot_network_types.h \
- /home/administrator/security-camera/metadata.hpp \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/timers.h \
  /home/administrator/security-camera/inference.h \
- /home/administrator/security-camera/main.h
+ /home/administrator/security-camera/main.h \
+ /home/administrator/security-camera/stream.h

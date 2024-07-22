@@ -141,8 +141,10 @@ CMakeFiles/coralmicro-app.dir/inference.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/inttypes.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_intsup.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/stdlib.h \
- /home/administrator/security-camera/coralmicro/libs/base/http_server.h \
+ /home/administrator/security-camera/coralmicro/libs/base/led.h \
+ /home/administrator/security-camera/coralmicro/libs/base/strings.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cstring \
+ /home/administrator/security-camera/coralmicro/libs/base/gpio.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/functional \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/tuple \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/array \
@@ -165,37 +167,9 @@ CMakeFiles/coralmicro-app.dir/inference.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/stl_heap.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/stl_tempbuf.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/uniform_int_dist.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/variant \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/parse_numbers.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/apps/fs.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/apps/httpd_opts.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/opt.h \
- /home/administrator/security-camera/coralmicro/third_party/modified/nxp/rt1176-sdk/lwipopts.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/arch.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/port/arch/cc.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/time.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/time.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/time.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_time.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/port/arch/sys_arch.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/utilities/debug_console/fsl_debug_console.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_common.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/fsl_device_registers.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/MIMXRT1176_cm7.h \
- /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/core_cm7.h \
- /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/cmsis_version.h \
- /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
- /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/cmsis_gcc.h \
- /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/mpu_armv7.h \
- /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/cachel1_armv7.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/system_MIMXRT1176_cm7.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/MIMXRT1176_cm7_features.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_common_arm.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_clock.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_common.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/components/serial_manager/fsl_component_serial_manager.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/components/serial_manager/fsl_component_serial_port_uart.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/components/uart/fsl_adapter_uart.h \
+ /home/administrator/security-camera/coralmicro/libs/camera/camera.h \
+ /home/administrator/security-camera/coralmicro/libs/base/queue_task.h \
+ /home/administrator/security-camera/coralmicro/libs/base/check.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/FreeRTOS.h \
  /home/administrator/security-camera/coralmicro/third_party/modified/FreeRTOS/FreeRTOSConfig.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/projdefs.h \
@@ -206,52 +180,16 @@ CMakeFiles/coralmicro-app.dir/inference.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/reent.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/task.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/list.h \
- /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/queue.h \
- /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/task.h \
- /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/semphr.h \
- /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/queue.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include-fixed/limits.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include-fixed/syslimits.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/limits.h \
- /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/syslimits.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/debug.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/prot/iana.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/altcp.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/tcp.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/tcpbase.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/mem.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/pbuf.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/err.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/ip.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/def.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/ip_addr.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/ip4_addr.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/ip6_addr.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/def.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/netif.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/stats.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/memp.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/priv/memp_std.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/priv/memp_priv.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/priv/mem_priv.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/ip4.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/prot/ip4.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/ip6.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/prot/ip.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/icmp.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/prot/icmp.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/apps/httpd.h \
- /home/administrator/security-camera/coralmicro/libs/base/led.h \
- /home/administrator/security-camera/coralmicro/libs/base/strings.h \
- /home/administrator/security-camera/coralmicro/libs/base/utils.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/ip_addr.h \
- /home/administrator/security-camera/coralmicro/libs/base/gpio.h \
- /home/administrator/security-camera/coralmicro/libs/camera/camera.h \
- /home/administrator/security-camera/coralmicro/libs/base/queue_task.h \
- /home/administrator/security-camera/coralmicro/libs/base/check.h \
- /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/FreeRTOS.h \
- /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/task.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/fsl_device_registers.h \
+ /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/MIMXRT1176_cm7.h \
+ /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/core_cm7.h \
+ /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/cmsis_version.h \
+ /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
+ /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/cmsis_gcc.h \
+ /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/mpu_armv7.h \
+ /home/administrator/security-camera/coralmicro/third_party/CMSIS/CMSIS/Core/Include/cachel1_armv7.h \
+ /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/system_MIMXRT1176_cm7.h \
+ /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/MIMXRT1176_cm7_features.h \
  /home/administrator/security-camera/coralmicro/libs/base/console_m7.h \
  /home/administrator/security-camera/coralmicro/libs/base/ipc_message_buffer.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/message_buffer.h \
@@ -264,12 +202,21 @@ CMakeFiles/coralmicro-app.dir/inference.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/stl_multimap.h \
  /home/administrator/security-camera/coralmicro/libs/usb/descriptors.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/semphr.h \
+ /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/queue.h \
+ /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/task.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/usb/device/usb_device.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/usb/include/usb.h \
+ /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_common.h \
+ /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/fsl_device_registers.h \
+ /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_common_arm.h \
+ /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_clock.h \
+ /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_common.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/components/osa/fsl_os_abstraction.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/components/osa/fsl_os_abstraction_config.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/components/lists/fsl_component_generic_list.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/components/osa/fsl_os_abstraction_free_rtos.h \
+ /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/FreeRTOS.h \
+ /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/semphr.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/event_groups.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/timers.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/usb/include/usb_misc.h \
@@ -284,7 +231,6 @@ CMakeFiles/coralmicro-app.dir/inference.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_lpi2c_freertos.h \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/portable.h \
  /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_lpi2c.h \
- /home/administrator/security-camera/coralmicro/libs/libjpeg/jpeg.h \
  /home/administrator/security-camera/coralmicro/libs/tensorflow/detection.h \
  /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_interpreter.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cstddef \
@@ -357,6 +303,8 @@ CMakeFiles/coralmicro-app.dir/inference.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/locale \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/locale_facets_nonio.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/ctime \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/time.h \
+ /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/time.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/time_members.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/messages_members.h \
  /home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/codecvt.h \
@@ -423,12 +371,7 @@ CMakeFiles/coralmicro-app.dir/inference.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/kernels/micro_ops.h \
  /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/kernels/reduce.h \
  /home/administrator/security-camera/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/kernels/softmax.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/prot/dhcp.h \
- /home/administrator/security-camera/coralmicro/libs/base/wifi.h \
- /home/administrator/security-camera/coralmicro/third_party/modified/nxp/rt1176-sdk/rtos/freertos/libraries/abstractions/wifi/include/iot_wifi.h \
- /home/administrator/security-camera/coralmicro/third_party/modified/nxp/rt1176-sdk/aws_wifi_config.h \
- /home/administrator/security-camera/coralmicro/third_party/nxp/rt1176-sdk/rtos/freertos/libraries/c_sdk/standard/common/include/types/iot_network_types.h \
- /home/administrator/security-camera/metadata.hpp \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/timers.h \
+ /home/administrator/security-camera/metadata.hpp \
  /home/administrator/security-camera/inference.h \
  /home/administrator/security-camera/main.h

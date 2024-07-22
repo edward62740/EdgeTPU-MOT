@@ -1009,6 +1009,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+stream.obj: stream.cpp.obj
+.PHONY : stream.obj
+
+# target to build an object file
+stream.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/stream.cpp.obj
+.PHONY : stream.cpp.obj
+
+stream.i: stream.cpp.i
+.PHONY : stream.i
+
+# target to preprocess a source file
+stream.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/stream.cpp.i
+.PHONY : stream.cpp.i
+
+stream.s: stream.cpp.s
+.PHONY : stream.s
+
+# target to generate assembly for a file
+stream.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/coralmicro-app.dir/build.make CMakeFiles/coralmicro-app.dir/stream.cpp.s
+.PHONY : stream.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1088,6 +1112,9 @@ help:
 	@echo "... main.obj"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... stream.obj"
+	@echo "... stream.i"
+	@echo "... stream.s"
 .PHONY : help
 
 

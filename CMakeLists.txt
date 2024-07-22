@@ -24,6 +24,7 @@ add_executable_m7(
     coralmicro-app
     main.cpp
     inference.cpp
+    stream.cpp
     DATA
     ${CMAKE_CURRENT_SOURCE_DIR}/ssdlite_mobiledet_coco_qat_postprocess_edgetpu.tflite
     ${CMAKE_CURRENT_SOURCE_DIR}/index.html>/index.html

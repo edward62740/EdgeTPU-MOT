@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/administrator/security-camera/inference.cpp" "CMakeFiles/coralmicro-app.dir/inference.cpp.obj" "gcc" "CMakeFiles/coralmicro-app.dir/inference.cpp.obj.d"
   "/home/administrator/security-camera/main.cpp" "CMakeFiles/coralmicro-app.dir/main.cpp.obj" "gcc" "CMakeFiles/coralmicro-app.dir/main.cpp.obj.d"
+  "/home/administrator/security-camera/stream.cpp" "CMakeFiles/coralmicro-app.dir/stream.cpp.obj" "gcc" "CMakeFiles/coralmicro-app.dir/stream.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

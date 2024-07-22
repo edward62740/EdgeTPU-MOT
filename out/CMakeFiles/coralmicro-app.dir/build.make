@@ -97,10 +97,25 @@ CMakeFiles/coralmicro-app.dir/inference.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/coralmicro-app.dir/inference.cpp.s"
 	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/administrator/security-camera/inference.cpp -o CMakeFiles/coralmicro-app.dir/inference.cpp.s
 
+CMakeFiles/coralmicro-app.dir/stream.cpp.obj: CMakeFiles/coralmicro-app.dir/flags.make
+CMakeFiles/coralmicro-app.dir/stream.cpp.obj: /home/administrator/security-camera/stream.cpp
+CMakeFiles/coralmicro-app.dir/stream.cpp.obj: CMakeFiles/coralmicro-app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/coralmicro-app.dir/stream.cpp.obj"
+	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/coralmicro-app.dir/stream.cpp.obj -MF CMakeFiles/coralmicro-app.dir/stream.cpp.obj.d -o CMakeFiles/coralmicro-app.dir/stream.cpp.obj -c /home/administrator/security-camera/stream.cpp
+
+CMakeFiles/coralmicro-app.dir/stream.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/coralmicro-app.dir/stream.cpp.i"
+	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/administrator/security-camera/stream.cpp > CMakeFiles/coralmicro-app.dir/stream.cpp.i
+
+CMakeFiles/coralmicro-app.dir/stream.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/coralmicro-app.dir/stream.cpp.s"
+	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/administrator/security-camera/stream.cpp -o CMakeFiles/coralmicro-app.dir/stream.cpp.s
+
 # Object files for target coralmicro-app
 coralmicro__app_OBJECTS = \
 "CMakeFiles/coralmicro-app.dir/main.cpp.obj" \
-"CMakeFiles/coralmicro-app.dir/inference.cpp.obj"
+"CMakeFiles/coralmicro-app.dir/inference.cpp.obj" \
+"CMakeFiles/coralmicro-app.dir/stream.cpp.obj"
 
 # External object files for target coralmicro-app
 coralmicro__app_EXTERNAL_OBJECTS = \
@@ -193,6 +208,7 @@ coralmicro__app_EXTERNAL_OBJECTS = \
 
 coralmicro-app: CMakeFiles/coralmicro-app.dir/main.cpp.obj
 coralmicro-app: CMakeFiles/coralmicro-app.dir/inference.cpp.obj
+coralmicro-app: CMakeFiles/coralmicro-app.dir/stream.cpp.obj
 coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos.dir/__/__/__/third_party/nxp/rt1176-sdk/components/osa/fsl_os_abstraction_free_rtos.c.obj
 coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos.dir/__/__/__/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_lpi2c_freertos.c.obj
 coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/CMakeFiles/libs_nxp_rt1176-sdk_freertos.dir/__/__/__/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/drivers/fsl_lpspi_freertos.c.obj
@@ -316,7 +332,7 @@ coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/liblibs_nxp_rt1176-sdk_lwip.a
 coralmicro-app: coralmicro/libs/nxp/rt1176-sdk/liblibs_nxp_rt1176-sdk_sdmmc.a
 coralmicro-app: coralmicro/libs/CMSIS/liblibs_CMSIS-m7.a
 coralmicro-app: CMakeFiles/coralmicro-app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable coralmicro-app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/administrator/security-camera/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable coralmicro-app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/coralmicro-app.dir/link.txt --verbose=$(VERBOSE)
 	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-objcopy -O ihex coralmicro-app image.hex
 	/home/administrator/security-camera/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-objcopy -O srec coralmicro-app image.srec

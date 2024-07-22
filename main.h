@@ -1,7 +1,6 @@
 #pragma once
-#include "third_party/freertos_kernel/include/FreeRTOS.h"
 #include "third_party/freertos_kernel/include/semphr.h"
-#include "libs/camera/camera.h"
+
 
 namespace shared
 {

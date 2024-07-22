@@ -5,13 +5,11 @@
 
 
 #include "libs/base/filesystem.h"
-#include "libs/base/http_server.h"
 #include "libs/base/led.h"
 #include "libs/base/strings.h"
-#include "libs/base/utils.h"
+
 #include "libs/base/gpio.h"
 #include "libs/camera/camera.h"
-#include "libs/libjpeg/jpeg.h"
 #include "libs/tensorflow/detection.h"
 #include "libs/tensorflow/utils.h"
 #include "libs/tpu/edgetpu_manager.h"
@@ -19,22 +17,17 @@
 #include "third_party/freertos_kernel/include/FreeRTOS.h"
 #include "third_party/freertos_kernel/include/task.h"
 #include "third_party/freertos_kernel/include/semphr.h"
+#include "third_party/freertos_kernel/include/timers.h"
 #include "third_party/tflite-micro/tensorflow/lite/micro/micro_error_reporter.h"
 #include "third_party/tflite-micro/tensorflow/lite/micro/micro_interpreter.h"
 #include "third_party/tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h"
-#include "third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/prot/dhcp.h"
-#include "libs/base/wifi.h"
-#include "libs/tensorflow/detection.h"
-#include "libs/tensorflow/utils.h"
+
 #include "metadata.hpp"
-#include "third_party/freertos_kernel/include/task.h"
-#include "third_party/freertos_kernel/include/timers.h"
+
 
 
 
 #include "inference.h"
-
-#include "main.h"
 
 namespace coralmicro
 {
@@ -66,8 +59,6 @@ namespace coralmicro
             unsigned long timestamp_prev = xTaskGetTickCount() *
                                            (1000 / configTICK_RATE_HZ);
 
-            // x_center, y_center, w, h
-            float anchor[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 
             // Load model
             std::vector<uint8_t> model;
@@ -78,7 +69,7 @@ namespace coralmicro
             }
 
             // Initialize TPU
-            auto tpu_context = EdgeTpuManager::GetSingleton()->OpenDevice(coralmicro::PerformanceMode::kLow);
+            auto tpu_context = EdgeTpuManager::GetSingleton()->OpenDevice(coralmicro::PerformanceMode::kMedium);
             if (!tpu_context)
             {
                 printf("ERROR: Failed to get EdgeTpu context\r\n");
@@ -124,38 +115,6 @@ namespace coralmicro
             // Copy image to separate buffer for HTTP server
             img_copy = new std::vector<uint8_t>(img_ptr->size());
 
-
-            // Get output tensor shapes
-            TfLiteTensor *tensor_bboxes = interpreter.output_tensor(1);
-            TfLiteTensor *tensor_scores = interpreter.output_tensor(0);
-            TfLiteTensor *c = interpreter.output_tensor(2);
-            unsigned int num_boxes = tensor_bboxes->dims->data[1];
-            unsigned int num_coords = tensor_bboxes->dims->data[2];
-            unsigned int num_classes = 80;
-            for (int j = 0; j < 3; j++)
-            {
-                TfLiteTensor *tensor = interpreter.output_tensor(j);
-                printf("Tensor %d dims: ", j);
-                for (int i = 0; i < tensor->dims->size; ++i)
-                {
-
-                    printf("%d ", tensor->dims->data[i]);
-                }
-                printf("\r\n");
-            }
-            // Get quantization parameters
-            const float input_scale = input_tensor->params.scale;
-            const int input_zero_point = input_tensor->params.zero_point;
-            const float locs_scale = tensor_bboxes->params.scale;
-            const int locs_zero_point = tensor_bboxes->params.zero_point;
-            const float scores_scale = tensor_scores->params.scale;
-            const int scores_zero_point = tensor_scores->params.zero_point;
-
-            // Convert threshold to fixed point
-            uint8_t score_threshold_quantized =
-                static_cast<uint8_t>(score_threshold * 256);
-
-            // Print input/output details
 
 
             // Do forever
@@ -226,9 +185,6 @@ namespace coralmicro
                         }
                     }
 
-                    // Get data
-                    uint8_t *scores = tensor_scores->data.uint8;
-                    uint8_t *raw_boxes = tensor_bboxes->data.uint8;
 
 
                     std::memcpy(
@@ -248,9 +204,9 @@ namespace coralmicro
                           });
 
                 // Perform non-maximum suppression
-                for (int i = 0; i < bbox_list.size(); ++i)
+                for (uint32_t i = 0; i < bbox_list.size(); ++i)
                 {
-                    for (int j = i + 1; j < bbox_list.size(); ++j)
+                    for (uint32_t j = i + 1; j < bbox_list.size(); ++j)
                     {
                         shared::BBox bbox1 = {bbox_list[i][0], bbox_list[i][1], bbox_list[i][2],
                                               bbox_list[i][3], bbox_list[i][4], bbox_list[i][5]};

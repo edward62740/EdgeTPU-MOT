@@ -2,7 +2,6 @@
 #include <vector>
 #include <cmath>
 
-#include "libs/base/filesystem.h"
 #include "libs/base/http_server.h"
 #include "libs/base/led.h"
 #include "libs/base/strings.h"
@@ -10,25 +9,14 @@
 #include "libs/base/gpio.h"
 #include "libs/camera/camera.h"
 #include "libs/libjpeg/jpeg.h"
-#include "libs/tensorflow/detection.h"
-#include "libs/tensorflow/utils.h"
-#include "libs/tpu/edgetpu_manager.h"
-#include "libs/tpu/edgetpu_op.h"
 #include "third_party/freertos_kernel/include/FreeRTOS.h"
 #include "third_party/freertos_kernel/include/task.h"
 #include "third_party/freertos_kernel/include/semphr.h"
-#include "third_party/tflite-micro/tensorflow/lite/micro/micro_error_reporter.h"
-#include "third_party/tflite-micro/tensorflow/lite/micro/micro_interpreter.h"
-#include "third_party/tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h"
-#include "third_party/nxp/rt1176-sdk/middleware/lwip/src/include/lwip/prot/dhcp.h"
 #include "libs/base/wifi.h"
-#include "libs/tensorflow/detection.h"
-#include "libs/tensorflow/utils.h"
-#include "metadata.hpp"
-#include "third_party/freertos_kernel/include/task.h"
 #include "third_party/freertos_kernel/include/timers.h"
 
 #include "inference.h"
+#include "stream.h"
 
 bool shared::isMotionDetected = false;
 static constexpr size_t max_bboxes = 5;
@@ -156,7 +144,13 @@ namespace coralmicro
         nullptr,
         kAppTaskPriority - 1, // Make inference lower than console/server
         nullptr);
-
+    xTaskCreate(
+        &stream::streamTask,
+        "StreamTask",
+        configMINIMAL_STACK_SIZE * 30,
+        nullptr,
+        kAppTaskPriority - 2, // Make inference lower than console/server
+        nullptr);
 
     if (!WiFiTurnOn(/*default_iface=*/true))
     {
