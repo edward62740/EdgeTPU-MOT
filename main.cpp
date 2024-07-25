@@ -17,6 +17,7 @@
 
 #include "inference.h"
 #include "stream.h"
+#include "consts.h"
 
 bool shared::isMotionDetected = false;
 static constexpr size_t max_bboxes = 5;
@@ -157,8 +158,8 @@ namespace coralmicro
       printf("Unable to bring up WiFi...\r\n");
       vTaskSuspend(nullptr);
     }
-    WiFiSetDefaultSsid("");
-    WiFiSetDefaultPsk("");
+    WiFiSetDefaultSsid(consts::WIFI_SSID);
+    WiFiSetDefaultPsk(consts::WIFI_PSK);
     if (!WiFiConnect(10))
     {
       printf("Unable to connect to WiFi...\r\n");

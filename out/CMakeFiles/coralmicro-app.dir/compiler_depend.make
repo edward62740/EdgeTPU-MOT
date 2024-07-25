@@ -364,6 +364,7 @@ CMakeFiles/coralmicro-app.dir/inference.cpp.obj: /home/administrator/security-ca
   /home/administrator/security-camera/metadata.hpp
 
 CMakeFiles/coralmicro-app.dir/main.cpp.obj: /home/administrator/security-camera/main.cpp \
+  /home/administrator/security-camera/consts.h \
   /home/administrator/security-camera/coralmicro/libs/base/check.h \
   /home/administrator/security-camera/coralmicro/libs/base/console_m7.h \
   /home/administrator/security-camera/coralmicro/libs/base/gpio.h \
@@ -917,6 +918,8 @@ CMakeFiles/coralmicro-app.dir/stream.cpp.obj: /home/administrator/security-camer
 /home/administrator/security-camera/coralmicro/libs/base/utils.h:
 
 /home/administrator/security-camera/coralmicro/libs/base/http_server.h:
+
+/home/administrator/security-camera/consts.h:
 
 /home/administrator/security-camera/metadata.hpp:
 

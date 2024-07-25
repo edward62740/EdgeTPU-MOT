@@ -1,0 +1,7 @@
+# Ignore Makefiles
+Makefile linguist-vendored
+*.mk linguist-vendored
+
+# Ignore CMake files
+CMakeLists.txt linguist-vendored
+*.cmake linguist-vendored

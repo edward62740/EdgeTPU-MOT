@@ -289,4 +289,5 @@ CMakeFiles/coralmicro-app.dir/main.cpp.obj: \
  /home/administrator/security-camera/coralmicro/third_party/freertos_kernel/include/timers.h \
  /home/administrator/security-camera/inference.h \
  /home/administrator/security-camera/main.h \
- /home/administrator/security-camera/stream.h
+ /home/administrator/security-camera/stream.h \
+ /home/administrator/security-camera/consts.h
