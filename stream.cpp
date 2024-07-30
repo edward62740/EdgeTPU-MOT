@@ -29,7 +29,7 @@ namespace coralmicro::stream
         };
         dest_address.sin_family = AF_INET;
         dest_address.sin_port = PP_HTONS(31337);
-        dest_address.sin_addr.s_addr = inet_addr("10.10.2.23"); // Example IP address to send to
+        dest_address.sin_addr.s_addr = inet_addr("10.10.1.102"); // Example IP address to send to
         vTaskDelay(pdMS_TO_TICKS(2000));
         while (true)
         {

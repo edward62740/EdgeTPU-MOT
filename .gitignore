@@ -1,0 +1,21 @@
+# Ignore build artifacts
+/build/
+/out/
+
+# Ignore temporary files
+*.tmp
+*.log
+
+# Ignore IDE specific files
+.idea/
+*.swp
+*.swo
+
+# Ignore compiled binaries
+*.o
+*.obj
+*.a
+*.so
+*.exe
+# Ignore consts.h
+consts.h

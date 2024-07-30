@@ -1,3 +1,6 @@
+# Ignore all files in the out directory
+out/** linguist-vendored
+
 # Ignore Makefiles
 Makefile linguist-vendored
 *.mk linguist-vendored

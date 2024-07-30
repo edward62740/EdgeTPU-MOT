@@ -40,6 +40,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/administrator/security-camera/out/coralmicro/cmake_install.cmake")
+  include("/home/administrator/security-camera/out/byte-track-eigen/cmake_install.cmake")
 
 endif()
 

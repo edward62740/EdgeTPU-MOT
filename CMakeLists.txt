@@ -19,6 +19,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 include_directories(coralmicro)
 add_subdirectory(coralmicro)
 
+# Add ByteTrack as a subdirectory
+include_directories(byte-track-eigen/include)
+add_subdirectory(byte-track-eigen)
+
 # Add the source code
 add_executable_m7(
     coralmicro-app
@@ -37,4 +41,5 @@ target_link_libraries(
     libs_base-m7_http_server
     libs_jpeg_m7
     libs_base-m7_wifi
+    bytetrack
 )

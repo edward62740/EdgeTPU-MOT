@@ -1,0 +1,23 @@
+Collecting hexformat==0.2
+  Using cached hexformat-0.2-py3-none-any.whl
+Collecting hidapi==0.10.1
+  Using cached hidapi-0.10.1.tar.gz (60 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting progress==1.5
+  Using cached progress-1.5-py3-none-any.whl
+Requirement already satisfied: pyserial==3.5 in ./coral-venv/lib/python3.11/site-packages (3.5)
+Collecting pyusb==1.2.0
+  Using cached pyusb-1.2.0-py3-none-any.whl.metadata (2.2 kB)
+Requirement already satisfied: setuptools in ./coral-venv/lib/python3.11/site-packages (65.5.0)
+Using cached pyusb-1.2.0-py3-none-any.whl (58 kB)
+Building wheels for collected packages: hidapi
+  Building wheel for hidapi (pyproject.toml): started
+  Building wheel for hidapi (pyproject.toml): finished with status 'error'
+Failed to build hidapi

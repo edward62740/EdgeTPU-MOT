@@ -25,6 +25,8 @@
 
 #include "inference.h"
 
+#include "BYTETracker.h"
+
 namespace coralmicro
 {
 
@@ -37,40 +39,59 @@ namespace coralmicro
         constexpr int kTensorArenaSize = 8 * 1024 * 1024;
         STATIC_TENSOR_ARENA_IN_SDRAM(tensor_arena, kTensorArenaSize);
         static std::vector<uint8_t> *img_ptr;
-        void ProcessOutput(const float *output, size_t d,
+
+        float input_scale = 0;
+        int input_zero_point = 0;
+        float output_scale = 0;
+        int output_zero_point = 0;
+
+        float track_thresh = 0.23f;
+        int track_buffer = 30;
+        float match_thresh = 0.8;
+        int frame_rate = 30;
+        BYTETracker tracker();
+
+        void ProcessOutput(const int8_t *output, size_t d,
                            std::vector<float> &bboxes, std::vector<float> &ids,
                            std::vector<float> &scores, size_t &count, size_t num_classes)
         {
+            float x_factor = 1;
+            float y_factor = 1;
             for (size_t i = 0; i < d; ++i)
             {
-                // Bounding box coordinates
-                float x = output[0];
-                float y = output[1];
-                float w = output[2];
-                float h = output[3];
-
-                // Append bounding box coordinates
-                bboxes.push_back(x - w / 2); // ymin
-                bboxes.push_back(y - h / 2); // xmin
-                bboxes.push_back(x + w / 2); // ymax
-                bboxes.push_back(y + h / 2); // xmax
 
                 // Find the class with the maximum score
                 float max_score = 0;
                 int max_class = -1;
                 for (size_t j = 0; j < num_classes; ++j)
                 {
-                    float score = output[4 + j];
+                    float score = (static_cast<float>(output[4 + j]) - output_zero_point) * output_scale;
                     if (score > max_score)
                     {
                         max_score = score;
-
                         max_class = static_cast<int>(j);
                     }
                 }
 
+                // Convert int8_t to float
+                float x = (static_cast<float>(output[0]) - output_zero_point) * output_scale;
+                float y = (static_cast<float>(output[1]) - output_zero_point) * output_scale;
+                float w = (static_cast<float>(output[2]) - output_zero_point) * output_scale;
+                float h = (static_cast<float>(output[3]) - output_zero_point) * output_scale;
+
+                float left = x - w / 2;
+                float top = y - h / 2;
+                float right = left + w;
+                float bottom = top + h;
+
+                // Append bounding box coordinates
+                bboxes.push_back(std::min(left, 1.0f)); // xmin
+                bboxes.push_back(std::min(top, 1.0f));  // ymin
+                bboxes.push_back(std::min(w, 1.0f));    // xmax
+                bboxes.push_back(std::min(h, 1.0f));    // ymax
+
                 // Append scores and class IDs
-                scores.push_back(max_score);
+                scores.push_back(std::min(max_score, 1.0f));
                 ids.push_back(static_cast<float>(max_class));
                 ++count;
 
@@ -111,14 +132,20 @@ namespace coralmicro
             tflite::MicroMutableOpResolver<3> resolver;
             resolver.AddDequantize();
             resolver.AddDetectionPostprocess();
+            /*
+                        resolver.AddTranspose();
+                        resolver.AddReshape();
+                        resolver.AddConcatenation();
+                        resolver.AddStridedSlice();
+                        resolver.AddLogistic();
+                        resolver.AddQuantize();
+                        resolver.AddAdd();
+                        resolver.AddSub();
+                        resolver.AddMul();
+                        resolver.AddConv2D();
+                        resolver.AddSoftmax();
 
-            // resolver.AddTranspose();
-            // resolver.AddReshape();
-            // resolver.AddConcatenation();
-            // resolver.AddStridedSlice();
-            // resolver.AddLogistic();
-            // resolver.AddQuantize();
-
+            */
             resolver.AddCustom(kCustomOp, RegisterCustomOp());
 
             // Initialize TFLM interpreter for inference
@@ -165,6 +192,15 @@ namespace coralmicro
                 }
                 printf("\r\n");
             }
+
+            // Get quantization parameters
+            input_scale = input_tensor->params.scale;
+            input_zero_point = input_tensor->params.zero_point;
+            output_scale = interpreter.output_tensor(0)->params.scale;
+            output_zero_point = interpreter.output_tensor(0)->params.zero_point;
+
+            printf("Quant params: %f, %d, %f, %d\r\n", input_scale, input_zero_point, output_scale, output_zero_point);
+
             printf("Starting inference\r\n");
             // Do forever
             while (true)
@@ -205,8 +241,9 @@ namespace coralmicro
                     LedSet(Led::kUser, true);
 
                     // Copy image to input tensor (~6 ms)
+
                     std::memcpy(
-                        tflite::GetTensorData<uint8_t>(input_tensor),
+                        tflite::GetTensorData<int8_t>(input_tensor),
                         img_ptr->data(),
                         img_ptr->size());
 
@@ -216,25 +253,25 @@ namespace coralmicro
                     {
                         printf("ERROR: Inference failed\r\n");
                     }
-      
-                    printf("Model running\r\n");
-                    /*
-                    float *output = tflite::GetTensorData<float>(interpreter.output_tensor(0));
 
-                    size_t num_classes = 80; // Number of classes
+                    printf("Model running\r\n");
+
+                    int8_t *output = tflite::GetTensorData<int8_t>(interpreter.output_tensor(0));
+
+                    size_t num_classes = 2; // Number of classes
 
                     // Print the tensor data
                     // Process the output
-                    size_t output_size = 756;
+                    size_t output_size = 4116;
                     // size_t num_classes = 80; // For COCO dataset
                     std::vector<float> bboxes, ids, scores;
                     size_t count = 0;
-                    ProcessOutput(output, output_size, bboxes, ids, scores, count, num_classes);
+                    // ProcessOutput(output, output_size, bboxes, ids, scores, count, num_classes);
 
                     // Call the GetDetectionResults function
-                    float threshold = 0.5f;
-                    size_t top_k = 10;
-                    results = tensorflow::GetDetectionResults(bboxes.data(), ids.data(), scores.data(), count, threshold, top_k);
+                    float threshold = 0.53f;
+                    size_t top_k = 5;
+                    /*results = tensorflow::GetDetectionResults(bboxes.data(), ids.data(), scores.data(), count, threshold, top_k);
                     for (const auto &obj : results)
                     {
                         printf("Object: id=%d, score=%.2f, bbox=[%.2f, %.2f, %.2f, %.2f]\r\n", obj.id, obj.score, obj.bbox.ymin, obj.bbox.xmin, obj.bbox.ymax, obj.bbox.xmax);
