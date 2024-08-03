@@ -300,7 +300,6 @@ coralmicro-app: coralmicro/libs/base/liblibs_base-m7_freertos.a
 coralmicro-app: coralmicro/libs/base/liblibs_base-m7_http_server.a
 coralmicro-app: coralmicro/libs/libjpeg/liblibs_jpeg_m7.a
 coralmicro-app: coralmicro/libs/base/liblibs_base-m7_wifi.a
-coralmicro-app: byte-track-eigen/libbytetrack.a
 coralmicro-app: coralmicro/libs/base/liblibs_base-m7_freertos.a
 coralmicro-app: coralmicro/libs/cdc_acm/liblibs_cdc_acm_freertos.a
 coralmicro-app: coralmicro/libs/cdc_eem/liblibs_cdc_eem_freertos.a

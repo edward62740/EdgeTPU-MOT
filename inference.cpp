@@ -25,7 +25,6 @@
 
 #include "inference.h"
 
-#include "BYTETracker.h"
 
 namespace coralmicro
 {
@@ -39,19 +38,16 @@ namespace coralmicro
         constexpr int kTensorArenaSize = 8 * 1024 * 1024;
         STATIC_TENSOR_ARENA_IN_SDRAM(tensor_arena, kTensorArenaSize);
         static std::vector<uint8_t> *img_ptr;
+        std::string bbox_string = "";
 
         float input_scale = 0;
         int input_zero_point = 0;
         float output_scale = 0;
         int output_zero_point = 0;
 
-        float track_thresh = 0.23f;
-        int track_buffer = 30;
-        float match_thresh = 0.8;
-        int frame_rate = 30;
-        BYTETracker tracker();
+    
 
-        void ProcessOutput(const int8_t *output, size_t d,
+        void ProcessYoloOutput(const int8_t *output, size_t d,
                            std::vector<float> &bboxes, std::vector<float> &ids,
                            std::vector<float> &scores, size_t &count, size_t num_classes)
         {
@@ -120,7 +116,7 @@ namespace coralmicro
             }
 
             // Initialize TPU
-            auto tpu_context = EdgeTpuManager::GetSingleton()->OpenDevice(/*coralmicro::PerformanceMode::kLow*/);
+            auto tpu_context = EdgeTpuManager::GetSingleton()->OpenDevice(coralmicro::PerformanceMode::kMedium);
             if (!tpu_context)
             {
                 printf("ERROR: Failed to get EdgeTpu context\r\n");
@@ -337,7 +333,7 @@ namespace coralmicro
                 // Determine number of bboxes to send
                 size_t num_bboxes_output = bbox_list.size();
                 // Convert top k bboxes to JSON string
-                std::string bbox_string = "{\"dtime\": " + std::to_string(dtime) + ",";
+                bbox_string = "{\"dtime\": " + std::to_string(dtime) + ",";
                 bbox_string += "\"isMotionDetected\": " + std::to_string(shared::isMotionDetected) + ",";
                 bbox_string += "\"bboxes\":[";
                 std::map<int, std::string> coco_labels = _getCocoLabels();
@@ -345,9 +341,8 @@ namespace coralmicro
                 {
                     int class_id = static_cast<int>(bbox_list[i][0]);
                     std::string class_label = coco_labels[class_id + 1];
-                    bbox_string += "{\"id\":\"" + std::to_string(class_id) + "-" + class_label;
-                    if (shared::isMotionDetected && class_id == 0)
-                        bbox_string += "   TRACKING";
+                    bbox_string += "{\"id\":\"" + std::to_string(class_id) + "  " + class_label;
+                    bbox_string += " " + std::to_string(bbox_list[i][1]).substr(0,5);
                     bbox_string += "\",";
                     bbox_string += "\"score\":" + std::to_string(bbox_list[i][1]) + ",";
                     bbox_string += "\"xmin\":" + std::to_string(bbox_list[i][3]) + ",";
@@ -377,7 +372,7 @@ namespace coralmicro
                 }
 
                 // Print bounding box JSON string
-                printf("%s\r\n", bbox_buf);
+                //printf("%s\r\n", bbox_buf);
 
                 // Sleep to let other tasks run
                 vTaskDelay(pdMS_TO_TICKS(1));

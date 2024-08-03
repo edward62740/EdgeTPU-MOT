@@ -961,19 +961,6 @@ bundling_target_libs_arduino_coral_micro_poe/fast:
 	$(MAKE) $(MAKESILENT) -f coralmicro/libs/arduino/CMakeFiles/bundling_target_libs_arduino_coral_micro_poe.dir/build.make coralmicro/libs/arduino/CMakeFiles/bundling_target_libs_arduino_coral_micro_poe.dir/build
 .PHONY : bundling_target_libs_arduino_coral_micro_poe/fast
 
-#=============================================================================
-# Target rules for targets named bytetrack
-
-# Build rule for target.
-bytetrack: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bytetrack
-.PHONY : bytetrack
-
-# fast build rule for target.
-bytetrack/fast:
-	$(MAKE) $(MAKESILENT) -f byte-track-eigen/CMakeFiles/bytetrack.dir/build.make byte-track-eigen/CMakeFiles/bytetrack.dir/build
-.PHONY : bytetrack/fast
-
 inference.obj: inference.cpp.obj
 .PHONY : inference.obj
 
@@ -1057,7 +1044,6 @@ help:
 	@echo "... bundling_target_libs_arduino_coral_micro"
 	@echo "... bundling_target_libs_arduino_coral_micro_poe"
 	@echo "... bundling_target_libs_arduino_coral_micro_wifi"
-	@echo "... bytetrack"
 	@echo "... coralmicro-app"
 	@echo "... edgefast_bluetooth_internal"
 	@echo "... elf_loader"

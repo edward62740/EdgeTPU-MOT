@@ -17,6 +17,7 @@ namespace coralmicro
         extern unsigned int bbox_buf_size;
         extern char *bbox_buf;
         extern std::vector<uint8_t> *img_copy;
+        extern std::string bbox_string;
 
         [[noreturn]] void inferenceTask(void *param);
         bool CalculateAnchorBox(unsigned int idx, float *anchor);
