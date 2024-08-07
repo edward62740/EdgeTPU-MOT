@@ -19,3 +19,6 @@
 *.exe
 # Ignore consts.h
 consts.h
+coral-venv/**
+out/**
+.vscode/**
