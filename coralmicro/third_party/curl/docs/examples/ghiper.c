@@ -123,7 +123,7 @@ static void check_multi_info(GlobalInfo *g)
   CURL *easy;
   CURLcode res;
 
-  MSG_OUT("RE***REMOVED***ING: %d\n", g->still_running);
+  MSG_OUT("REMAINING: %d\n", g->still_running);
   while((msg = curl_multi_info_read(g->multi, &msgs_left))) {
     if(msg->msg == CURLMSG_DONE) {
       easy = msg->easy_handle;

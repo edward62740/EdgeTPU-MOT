@@ -45,13 +45,13 @@
  * Since only one ACK is received for all the subscriptions
  * the remaining length is fixed to 3 bytes.
  */
-#define SUB_ACK_RE***REMOVED***ING_LENGTH       3U
+#define SUB_ACK_REMAINING_LENGTH       3U
 
 /*
  * Simple ack such as PUBACK contains only packet identifier
  * so the remaining length is fixed to two bytes.
  */
-#define SIMPLE_ACK_RE***REMOVED***ING_LENGTH    2U
+#define SIMPLE_ACK_REMAINING_LENGTH    2U
 
 /**
  * Maximum size of the publish header is 5 bytes, since the maximum
@@ -95,7 +95,7 @@
  * @brief The value denotes the length which is greater than maximum value
  * that can be decoded from an MQTT packet as per MQTT spec v3.1.1.
  */
-#define RE***REMOVED***ING_LENGTH_INVALID    ( ( size_t ) 268435456 )
+#define REMAINING_LENGTH_INVALID    ( ( size_t ) 268435456 )
 
 /**
  * @brief Macro to encode the packet type into MQTT serialized packet.
@@ -420,7 +420,7 @@ static size_t getRemainingLength( const uint8_t * buf,
     {
         if( multiplier > 2097152U ) /* 128 ^ 3 */
         {
-            remainingLength = RE***REMOVED***ING_LENGTH_INVALID;
+            remainingLength = REMAINING_LENGTH_INVALID;
             break;
         }
         else
@@ -458,7 +458,7 @@ static bool parsePublish( const uint8_t * buf,
     index++;
 
     remainingLength = getRemainingLength( &buf[ index ], &encodedLength );
-    configASSERT( ( remainingLength != RE***REMOVED***ING_LENGTH_INVALID ) );
+    configASSERT( ( remainingLength != REMAINING_LENGTH_INVALID ) );
     index += encodedLength;
 
     pPublishInfo->topicNameLength = UINT16_DECODE( &buf[ index ] );
@@ -759,7 +759,7 @@ static MQTTBLEStatus_t handleOutgoingPuback( const void * buf,
 
     LogDebug( ( "Processing outgoing PUBACK." ) );
 
-    configASSERT( buffer[ 1 ] == ( uint8_t ) SIMPLE_ACK_RE***REMOVED***ING_LENGTH );
+    configASSERT( buffer[ 1 ] == ( uint8_t ) SIMPLE_ACK_REMAINING_LENGTH );
 
     packetIdentifier = UINT16_DECODE( &buffer[ 2 ] );
 
@@ -936,7 +936,7 @@ static MQTTBLEStatus_t handleIncomingSuback( StreamBufferHandle_t streamBuffer,
          * Only one subscription status ( succeeded / failed ) is sent from the peer for all subscriptions.
          * Hence setting the remaining length to a constant value of 3 bytes
          */
-        buffer[ 1 ] = SUB_ACK_RE***REMOVED***ING_LENGTH;
+        buffer[ 1 ] = SUB_ACK_REMAINING_LENGTH;
         buffer[ 2 ] = ( uint8_t ) ( packetIdentifier >> 8 );
         buffer[ 3 ] = ( uint8_t ) ( packetIdentifier & 0x00FFU );
         buffer[ 4 ] = statusCode;

@@ -62,7 +62,7 @@
 /* clang-format off */
 #if ((defined(__ARM_ARCH_7M__     ) && (__ARM_ARCH_7M__      == 1)) || \
      (defined(__ARM_ARCH_7EM__    ) && (__ARM_ARCH_7EM__     == 1)) || \
-     (defined(__ARM_ARCH_8M_***REMOVED***__) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) || \
+     (defined(__ARM_ARCH_8M_MAIN__) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
      (defined(__ARM_ARCH_8M_BASE__) && (__ARM_ARCH_8M_BASE__ == 1)))
 /* clang-format on */
 

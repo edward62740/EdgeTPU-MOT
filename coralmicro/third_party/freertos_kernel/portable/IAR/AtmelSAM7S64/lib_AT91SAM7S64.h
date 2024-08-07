@@ -1146,7 +1146,7 @@ __inline unsigned int AT91F_CKGR_GetMainClock (
 	AT91PS_CKGR pCKGR, // \arg pointer to CKGR controller
 	unsigned int slowClock)  // \arg slowClock in Hz
 {
-	return ((pCKGR->CKGR_MCFR  & AT91C_CKGR_***REMOVED***F) * slowClock) >> 4;
+	return ((pCKGR->CKGR_MCFR  & AT91C_CKGR_MAINF) * slowClock) >> 4;
 }
 
 //*----------------------------------------------------------------------------
@@ -1186,7 +1186,7 @@ __inline unsigned int AT91F_PMC_GetMasterClock (
 	switch (reg & AT91C_PMC_CSS) {
 		case AT91C_PMC_CSS_SLOW_CLK: // Slow clock selected
 			return slowClock / prescaler;
-		case AT91C_PMC_CSS_***REMOVED***_CLK: // Main clock is selected
+		case AT91C_PMC_CSS_MAIN_CLK: // Main clock is selected
 			return AT91F_CKGR_GetMainClock(pCKGR, slowClock) / prescaler;
 		case AT91C_PMC_CSS_PLL_CLK: // PLLB clock is selected
 			reg = pCKGR->CKGR_PLLR;

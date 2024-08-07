@@ -56,7 +56,7 @@ typedef struct {
  * Selectable PLLs
  */
 typedef enum {
-	SYSCTL_***REMOVED***_PLL,			/*!< Main PLL (PLL0) */
+	SYSCTL_MAIN_PLL,			/*!< Main PLL (PLL0) */
 	SYSCTL_USB_PLL,				/*!< USB PLL (PLL1) */
 } CHIP_SYSCTL_PLL_T;
 

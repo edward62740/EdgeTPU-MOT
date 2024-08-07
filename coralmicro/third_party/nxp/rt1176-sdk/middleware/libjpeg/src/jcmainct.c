@@ -21,7 +21,7 @@
  * "raw data" input, since this module is bypassed in that case.  However,
  * we've left the code here for possible use in special applications.
  */
-#undef FULL_***REMOVED***_BUFFER_SUPPORTED
+#undef FULL_MAIN_BUFFER_SUPPORTED
 
 
 /* Private buffer controller object */
@@ -40,7 +40,7 @@ typedef struct {
    */
   JSAMPARRAY buffer[MAX_COMPONENTS];
 
-#ifdef FULL_***REMOVED***_BUFFER_SUPPORTED
+#ifdef FULL_MAIN_BUFFER_SUPPORTED
   /* If using full-image storage, this array holds pointers to virtual-array
    * control blocks for each component.  Unused if not full-image storage.
    */
@@ -55,7 +55,7 @@ typedef my_main_controller * my_main_ptr;
 METHODDEF(void) process_data_simple_main
 	JPP((j_compress_ptr cinfo, JSAMPARRAY input_buf,
 	     JDIMENSION *in_row_ctr, JDIMENSION in_rows_avail));
-#ifdef FULL_***REMOVED***_BUFFER_SUPPORTED
+#ifdef FULL_MAIN_BUFFER_SUPPORTED
 METHODDEF(void) process_data_buffer_main
 	JPP((j_compress_ptr cinfo, JSAMPARRAY input_buf,
 	     JDIMENSION *in_row_ctr, JDIMENSION in_rows_avail));
@@ -82,13 +82,13 @@ start_pass_main (j_compress_ptr cinfo, J_BUF_MODE pass_mode)
 
   switch (pass_mode) {
   case JBUF_PASS_THRU:
-#ifdef FULL_***REMOVED***_BUFFER_SUPPORTED
+#ifdef FULL_MAIN_BUFFER_SUPPORTED
     if (mainp->whole_image[0] != NULL)
       ERREXIT(cinfo, JERR_BAD_BUFFER_MODE);
 #endif
     mainp->pub.process_data = process_data_simple_main;
     break;
-#ifdef FULL_***REMOVED***_BUFFER_SUPPORTED
+#ifdef FULL_MAIN_BUFFER_SUPPORTED
   case JBUF_SAVE_SOURCE:
   case JBUF_CRANK_DEST:
   case JBUF_SAVE_AND_PASS:
@@ -159,7 +159,7 @@ process_data_simple_main (j_compress_ptr cinfo,
 }
 
 
-#ifdef FULL_***REMOVED***_BUFFER_SUPPORTED
+#ifdef FULL_MAIN_BUFFER_SUPPORTED
 
 /*
  * Process some data.
@@ -237,7 +237,7 @@ process_data_buffer_main (j_compress_ptr cinfo,
   }
 }
 
-#endif /* FULL_***REMOVED***_BUFFER_SUPPORTED */
+#endif /* FULL_MAIN_BUFFER_SUPPORTED */
 
 
 /*
@@ -265,7 +265,7 @@ jinit_c_main_controller (j_compress_ptr cinfo, boolean need_full_buffer)
    * may be of a different size.
    */
   if (need_full_buffer) {
-#ifdef FULL_***REMOVED***_BUFFER_SUPPORTED
+#ifdef FULL_MAIN_BUFFER_SUPPORTED
     /* Allocate a full-image virtual array for each component */
     /* Note we pad the bottom to a multiple of the iMCU height */
     for (ci = 0, compptr = cinfo->comp_info; ci < cinfo->num_components;
@@ -282,7 +282,7 @@ jinit_c_main_controller (j_compress_ptr cinfo, boolean need_full_buffer)
     ERREXIT(cinfo, JERR_BAD_BUFFER_MODE);
 #endif
   } else {
-#ifdef FULL_***REMOVED***_BUFFER_SUPPORTED
+#ifdef FULL_MAIN_BUFFER_SUPPORTED
     mainp->whole_image[0] = NULL; /* flag for no virtual arrays */
 #endif
     /* Allocate a strip buffer for each component */

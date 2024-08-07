@@ -516,7 +516,7 @@ psa_status_t psa_set_key_domain_parameters(psa_key_attributes_t *attributes,
  *                              The buffer is guaranteed to be large
  *                              enough if its size in bytes is at least
  *                              the value given by
- *                              PSA_KEY_DO***REMOVED***_PARAMETERS_SIZE().
+ *                              PSA_KEY_DOMAIN_PARAMETERS_SIZE().
  * \param[out] data_length      On success, the number of bytes
  *                              that make up the key domain parameters data.
  *
@@ -554,14 +554,14 @@ psa_status_t psa_get_key_domain_parameters(
  *         If the parameters are not valid, the
  *         return value is unspecified.
  */
-#define PSA_KEY_DO***REMOVED***_PARAMETERS_SIZE(key_type, key_bits)              \
+#define PSA_KEY_DOMAIN_PARAMETERS_SIZE(key_type, key_bits)              \
     (PSA_KEY_TYPE_IS_RSA(key_type) ? sizeof(int) :                      \
-     PSA_KEY_TYPE_IS_DH(key_type) ? PSA_DH_KEY_DO***REMOVED***_PARAMETERS_SIZE(key_bits) : \
-     PSA_KEY_TYPE_IS_DSA(key_type) ? PSA_DSA_KEY_DO***REMOVED***_PARAMETERS_SIZE(key_bits) : \
+     PSA_KEY_TYPE_IS_DH(key_type) ? PSA_DH_KEY_DOMAIN_PARAMETERS_SIZE(key_bits) : \
+     PSA_KEY_TYPE_IS_DSA(key_type) ? PSA_DSA_KEY_DOMAIN_PARAMETERS_SIZE(key_bits) : \
      0)
-#define PSA_DH_KEY_DO***REMOVED***_PARAMETERS_SIZE(key_bits)     \
+#define PSA_DH_KEY_DOMAIN_PARAMETERS_SIZE(key_bits)     \
     (4 + (PSA_BITS_TO_BYTES(key_bits) + 5) * 3 /*without optional parts*/)
-#define PSA_DSA_KEY_DO***REMOVED***_PARAMETERS_SIZE(key_bits)    \
+#define PSA_DSA_KEY_DOMAIN_PARAMETERS_SIZE(key_bits)    \
     (4 + (PSA_BITS_TO_BYTES(key_bits) + 5) * 2 /*p, g*/ + 34 /*q*/)
 
 /**@}*/

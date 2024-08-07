@@ -1018,8 +1018,8 @@ static HAL_StatusTypeDef FLASH_OB_PCROPConfig(uint32_t PCROPConfig, uint32_t PCR
   /* Check the parameters */
   assert_param(IS_FLASH_BANK_EXCLUSIVE(PCROPConfig & FLASH_BANK_BOTH));
   assert_param(IS_OB_PCROP_RDP(PCROPConfig & FLASH_PCROP1ER_PCROP_RDP));
-  assert_param(IS_FLASH_***REMOVED***_MEM_ADDRESS(PCROPStartAddr));
-  assert_param(IS_FLASH_***REMOVED***_MEM_ADDRESS(PCROPEndAddr));
+  assert_param(IS_FLASH_MAIN_MEM_ADDRESS(PCROPStartAddr));
+  assert_param(IS_FLASH_MAIN_MEM_ADDRESS(PCROPEndAddr));
 
   /* Wait for last operation to be completed */
   status = FLASH_WaitForLastOperation((uint32_t)FLASH_TIMEOUT_VALUE);

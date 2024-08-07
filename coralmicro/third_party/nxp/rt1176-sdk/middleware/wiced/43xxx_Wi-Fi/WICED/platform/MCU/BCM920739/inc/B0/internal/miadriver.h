@@ -364,14 +364,14 @@ typedef enum
 {
     MIA_DEBUG_SPIFFY1_MASK          = 0x100,
     MIA_DEBUG_SPIFFY1_LHL_GPIO      = 0x100,    // spiffy1 will come from LHL GPIOs
-    MIA_DEBUG_SPIFFY1_CORE_DO***REMOVED***   = 0x000,    // spiffy1 will come from core domain
+    MIA_DEBUG_SPIFFY1_CORE_DOMAIN   = 0x000,    // spiffy1 will come from core domain
 } MIA_DEBUG_SPIFFY1_CTL;
 
 typedef enum
 {
     MIA_DEBUG_UART2_MASK          = 0x200,
     MIA_DEBUG_UART2_LHL_GPIO      = 0x200,    // uart2 will come from LHL GPIOs
-    MIA_DEBUG_UART2_CORE_DO***REMOVED***   = 0x000,    // uart2 will come from core domain
+    MIA_DEBUG_UART2_CORE_DOMAIN   = 0x000,    // uart2 will come from core domain
 } MIA_DEBUG_UART2_CTL;
 
 void mia_init(void);

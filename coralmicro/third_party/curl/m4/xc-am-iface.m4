@@ -235,8 +235,8 @@ AC_DEFUN([XC_AMEND_DISTCLEAN],
 [dnl
 AC_PREREQ([2.50])dnl
 dnl
-m4_ifdef([_AC_OUTPUT_***REMOVED***_LOOP],
-  [m4_provide_if([_AC_OUTPUT_***REMOVED***_LOOP], [],
+m4_ifdef([_AC_OUTPUT_MAIN_LOOP],
+  [m4_provide_if([_AC_OUTPUT_MAIN_LOOP], [],
     [m4_fatal([call to AC_OUTPUT needed before $0])])])dnl
 dnl
 m4_if([$#], [1], [], [m4_fatal([$0: wrong number of arguments])])dnl

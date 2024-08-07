@@ -48,7 +48,7 @@ typedef struct
 #define CY_FLASH_REGION_ID_MASK            (3U)
 #define CY_FLASH_ROW_ID_MASK               (0xFFFFU)
 /** SROM API flash region IDs */
-#define CY_FLASH_REGION_ID_***REMOVED***            (0UL)
+#define CY_FLASH_REGION_ID_MAIN            (0UL)
 #define CY_FLASH_REGION_ID_EM_EEPROM       (1UL)
 #define CY_FLASH_REGION_ID_SFLASH          (2UL)
 
@@ -1078,7 +1078,7 @@ static uint32_t Cy_Flash_GetRowNum(uint32_t flashAddr)
 
     if ((flashAddr >= CY_FLASH_BASE) && (flashAddr < (CY_FLASH_BASE + CY_FLASH_SIZE)))
     {
-        result = (CY_FLASH_REGION_ID_***REMOVED*** << CY_FLASH_REGION_ID_SHIFT) |
+        result = (CY_FLASH_REGION_ID_MAIN << CY_FLASH_REGION_ID_SHIFT) |
                  ((flashAddr - CY_FLASH_BASE) / CY_FLASH_SIZEOF_ROW);
     }
     else

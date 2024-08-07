@@ -238,7 +238,7 @@ int main(void)
         return -1;
     }
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     DCACHE_InvalidateByRange(EXAMPLE_FLEXSPI_AMBA_BASE + EXAMPLE_SECTOR * SECTOR_SIZE, FLASH_PAGE_SIZE);
 #endif
 
@@ -288,7 +288,7 @@ int main(void)
         return -1;
     }
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     DCACHE_InvalidateByRange(EXAMPLE_FLEXSPI_AMBA_BASE + EXAMPLE_SECTOR * SECTOR_SIZE, FLASH_PAGE_SIZE);
 #endif
 

@@ -582,7 +582,7 @@ void Cy_SysLib_SetWaitStates(bool ulpMode, uint32_t clkHfMHz)
                      ((clkHfMHz <= CY_SYSLIB_FLASH_LP_WS_3_FREQ_MAX) ? 3UL : 4UL)));
     }
 
-    FLASHC->FLASH_CTL = _CLR_SET_FLD32U(FLASHC->FLASH_CTL, FLASHC_FLASH_CTL_***REMOVED***_WS, waitStates);
+    FLASHC->FLASH_CTL = _CLR_SET_FLD32U(FLASHC->FLASH_CTL, FLASHC_FLASH_CTL_MAIN_WS, waitStates);
 }
 
 

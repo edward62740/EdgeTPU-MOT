@@ -84,7 +84,7 @@
 /**
  * @brief Sample length of remaining serialized data.
  */
-#define MQTT_SAMPLE_RE***REMOVED***ING_LENGTH           ( 64 )
+#define MQTT_SAMPLE_REMAINING_LENGTH           ( 64 )
 
 /**
  * @brief Subtract this value from max value of global entry time
@@ -468,7 +468,7 @@ static void expectProcessLoopCalls( MQTTContext_t * const pContext,
 
     /* Modify incoming packet depending on type to be tested. */
     incomingPacket.type = currentPacketType;
-    incomingPacket.remainingLength = MQTT_SAMPLE_RE***REMOVED***ING_LENGTH;
+    incomingPacket.remainingLength = MQTT_SAMPLE_REMAINING_LENGTH;
 
     MQTT_GetIncomingPacketTypeAndLength_ExpectAnyArgsAndReturn( modifyIncomingPacketStatus );
     MQTT_GetIncomingPacketTypeAndLength_ReturnThruPtr_pIncomingPacket( &incomingPacket );
@@ -2043,7 +2043,7 @@ void test_MQTT_ProcessLoop_Timer_Overflow( void )
 
     networkBuffer.size = 1000;
     incomingPacket.type = MQTT_PACKET_TYPE_PUBLISH;
-    incomingPacket.remainingLength = MQTT_SAMPLE_RE***REMOVED***ING_LENGTH;
+    incomingPacket.remainingLength = MQTT_SAMPLE_REMAINING_LENGTH;
 
     globalEntryTime = UINT32_MAX - MQTT_OVERFLOW_OFFSET;
 
@@ -2180,8 +2180,8 @@ void test_MQTT_Subscribe_happy_path( void )
     TransportInterface_t transport;
     MQTTFixedBuffer_t networkBuffer;
     MQTTSubscribeInfo_t subscribeInfo;
-    size_t remainingLength = MQTT_SAMPLE_RE***REMOVED***ING_LENGTH;
-    size_t packetSize = MQTT_SAMPLE_RE***REMOVED***ING_LENGTH;
+    size_t remainingLength = MQTT_SAMPLE_REMAINING_LENGTH;
+    size_t packetSize = MQTT_SAMPLE_REMAINING_LENGTH;
 
     setupTransportInterface( &transport );
     setupNetworkBuffer( &networkBuffer );
@@ -2211,8 +2211,8 @@ void test_MQTT_Subscribe_error_paths( void )
     TransportInterface_t transport;
     MQTTFixedBuffer_t networkBuffer;
     MQTTSubscribeInfo_t subscribeInfo;
-    size_t remainingLength = MQTT_SAMPLE_RE***REMOVED***ING_LENGTH;
-    size_t packetSize = MQTT_SAMPLE_RE***REMOVED***ING_LENGTH;
+    size_t remainingLength = MQTT_SAMPLE_REMAINING_LENGTH;
+    size_t packetSize = MQTT_SAMPLE_REMAINING_LENGTH;
 
     /* Verify that an error is propagated when transport interface returns an error. */
     setupTransportInterface( &transport );
@@ -2285,8 +2285,8 @@ void test_MQTT_Unsubscribe_happy_path( void )
     TransportInterface_t transport;
     MQTTFixedBuffer_t networkBuffer;
     MQTTSubscribeInfo_t subscribeInfo;
-    size_t remainingLength = MQTT_SAMPLE_RE***REMOVED***ING_LENGTH;
-    size_t packetSize = MQTT_SAMPLE_RE***REMOVED***ING_LENGTH;
+    size_t remainingLength = MQTT_SAMPLE_REMAINING_LENGTH;
+    size_t packetSize = MQTT_SAMPLE_REMAINING_LENGTH;
 
     setupTransportInterface( &transport );
     setupNetworkBuffer( &networkBuffer );
@@ -2316,8 +2316,8 @@ void test_MQTT_Unsubscribe_error_path( void )
     TransportInterface_t transport;
     MQTTFixedBuffer_t networkBuffer;
     MQTTSubscribeInfo_t subscribeInfo;
-    size_t remainingLength = MQTT_SAMPLE_RE***REMOVED***ING_LENGTH;
-    size_t packetSize = MQTT_SAMPLE_RE***REMOVED***ING_LENGTH;
+    size_t remainingLength = MQTT_SAMPLE_REMAINING_LENGTH;
+    size_t packetSize = MQTT_SAMPLE_REMAINING_LENGTH;
 
     /* Verify that an error is propagated when transport interface returns an error. */
     setupTransportInterface( &transport );

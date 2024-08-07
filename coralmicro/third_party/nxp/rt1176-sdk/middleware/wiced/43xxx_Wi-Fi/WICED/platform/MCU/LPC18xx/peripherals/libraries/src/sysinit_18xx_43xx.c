@@ -45,21 +45,21 @@ struct CLK_BASE_STATES {
 
 static const struct CLK_BASE_STATES InitClkStates[] = {
 	{CLK_BASE_SAFE, CLKIN_IRC, true, false},
-	{CLK_BASE_APB1, CLKIN_***REMOVED***PLL, true, false},
-	{CLK_BASE_APB3, CLKIN_***REMOVED***PLL, true, false},
+	{CLK_BASE_APB1, CLKIN_MAINPLL, true, false},
+	{CLK_BASE_APB3, CLKIN_MAINPLL, true, false},
 	{CLK_BASE_USB0, CLKIN_USBPLL, true, true},
 #if defined(CHIP_LPC43XX)
-	{CLK_BASE_PERIPH, CLKIN_***REMOVED***PLL, true, false},
-	{CLK_BASE_SPI, CLKIN_***REMOVED***PLL, true, false},
-	{CLK_BASE_ADCHS, CLKIN_***REMOVED***PLL, true, true},
+	{CLK_BASE_PERIPH, CLKIN_MAINPLL, true, false},
+	{CLK_BASE_SPI, CLKIN_MAINPLL, true, false},
+	{CLK_BASE_ADCHS, CLKIN_MAINPLL, true, true},
 #endif
-	{CLK_BASE_SDIO, CLKIN_***REMOVED***PLL, true, false},
-	{CLK_BASE_SSP0, CLKIN_***REMOVED***PLL, true, false},
-	{CLK_BASE_SSP1, CLKIN_***REMOVED***PLL, true, false},
-	{CLK_BASE_UART0, CLKIN_***REMOVED***PLL, true, false},
-	{CLK_BASE_UART1, CLKIN_***REMOVED***PLL, true, false},
-	{CLK_BASE_UART2, CLKIN_***REMOVED***PLL, true, false},
-	{CLK_BASE_UART3, CLKIN_***REMOVED***PLL, true, false},
+	{CLK_BASE_SDIO, CLKIN_MAINPLL, true, false},
+	{CLK_BASE_SSP0, CLKIN_MAINPLL, true, false},
+	{CLK_BASE_SSP1, CLKIN_MAINPLL, true, false},
+	{CLK_BASE_UART0, CLKIN_MAINPLL, true, false},
+	{CLK_BASE_UART1, CLKIN_MAINPLL, true, false},
+	{CLK_BASE_UART2, CLKIN_MAINPLL, true, false},
+	{CLK_BASE_UART3, CLKIN_MAINPLL, true, false},
 	{CLK_BASE_OUT, CLKINPUT_PD, true, false},
 	{CLK_BASE_APLL, CLKINPUT_PD, true, false},
 	{CLK_BASE_CGU_OUT0, CLKINPUT_PD, true, false},
@@ -90,7 +90,7 @@ void Chip_SetupCoreClock(CHIP_CGU_CLKIN_T clkin, uint32_t core_freq, bool setbas
 	if (core_freq > 110000000UL) {
 		/* Setup PLL for 100MHz and switch main system clocking */
 		Chip_Clock_SetupMainPLLHz(clkin, CGU_IRC_FREQ, 110 * 1000000, 110 * 1000000);
-		Chip_Clock_SetBaseClock(CLK_BASE_MX, CLKIN_***REMOVED***PLL, true, false);
+		Chip_Clock_SetBaseClock(CLK_BASE_MX, CLKIN_MAINPLL, true, false);
 	}
 
 	/* Setup PLL for maximum clock */

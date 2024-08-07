@@ -109,7 +109,7 @@
  * @brief Per the MQTT 3.1.1 spec, the largest "Remaining Length" of an MQTT
  * packet is this value.
  */
-#define MQTT_MAX_RE***REMOVED***ING_LENGTH                   ( 268435455UL )
+#define MQTT_MAX_REMAINING_LENGTH                   ( 268435455UL )
 
 /**
  * @brief The maximum possible size of a CONNECT packet.
@@ -122,7 +122,7 @@
 /*
  * Constants relating to CONNACK packets, defined by MQTT 3.1.1 spec.
  */
-#define MQTT_PACKET_CONNACK_RE***REMOVED***ING_LENGTH        ( ( uint8_t ) 2 )    /**< @brief A CONNACK packet always has a "Remaining length" of 2. */
+#define MQTT_PACKET_CONNACK_REMAINING_LENGTH        ( ( uint8_t ) 2 )    /**< @brief A CONNACK packet always has a "Remaining length" of 2. */
 #define MQTT_PACKET_CONNACK_SESSION_PRESENT_MASK    ( ( uint8_t ) 0x01 ) /**< @brief The "Session Present" bit is always the lowest bit. */
 
 /*
@@ -130,20 +130,20 @@
  * 3.1.1 spec.
  */
 #define MQTT_PACKET_PUBACK_SIZE                     ( 4 )               /**< @brief A PUBACK packet is always 4 bytes in size. */
-#define MQTT_PACKET_PUBACK_RE***REMOVED***ING_LENGTH         ( ( uint8_t ) 2 )   /**< @brief A PUBACK packet always has a "Remaining length" of 2. */
+#define MQTT_PACKET_PUBACK_REMAINING_LENGTH         ( ( uint8_t ) 2 )   /**< @brief A PUBACK packet always has a "Remaining length" of 2. */
 
 /*
  * Constants relating to SUBACK and UNSUBACK packets, defined by MQTT
  * 3.1.1 spec.
  */
 #define MQTT_PACKET_SUBACK_MINIMUM_SIZE             ( 5 )               /**< @brief The size of the smallest valid SUBACK packet. */
-#define MQTT_PACKET_UNSUBACK_RE***REMOVED***ING_LENGTH       ( ( uint8_t ) 2 )   /**< @brief An UNSUBACK packet always has a "Remaining length" of 2. */
+#define MQTT_PACKET_UNSUBACK_REMAINING_LENGTH       ( ( uint8_t ) 2 )   /**< @brief An UNSUBACK packet always has a "Remaining length" of 2. */
 
 /*
  * Constants relating to PINGREQ and PINGRESP packets, defined by MQTT 3.1.1 spec.
  */
 #define MQTT_PACKET_PINGREQ_SIZE                    ( 2 ) /**< @brief A PINGREQ packet is always 2 bytes in size. */
-#define MQTT_PACKET_PINGRESP_RE***REMOVED***ING_LENGTH       ( 0 ) /**< @brief A PINGRESP packet always has a "Remaining length" of 0. */
+#define MQTT_PACKET_PINGRESP_REMAINING_LENGTH       ( 0 ) /**< @brief A PINGRESP packet always has a "Remaining length" of 0. */
 
 /*
  * Constants relating to DISCONNECT packets, defined by MQTT 3.1.1 spec.
@@ -307,7 +307,7 @@ static size_t _remainingLengthEncodedSize( size_t length )
     size_t encodedSize = 0;
 
     /* length should have already been checked before calling this function. */
-    IotMqtt_Assert( length <= MQTT_MAX_RE***REMOVED***ING_LENGTH );
+    IotMqtt_Assert( length <= MQTT_MAX_REMAINING_LENGTH );
 
     /* Determine how many bytes are needed to encode length.
      * The values below are taken from the MQTT 3.1.1 spec. */
@@ -502,7 +502,7 @@ static bool _publishPacketSize( const IotMqttPublishInfo_t * pPublishInfo,
     /* Calculate the maximum allowed size of the payload for the given parameters.
      * This calculation excludes the "Remaining length" encoding, whose size is not
      * yet known. */
-    payloadLimit = MQTT_MAX_RE***REMOVED***ING_LENGTH - publishPacketSize - 1;
+    payloadLimit = MQTT_MAX_REMAINING_LENGTH - publishPacketSize - 1;
 
     /* Ensure that the given payload fits within the calculated limit. */
     if( pPublishInfo->payloadLength > payloadLimit )
@@ -577,7 +577,7 @@ static bool _subscriptionPacketSize( IotMqttOperationType_t type,
     /* At this point, the "Remaining length" has been calculated. Return error
      * if the "Remaining length" exceeds what is allowed by MQTT 3.1.1. Otherwise,
      * set the output parameter.*/
-    if( subscriptionPacketSize > MQTT_MAX_RE***REMOVED***ING_LENGTH )
+    if( subscriptionPacketSize > MQTT_MAX_REMAINING_LENGTH )
     {
         status = false;
     }
@@ -623,7 +623,7 @@ size_t _IotMqtt_GetRemainingLength( void * pNetworkConnection,
     {
         if( multiplier > 2097152 ) /* 128 ^ 3 */
         {
-            remainingLength = MQTT_RE***REMOVED***ING_LENGTH_INVALID;
+            remainingLength = MQTT_REMAINING_LENGTH_INVALID;
             break;
         }
         else
@@ -638,20 +638,20 @@ size_t _IotMqtt_GetRemainingLength( void * pNetworkConnection,
             }
             else
             {
-                remainingLength = MQTT_RE***REMOVED***ING_LENGTH_INVALID;
+                remainingLength = MQTT_REMAINING_LENGTH_INVALID;
                 break;
             }
         }
     } while( ( encodedByte & 0x80 ) != 0 );
 
     /* Check that the decoded remaining length conforms to the MQTT specification. */
-    if( remainingLength != MQTT_RE***REMOVED***ING_LENGTH_INVALID )
+    if( remainingLength != MQTT_REMAINING_LENGTH_INVALID )
     {
         expectedSize = _remainingLengthEncodedSize( remainingLength );
 
         if( bytesDecoded != expectedSize )
         {
-            remainingLength = MQTT_RE***REMOVED***ING_LENGTH_INVALID;
+            remainingLength = MQTT_REMAINING_LENGTH_INVALID;
         }
         else
         {
@@ -924,12 +924,12 @@ IotMqttError_t _IotMqtt_DeserializeConnack( _mqttPacket_t * pConnack )
 
     /* According to MQTT 3.1.1, the second byte of CONNACK must specify a
      * "Remaining length" of 2. */
-    if( pConnack->remainingLength != MQTT_PACKET_CONNACK_RE***REMOVED***ING_LENGTH )
+    if( pConnack->remainingLength != MQTT_PACKET_CONNACK_REMAINING_LENGTH )
     {
         IotLog( IOT_LOG_ERROR,
                 &_logHideAll,
                 "CONNACK does not have remaining length of %d.",
-                MQTT_PACKET_CONNACK_RE***REMOVED***ING_LENGTH );
+                MQTT_PACKET_CONNACK_REMAINING_LENGTH );
 
         IOT_SET_AND_GOTO_CLEANUP( IOT_MQTT_BAD_RESPONSE );
     }
@@ -1037,7 +1037,7 @@ IotMqttError_t _IotMqtt_SerializePublish( const IotMqttPublishInfo_t * pPublishI
     {
         IotLogError( "Publish packet remaining length exceeds %lu, which is the "
                      "maximum size allowed by MQTT 3.1.1.",
-                     MQTT_MAX_RE***REMOVED***ING_LENGTH );
+                     MQTT_MAX_REMAINING_LENGTH );
 
         IOT_SET_AND_GOTO_CLEANUP( IOT_MQTT_BAD_PARAMETER );
     }
@@ -1416,7 +1416,7 @@ IotMqttError_t _IotMqtt_SerializePuback( uint16_t packetIdentifier,
 
         /* Set the 4 bytes in PUBACK. */
         pBuffer[ 0 ] = MQTT_PACKET_TYPE_PUBACK;
-        pBuffer[ 1 ] = MQTT_PACKET_PUBACK_RE***REMOVED***ING_LENGTH;
+        pBuffer[ 1 ] = MQTT_PACKET_PUBACK_REMAINING_LENGTH;
         pBuffer[ 2 ] = UINT16_HIGH_BYTE( packetIdentifier );
         pBuffer[ 3 ] = UINT16_LOW_BYTE( packetIdentifier );
 
@@ -1434,12 +1434,12 @@ IotMqttError_t _IotMqtt_DeserializePuback( _mqttPacket_t * pPuback )
     IOT_FUNCTION_ENTRY( IotMqttError_t, IOT_MQTT_SUCCESS );
 
     /* Check the "Remaining length" of the received PUBACK. */
-    if( pPuback->remainingLength != MQTT_PACKET_PUBACK_RE***REMOVED***ING_LENGTH )
+    if( pPuback->remainingLength != MQTT_PACKET_PUBACK_REMAINING_LENGTH )
     {
         IotLog( IOT_LOG_ERROR,
                 &_logHideAll,
                 "PUBACK does not have remaining length of %d.",
-                MQTT_PACKET_PUBACK_RE***REMOVED***ING_LENGTH );
+                MQTT_PACKET_PUBACK_REMAINING_LENGTH );
 
         IOT_SET_AND_GOTO_CLEANUP( IOT_MQTT_BAD_RESPONSE );
     }
@@ -1507,7 +1507,7 @@ IotMqttError_t _IotMqtt_SerializeSubscribe( const IotMqttSubscription_t * pSubsc
     {
         IotLogError( "Subscribe packet remaining length exceeds %lu, which is the "
                      "maximum size allowed by MQTT 3.1.1.",
-                     MQTT_MAX_RE***REMOVED***ING_LENGTH );
+                     MQTT_MAX_REMAINING_LENGTH );
 
         IOT_SET_AND_GOTO_CLEANUP( IOT_MQTT_BAD_PARAMETER );
     }
@@ -1704,7 +1704,7 @@ IotMqttError_t _IotMqtt_SerializeUnsubscribe( const IotMqttSubscription_t * pSub
     {
         IotLogError( "Unsubscribe packet remaining length exceeds %lu, which is the "
                      "maximum size allowed by MQTT 3.1.1.",
-                     MQTT_MAX_RE***REMOVED***ING_LENGTH );
+                     MQTT_MAX_REMAINING_LENGTH );
 
         IOT_SET_AND_GOTO_CLEANUP( IOT_MQTT_BAD_PARAMETER );
     }
@@ -1778,12 +1778,12 @@ IotMqttError_t _IotMqtt_DeserializeUnsuback( _mqttPacket_t * pUnsuback )
     IOT_FUNCTION_ENTRY( IotMqttError_t, IOT_MQTT_SUCCESS );
 
     /* Check the "Remaining length" (second byte) of the received UNSUBACK. */
-    if( pUnsuback->remainingLength != MQTT_PACKET_UNSUBACK_RE***REMOVED***ING_LENGTH )
+    if( pUnsuback->remainingLength != MQTT_PACKET_UNSUBACK_REMAINING_LENGTH )
     {
         IotLog( IOT_LOG_ERROR,
                 &_logHideAll,
                 "UNSUBACK does not have remaining length of %d.",
-                MQTT_PACKET_UNSUBACK_RE***REMOVED***ING_LENGTH );
+                MQTT_PACKET_UNSUBACK_REMAINING_LENGTH );
 
         IOT_SET_AND_GOTO_CLEANUP( IOT_MQTT_BAD_RESPONSE );
     }
@@ -1872,12 +1872,12 @@ IotMqttError_t _IotMqtt_DeserializePingresp( _mqttPacket_t * pPingresp )
     }
 
     /* Check the "Remaining length" (second byte) of the received PINGRESP. */
-    if( pPingresp->remainingLength != MQTT_PACKET_PINGRESP_RE***REMOVED***ING_LENGTH )
+    if( pPingresp->remainingLength != MQTT_PACKET_PINGRESP_REMAINING_LENGTH )
     {
         IotLog( IOT_LOG_ERROR,
                 &_logHideAll,
                 "PINGRESP does not have remaining length of %d.",
-                MQTT_PACKET_PINGRESP_RE***REMOVED***ING_LENGTH );
+                MQTT_PACKET_PINGRESP_REMAINING_LENGTH );
 
         IOT_SET_AND_GOTO_CLEANUP( IOT_MQTT_BAD_RESPONSE );
     }

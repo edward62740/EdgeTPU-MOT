@@ -243,7 +243,7 @@
  *
  * This value is greater than what is allowed by the MQTT specification.
  */
-#define MQTT_RE***REMOVED***ING_LENGTH_INVALID                          ( ( size_t ) 268435456 )
+#define MQTT_REMAINING_LENGTH_INVALID                          ( ( size_t ) 268435456 )
 
 /*---------------------- MQTT internal data structures ----------------------*/
 
@@ -472,7 +472,7 @@ uint8_t _IotMqtt_GetPacketType( void * pNetworkConnection,
  * @param[in] pNetworkInterface Function pointers used to interact with the
  * network.
  *
- * @return The remaining length; #MQTT_RE***REMOVED***ING_LENGTH_INVALID on error.
+ * @return The remaining length; #MQTT_REMAINING_LENGTH_INVALID on error.
  */
 size_t _IotMqtt_GetRemainingLength( void * pNetworkConnection,
                                     const IotNetworkInterface_t * pNetworkInterface );

@@ -358,16 +358,16 @@ struct Movie FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     return MovieTypeTable();
   }
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
-    VT_***REMOVED***_CHARACTER_TYPE = 4,
-    VT_***REMOVED***_CHARACTER = 6,
+    VT_MAIN_CHARACTER_TYPE = 4,
+    VT_MAIN_CHARACTER = 6,
     VT_CHARACTERS_TYPE = 8,
     VT_CHARACTERS = 10
   };
   Character main_character_type() const {
-    return static_cast<Character>(GetField<uint8_t>(VT_***REMOVED***_CHARACTER_TYPE, 0));
+    return static_cast<Character>(GetField<uint8_t>(VT_MAIN_CHARACTER_TYPE, 0));
   }
   const void *main_character() const {
-    return GetPointer<const void *>(VT_***REMOVED***_CHARACTER);
+    return GetPointer<const void *>(VT_MAIN_CHARACTER);
   }
   const Attacker *main_character_as_MuLan() const {
     return main_character_type() == Character_MuLan ? static_cast<const Attacker *>(main_character()) : nullptr;
@@ -388,7 +388,7 @@ struct Movie FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     return main_character_type() == Character_Unused ? static_cast<const flatbuffers::String *>(main_character()) : nullptr;
   }
   void *mutable_main_character() {
-    return GetPointer<void *>(VT_***REMOVED***_CHARACTER);
+    return GetPointer<void *>(VT_MAIN_CHARACTER);
   }
   const flatbuffers::Vector<uint8_t> *characters_type() const {
     return GetPointer<const flatbuffers::Vector<uint8_t> *>(VT_CHARACTERS_TYPE);
@@ -404,8 +404,8 @@ struct Movie FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<uint8_t>(verifier, VT_***REMOVED***_CHARACTER_TYPE) &&
-           VerifyOffset(verifier, VT_***REMOVED***_CHARACTER) &&
+           VerifyField<uint8_t>(verifier, VT_MAIN_CHARACTER_TYPE) &&
+           VerifyOffset(verifier, VT_MAIN_CHARACTER) &&
            VerifyCharacter(verifier, main_character(), main_character_type()) &&
            VerifyOffset(verifier, VT_CHARACTERS_TYPE) &&
            verifier.VerifyVector(characters_type()) &&
@@ -424,10 +424,10 @@ struct MovieBuilder {
   flatbuffers::FlatBufferBuilder &fbb_;
   flatbuffers::uoffset_t start_;
   void add_main_character_type(Character main_character_type) {
-    fbb_.AddElement<uint8_t>(Movie::VT_***REMOVED***_CHARACTER_TYPE, static_cast<uint8_t>(main_character_type), 0);
+    fbb_.AddElement<uint8_t>(Movie::VT_MAIN_CHARACTER_TYPE, static_cast<uint8_t>(main_character_type), 0);
   }
   void add_main_character(flatbuffers::Offset<void> main_character) {
-    fbb_.AddOffset(Movie::VT_***REMOVED***_CHARACTER, main_character);
+    fbb_.AddOffset(Movie::VT_MAIN_CHARACTER, main_character);
   }
   void add_characters_type(flatbuffers::Offset<flatbuffers::Vector<uint8_t>> characters_type) {
     fbb_.AddOffset(Movie::VT_CHARACTERS_TYPE, characters_type);

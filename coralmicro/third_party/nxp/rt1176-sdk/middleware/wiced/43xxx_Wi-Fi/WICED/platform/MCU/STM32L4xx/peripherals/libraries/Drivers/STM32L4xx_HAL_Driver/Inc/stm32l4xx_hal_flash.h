@@ -881,9 +881,9 @@ uint32_t HAL_FLASH_GetError(void);
                                             ((VALUE) == FLASH_TYPEPROGRAM_FAST_AND_LAST))  
 
 #if defined (STM32L4R5xx) || defined (STM32L4R7xx) || defined (STM32L4R9xx) || defined (STM32L4S5xx) || defined (STM32L4S7xx) || defined (STM32L4S9xx)
-#define IS_FLASH_***REMOVED***_MEM_ADDRESS(ADDRESS) (((ADDRESS) >= FLASH_BASE) && ((ADDRESS) <= FLASH_BASE+0x1FFFFF))
+#define IS_FLASH_MAIN_MEM_ADDRESS(ADDRESS) (((ADDRESS) >= FLASH_BASE) && ((ADDRESS) <= FLASH_BASE+0x1FFFFF))
 #else
-#define IS_FLASH_***REMOVED***_MEM_ADDRESS(ADDRESS) (((ADDRESS) >= FLASH_BASE)        && ((((*((uint16_t *)FLASH_SIZE_DATA_REGISTER)) & (0x0FFF)) == 0x400) ? \
+#define IS_FLASH_MAIN_MEM_ADDRESS(ADDRESS) (((ADDRESS) >= FLASH_BASE)        && ((((*((uint16_t *)FLASH_SIZE_DATA_REGISTER)) & (0x0FFF)) == 0x400) ? \
                                             ((ADDRESS) <= FLASH_BASE+0xFFFFF) : ((((*((uint16_t *)FLASH_SIZE_DATA_REGISTER)) & (0x0FFF)) == 0x200) ? \
                                             ((ADDRESS) <= FLASH_BASE+0x7FFFF) : ((((*((uint16_t *)FLASH_SIZE_DATA_REGISTER)) & (0x0FFF)) == 0x100) ? \
                                             ((ADDRESS) <= FLASH_BASE+0x3FFFF) : ((((*((uint16_t *)FLASH_SIZE_DATA_REGISTER)) & (0x0FFF)) == 0x80) ? \
@@ -892,7 +892,7 @@ uint32_t HAL_FLASH_GetError(void);
 
 #define IS_FLASH_OTP_ADDRESS(ADDRESS)      (((ADDRESS) >= 0x1FFF7000) && ((ADDRESS) <= 0x1FFF73FF))
 
-#define IS_FLASH_PROGRAM_ADDRESS(ADDRESS)  (IS_FLASH_***REMOVED***_MEM_ADDRESS(ADDRESS) || IS_FLASH_OTP_ADDRESS(ADDRESS))
+#define IS_FLASH_PROGRAM_ADDRESS(ADDRESS)  (IS_FLASH_MAIN_MEM_ADDRESS(ADDRESS) || IS_FLASH_OTP_ADDRESS(ADDRESS))
 
 #if defined (STM32L4R5xx) || defined (STM32L4R7xx) || defined (STM32L4R9xx) || defined (STM32L4S5xx) || defined (STM32L4S7xx) || defined (STM32L4S9xx)
 #define IS_FLASH_PAGE(PAGE)                ((PAGE) < 256)

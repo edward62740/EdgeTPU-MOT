@@ -320,7 +320,7 @@ All definitions and functions that belong to a module are grouped and have a com
 Definitions that are marked with <b>CAN BE CHANGED</b> can be adapted towards the needs of the actual CMSIS-RTOS
 implementation. These definitions can be specific to the underlying RTOS kernel.
 
-Definitions that are marked with <b>MUST RE***REMOVED*** UNCHANGED</b> cannot be altered. Otherwise the CMSIS-RTOS implementation is
+Definitions that are marked with <b>MUST REMAIN UNCHANGED</b> cannot be altered. Otherwise the CMSIS-RTOS implementation is
 no longer compliant to the standard. Note that some functions are optional and need not to be provided by every CMSIS-RTOS
 implementation.
 
@@ -1180,7 +1180,7 @@ Main stack is also used when:
 |-------------------------------------------------------------------|-----------------|-----------|
 |Number of concurrent running user threads                          |\c OS_TASKCNT    |Indicates the maximum number of threads that will run at the same time (including main).|
 |Default Thread stack size [bytes]                                  |\c OS_STKSIZE    |Specifies the default stack size (in words) for threads that are defined with osThreadDef \a stacksz = 0.|
-|Main Thread stack size [bytes]                                     |\c OS_***REMOVED***STKSIZE|Is the stack requirement (in words) for the main function that is started by default as an RTOS thread.|
+|Main Thread stack size [bytes]                                     |\c OS_MAINSTKSIZE|Is the stack requirement (in words) for the main function that is started by default as an RTOS thread.|
 |Number of threads with user-provided stack size                    |\c OS_PRIVCNT    |Indicates the number of threads that are defined with \ref osThreadDef \a stacksz != 0 (excluding main). \a stacksz specifies the stack size requirement of that thread.|
 |Total stack size [bytes] for threads with user-provided stack size |\c OS_PRIVSTKSIZE|Is the combined stack requirement (in words) of all threads that are defined with with \ref osThreadDef \a stacksz != 0 (excluding main).|
 |\ref stackCheck                                            |\c OS_STKCHECK   |If a stack overflow is detected at a thread switch, the function \b os_error with error code = 1 is called.  By default, this function is implemented as endless loop and will practically stop code execution.|
@@ -2574,7 +2574,7 @@ Access to the timer definition for the function \ref osTimerCreate.
 
 /*=======0=========1=========2=========3=========4=========5=========6=========7=========8=========9=========0=========1====*/
 /**
-\note MUST RE***REMOVED*** UNCHANGED: \b os_timer_type shall be consistent in every CMSIS-RTOS.
+\note MUST REMAIN UNCHANGED: \b os_timer_type shall be consistent in every CMSIS-RTOS.
 The \ref os_timer_type specifies the a repeating (periodic) or one-shot timer for the function \ref osTimerCreate.
 */
 typedef enum {} os_timer_type;
@@ -4023,7 +4023,7 @@ used. The Semaphore may be created again using the function \ref osSemaphoreCrea
  */
 
 /**
-\note MUST RE***REMOVED*** UNCHANGED: \b osStatus shall be consistent in every CMSIS-RTOS.
+\note MUST REMAIN UNCHANGED: \b osStatus shall be consistent in every CMSIS-RTOS.
 \details The \ref osStatus enumeration defines the event status and error codes that are returned by the CMSIS-RTOS functions.
 */
 typedef enum {} osStatus;

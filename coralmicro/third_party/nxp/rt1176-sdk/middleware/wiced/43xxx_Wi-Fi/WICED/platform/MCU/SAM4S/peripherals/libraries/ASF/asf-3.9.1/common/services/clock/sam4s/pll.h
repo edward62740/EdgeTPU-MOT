@@ -72,11 +72,11 @@ extern "C" {
 #define PLL_COUNT           0x3fU
 
 enum pll_source {
-	PLL_SRC_***REMOVED***CK_4M_RC        = OSC_***REMOVED***CK_4M_RC,     //!< Internal 4MHz RC oscillator.
-	PLL_SRC_***REMOVED***CK_8M_RC        = OSC_***REMOVED***CK_8M_RC,     //!< Internal 8MHz RC oscillator.
-	PLL_SRC_***REMOVED***CK_12M_RC       = OSC_***REMOVED***CK_12M_RC,    //!< Internal 12MHz RC oscillator.
-	PLL_SRC_***REMOVED***CK_XTAL         = OSC_***REMOVED***CK_XTAL,      //!< External crystal oscillator.
-	PLL_SRC_***REMOVED***CK_BYPASS       = OSC_***REMOVED***CK_BYPASS,    //!< External bypass oscillator.
+	PLL_SRC_MAINCK_4M_RC        = OSC_MAINCK_4M_RC,     //!< Internal 4MHz RC oscillator.
+	PLL_SRC_MAINCK_8M_RC        = OSC_MAINCK_8M_RC,     //!< Internal 8MHz RC oscillator.
+	PLL_SRC_MAINCK_12M_RC       = OSC_MAINCK_12M_RC,    //!< Internal 12MHz RC oscillator.
+	PLL_SRC_MAINCK_XTAL         = OSC_MAINCK_XTAL,      //!< External crystal oscillator.
+	PLL_SRC_MAINCK_BYPASS       = OSC_MAINCK_BYPASS,    //!< External bypass oscillator.
 	PLL_NR_SOURCES,                                     //!< Number of PLL sources.
 };
 
@@ -184,11 +184,11 @@ static inline uint32_t pll_is_locked(uint32_t ul_pll_id)
 static inline void pll_enable_source(enum pll_source e_src)
 {
 	switch (e_src) {
-	case PLL_SRC_***REMOVED***CK_4M_RC:
-	case PLL_SRC_***REMOVED***CK_8M_RC:
-	case PLL_SRC_***REMOVED***CK_12M_RC:
-	case PLL_SRC_***REMOVED***CK_XTAL:
-	case PLL_SRC_***REMOVED***CK_BYPASS:
+	case PLL_SRC_MAINCK_4M_RC:
+	case PLL_SRC_MAINCK_8M_RC:
+	case PLL_SRC_MAINCK_12M_RC:
+	case PLL_SRC_MAINCK_XTAL:
+	case PLL_SRC_MAINCK_BYPASS:
 		osc_enable(e_src);
 		osc_wait_ready(e_src);
 		break;

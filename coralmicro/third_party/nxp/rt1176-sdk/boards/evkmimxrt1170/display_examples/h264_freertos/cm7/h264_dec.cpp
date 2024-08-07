@@ -206,7 +206,7 @@ int OpenH264_Decode(const uint8_t *data, int len, bool isStartOfFile, bool isEnd
 
     if (isEndOfFile)
     {
-        s_pDecoder->GetOption(DECODER_OPTION_NUM_OF_FRAMES_RE***REMOVED***ING_IN_BUFFER, &num_of_frames_in_buffer);
+        s_pDecoder->GetOption(DECODER_OPTION_NUM_OF_FRAMES_REMAINING_IN_BUFFER, &num_of_frames_in_buffer);
 
         for (int32_t i = 0; i < num_of_frames_in_buffer; i++)
         {

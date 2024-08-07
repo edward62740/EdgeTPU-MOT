@@ -122,13 +122,13 @@ typedef enum {
 /** Definitions for PWM fault input ID */
 typedef enum {
 #if (SAM3U)
-	PWM_FAULT_***REMOVED***OSC = (1 << 0),
+	PWM_FAULT_MAINOSC = (1 << 0),
 	PWM_FAULT_PWMFI2 = (1 << 1),
 	PWM_FAULT_PWMFI0 = (1 << 2),
 	PWM_FAULT_PWMFI1 = (1 << 3)
 #elif (SAM3S || SAM4S || SAM4E)
 	PWM_FAULT_PWMFI1 = (1 << 0),
-	PWM_FAULT_***REMOVED***OSC = (1 << 1),
+	PWM_FAULT_MAINOSC = (1 << 1),
 	PWM_FAULT_ADC = (1 << 2),
 	PWM_FAULT_ACC = (1 << 3),
 	PWM_FAULT_TIMER_0 = (1 << 4),
@@ -137,7 +137,7 @@ typedef enum {
 	PWM_FAULT_PWMFI0 = (1 << 0),
 	PWM_FAULT_PWMFI1 = (1 << 1),
 	PWM_FAULT_PWMFI2 = (1 << 2),
-	PWM_FAULT_***REMOVED***OSC = (1 << 3),
+	PWM_FAULT_MAINOSC = (1 << 3),
 	PWM_FAULT_ADC = (1 << 4),
 	PWM_FAULT_TIMER_0 = (1 << 5)
 #endif

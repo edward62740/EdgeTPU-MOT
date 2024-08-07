@@ -19,8 +19,8 @@
 
 #define DEMO_XRDC2 XRDC2_D0
 
-/* Domain could be 0 ~ (FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT -1 ) */
-#define DEMO_CORE_DO***REMOVED*** 2
+/* Domain could be 0 ~ (FSL_FEATURE_XRDC2_DOMAIN_COUNT -1 ) */
+#define DEMO_CORE_DOMAIN 2
 
 /*
  * Memory
@@ -81,7 +81,7 @@ void DEMO_AssignDomain(void)
     assignment.lock          = false;
     assignment.privilegeAttr = kXRDC2_MasterPrivilege;
     assignment.secureAttr    = kXRDC2_MasterSecure;
-    assignment.domainId      = DEMO_CORE_DO***REMOVED***;
+    assignment.domainId      = DEMO_CORE_DOMAIN;
     /* The XID input is not used for domain assignment hit. */
     assignment.mask  = 0x3FUL;
     assignment.match = 0UL;
@@ -100,7 +100,7 @@ void DEMO_SetAllMemAccessible(void)
     xrdc2_mem_access_config_t memAccessConfig;
     XRDC2_GetMemAccessDefaultConfig(&memAccessConfig);
 
-    for (domain = 0; domain < FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT; domain++)
+    for (domain = 0; domain < FSL_FEATURE_XRDC2_DOMAIN_COUNT; domain++)
     {
         memAccessConfig.policy[domain] = kXRDC2_AccessPolicyAll;
     }
@@ -162,15 +162,15 @@ static void Fault_Handler(void)
 
     if (s_demoState == kDEMO_StateMem)
     {
-        XRDC2_SetMemDomainAccessPolicy(DEMO_XRDC2, DEMO_XRDC2_MEM, DEMO_CORE_DO***REMOVED***, kXRDC2_AccessPolicyAll);
+        XRDC2_SetMemDomainAccessPolicy(DEMO_XRDC2, DEMO_XRDC2_MEM, DEMO_CORE_DOMAIN, kXRDC2_AccessPolicyAll);
     }
     else if (s_demoState == kDEMO_StatePeriph)
     {
-        XRDC2_SetPeriphDomainAccessPolicy(DEMO_XRDC2, DEMO_XRDC2_PERIPH, DEMO_CORE_DO***REMOVED***, kXRDC2_AccessPolicyAll);
+        XRDC2_SetPeriphDomainAccessPolicy(DEMO_XRDC2, DEMO_XRDC2_PERIPH, DEMO_CORE_DOMAIN, kXRDC2_AccessPolicyAll);
     }
     else if (s_demoState == kDEMO_StateMemSlot)
     {
-        XRDC2_SetMemSlotDomainAccessPolicy(DEMO_XRDC2, DEMO_XRDC2_MEM_SLOT, DEMO_CORE_DO***REMOVED***, kXRDC2_AccessPolicyAll);
+        XRDC2_SetMemSlotDomainAccessPolicy(DEMO_XRDC2, DEMO_XRDC2_MEM_SLOT, DEMO_CORE_DOMAIN, kXRDC2_AccessPolicyAll);
     }
     else
     {
@@ -200,7 +200,7 @@ void DEMO_SetMemoryUnaccessible(void)
 
     memAccessConfig.startAddr                = DEMO_XRDC2_MEM_START_ADDR;
     memAccessConfig.endAddr                  = DEMO_XRDC2_MEM_END_ADDR;
-    memAccessConfig.policy[DEMO_CORE_DO***REMOVED***] = kXRDC2_AccessPolicyNone;
+    memAccessConfig.policy[DEMO_CORE_DOMAIN] = kXRDC2_AccessPolicyNone;
 
     XRDC2_SetMemAccessConfig(DEMO_XRDC2, DEMO_XRDC2_MEM, &memAccessConfig);
 }
@@ -246,7 +246,7 @@ void DEMO_SetPeriphUnaccessible(void)
     XRDC2_GetPeriphAccessDefaultConfig(&periphConfig);
 
     periphConfig.lockMode                 = kXRDC2_AccessConfigLockDisabled;
-    periphConfig.policy[DEMO_CORE_DO***REMOVED***] = kXRDC2_AccessPolicyNone;
+    periphConfig.policy[DEMO_CORE_DOMAIN] = kXRDC2_AccessPolicyNone;
 
     XRDC2_SetPeriphAccessConfig(DEMO_XRDC2, DEMO_XRDC2_PERIPH, &periphConfig);
 }
@@ -279,7 +279,7 @@ void DEMO_SetMemSlotUnaccessible(void)
     XRDC2_GetMemSlotAccessDefaultConfig(&memSlotConfig);
 
     memSlotConfig.lockMode                 = kXRDC2_AccessConfigLockDisabled;
-    memSlotConfig.policy[DEMO_CORE_DO***REMOVED***] = kXRDC2_AccessPolicyNone;
+    memSlotConfig.policy[DEMO_CORE_DOMAIN] = kXRDC2_AccessPolicyNone;
 
     XRDC2_SetMemSlotAccessConfig(DEMO_XRDC2, DEMO_XRDC2_MEM_SLOT, &memSlotConfig);
 }
@@ -339,7 +339,7 @@ int main(void)
 
     XRDC2_SetGlobalValid(DEMO_XRDC2, true);
 
-    if (XRDC2_GetCurrentMasterDomainId(DEMO_XRDC2) != DEMO_CORE_DO***REMOVED***)
+    if (XRDC2_GetCurrentMasterDomainId(DEMO_XRDC2) != DEMO_CORE_DOMAIN)
     {
         PRINTF("ERROR: Domain set failed\r\n");
         while (1)

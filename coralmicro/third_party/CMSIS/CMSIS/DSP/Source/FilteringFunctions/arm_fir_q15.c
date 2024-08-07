@@ -74,7 +74,7 @@
             *pOutput++ = (q15_t) MVE_ASRL_SAT16(acc[j], 15);               \
         }
 
-#define FIR_Q15_***REMOVED***_CORE()                                                                  \
+#define FIR_Q15_MAIN_CORE()                                                                  \
 {                                                                                            \
     q15_t          *pState = S->pState;     /* State pointer */                              \
     const q15_t    *pCoeffs = S->pCoeffs;   /* Coefficient pointer */                        \
@@ -156,7 +156,7 @@ static void arm_fir_q15_25_32_mve(const arm_fir_instance_q15 * S,
 {
     #define NBTAPS 32
     #define NBVECTAPS (NBTAPS / 8)
-    FIR_Q15_***REMOVED***_CORE();
+    FIR_Q15_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -167,7 +167,7 @@ static void arm_fir_q15_17_24_mve(const arm_fir_instance_q15 * S,
 {
     #define NBTAPS 24
     #define NBVECTAPS (NBTAPS / 8)
-    FIR_Q15_***REMOVED***_CORE();
+    FIR_Q15_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -179,7 +179,7 @@ static void arm_fir_q15_9_16_mve(const arm_fir_instance_q15 * S,
 {
     #define NBTAPS 16
     #define NBVECTAPS (NBTAPS / 8)
-    FIR_Q15_***REMOVED***_CORE();
+    FIR_Q15_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -190,7 +190,7 @@ static void arm_fir_q15_1_8_mve(const arm_fir_instance_q15 * S,
 {
     #define NBTAPS 8
     #define NBVECTAPS (NBTAPS / 8)
-    FIR_Q15_***REMOVED***_CORE();
+    FIR_Q15_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }

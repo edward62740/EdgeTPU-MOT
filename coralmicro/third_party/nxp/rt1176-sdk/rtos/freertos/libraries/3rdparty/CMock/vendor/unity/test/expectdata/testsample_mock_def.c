@@ -64,7 +64,7 @@ void resetTest(void)
 }
 
 
-/*=======***REMOVED***=====*/
+/*=======MAIN=====*/
 int main(void)
 {
   UnityBegin("testdata/mocksample.c");

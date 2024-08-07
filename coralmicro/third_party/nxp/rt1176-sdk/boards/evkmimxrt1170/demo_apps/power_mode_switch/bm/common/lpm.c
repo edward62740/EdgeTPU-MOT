@@ -289,11 +289,11 @@ void PGMC_InitConfig()
     PGMC_PPC_Type *ppcBase;
     pgmc_bpc_cpu_power_mode_option_t bpcCpuModeOption;
     pgmc_bpc_setpoint_mode_option_t bpcSetpointOption;
-    static const pgmc_config_t pgmcCfg[POWER_DO***REMOVED***_NUM] = PGMC_CONFIGURATION_TABLE;
+    static const pgmc_config_t pgmcCfg[POWER_DOMAIN_NUM] = PGMC_CONFIGURATION_TABLE;
 
     PGMC_BPC_ControlPowerDomainBySoftwareMode(PGMC_BPC4, false);
 
-    for (i = 0; i < POWER_DO***REMOVED***_NUM; i++)
+    for (i = 0; i < POWER_DOMAIN_NUM; i++)
     {
         index = pgmcCfg[i].sliceID;
         spVal = pgmcCfg[i].spConfig;
@@ -306,7 +306,7 @@ void PGMC_InitConfig()
                 bpcSetpointOption.powerOff  = true;
                 PGMC_BPC_ControlPowerDomainBySetPointMode(bpcBase, spVal, &bpcSetpointOption);
             }
-            else if (pgmcCfg[i].ctrlMode == CM7_DO***REMOVED***)
+            else if (pgmcCfg[i].ctrlMode == CM7_DOMAIN)
             {
                 bpcCpuModeOption.assignDomain = kPGMC_CM7Core;
                 bpcCpuModeOption.stateSave    = false;
@@ -314,7 +314,7 @@ void PGMC_InitConfig()
                 PGMC_BPC_ControlPowerDomainByCpuPowerMode(bpcBase, kPGMC_SuspendMode, &bpcCpuModeOption);
             }
 #ifndef SINGLE_CORE_M7
-            else if (pgmcCfg[i].ctrlMode == CM4_DO***REMOVED***)
+            else if (pgmcCfg[i].ctrlMode == CM4_DOMAIN)
             {
                 bpcCpuModeOption.assignDomain = kPGMC_CM4Core;
                 bpcCpuModeOption.stateSave    = false;
@@ -336,12 +336,12 @@ void PGMC_InitConfig()
                 {
                     PGMC_CPC_LMEM_ControlBySetPointMode(cpcBase, spVal, kPGMC_MLPLArrOffPerOff);
                 }
-                else if ((pgmcCfg[i].ctrlMode == CM7_DO***REMOVED***))
+                else if ((pgmcCfg[i].ctrlMode == CM7_DOMAIN))
                 {
                     PGMC_CPC_LMEM_ControlByCpuPowerMode(cpcBase, kPGMC_SuspendMode, kPGMC_MLPLArrOffPerOff);
                 }
 #ifndef SINGLE_CORE_M7
-                else if ((pgmcCfg[i].ctrlMode == CM4_DO***REMOVED***))
+                else if ((pgmcCfg[i].ctrlMode == CM4_DOMAIN))
                 {
                     PGMC_CPC_LMEM_ControlByCpuPowerMode(cpcBase, kPGMC_SuspendMode, kPGMC_MLPLArrOffPerOff);
                 }
@@ -355,12 +355,12 @@ void PGMC_InitConfig()
             {
                 PGMC_PPC_ControlBySetPointMode(ppcBase, spVal, true);
             }
-            else if (pgmcCfg[i].ctrlMode == CM7_DO***REMOVED***)
+            else if (pgmcCfg[i].ctrlMode == CM7_DOMAIN)
             {
                 PGMC_PPC_ControlByCpuPowerMode(ppcBase, kPGMC_SuspendMode);
             }
 #ifndef SINGLE_CORE_M7
-            else if (pgmcCfg[i].ctrlMode == CM4_DO***REMOVED***)
+            else if (pgmcCfg[i].ctrlMode == CM4_DOMAIN)
             {
                 PGMC_PPC_ControlByCpuPowerMode(ppcBase, kPGMC_SuspendMode);
             }
@@ -399,18 +399,18 @@ void SRC_InitConfig()
             SRC_EnableSetPointTransferReset(SRC, srcCfg[i].sliceName, true);
             SRC_LockSliceMode(SRC, srcCfg[i].sliceName);
         }
-        else if (srcCfg[i].ctrlMode == CM7_DO***REMOVED***)
+        else if (srcCfg[i].ctrlMode == CM7_DOMAIN)
         {
-            SRC_SetAssignList(SRC, srcCfg[i].sliceName, CM7_DO***REMOVED***);
+            SRC_SetAssignList(SRC, srcCfg[i].sliceName, CM7_DOMAIN);
             SRC_LockAssignList(SRC, srcCfg[i].sliceName);
             SRC_SetSliceDomainModeConfig(SRC, srcCfg[i].sliceName, kSRC_Cpu0SuspendModeAssertReset);
             SRC_EnableDomainModeTransferReset(SRC, srcCfg[i].sliceName, true);
             SRC_LockSliceMode(SRC, srcCfg[i].sliceName);
         }
 #ifndef SINGLE_CORE_M7
-        else if (srcCfg[i].ctrlMode == CM4_DO***REMOVED***)
+        else if (srcCfg[i].ctrlMode == CM4_DOMAIN)
         {
-            SRC_SetAssignList(SRC, srcCfg[i].sliceName, CM4_DO***REMOVED***);
+            SRC_SetAssignList(SRC, srcCfg[i].sliceName, CM4_DOMAIN);
             SRC_LockAssignList(SRC, srcCfg[i].sliceName);
             SRC_SetSliceDomainModeConfig(SRC, srcCfg[i].sliceName, kSRC_Cpu1SuspendModeAssertReset);
             SRC_EnableDomainModeTransferReset(SRC, srcCfg[i].sliceName, true);
@@ -477,14 +477,14 @@ void CCM_InitConfig()
             }
             CLOCK_ROOT_ControlBySetPointMode((clock_root_t)index, spTable);
         }
-        else if (clkrootCfg[index] == CM7_DO***REMOVED***)
+        else if (clkrootCfg[index] == CM7_DOMAIN)
         {
-            CLOCK_ROOT_ControlByDomainMode((clock_root_t)index, CM7_DO***REMOVED***);
+            CLOCK_ROOT_ControlByDomainMode((clock_root_t)index, CM7_DOMAIN);
         }
 #ifndef SINGLE_CORE_M7
-        else if (clkrootCfg[index] == CM4_DO***REMOVED***)
+        else if (clkrootCfg[index] == CM4_DOMAIN)
         {
-            CLOCK_ROOT_ControlByDomainMode((clock_root_t)index, CM4_DO***REMOVED***);
+            CLOCK_ROOT_ControlByDomainMode((clock_root_t)index, CM4_DOMAIN);
         }
 #endif
     }
@@ -509,15 +509,15 @@ void CCM_InitConfig()
             CLOCK_OSCPLL_ControlBySetPointMode((clock_name_t)index, oscpllCfg[index].spValue,
                                                oscpllCfg[index].stbyValue);
         }
-        else if (oscpllCfg[index].ctrlMode == CM7_DO***REMOVED***)
+        else if (oscpllCfg[index].ctrlMode == CM7_DOMAIN)
         {
-            CLOCK_OSCPLL_ControlByCpuLowPowerMode((clock_name_t)index, CM7_DO***REMOVED***, oscpllCfg[index].level,
+            CLOCK_OSCPLL_ControlByCpuLowPowerMode((clock_name_t)index, CM7_DOMAIN, oscpllCfg[index].level,
                                                   oscpllCfg[index].level);
         }
 #ifndef SINGLE_CORE_M7
-        else if (oscpllCfg[index].ctrlMode == CM4_DO***REMOVED***)
+        else if (oscpllCfg[index].ctrlMode == CM4_DOMAIN)
         {
-            CLOCK_OSCPLL_ControlByCpuLowPowerMode((clock_name_t)index, CM4_DO***REMOVED***, oscpllCfg[index].level,
+            CLOCK_OSCPLL_ControlByCpuLowPowerMode((clock_name_t)index, CM4_DOMAIN, oscpllCfg[index].level,
                                                   oscpllCfg[index].level);
         }
 #endif
@@ -533,15 +533,15 @@ void CCM_InitConfig()
             }
             CLOCK_LPCG_ControlBySetPointMode((clock_lpcg_t)index, lpcgCfg[index].spValue, lpcgCfg[index].stbyValue);
         }
-        else if (lpcgCfg[index].ctrlMode == CM7_DO***REMOVED***)
+        else if (lpcgCfg[index].ctrlMode == CM7_DOMAIN)
         {
-            CLOCK_LPCG_ControlByCpuLowPowerMode((clock_lpcg_t)index, CM7_DO***REMOVED***, lpcgCfg[index].level,
+            CLOCK_LPCG_ControlByCpuLowPowerMode((clock_lpcg_t)index, CM7_DOMAIN, lpcgCfg[index].level,
                                                 lpcgCfg[index].level);
         }
 #ifndef SINGLE_CORE_M7
-        else if (lpcgCfg[index].ctrlMode == CM4_DO***REMOVED***)
+        else if (lpcgCfg[index].ctrlMode == CM4_DOMAIN)
         {
-            CLOCK_LPCG_ControlByCpuLowPowerMode((clock_lpcg_t)index, CM4_DO***REMOVED***, lpcgCfg[index].level,
+            CLOCK_LPCG_ControlByCpuLowPowerMode((clock_lpcg_t)index, CM4_DOMAIN, lpcgCfg[index].level,
                                                 lpcgCfg[index].level);
         }
 #endif

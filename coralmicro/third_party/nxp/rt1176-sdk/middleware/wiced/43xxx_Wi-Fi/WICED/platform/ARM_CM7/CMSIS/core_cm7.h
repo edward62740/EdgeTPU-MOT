@@ -61,9 +61,9 @@
  */
 
 /*  CMSIS CM7 definitions */
-#define __CM7_CMSIS_VERSION_***REMOVED***  ( 5U)                                      /*!< [31:16] CMSIS HAL main version */
+#define __CM7_CMSIS_VERSION_MAIN  ( 5U)                                      /*!< [31:16] CMSIS HAL main version */
 #define __CM7_CMSIS_VERSION_SUB   ( 0U)                                      /*!< [15:0]  CMSIS HAL sub version */
-#define __CM7_CMSIS_VERSION       ((__CM7_CMSIS_VERSION_***REMOVED*** << 16U) | \
+#define __CM7_CMSIS_VERSION       ((__CM7_CMSIS_VERSION_MAIN << 16U) | \
                                     __CM7_CMSIS_VERSION_SUB           )      /*!< CMSIS HAL version number */
 
 #define __CORTEX_M                (7U)                                       /*!< Cortex-M Core */

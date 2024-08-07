@@ -223,8 +223,8 @@ sfr = "CKGR_MOR.MOSCEN", 	"Memory", 0xfffffc20, 4, base=16, bitRange=0
 sfr = "CKGR_MOR.OSCBYPASS", 	"Memory", 0xfffffc20, 4, base=16, bitRange=1
 sfr = "CKGR_MOR.OSCOUNT", 	"Memory", 0xfffffc20, 4, base=16, bitRange=8-15
 sfr = "CKGR_MCFR", 	"Memory", 0xfffffc24, 4, base=16
-sfr = "CKGR_MCFR.***REMOVED***F", 	"Memory", 0xfffffc24, 4, base=16, bitRange=0-15
-sfr = "CKGR_MCFR.***REMOVED***RDY", 	"Memory", 0xfffffc24, 4, base=16, bitRange=16
+sfr = "CKGR_MCFR.MAINF", 	"Memory", 0xfffffc24, 4, base=16, bitRange=0-15
+sfr = "CKGR_MCFR.MAINRDY", 	"Memory", 0xfffffc24, 4, base=16, bitRange=16
 sfr = "CKGR_PLLR", 	"Memory", 0xfffffc2c, 4, base=16
 sfr = "CKGR_PLLR.DIV", 	"Memory", 0xfffffc2c, 4, base=16, bitRange=0-7
 sfr = "CKGR_PLLR.PLLCOUNT", 	"Memory", 0xfffffc2c, 4, base=16, bitRange=8-13
@@ -261,8 +261,8 @@ sfr = "PMC_MOR.MOSCEN", 	"Memory", 0xfffffc20, 4, base=16, bitRange=0
 sfr = "PMC_MOR.OSCBYPASS", 	"Memory", 0xfffffc20, 4, base=16, bitRange=1
 sfr = "PMC_MOR.OSCOUNT", 	"Memory", 0xfffffc20, 4, base=16, bitRange=8-15
 sfr = "PMC_MCFR", 	"Memory", 0xfffffc24, 4, base=16
-sfr = "PMC_MCFR.***REMOVED***F", 	"Memory", 0xfffffc24, 4, base=16, bitRange=0-15
-sfr = "PMC_MCFR.***REMOVED***RDY", 	"Memory", 0xfffffc24, 4, base=16, bitRange=16
+sfr = "PMC_MCFR.MAINF", 	"Memory", 0xfffffc24, 4, base=16, bitRange=0-15
+sfr = "PMC_MCFR.MAINRDY", 	"Memory", 0xfffffc24, 4, base=16, bitRange=16
 sfr = "PMC_PLLR", 	"Memory", 0xfffffc2c, 4, base=16
 sfr = "PMC_PLLR.DIV", 	"Memory", 0xfffffc2c, 4, base=16, bitRange=0-7
 sfr = "PMC_PLLR.PLLCOUNT", 	"Memory", 0xfffffc2c, 4, base=16, bitRange=8-13

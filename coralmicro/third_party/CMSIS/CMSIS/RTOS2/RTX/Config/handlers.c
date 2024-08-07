@@ -28,7 +28,7 @@
 
 //Fault Status Register (IFSR/DFSR) definitions
 #define FSR_ALIGNMENT_FAULT                  0x01   //DFSR only. Fault on first lookup
-#define FSR_INSTRUCTION_CACHE_***REMOVED***TENANCE    0x04   //DFSR only - async/external
+#define FSR_INSTRUCTION_CACHE_MAINTENANCE    0x04   //DFSR only - async/external
 #define FSR_SYNC_EXT_TTB_WALK_FIRST          0x0c   //sync/external
 #define FSR_SYNC_EXT_TTB_WALK_SECOND         0x0e   //sync/external
 #define FSR_SYNC_PARITY_TTB_WALK_FIRST       0x1c   //sync/external
@@ -37,8 +37,8 @@
 #define FSR_TRANSLATION_FAULT_SECOND         0x07   //MMU Fault - internal
 #define FSR_ACCESS_FLAG_FAULT_FIRST          0x03   //MMU Fault - internal
 #define FSR_ACCESS_FLAG_FAULT_SECOND         0x06   //MMU Fault - internal
-#define FSR_DO***REMOVED***_FAULT_FIRST               0x09   //MMU Fault - internal
-#define FSR_DO***REMOVED***_FAULT_SECOND              0x0b   //MMU Fault - internal
+#define FSR_DOMAIN_FAULT_FIRST               0x09   //MMU Fault - internal
+#define FSR_DOMAIN_FAULT_SECOND              0x0b   //MMU Fault - internal
 #define FSR_PERMISSION_FAULT_FIRST           0x0f   //MMU Fault - internal
 #define FSR_PERMISSION_FAULT_SECOND          0x0d   //MMU Fault - internal
 #define FSR_DEBUG_EVENT                      0x02   //internal
@@ -64,15 +64,15 @@ void CDAbtHandler(uint32_t DFSR, uint32_t DFAR, uint32_t LR) {
 
         //Your code here. Value in DFAR is invalid for some fault statuses.
         case FSR_ALIGNMENT_FAULT:
-        case FSR_INSTRUCTION_CACHE_***REMOVED***TENANCE:
+        case FSR_INSTRUCTION_CACHE_MAINTENANCE:
         case FSR_SYNC_EXT_TTB_WALK_FIRST:
         case FSR_SYNC_EXT_TTB_WALK_SECOND:
         case FSR_TRANSLATION_FAULT_FIRST:
         case FSR_TRANSLATION_FAULT_SECOND:
         case FSR_ACCESS_FLAG_FAULT_FIRST:
         case FSR_ACCESS_FLAG_FAULT_SECOND:
-        case FSR_DO***REMOVED***_FAULT_FIRST:
-        case FSR_DO***REMOVED***_FAULT_SECOND:
+        case FSR_DOMAIN_FAULT_FIRST:
+        case FSR_DOMAIN_FAULT_SECOND:
         case FSR_PERMISSION_FAULT_FIRST:
         case FSR_PERMISSION_FAULT_SECOND:
         case FSR_DEBUG_EVENT:
@@ -106,8 +106,8 @@ void CPAbtHandler(uint32_t IFSR, uint32_t IFAR, uint32_t LR) {
         case FSR_TRANSLATION_FAULT_SECOND:
         case FSR_ACCESS_FLAG_FAULT_FIRST:
         case FSR_ACCESS_FLAG_FAULT_SECOND:
-        case FSR_DO***REMOVED***_FAULT_FIRST:
-        case FSR_DO***REMOVED***_FAULT_SECOND:
+        case FSR_DOMAIN_FAULT_FIRST:
+        case FSR_DOMAIN_FAULT_SECOND:
         case FSR_PERMISSION_FAULT_FIRST:
         case FSR_PERMISSION_FAULT_SECOND:
         case FSR_DEBUG_EVENT: //IFAR invalid

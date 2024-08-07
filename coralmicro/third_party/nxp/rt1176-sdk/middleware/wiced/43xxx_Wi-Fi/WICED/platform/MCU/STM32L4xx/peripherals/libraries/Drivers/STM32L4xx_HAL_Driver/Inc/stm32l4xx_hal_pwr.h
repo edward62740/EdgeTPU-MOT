@@ -117,7 +117,7 @@ typedef struct
 /** @defgroup PWR_Regulator_state_in_SLEEP_STOP_mode  PWR regulator mode
   * @{
   */
-#define PWR_***REMOVED***REGULATOR_ON            ((uint32_t)0x00000000) /*!< Regulator in main mode      */
+#define PWR_MAINREGULATOR_ON            ((uint32_t)0x00000000) /*!< Regulator in main mode      */
 #define PWR_LOWPOWERREGULATOR_ON        PWR_CR1_LPR            /*!< Regulator in low-power mode */
 /**
   * @}
@@ -341,7 +341,7 @@ typedef struct
                                 ((MODE) == PWR_PVD_MODE_EVENT_FALLING)       ||\
                                 ((MODE) == PWR_PVD_MODE_EVENT_RISING_FALLING)) 
                                 
-#define IS_PWR_REGULATOR(REGULATOR)      (((REGULATOR) == PWR_***REMOVED***REGULATOR_ON) || \
+#define IS_PWR_REGULATOR(REGULATOR)      (((REGULATOR) == PWR_MAINREGULATOR_ON) || \
                                           ((REGULATOR) == PWR_LOWPOWERREGULATOR_ON))
                                           
 #define IS_PWR_SLEEP_ENTRY(ENTRY) (((ENTRY) == PWR_SLEEPENTRY_WFI) || ((ENTRY) == PWR_SLEEPENTRY_WFE))

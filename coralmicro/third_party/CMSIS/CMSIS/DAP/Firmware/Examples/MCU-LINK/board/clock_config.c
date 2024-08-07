@@ -70,7 +70,7 @@ settings:
 - {id: SYSCON.FCCLKSEL3.sel, value: SYSCON.FROHFDIV}
 - {id: SYSCON.FRGCTRL3_DIV.scale, value: '256', locked: true}
 - {id: SYSCON.FROHFDIV.scale, value: '2', locked: true}
-- {id: SYSCON.***REMOVED***CLKSELB.sel, value: SYSCON.PLL0_BYPASS}
+- {id: SYSCON.MAINCLKSELB.sel, value: SYSCON.PLL0_BYPASS}
 - {id: SYSCON.PLL0CLKSEL.sel, value: SYSCON.CLK_IN_EN}
 - {id: SYSCON.PLL0M_MULT.scale, value: '150', locked: true}
 - {id: SYSCON.PLL0N_DIV.scale, value: '8', locked: true}
@@ -94,7 +94,7 @@ void BOARD_BootClockRUN(void)
     /*!< Configure FRO192M */
     POWER_DisablePD(kPDRUNCFG_PD_FRO192M);               /*!< Ensure FRO is on  */
     CLOCK_SetupFROClocking(12000000U);                   /*!< Set up FRO to the 12 MHz, just for sure */
-    CLOCK_AttachClk(kFRO12M_to_***REMOVED***_CLK);                /*!< Switch to FRO 12MHz first to ensure we can change the clock setting */
+    CLOCK_AttachClk(kFRO12M_to_MAIN_CLK);                /*!< Switch to FRO 12MHz first to ensure we can change the clock setting */
 
     CLOCK_SetupFROClocking(96000000U);                   /* Enable FRO HF(96MHz) output */
 
@@ -139,7 +139,7 @@ void BOARD_BootClockRUN(void)
     CLOCK_SetClkDiv(kCLOCK_DivFrohfClk, 2U, false);         /*!< Set FROHFDIV divider to value 2 */
 
     /*!< Set up clock selectors - Attach clocks to the peripheries */
-    CLOCK_AttachClk(kPLL0_to_***REMOVED***_CLK);                 /*!< Switch ***REMOVED***_CLK to PLL0 */
+    CLOCK_AttachClk(kPLL0_to_MAIN_CLK);                 /*!< Switch MAIN_CLK to PLL0 */
     CLOCK_AttachClk(kFRO_HF_DIV_to_FLEXCOMM0);                 /*!< Switch FLEXCOMM0 to FRO_HF_DIV */
     CLOCK_AttachClk(kFRO_HF_DIV_to_FLEXCOMM3);                 /*!< Switch FLEXCOMM3 to FRO_HF_DIV */
 

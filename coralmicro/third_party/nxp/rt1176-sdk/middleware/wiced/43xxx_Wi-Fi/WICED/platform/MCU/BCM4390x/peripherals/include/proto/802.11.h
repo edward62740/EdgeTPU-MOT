@@ -3794,7 +3794,7 @@ typedef struct pu_buffer_status_ie pu_buffer_status_ie_t;
 #define ANQP_ID_AP_GEOSPATIAL_LOCATION				265
 #define ANQP_ID_AP_CIVIC_LOCATION					266
 #define ANQP_ID_AP_LOCATION_PUBLIC_ID_URI			267
-#define ANQP_ID_DO***REMOVED***_NAME_LIST					268
+#define ANQP_ID_DOMAIN_NAME_LIST					268
 #define ANQP_ID_EMERGENCY_ALERT_ID_URI				269
 #define ANQP_ID_EMERGENCY_NAI						271
 #define ANQP_ID_VENDOR_SPECIFIC_LIST				56797

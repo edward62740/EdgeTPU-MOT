@@ -18,7 +18,7 @@ The header file <b>cmsis_version.h</b> is included by each core header so that t
 <b>Deprecated</b>
 
 The following macros are deprecated:
-  - \b __XXX_CMSIS_VERSION_***REMOVED*** which is replaced by \ref __CM_CMSIS_VERSION_***REMOVED***.
+  - \b __XXX_CMSIS_VERSION_MAIN which is replaced by \ref __CM_CMSIS_VERSION_MAIN.
   - \b __XXX_CMSIS_VERSION_SUB which is replaced by \ref __CM_CMSIS_VERSION_SUB.
   - \b __XXX_CMSIS_VERSION which is replaced by \ref __CM_CMSIS_VERSION.
 
@@ -29,7 +29,7 @@ The following macros are deprecated:
 \brief Contains the CMSIS major version
 \details The CMSIS major version can be used to differentiate between CMSIS major releases.
 */
-#define __CM_CMSIS_VERSION_***REMOVED***
+#define __CM_CMSIS_VERSION_MAIN
 
 /**
 \brief Contains the CMSIS minor version
@@ -39,7 +39,7 @@ The following macros are deprecated:
 
 /**
 \brief Contains the CMSIS version
-\details The CMSIS version is a combination of the \ref __CM_CMSIS_VERSION_***REMOVED*** (bits 31..15) and \ref __CM_CMSIS_VERSION_SUB (bits 14..0).
+\details The CMSIS version is a combination of the \ref __CM_CMSIS_VERSION_MAIN (bits 31..15) and \ref __CM_CMSIS_VERSION_SUB (bits 14..0).
 */
 #define __CM_CMSIS_VERSION
 

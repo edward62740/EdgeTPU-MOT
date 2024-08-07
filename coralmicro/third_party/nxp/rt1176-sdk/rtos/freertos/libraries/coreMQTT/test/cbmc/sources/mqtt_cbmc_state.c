@@ -46,8 +46,8 @@
  * iterations on a SUBACK packet's payload bytes. We do not need to iterate an
  * unbounded remaining length amount of bytes to verify memory safety in the
  * dereferencing the SUBACK payload's bytes. */
-#ifndef RE***REMOVED***ING_LENGTH_MAX
-    #define RE***REMOVED***ING_LENGTH_MAX    CBMC_MAX_OBJECT_SIZE
+#ifndef REMAINING_LENGTH_MAX
+    #define REMAINING_LENGTH_MAX    CBMC_MAX_OBJECT_SIZE
 #endif
 
 void * mallocCanFail( size_t size )
@@ -65,9 +65,9 @@ MQTTPacketInfo_t * allocateMqttPacketInfo( MQTTPacketInfo_t * pPacketInfo )
 
     if( pPacketInfo != NULL )
     {
-        __CPROVER_assert( RE***REMOVED***ING_LENGTH_MAX <= CBMC_MAX_OBJECT_SIZE,
-                          "RE***REMOVED***ING_LENGTH_MAX size is too big" );
-        __CPROVER_assume( pPacketInfo->remainingLength < RE***REMOVED***ING_LENGTH_MAX );
+        __CPROVER_assert( REMAINING_LENGTH_MAX <= CBMC_MAX_OBJECT_SIZE,
+                          "REMAINING_LENGTH_MAX size is too big" );
+        __CPROVER_assume( pPacketInfo->remainingLength < REMAINING_LENGTH_MAX );
         pPacketInfo->pRemainingData = mallocCanFail( pPacketInfo->remainingLength );
     }
 
@@ -80,9 +80,9 @@ bool isValidMqttPacketInfo( const MQTTPacketInfo_t * pPacketInfo )
 
     if( pPacketInfo != NULL )
     {
-        __CPROVER_assert( RE***REMOVED***ING_LENGTH_MAX <= CBMC_MAX_OBJECT_SIZE,
-                          "RE***REMOVED***ING_LENGTH_MAX size is too big" );
-        isValid = pPacketInfo->remainingLength < RE***REMOVED***ING_LENGTH_MAX;
+        __CPROVER_assert( REMAINING_LENGTH_MAX <= CBMC_MAX_OBJECT_SIZE,
+                          "REMAINING_LENGTH_MAX size is too big" );
+        isValid = pPacketInfo->remainingLength < REMAINING_LENGTH_MAX;
     }
 
     return isValid;

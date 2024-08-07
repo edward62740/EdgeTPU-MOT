@@ -41,7 +41,7 @@
 *
 *  Known by-product:
 *  on External-SFLASH bootloader, you need to set the global define
-*         BOOTLOADER_LOAD_***REMOVED***_APP_FROM_EXTERNAL_LOCATION
+*         BOOTLOADER_LOAD_MAIN_APP_FROM_EXTERNAL_LOCATION
 *
 */
 #include "generated_security_dct.h"
@@ -207,16 +207,16 @@ const platform_dct_data_t initial_dct =
     .dct_header.apps_locations[ DCT_FILESYSTEM_IMAGE_INDEX ].detail.external_fixed.location      = SFLASH_APPS_HEADER_LOC + sizeof(app_header_t) * DCT_FILESYSTEM_IMAGE_INDEX,
     .dct_header.apps_locations[ DCT_WIFI_FIRMWARE_INDEX ].detail.external_fixed.location      = SFLASH_APPS_HEADER_LOC + sizeof(app_header_t) * DCT_WIFI_FIRMWARE_INDEX,
 
-#if defined( BOOTLOADER_LOAD_***REMOVED***_APP_FROM_FILESYSTEM )
+#if defined( BOOTLOADER_LOAD_MAIN_APP_FROM_FILESYSTEM )
     .dct_header.boot_detail.entry_point = 0,
     .dct_header.boot_detail.load_details.valid = 1,
     .dct_header.boot_detail.load_details.load_once = 0,
     .dct_header.boot_detail.load_details.source.id = EXTERNAL_FILESYSTEM_FILE,
     .dct_header.boot_detail.load_details.source.detail.filesystem_filename = "app.elf",
     .dct_header.boot_detail.load_details.destination.id = INTERNAL,
-    /* Need to define BOOTLOADER_LOAD_***REMOVED***_APP_FROM_EXTERNAL_LOCATION in the platforms/<platform_name>toplevel.mk */
-#elif defined( BOOTLOADER_LOAD_***REMOVED***_APP_FROM_EXTERNAL_LOCATION )
-    /* Need to define BOOTLOADER_LOAD_***REMOVED***_APP_FROM_EXTERNAL_LOCATION in the platforms/<platform_name>toplevel.mk */
+    /* Need to define BOOTLOADER_LOAD_MAIN_APP_FROM_EXTERNAL_LOCATION in the platforms/<platform_name>toplevel.mk */
+#elif defined( BOOTLOADER_LOAD_MAIN_APP_FROM_EXTERNAL_LOCATION )
+    /* Need to define BOOTLOADER_LOAD_MAIN_APP_FROM_EXTERNAL_LOCATION in the platforms/<platform_name>toplevel.mk */
     .dct_header.boot_detail.entry_point = 0,
     .dct_header.boot_detail.load_details.valid = 1,
     .dct_header.boot_detail.load_details.load_once = 0,
@@ -229,7 +229,7 @@ const platform_dct_data_t initial_dct =
     .dct_header.boot_detail.load_details.source.id = NONE,
     .dct_header.boot_detail.load_details.source.detail.external_fixed.location = 0,
     .dct_header.boot_detail.load_details.destination.id = INTERNAL,
-#endif /* ifdef BOOTLOADER_LOAD_***REMOVED***_APP_FROM_FILESYSTEM */
+#endif /* ifdef BOOTLOADER_LOAD_MAIN_APP_FROM_FILESYSTEM */
 
     .security_credentials.certificate = CERTIFICATE_STRING,
     .security_credentials.private_key = PRIVATE_KEY_STRING,

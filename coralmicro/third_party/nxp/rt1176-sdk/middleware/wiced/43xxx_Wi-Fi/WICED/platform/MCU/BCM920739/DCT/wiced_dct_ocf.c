@@ -1093,14 +1093,14 @@ void* wiced_dct_get_current_address( dct_section_t section )
         }
 #endif  /* (DCT_BOOTLOADER_SDK_VERSION < DCT_BOOTLOADER_SDK_3_1_2) */
 
-#if defined( BOOTLOADER_LOAD_***REMOVED***_APP_FROM_FILESYSTEM )
+#if defined( BOOTLOADER_LOAD_MAIN_APP_FROM_FILESYSTEM )
         dct_header.boot_detail.entry_point = 0;
         dct_header.boot_detail.load_details.valid = 1;
         dct_header.boot_detail.load_details.load_once = 0;
         dct_header.boot_detail.load_details.source.id = EXTERNAL_FILESYSTEM_FILE;
         dct_header.boot_detail.load_details.source.detail.filesystem_filename = "app.elf";
         dct_header.boot_detail.load_details.destination.id = INTERNAL;
-#elif defined( BOOTLOADER_LOAD_***REMOVED***_APP_FROM_EXTERNAL_LOCATION )
+#elif defined( BOOTLOADER_LOAD_MAIN_APP_FROM_EXTERNAL_LOCATION )
         dct_header.boot_detail.entry_point = 0;
         dct_header.boot_detail.load_details.valid = 1;
         dct_header.boot_detail.load_details.load_once = 0;
@@ -1113,7 +1113,7 @@ void* wiced_dct_get_current_address( dct_section_t section )
         dct_header.boot_detail.load_details.source.id = NONE;
         dct_header.boot_detail.load_details.source.detail.external_fixed.location = 0;
         dct_header.boot_detail.load_details.destination.id = INTERNAL;
-#endif /* ifdef BOOTLOADER_LOAD_***REMOVED***_APP_FROM_FILESYSTEM */
+#endif /* ifdef BOOTLOADER_LOAD_MAIN_APP_FROM_FILESYSTEM */
 
         /* Erase and init dct1 */
         if ( wiced_dct_erase_non_current_dct( PLATFORM_DCT_COPY1_START_ADDRESS ) != WICED_SUCCESS )

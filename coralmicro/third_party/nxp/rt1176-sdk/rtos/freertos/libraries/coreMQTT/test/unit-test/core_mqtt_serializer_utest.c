@@ -31,13 +31,13 @@
 /* Include paths for public enums, structures, and macros. */
 #include "core_mqtt_serializer.h"
 
-#define MQTT_MAX_RE***REMOVED***ING_LENGTH                   ( 268435455UL )
-#define MQTT_PACKET_CONNACK_RE***REMOVED***ING_LENGTH        ( ( uint8_t ) 2U )    /**< @brief A CONNACK packet always has a "Remaining length" of 2. */
+#define MQTT_MAX_REMAINING_LENGTH                   ( 268435455UL )
+#define MQTT_PACKET_CONNACK_REMAINING_LENGTH        ( ( uint8_t ) 2U )    /**< @brief A CONNACK packet always has a "Remaining length" of 2. */
 #define MQTT_PACKET_CONNACK_SESSION_PRESENT_MASK    ( ( uint8_t ) 0x01U ) /**< @brief The "Session Present" bit is always the lowest bit. */
-#define MQTT_PACKET_SIMPLE_ACK_RE***REMOVED***ING_LENGTH     ( ( uint8_t ) 2 )     /**< @brief PUBACK, PUBREC, PUBREl, PUBCOMP, UNSUBACK Remaining length. */
-#define MQTT_PACKET_PINGRESP_RE***REMOVED***ING_LENGTH       ( 0U )                /**< @brief A PINGRESP packet always has a "Remaining length" of 0. */
-#define MQTT_PACKET_PUBACK_RE***REMOVED***ING_LENGTH         ( 2U )
-#define MQTT_PACKET_UNSUBACK_RE***REMOVED***ING_LENGTH       ( 2U )
+#define MQTT_PACKET_SIMPLE_ACK_REMAINING_LENGTH     ( ( uint8_t ) 2 )     /**< @brief PUBACK, PUBREC, PUBREl, PUBCOMP, UNSUBACK Remaining length. */
+#define MQTT_PACKET_PINGRESP_REMAINING_LENGTH       ( 0U )                /**< @brief A PINGRESP packet always has a "Remaining length" of 0. */
+#define MQTT_PACKET_PUBACK_REMAINING_LENGTH         ( 2U )
+#define MQTT_PACKET_UNSUBACK_REMAINING_LENGTH       ( 2U )
 
 /*
  * MQTT client identifier.
@@ -97,7 +97,7 @@
 /**
  * @brief The Remaining Length field of MQTT disconnect packets, per MQTT spec.
  */
-#define MQTT_DISCONNECT_RE***REMOVED***ING_LENGTH    ( ( uint8_t ) 0 )
+#define MQTT_DISCONNECT_REMAINING_LENGTH    ( ( uint8_t ) 0 )
 
 /**
  * @brief Set a bit in an 8-bit unsigned integer.
@@ -126,7 +126,7 @@
  * @brief Maximum number of bytes in the Remaining Length field is four according
  * to MQTT 3.1.1 spec.
  */
-#define MQTT_RE***REMOVED***ING_BUFFER_MAX_LENGTH    ( 4 )
+#define MQTT_REMAINING_BUFFER_MAX_LENGTH    ( 4 )
 
 /**
  * @brief Length of buffer padding to use in under/overflow checks.
@@ -143,7 +143,7 @@
  */
 #define MQTT_TEST_BUFFER_LENGTH             ( 1024 )
 
-static uint8_t remainingLengthBuffer[ MQTT_RE***REMOVED***ING_BUFFER_MAX_LENGTH ] = { 0 };
+static uint8_t remainingLengthBuffer[ MQTT_REMAINING_BUFFER_MAX_LENGTH ] = { 0 };
 
 static uint8_t encodedStringBuffer[ MQTT_TEST_BUFFER_LENGTH ] = { 0 };
 
@@ -1090,11 +1090,11 @@ void test_MQTT_GetPublishPacketSize( void )
     memset( &publishInfo, 0x00, sizeof( publishInfo ) );
     publishInfo.pTopicName = "/test/topic";
     publishInfo.topicNameLength = sizeof( "/test/topic" );
-    publishInfo.payloadLength = MQTT_MAX_RE***REMOVED***ING_LENGTH;
+    publishInfo.payloadLength = MQTT_MAX_REMAINING_LENGTH;
     status = MQTT_GetPublishPacketSize( &publishInfo, &remainingLength, &packetSize );
     TEST_ASSERT_EQUAL( MQTTBadParameter, status );
 
-    publishInfo.payloadLength = MQTT_MAX_RE***REMOVED***ING_LENGTH - publishInfo.topicNameLength - sizeof( uint16_t ) - 1;
+    publishInfo.payloadLength = MQTT_MAX_REMAINING_LENGTH - publishInfo.topicNameLength - sizeof( uint16_t ) - 1;
     status = MQTT_GetPublishPacketSize( &publishInfo, &remainingLength, &packetSize );
     TEST_ASSERT_EQUAL( MQTTBadParameter, status );
 
@@ -1419,12 +1419,12 @@ void test_MQTT_DeserializeAck_connack( void )
 
     /* Bad remaining length. */
     mqttPacketInfo.type = MQTT_PACKET_TYPE_CONNACK;
-    mqttPacketInfo.remainingLength = MQTT_PACKET_CONNACK_RE***REMOVED***ING_LENGTH - 1;
+    mqttPacketInfo.remainingLength = MQTT_PACKET_CONNACK_REMAINING_LENGTH - 1;
     status = MQTT_DeserializeAck( &mqttPacketInfo, &packetIdentifier, &sessionPresent );
     TEST_ASSERT_EQUAL_INT( MQTTBadResponse, status );
 
     /* Incorrect reserved bits. */
-    mqttPacketInfo.remainingLength = MQTT_PACKET_CONNACK_RE***REMOVED***ING_LENGTH;
+    mqttPacketInfo.remainingLength = MQTT_PACKET_CONNACK_REMAINING_LENGTH;
     buffer[ 0 ] = 0xf;
     buffer[ 1 ] = 0;
     status = MQTT_DeserializeAck( &mqttPacketInfo, &packetIdentifier, &sessionPresent );
@@ -1519,14 +1519,14 @@ void test_MQTT_DeserializeAck_unsuback( void )
     /* Bad remaining length. */
     mqttPacketInfo.type = MQTT_PACKET_TYPE_UNSUBACK;
     mqttPacketInfo.pRemainingData = buffer;
-    mqttPacketInfo.remainingLength = MQTT_PACKET_UNSUBACK_RE***REMOVED***ING_LENGTH - 1;
+    mqttPacketInfo.remainingLength = MQTT_PACKET_UNSUBACK_REMAINING_LENGTH - 1;
     status = MQTT_DeserializeAck( &mqttPacketInfo, &packetIdentifier, &sessionPresent );
     TEST_ASSERT_EQUAL_INT( MQTTBadResponse, status );
 
     /* Packet identifier 0 is not valid (per spec). */
     buffer[ 0 ] = 0;
     buffer[ 1 ] = 0;
-    mqttPacketInfo.remainingLength = MQTT_PACKET_UNSUBACK_RE***REMOVED***ING_LENGTH;
+    mqttPacketInfo.remainingLength = MQTT_PACKET_UNSUBACK_REMAINING_LENGTH;
     status = MQTT_DeserializeAck( &mqttPacketInfo, &packetIdentifier, &sessionPresent );
     TEST_ASSERT_EQUAL_INT( MQTTBadResponse, status );
 
@@ -1549,12 +1549,12 @@ void test_MQTT_DeserializeAck_pingresp( void )
     /* Bad remaining length. */
     ( void ) memset( &mqttPacketInfo, 0x00, sizeof( mqttPacketInfo ) );
     mqttPacketInfo.type = MQTT_PACKET_TYPE_PINGRESP;
-    mqttPacketInfo.remainingLength = MQTT_PACKET_PINGRESP_RE***REMOVED***ING_LENGTH + 1;
+    mqttPacketInfo.remainingLength = MQTT_PACKET_PINGRESP_REMAINING_LENGTH + 1;
     status = MQTT_DeserializeAck( &mqttPacketInfo, &packetIdentifier, &sessionPresent );
     TEST_ASSERT_EQUAL_INT( MQTTBadResponse, status );
 
     /* Process a valid PINGRESP. */
-    mqttPacketInfo.remainingLength = MQTT_PACKET_PINGRESP_RE***REMOVED***ING_LENGTH;
+    mqttPacketInfo.remainingLength = MQTT_PACKET_PINGRESP_REMAINING_LENGTH;
     mqttPacketInfo.pRemainingData = NULL;
     status = MQTT_DeserializeAck( &mqttPacketInfo, NULL, NULL );
     TEST_ASSERT_EQUAL_INT( MQTTSuccess, status );
@@ -1586,14 +1586,14 @@ void test_MQTT_DeserializeAck_puback( void )
     /* Bad remaining length. */
     mqttPacketInfo.type = MQTT_PACKET_TYPE_PUBACK;
     mqttPacketInfo.pRemainingData = buffer;
-    mqttPacketInfo.remainingLength = MQTT_PACKET_SIMPLE_ACK_RE***REMOVED***ING_LENGTH - 1;
+    mqttPacketInfo.remainingLength = MQTT_PACKET_SIMPLE_ACK_REMAINING_LENGTH - 1;
     status = MQTT_DeserializeAck( &mqttPacketInfo, &packetIdentifier, &sessionPresent );
     TEST_ASSERT_EQUAL_INT( MQTTBadResponse, status );
 
     /* Packet identifier 0 is not valid (per spec). */
     buffer[ 0 ] = 0;
     buffer[ 1 ] = 0;
-    mqttPacketInfo.remainingLength = MQTT_PACKET_SIMPLE_ACK_RE***REMOVED***ING_LENGTH;
+    mqttPacketInfo.remainingLength = MQTT_PACKET_SIMPLE_ACK_REMAINING_LENGTH;
     status = MQTT_DeserializeAck( &mqttPacketInfo, &packetIdentifier, &sessionPresent );
     TEST_ASSERT_EQUAL_INT( MQTTBadResponse, status );
 
@@ -2487,7 +2487,7 @@ void test_MQTT_SerializeDisconnect_Happy_Path()
     /* Make sure buffer has enough space. */
     mqttStatus = MQTT_SerializeDisconnect( &networkBuffer );
     TEST_ASSERT_EQUAL( MQTT_PACKET_TYPE_DISCONNECT, networkBuffer.pBuffer[ 0 ] );
-    TEST_ASSERT_EQUAL( MQTT_DISCONNECT_RE***REMOVED***ING_LENGTH, networkBuffer.pBuffer[ 1 ] );
+    TEST_ASSERT_EQUAL( MQTT_DISCONNECT_REMAINING_LENGTH, networkBuffer.pBuffer[ 1 ] );
     TEST_ASSERT_EQUAL( MQTTSuccess, mqttStatus );
 }
 

@@ -255,7 +255,7 @@ TEST( Full_OTA_PAL, otaPal_CloseFile_ValidSignature )
     xOtaFile.pFilePath = ( uint8_t * ) ( "test_happy_path_image.bin" );
     xOtaFile.fileSize = sizeof( ucDummyData );
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* We still want to close the file if the test fails somewhere here. */
     if( TEST_PROTECT() )
@@ -273,7 +273,7 @@ TEST( Full_OTA_PAL, otaPal_CloseFile_ValidSignature )
         xOtaFile.pCertFilepath = ( uint8_t * ) otatestpalCERTIFICATE_FILE;
 
         xOtaStatus = otaPal_CloseFile( &xOtaFile );
-        TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
     }
 }
 #if ( otatestpalREAD_CERTIFICATE_FROM_NVM_WITH_PKCS11 == 1 )
@@ -351,7 +351,7 @@ TEST( Full_OTA_PAL, otaPal_CloseFile_ValidSignatureKeyInFlash )
         xOtaFile.pFilePath = ( uint8_t * ) ( "test_happy_path_image.bin" );
         xOtaFile.fileSize = sizeof( ucDummyData );
         xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
         /* Close the file if the test fails somewhere here. */
         if( TEST_PROTECT() )
@@ -370,7 +370,7 @@ TEST( Full_OTA_PAL, otaPal_CloseFile_ValidSignatureKeyInFlash )
             xOtaFile.pCertFilepath = ( uint8_t * ) pkcs11configLABEL_CODE_VERIFICATION_KEY;
 
             xOtaStatus = otaPal_CloseFile( &xOtaFile );
-            TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+            TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
         }
     #endif /* if ( otatestpalREAD_CERTIFICATE_FROM_NVM_WITH_PKCS11 == 1 ) */
 }
@@ -392,7 +392,7 @@ TEST( Full_OTA_PAL, otaPal_CloseFile_InvalidSignatureBlockWritten )
     xOtaFile.fileSize = sizeof( ucDummyData );
 
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* We still want to close the file if the test fails somewhere here. */
     if( TEST_PROTECT() )
@@ -413,9 +413,9 @@ TEST( Full_OTA_PAL, otaPal_CloseFile_InvalidSignatureBlockWritten )
         /* Try to close the file. */
         xOtaStatus = otaPal_CloseFile( &xOtaFile );
 
-        if( ( OtaPalBadSignerCert != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-            ( OtaPalSignatureCheckFailed != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-            ( OtaPalFileClose != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) )
+        if( ( OtaPalBadSignerCert != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+            ( OtaPalSignatureCheckFailed != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+            ( OtaPalFileClose != OTA_PAL_MAIN_ERR( xOtaStatus ) ) )
         {
             TEST_ASSERT_TRUE( 0 );
         }
@@ -435,7 +435,7 @@ TEST( Full_OTA_PAL, otaPal_CloseFile_InvalidSignatureNoBlockWritten )
     /* Create a local file using the PAL. */
     xOtaFile.pFilePath = ( uint8_t * ) otatestpalFIRMWARE_FILE;
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* Fill out an incorrect signature. */
     xOtaFile.pSignature = &xSig;
@@ -449,9 +449,9 @@ TEST( Full_OTA_PAL, otaPal_CloseFile_InvalidSignatureNoBlockWritten )
         /* Try to close the file. */
         xOtaStatus = otaPal_CloseFile( &xOtaFile );
 
-        if( ( OtaPalBadSignerCert != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-            ( OtaPalSignatureCheckFailed != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-            ( OtaPalFileClose != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) )
+        if( ( OtaPalBadSignerCert != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+            ( OtaPalSignatureCheckFailed != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+            ( OtaPalFileClose != OTA_PAL_MAIN_ERR( xOtaStatus ) ) )
         {
             TEST_ASSERT_TRUE( 0 );
         }
@@ -481,7 +481,7 @@ TEST( Full_OTA_PAL, otaPal_CloseFile_NonexistingCodeSignerCertificate )
         xOtaFile.fileSize = sizeof( ucDummyData );
 
         xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
         /* We still want to close the file if the test fails somewhere here. */
         if( TEST_PROTECT() )
@@ -501,9 +501,9 @@ TEST( Full_OTA_PAL, otaPal_CloseFile_NonexistingCodeSignerCertificate )
 
             xOtaStatus = otaPal_CloseFile( &xOtaFile );
 
-            if( ( OtaPalBadSignerCert != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-                ( OtaPalSignatureCheckFailed != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-                ( OtaPalFileClose != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) )
+            if( ( OtaPalBadSignerCert != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+                ( OtaPalSignatureCheckFailed != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+                ( OtaPalFileClose != OTA_PAL_MAIN_ERR( xOtaStatus ) ) )
             {
                 TEST_ASSERT_TRUE( 0 );
             }
@@ -523,7 +523,7 @@ TEST( Full_OTA_PAL, otaPal_CreateFileForRx_CreateAnyFile )
     /* TEST: Create a local file using the PAL. Verify error in close. */
     xOtaFile.pFilePath = ( uint8_t * ) otatestpalFIRMWARE_FILE;
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 }
 
 /**
@@ -537,11 +537,11 @@ TEST( Full_OTA_PAL, otaPal_Abort_OpenFile )
 
     /* Create a local file using the PAL. */
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* Signal that the download is being aborted. */
     xOtaStatus = otaPal_Abort( &xOtaFile );
-    TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* Verify that the file handle is null. */
     TEST_ASSERT_EQUAL_INT( NULL, xOtaFile.pFile );
@@ -560,7 +560,7 @@ TEST( Full_OTA_PAL, otaPal_Abort_FileWithBlockWritten )
 
     /* Create a local file again using the PAL. */
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* We still want to close the file if the test fails here. */
     if( TEST_PROTECT() )
@@ -575,7 +575,7 @@ TEST( Full_OTA_PAL, otaPal_Abort_FileWithBlockWritten )
 
     /* Signal that the download is being aborted. */
     xOtaStatus = otaPal_Abort( &xOtaFile );
-    TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* Verify that the file handle is null. */
     TEST_ASSERT_EQUAL_INT( NULL, xOtaFile.pFile );
@@ -592,7 +592,7 @@ TEST( Full_OTA_PAL, otaPal_Abort_NullFileHandle )
 
     xOtaFile.pFile = 0;
     xOtaStatus = otaPal_Abort( &xOtaFile );
-    TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 }
 
 /**
@@ -606,7 +606,7 @@ TEST( Full_OTA_PAL, otaPal_Abort_NonExistentFile )
 
     xOtaFile.pFilePath = ( uint8_t * ) ( "nonexistingfile.bin" );
     xOtaStatus = otaPal_Abort( &xOtaFile );
-    TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 }
 
 /**
@@ -621,7 +621,7 @@ TEST( Full_OTA_PAL, otaPal_WriteBlock_WriteSingleByte )
     /* TEST: Write a byte of data. */
     xOtaFile.pFilePath = ( uint8_t * ) otatestpalFIRMWARE_FILE;
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     if( TEST_PROTECT() )
     {
@@ -644,7 +644,7 @@ TEST( Full_OTA_PAL, otaPal_WriteBlock_WriteManyBlocks )
 
     xOtaFile.pFilePath = ( uint8_t * ) otatestpalFIRMWARE_FILE;
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     if( TEST_PROTECT() )
     {
@@ -671,7 +671,7 @@ TEST( Full_OTA_PAL, otaPal_ActivateNewImage_HappyPath )
     #ifdef WIN32
         OtaPalStatus_t xOtaStatus = otaPal_ActivateNewImage( &xOtaFile );
 
-        TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
     #endif
 }
 
@@ -689,7 +689,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_SelfTestImageState )
     xOtaFile.fileSize = sizeof( ucDummyData );
 
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* We still want to close the file if the test fails. */
     if( TEST_PROTECT() )
@@ -704,7 +704,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_SelfTestImageState )
         /* Set the image state. */
         eImageState = OtaImageStateTesting;
         xOtaStatus = otaPal_SetPlatformImageState( &xOtaFile, eImageState );
-        TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
         /* Verify that image state was saved correctly. */
 
@@ -728,7 +728,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_InvalidImageState )
     xOtaFile.fileSize = sizeof( ucDummyData );
 
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* We still want to close the file if the test fails. */
     if( TEST_PROTECT() )
@@ -743,7 +743,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_InvalidImageState )
         /* Try to set an invalid image state. */
         eImageState = ( OtaImageState_t ) ( OtaLastImageState + 1 );
         xOtaStatus = otaPal_SetPlatformImageState( &xOtaFile, eImageState );
-        TEST_ASSERT_EQUAL( OtaPalBadImageState, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL( OtaPalBadImageState, OTA_PAL_MAIN_ERR( xOtaStatus ) );
     }
 }
 
@@ -761,7 +761,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_UnknownImageState )
     xOtaFile.fileSize = sizeof( ucDummyData );
 
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* We still want to close the file if the test fails. */
     if( TEST_PROTECT() )
@@ -776,7 +776,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_UnknownImageState )
         /* Try to set an invalid image state. */
         eImageState = OtaImageStateUnknown;
         xOtaStatus = otaPal_SetPlatformImageState( &xOtaFile, eImageState );
-        TEST_ASSERT_EQUAL( OtaPalBadImageState, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL( OtaPalBadImageState, OTA_PAL_MAIN_ERR( xOtaStatus ) );
     }
 }
 
@@ -799,7 +799,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_AcceptedImageStateButImageNotCl
         xOtaFile.fileSize = sizeof( ucDummyData );
 
         xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
         /* We still want to close the file if the test fails. */
         if( TEST_PROTECT() )
@@ -813,7 +813,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_AcceptedImageStateButImageNotCl
 
             eImageState = OtaImageStateAccepted;
             xOtaStatus = otaPal_SetPlatformImageState( &xOtaFile, eImageState );
-            TEST_ASSERT_EQUAL_INT( OtaPalCommitFailed, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+            TEST_ASSERT_EQUAL_INT( OtaPalCommitFailed, OTA_PAL_MAIN_ERR( xOtaStatus ) );
         }
     #endif /* ifndef WIN32 */
 }
@@ -833,7 +833,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_RejectImageState )
     xOtaFile.fileSize = sizeof( ucDummyData );
 
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* We still want to close the file if the test fails. */
     if( TEST_PROTECT() )
@@ -847,7 +847,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_RejectImageState )
 
         eImageState = OtaImageStateRejected;
         xOtaStatus = otaPal_SetPlatformImageState( &xOtaFile, eImageState );
-        TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
     }
 }
 
@@ -866,7 +866,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_AbortImageState )
     xOtaFile.fileSize = sizeof( ucDummyData );
 
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* We still want to close the file if the test fails. */
     if( TEST_PROTECT() )
@@ -880,7 +880,7 @@ TEST( Full_OTA_PAL, otaPal_SetPlatformImageState_AbortImageState )
 
         eImageState = OtaImageStateAborted;
         xOtaStatus = otaPal_SetPlatformImageState( &xOtaFile, eImageState );
-        TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
     }
 }
 
@@ -901,7 +901,7 @@ TEST( Full_OTA_PAL, otaPal_GetPlatformImageState_InvalidImageStateFromFileCloseF
     xOtaFile.fileSize = sizeof( ucDummyData );
 
     xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+    TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
     /* We still want to close the file if the test fails. */
     if( TEST_PROTECT() )
@@ -921,9 +921,9 @@ TEST( Full_OTA_PAL, otaPal_GetPlatformImageState_InvalidImageStateFromFileCloseF
 
         xOtaStatus = otaPal_CloseFile( &xOtaFile );
 
-        if( ( OtaPalBadSignerCert != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-            ( OtaPalSignatureCheckFailed != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-            ( OtaPalFileClose != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) )
+        if( ( OtaPalBadSignerCert != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+            ( OtaPalSignatureCheckFailed != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+            ( OtaPalFileClose != OTA_PAL_MAIN_ERR( xOtaStatus ) ) )
         {
             TEST_ASSERT_TRUE( 0 );
         }
@@ -1000,7 +1000,7 @@ TEST( Full_OTA_PAL, prvPAL_CheckFileSignature_ValidSignature )
         xOtaFile.fileSize = sizeof( ucDummyData );
 
         xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
         /* We still want to close the file if the test fails. */
         if( TEST_PROTECT() )
@@ -1018,7 +1018,7 @@ TEST( Full_OTA_PAL, prvPAL_CheckFileSignature_ValidSignature )
             xOtaFile.pCertFilepath = ( uint8_t * ) otatestpalCERTIFICATE_FILE;
 
             xOtaStatus = test_otaPal_CheckFileSignature( &xOtaFile );
-            TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+            TEST_ASSERT_EQUAL_INT( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
         }
     #endif /* if ( otatestpalCHECK_FILE_SIGNATURE_SUPPORTED == 1 ) */
 }
@@ -1037,7 +1037,7 @@ TEST( Full_OTA_PAL, prvPAL_CheckFileSignature_InvalidSignatureBlockWritten )
         /* Create a local file using the PAL. */
         xOtaFile.pFilePath = ( uint8_t * ) otatestpalFIRMWARE_FILE;
         xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
         /* We still want to close the file if the test fails. */
         if( TEST_PROTECT() )
@@ -1058,8 +1058,8 @@ TEST( Full_OTA_PAL, prvPAL_CheckFileSignature_InvalidSignatureBlockWritten )
             /* Check the signature. */
             xOtaStatus = test_otaPal_CheckFileSignature( &xOtaFile );
 
-            if( ( OtaPalBadSignerCert != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-                ( OtaPalSignatureCheckFailed != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) )
+            if( ( OtaPalBadSignerCert != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+                ( OtaPalSignatureCheckFailed != OTA_PAL_MAIN_ERR( xOtaStatus ) ) )
             {
                 TEST_ASSERT_TRUE( 0 );
             }
@@ -1090,8 +1090,8 @@ TEST( Full_OTA_PAL, prvPAL_CheckFileSignature_InvalidSignatureNoBlockWritten )
             /* Try to close the file. */
             xOtaStatus = otaPal_CloseFile( &xOtaFile );
 
-            if( ( OtaPalBadSignerCert != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-                ( OtaPalSignatureCheckFailed != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) )
+            if( ( OtaPalBadSignerCert != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+                ( OtaPalSignatureCheckFailed != OTA_PAL_MAIN_ERR( xOtaStatus ) ) )
             {
                 TEST_ASSERT_TRUE( 0 );
             }
@@ -1109,7 +1109,7 @@ TEST( Full_OTA_PAL, prvPAL_CheckFileSignature_NonexistingCodeSignerCertificate )
         /* Create a local file using the PAL. */
         xOtaFile.pFilePath = ( uint8_t * ) otatestpalFIRMWARE_FILE;
         xOtaStatus = otaPal_CreateFileForRx( &xOtaFile );
-        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_***REMOVED***_ERR( xOtaStatus ) );
+        TEST_ASSERT_EQUAL( OtaPalSuccess, OTA_PAL_MAIN_ERR( xOtaStatus ) );
 
         /* We still want to close the file if the test fails. */
         if( TEST_PROTECT() )
@@ -1129,8 +1129,8 @@ TEST( Full_OTA_PAL, prvPAL_CheckFileSignature_NonexistingCodeSignerCertificate )
 
             xOtaStatus = test_otaPal_CheckFileSignature( &xOtaFile );
 
-            if( ( OtaPalBadSignerCert != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) &&
-                ( OtaPalSignatureCheckFailed != OTA_PAL_***REMOVED***_ERR( xOtaStatus ) ) )
+            if( ( OtaPalBadSignerCert != OTA_PAL_MAIN_ERR( xOtaStatus ) ) &&
+                ( OtaPalSignatureCheckFailed != OTA_PAL_MAIN_ERR( xOtaStatus ) ) )
             {
                 TEST_ASSERT_TRUE( 0 );
             }

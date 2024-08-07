@@ -140,7 +140,7 @@ static wiced_time_t wiced_time_offset = 0;
  *  Called from the crt0 _start function
  *
  */
-#ifndef ALTERNATE_***REMOVED***
+#ifndef ALTERNATE_MAIN
 int main( void )
 {
 
@@ -166,7 +166,7 @@ int main( void )
     /* Should never get here, unless there is an error in vTaskStartScheduler */
     return 0;
 }
-#endif /* ifndef ALTERNATE_***REMOVED*** */
+#endif /* ifndef ALTERNATE_MAIN */
 
 static void application_thread_main( void *arg )
 {

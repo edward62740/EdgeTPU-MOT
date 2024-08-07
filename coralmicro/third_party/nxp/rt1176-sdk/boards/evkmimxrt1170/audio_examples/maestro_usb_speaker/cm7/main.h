@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef __***REMOVED***_H__
-#define __***REMOVED***_H__
+#ifndef __MAIN_H__
+#define __MAIN_H__
 
 #include "FreeRTOS.h"
 #include "task.h"
@@ -24,4 +24,4 @@ typedef struct _app_handle
 
 } app_handle_t;
 
-#endif /* __***REMOVED***_H__ */
+#endif /* __MAIN_H__ */

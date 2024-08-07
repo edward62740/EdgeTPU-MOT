@@ -43,7 +43,7 @@ void resetTest(void)
 }
 
 
-/*=======***REMOVED***=====*/
+/*=======MAIN=====*/
 int main(void)
 {
   UnityBegin("test/TestProductionCode.c");

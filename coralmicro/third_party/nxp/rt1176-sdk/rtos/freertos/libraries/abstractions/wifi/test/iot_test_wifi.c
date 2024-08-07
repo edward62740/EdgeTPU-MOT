@@ -82,8 +82,8 @@
 #define testwifiPING_ADDRESS                testwifiECHO_SERVER_ADDRESS
 
 /* WIFI_GetHostIP() test configurations. */
-#define testwifiTEST_DO***REMOVED***_NAME            "amazon.com" /* Valid domain name. */
-#define testwifiTEST_INVALID_DO***REMOVED***_NAME    "invalid"    /* Invalid domain name. */
+#define testwifiTEST_DOMAIN_NAME            "amazon.com" /* Valid domain name. */
+#define testwifiTEST_INVALID_DOMAIN_NAME    "invalid"    /* Invalid domain name. */
 
 /* Invalid credentials for WIFI_ConnectAP() tests. Valid credentials used are
  * defined in aws_clientcredentials.h. */
@@ -1036,7 +1036,7 @@ TEST( Quarantine_WiFi, AFQP_WiFiGetHostIP )
 
     if( TEST_PROTECT() )
     {
-        xWiFiStatus = WIFI_GetHostIP( testwifiTEST_DO***REMOVED***_NAME, ucIPAddr );
+        xWiFiStatus = WIFI_GetHostIP( testwifiTEST_DOMAIN_NAME, ucIPAddr );
 
         TEST_WIFI_ASSERT_REQUIRED_API( eWiFiSuccess == xWiFiStatus, xWiFiStatus );
 
@@ -1063,7 +1063,7 @@ TEST( Full_WiFi, AFQP_WIFI_GetHostIP_NullParameters )
 
     if( TEST_PROTECT() )
     {
-        xWiFiStatus = WIFI_GetHostIP( testwifiTEST_DO***REMOVED***_NAME, NULL );
+        xWiFiStatus = WIFI_GetHostIP( testwifiTEST_DOMAIN_NAME, NULL );
         TEST_WIFI_ASSERT_REQUIRED_API( xWiFiStatus != eWiFiSuccess, xWiFiStatus );
     }
 
@@ -1076,7 +1076,7 @@ TEST( Full_WiFi, AFQP_WIFI_GetHostIP_NullParameters )
 
 /**
  * @brief Call WIFI_GetHostIP with the invalid domain name defined in
- * testwifiTEST_INVALID_DO***REMOVED***_NAME and verify failure.
+ * testwifiTEST_INVALID_DOMAIN_NAME and verify failure.
  */
 TEST( Full_WiFi, AFQP_WIFI_GetHostIP_InvalidDomainName )
 {
@@ -1089,7 +1089,7 @@ TEST( Full_WiFi, AFQP_WIFI_GetHostIP_InvalidDomainName )
 
     if( TEST_PROTECT() )
     {
-        xWiFiStatus = WIFI_GetHostIP( testwifiTEST_INVALID_DO***REMOVED***_NAME, ucIPAddr );
+        xWiFiStatus = WIFI_GetHostIP( testwifiTEST_INVALID_DOMAIN_NAME, ucIPAddr );
 
         TEST_WIFI_ASSERT_REQUIRED_API( xWiFiStatus != eWiFiSuccess, xWiFiStatus );
 

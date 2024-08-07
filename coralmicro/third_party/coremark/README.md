@@ -112,7 +112,7 @@ for the algorithms must be defined via the compiler define `TOTAL_DATA_SIZE`.
 The default for such a target when testing different configurations could be:
 
 ~~~
-% make XCFLAGS="-DTOTAL_DATA_SIZE=6000 -D***REMOVED***_HAS_NOARGC=1"
+% make XCFLAGS="-DTOTAL_DATA_SIZE=6000 -DMAIN_HAS_NOARGC=1"
 ~~~
 
 # Submitting Results

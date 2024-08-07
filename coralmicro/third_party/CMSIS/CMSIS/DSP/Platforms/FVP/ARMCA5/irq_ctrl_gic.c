@@ -156,9 +156,9 @@ __WEAK int32_t IRQ_SetMode (IRQn_ID_t irqn, uint32_t mode) {
     }
 
     // Check interrupt domain
-    val = mode & IRQ_MODE_DO***REMOVED***_Msk;
+    val = mode & IRQ_MODE_DOMAIN_Msk;
 
-    if (val == IRQ_MODE_DO***REMOVED***_NONSECURE) {
+    if (val == IRQ_MODE_DOMAIN_NONSECURE) {
       secure = 0U;
     } else {
       // Check security extensions support

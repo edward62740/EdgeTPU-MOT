@@ -44,7 +44,7 @@ typedef bool bool_t;
 #define TRUE                    ((bool_t)1)
 #endif
 
-#define DO***REMOVED***_NS               0
+#define DOMAIN_NS               0
 #define EXCLUSIVE_ACCESS        1
 
 #define OS_TICK_HANDLER         osRtxTick_Handler

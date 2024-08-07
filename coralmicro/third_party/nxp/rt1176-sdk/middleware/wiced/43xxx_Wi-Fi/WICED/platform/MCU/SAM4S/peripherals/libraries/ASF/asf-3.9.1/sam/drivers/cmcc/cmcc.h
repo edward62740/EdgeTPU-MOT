@@ -201,7 +201,7 @@ static inline void cmcc_disable(Cmcc *const p_cmcc)
  */
 static inline void cmcc_invalidate_all(Cmcc *const p_cmcc)
 {
-	p_cmcc->CMCC_***REMOVED***T0 = CMCC_***REMOVED***T0_INVALL;
+	p_cmcc->CMCC_MAINT0 = CMCC_MAINT0_INVALL;
 }
 
 /** @} */

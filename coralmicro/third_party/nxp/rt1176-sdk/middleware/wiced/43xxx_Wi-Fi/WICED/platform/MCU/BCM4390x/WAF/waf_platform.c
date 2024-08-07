@@ -146,7 +146,7 @@ void platform_load_app_chunk(const image_location_t* app_header_location, uint32
 
 platform_result_t platform_deepsleep_set_boot(uint8_t app_idx)
 {
-#if defined(BOOTLOADER_LOAD_***REMOVED***_APP_FROM_EXTERNAL_LOCATION)
+#if defined(BOOTLOADER_LOAD_MAIN_APP_FROM_EXTERNAL_LOCATION)
     image_location_t    source = { 0 };
 
     if ( wiced_dct_get_app_header_location( app_idx, &source ) == WICED_SUCCESS )
@@ -161,7 +161,7 @@ platform_result_t platform_deepsleep_set_boot(uint8_t app_idx)
     UNUSED_PARAMETER(app_idx);
 #error Not supported
 
-#endif  /* defined(BOOTLOADER_LOAD_***REMOVED***_APP_FROM_EXTERNAL_LOCATION) */
+#endif  /* defined(BOOTLOADER_LOAD_MAIN_APP_FROM_EXTERNAL_LOCATION) */
     return PLATFORM_ERROR;
 }
 

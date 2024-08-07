@@ -79,7 +79,7 @@ They are also returned by the function \ref IRQ_GetMode when retrieving interrup
 
 The values of \b IRQ_MODE_TRIG_x definitions specify
 The values of \b IRQ_MODE_TYPE_x definitions specify
-The values of \b IRQ_MODE_DO***REMOVED***_x definitions specify
+The values of \b IRQ_MODE_DOMAIN_x definitions specify
 The values of \b IRQ_MODE_CPU_x definitions specify
 
 // Interrupt mode bit-masks
@@ -94,8 +94,8 @@ The values of \b IRQ_MODE_CPU_x definitions specify
 \def IRQ_MODE_TYPE_IRQ
 \def IRQ_MODE_TYPE_FIQ
 
-\def IRQ_MODE_DO***REMOVED***_NONSECURE
-\def IRQ_MODE_DO***REMOVED***_SECURE
+\def IRQ_MODE_DOMAIN_NONSECURE
+\def IRQ_MODE_DOMAIN_SECURE
 
 \def IRQ_MODE_CPU_ALL
 \def IRQ_MODE_CPU_0
@@ -317,9 +317,9 @@ int32_t IRQ_SetMode (IRQn_ID_t irqn, uint32_t mode) {
     }
  
     // Check interrupt domain
-    val = mode & IRQ_MODE_DO***REMOVED***_Msk;
+    val = mode & IRQ_MODE_DOMAIN_Msk;
  
-    if (val == IRQ_MODE_DO***REMOVED***_NONSECURE) {
+    if (val == IRQ_MODE_DOMAIN_NONSECURE) {
       secure = 0;
     } else {
       // Check security extensions support

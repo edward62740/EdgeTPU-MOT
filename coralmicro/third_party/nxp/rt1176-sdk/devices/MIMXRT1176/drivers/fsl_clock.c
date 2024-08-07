@@ -1873,7 +1873,7 @@ void CLOCK_OSCPLL_ControlBySetPointMode(clock_name_t name, uint16_t spValue, uin
 {
     /* Set control mode to unassigned mode. */
     CCM->OSCPLL[name].AUTHEN &=
-        ~(CCM_OSCPLL_AUTHEN_CPULPM_MASK | CCM_OSCPLL_AUTHEN_DO***REMOVED***_MODE_MASK | CCM_OSCPLL_AUTHEN_SETPOINT_MODE_MASK);
+        ~(CCM_OSCPLL_AUTHEN_CPULPM_MASK | CCM_OSCPLL_AUTHEN_DOMAIN_MODE_MASK | CCM_OSCPLL_AUTHEN_SETPOINT_MODE_MASK);
     /* Change SetPoint value in unassigned mode. */
     CCM->OSCPLL[name].SETPOINT = CCM_OSCPLL_SETPOINT_STANDBY(stbyValue) | CCM_OSCPLL_SETPOINT_SETPOINT(spValue);
     /* Set control mode to SetPoint mode. */
@@ -1887,11 +1887,11 @@ void CLOCK_OSCPLL_ControlByCpuLowPowerMode(clock_name_t name,
 {
     /* Set control mode to unassigned mode. */
     CCM->OSCPLL[name].AUTHEN &=
-        ~(CCM_OSCPLL_AUTHEN_SETPOINT_MODE_MASK | CCM_OSCPLL_AUTHEN_DO***REMOVED***_MODE_MASK | CCM_OSCPLL_AUTHEN_CPULPM_MASK);
+        ~(CCM_OSCPLL_AUTHEN_SETPOINT_MODE_MASK | CCM_OSCPLL_AUTHEN_DOMAIN_MODE_MASK | CCM_OSCPLL_AUTHEN_CPULPM_MASK);
     /* Change clock depend level for each domain in unassigned mode. */
-    CCM->OSCPLL[name].DO***REMOVED***r =
-        ((((uint32_t)domainId & (1UL << 1UL)) != 0UL) ? CCM_OSCPLL_DO***REMOVED***_LEVEL1(level1) : 0UL) |
-        (((domainId & (1UL << 0UL)) != 0UL) ? CCM_OSCPLL_DO***REMOVED***_LEVEL0(level0) : 0UL);
+    CCM->OSCPLL[name].DOMAINr =
+        ((((uint32_t)domainId & (1UL << 1UL)) != 0UL) ? CCM_OSCPLL_DOMAIN_LEVEL1(level1) : 0UL) |
+        (((domainId & (1UL << 0UL)) != 0UL) ? CCM_OSCPLL_DOMAIN_LEVEL0(level0) : 0UL);
     /* Set control mode to CPU low power mode and update whitelist. */
     CCM->OSCPLL[name].AUTHEN = (CCM->OSCPLL[name].AUTHEN & ~CCM_OSCPLL_AUTHEN_WHITE_LIST_MASK) |
                                CCM_OSCPLL_AUTHEN_CPULPM_MASK | CCM_OSCPLL_AUTHEN_WHITE_LIST(domainId);
@@ -1916,7 +1916,7 @@ void CLOCK_LPCG_ControlBySetPointMode(clock_lpcg_t name, uint16_t spValue, uint1
 {
     /* Set control mode to unassigned mode. */
     CCM->LPCG[name].AUTHEN &=
-        ~(CCM_LPCG_AUTHEN_CPULPM_MASK | CCM_LPCG_AUTHEN_DO***REMOVED***_MODE_MASK | CCM_LPCG_AUTHEN_SETPOINT_MODE_MASK);
+        ~(CCM_LPCG_AUTHEN_CPULPM_MASK | CCM_LPCG_AUTHEN_DOMAIN_MODE_MASK | CCM_LPCG_AUTHEN_SETPOINT_MODE_MASK);
     /* Change SetPoint value in unassigned mode. */
     CCM->LPCG[name].SETPOINT = CCM_LPCG_SETPOINT_STANDBY(stbyValue) | CCM_LPCG_SETPOINT_SETPOINT(spValue);
     /* Set control mode to SetPoint mode. */
@@ -1930,10 +1930,10 @@ void CLOCK_LPCG_ControlByCpuLowPowerMode(clock_lpcg_t name,
 {
     /* Set control mode to unassigned mode. */
     CCM->LPCG[name].AUTHEN &=
-        ~(CCM_LPCG_AUTHEN_SETPOINT_MODE_MASK | CCM_LPCG_AUTHEN_DO***REMOVED***_MODE_MASK | CCM_LPCG_AUTHEN_CPULPM_MASK);
+        ~(CCM_LPCG_AUTHEN_SETPOINT_MODE_MASK | CCM_LPCG_AUTHEN_DOMAIN_MODE_MASK | CCM_LPCG_AUTHEN_CPULPM_MASK);
     /* Change clock depend level for each domain in unassigned mode. */
-    CCM->LPCG[name].DO***REMOVED***r = ((((uint32_t)domainId & (1UL << 1UL)) != 0UL) ? CCM_LPCG_DO***REMOVED***_LEVEL1(level1) : 0UL) |
-                              ((((uint32_t)domainId & (1UL << 0UL)) != 0UL) ? CCM_LPCG_DO***REMOVED***_LEVEL0(level0) : 0UL);
+    CCM->LPCG[name].DOMAINr = ((((uint32_t)domainId & (1UL << 1UL)) != 0UL) ? CCM_LPCG_DOMAIN_LEVEL1(level1) : 0UL) |
+                              ((((uint32_t)domainId & (1UL << 0UL)) != 0UL) ? CCM_LPCG_DOMAIN_LEVEL0(level0) : 0UL);
     /* Set control mode to CPU low power mode and update whitelist. */
     CCM->LPCG[name].AUTHEN = (CCM->LPCG[name].AUTHEN & ~CCM_LPCG_AUTHEN_WHITE_LIST_MASK) | CCM_LPCG_AUTHEN_CPULPM_MASK |
                              CCM_LPCG_AUTHEN_WHITE_LIST(domainId);

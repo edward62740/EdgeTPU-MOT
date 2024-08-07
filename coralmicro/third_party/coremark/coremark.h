@@ -57,12 +57,12 @@ typedef double secs_ret;
 typedef ee_u32 secs_ret;
 #endif
 
-#if ***REMOVED***_HAS_NORETURN
-#define ***REMOVED***_RETURN_VAL
-#define ***REMOVED***_RETURN_TYPE void
+#if MAIN_HAS_NORETURN
+#define MAIN_RETURN_VAL
+#define MAIN_RETURN_TYPE void
 #else
-#define ***REMOVED***_RETURN_VAL  0
-#define ***REMOVED***_RETURN_TYPE int
+#define MAIN_RETURN_VAL  0
+#define MAIN_RETURN_TYPE int
 #endif
 
 void       start_time(void);

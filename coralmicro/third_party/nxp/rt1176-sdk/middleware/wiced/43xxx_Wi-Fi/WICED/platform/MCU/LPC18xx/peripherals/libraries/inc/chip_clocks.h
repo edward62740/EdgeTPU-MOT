@@ -56,7 +56,7 @@ typedef enum CHIP_CGU_CLKIN {
 	CLKIN_CRYSTAL,	/*!< External (main) crystal pin input */
 	CLKIN_USBPLL,	/*!< Internal USB PLL input */
 	CLKIN_AUDIOPLL,	/*!< Internal Audio PLL input */
-	CLKIN_***REMOVED***PLL,	/*!< Internal Main PLL input */
+	CLKIN_MAINPLL,	/*!< Internal Main PLL input */
 	CLKIN_RESERVED2,
 	CLKIN_RESERVED3,
 	CLKIN_IDIVA,	/*!< Internal divider A input */
@@ -71,7 +71,7 @@ typedef enum CHIP_CGU_CLKIN {
  * @brief CGU base clocks
  * CGU base clocks are clocks that are associated with a single input clock
  * and are routed out to 1 or more peripherals. For example, the CLK_BASE_PERIPH
- * clock can be configured to use the CLKIN_***REMOVED***PLL input clock, which will in
+ * clock can be configured to use the CLKIN_MAINPLL input clock, which will in
  * turn route that clock to the CLK_PERIPH_BUS, CLK_PERIPH_CORE, and
  * CLK_PERIPH_SGPIO periphral clocks.
  */
@@ -126,7 +126,7 @@ typedef enum CHIP_CGU_BASE_CLK {
  * divided before being routed to a peripheral group. A divider accepts an
  * input clock and then divides it. To use the divided clock for a base clock
  * group, use the divider as the input clock for the base clock (for example,
- * use CLKIN_IDIVB, where CLKIN_***REMOVED***PLL might be the input into the divider).
+ * use CLKIN_IDIVB, where CLKIN_MAINPLL might be the input into the divider).
  */
 typedef enum CHIP_CGU_IDIV {
 	CLK_IDIV_A,		/*!< CGU clock divider A */

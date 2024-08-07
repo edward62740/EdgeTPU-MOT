@@ -435,8 +435,8 @@ void TC_CoreFunc_MSP (void) {
 - Check if __get_PSPLIM and __set_PSPLIM intrinsic can be used to manipulate process stack pointer limit.
 */
 void TC_CoreFunc_PSPLIM (void) {
-#if ((defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
+#if ((defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) || \
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__   ) && (__ARM_ARCH_8M_BASE__   == 1))    )
   // don't use stack for this variables
   static uint32_t orig;
@@ -452,8 +452,8 @@ void TC_CoreFunc_PSPLIM (void) {
 
   __set_PSPLIM(orig);
 
-#if (!(defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) && \
-     !(defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) && \
+#if (!(defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) && \
+     !(defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) && \
      (!defined (__ARM_FEATURE_CMSE     ) || (__ARM_FEATURE_CMSE      < 3))    )
   // without main extensions, the non-secure PSPLIM is RAZ/WI
   ASSERT_TRUE(result == 0U);
@@ -471,8 +471,8 @@ void TC_CoreFunc_PSPLIM (void) {
 - Check if __TZ_get_PSPLIM_NS and __TZ_set_PSPLIM_NS intrinsic can be used to manipulate process stack pointer limit.
 */
 void TC_CoreFunc_PSPLIM_NS (void) {
-#if ((defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
+#if ((defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) || \
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__   ) && (__ARM_ARCH_8M_BASE__   == 1))    )
 
 #if (defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
@@ -489,8 +489,8 @@ void TC_CoreFunc_PSPLIM_NS (void) {
 
   __TZ_set_PSPLIM_NS(orig);
 
-#if (!(defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) && \
-     !(defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1))    )
+#if (!(defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) && \
+     !(defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1))    )
   // without main extensions, the non-secure PSPLIM is RAZ/WI
   ASSERT_TRUE(result == 0U);
 #else
@@ -508,8 +508,8 @@ void TC_CoreFunc_PSPLIM_NS (void) {
 - Check if __get_MSPLIM and __set_MSPLIM intrinsic can be used to manipulate main stack pointer limit.
 */
 void TC_CoreFunc_MSPLIM (void) {
-#if ((defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
+#if ((defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) || \
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__   ) && (__ARM_ARCH_8M_BASE__   == 1))    )
   // don't use stack for this variables
   static uint32_t orig;
@@ -531,8 +531,8 @@ void TC_CoreFunc_MSPLIM (void) {
 
   __set_CONTROL(ctrl);
 
-#if (!(defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) && \
-     !(defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) && \
+#if (!(defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) && \
+     !(defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) && \
      (!defined (__ARM_FEATURE_CMSE     ) || (__ARM_FEATURE_CMSE      < 3))    )
   // without main extensions, the non-secure MSPLIM is RAZ/WI
   ASSERT_TRUE(result == 0U);
@@ -550,8 +550,8 @@ void TC_CoreFunc_MSPLIM (void) {
 - Check if __TZ_get_MSPLIM_NS and __TZ_set_MSPLIM_NS intrinsic can be used to manipulate process stack pointer limit.
 */
 void TC_CoreFunc_MSPLIM_NS (void) {
-#if ((defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) || \
+#if ((defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) || \
+     (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
 
 #if (defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
@@ -568,8 +568,8 @@ void TC_CoreFunc_MSPLIM_NS (void) {
 
   __TZ_set_MSPLIM_NS(orig);
 
-#if (!(defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) && \
-     !(defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1))    )
+#if (!(defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) && \
+     !(defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1))    )
   // without main extensions, the non-secure MSPLIM is RAZ/WI
   ASSERT_TRUE(result == 0U);
 #else
@@ -622,8 +622,8 @@ void TC_CoreFunc_PRIMASK (void) {
 void TC_CoreFunc_FAULTMASK (void) {
 #if ((defined (__ARM_ARCH_7M__        ) && (__ARM_ARCH_7M__        == 1)) || \
      (defined (__ARM_ARCH_7EM__       ) && (__ARM_ARCH_7EM__       == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
-     (defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1))    )
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
+     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))    )
 
   uint32_t orig = __get_FAULTMASK();
 
@@ -661,8 +661,8 @@ void TC_CoreFunc_FAULTMASK (void) {
 void TC_CoreFunc_BASEPRI(void) {
 #if ((defined (__ARM_ARCH_7M__        ) && (__ARM_ARCH_7M__        == 1)) || \
      (defined (__ARM_ARCH_7EM__       ) && (__ARM_ARCH_7EM__       == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
-     (defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1))    )
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
+     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))    )
 
   uint32_t orig = __get_BASEPRI();
 

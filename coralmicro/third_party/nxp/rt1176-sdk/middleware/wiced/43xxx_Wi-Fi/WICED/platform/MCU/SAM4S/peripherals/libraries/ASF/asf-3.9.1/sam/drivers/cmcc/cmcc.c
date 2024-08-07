@@ -118,7 +118,7 @@ void cmcc_invalidate_line(Cmcc *const p_cmcc, uint32_t cmcc_way,
 	cmcc_disable(p_cmcc);
 	while (cmcc_get_status(p_cmcc)) {
 	}
-	p_cmcc->CMCC_***REMOVED***T1 = (cmcc_way << CMCC_***REMOVED***T1_WAY_Pos) |
-			(cmcc_index << CMCC_***REMOVED***T1_INDEX_Pos);
+	p_cmcc->CMCC_MAINT1 = (cmcc_way << CMCC_MAINT1_WAY_Pos) |
+			(cmcc_index << CMCC_MAINT1_INDEX_Pos);
 	cmcc_enable(p_cmcc);
 }

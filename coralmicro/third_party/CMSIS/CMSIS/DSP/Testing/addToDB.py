@@ -318,7 +318,7 @@ parser.add_argument('-b', nargs='?',type = str, default="FullBenchmark", help="F
 parser.add_argument('-o', nargs='?',type = str, default="bench.db", help="Benchmark database")
 parser.add_argument('-r', nargs='?',type = int, default=0, help="Run ID")
 
-parser.add_argument('others', nargs=argparse.RE***REMOVED***DER, help="Suite class")
+parser.add_argument('others', nargs=argparse.REMAINDER, help="Suite class")
 
 args = parser.parse_args()
 

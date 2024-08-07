@@ -3022,7 +3022,7 @@ static inline bool CLOCK_OSCPLL_IsSetPointImplemented(clock_name_t name)
 static inline void CLOCK_OSCPLL_ControlByUnassignedMode(clock_name_t name)
 {
     CCM->OSCPLL[name].AUTHEN &=
-        ~(CCM_OSCPLL_AUTHEN_CPULPM_MASK | CCM_OSCPLL_AUTHEN_DO***REMOVED***_MODE_MASK | CCM_OSCPLL_AUTHEN_SETPOINT_MODE_MASK);
+        ~(CCM_OSCPLL_AUTHEN_CPULPM_MASK | CCM_OSCPLL_AUTHEN_DOMAIN_MODE_MASK | CCM_OSCPLL_AUTHEN_SETPOINT_MODE_MASK);
 }
 
 /*!
@@ -3064,8 +3064,8 @@ void CLOCK_OSCPLL_ControlByCpuLowPowerMode(clock_name_t name,
  */
 static inline void CLOCK_OSCPLL_SetCurrentClockLevel(clock_name_t name, clock_level_t level)
 {
-    CCM->OSCPLL[name].DO***REMOVED***r =
-        (CCM->OSCPLL[name].DO***REMOVED***r & ~CCM_OSCPLL_DO***REMOVED***_LEVEL_MASK) | CCM_OSCPLL_DO***REMOVED***_LEVEL(level);
+    CCM->OSCPLL[name].DOMAINr =
+        (CCM->OSCPLL[name].DOMAINr & ~CCM_OSCPLL_DOMAIN_LEVEL_MASK) | CCM_OSCPLL_DOMAIN_LEVEL(level);
 }
 
 /*!
@@ -3081,7 +3081,7 @@ static inline void CLOCK_OSCPLL_ControlByDomainMode(clock_name_t name, uint8_t d
     CCM->OSCPLL[name].AUTHEN =
         (CCM->OSCPLL[name].AUTHEN &
          ~(CCM_OSCPLL_AUTHEN_CPULPM_MASK | CCM_OSCPLL_AUTHEN_SETPOINT_MODE_MASK | CCM_OSCPLL_AUTHEN_WHITE_LIST_MASK)) |
-        CCM_OSCPLL_AUTHEN_DO***REMOVED***_MODE_MASK | CCM_OSCPLL_AUTHEN_WHITE_LIST(domainId);
+        CCM_OSCPLL_AUTHEN_DOMAIN_MODE_MASK | CCM_OSCPLL_AUTHEN_WHITE_LIST(domainId);
 }
 
 /*!
@@ -3146,7 +3146,7 @@ static inline bool CLOCK_ROOT_IsSetPointImplemented(clock_root_t name)
 static inline void CLOCK_ROOT_ControlByUnassignedMode(clock_root_t name)
 {
     CCM->CLOCK_ROOT[name].AUTHEN &=
-        ~(CCM_CLOCK_ROOT_AUTHEN_DO***REMOVED***_MODE_MASK | CCM_CLOCK_ROOT_AUTHEN_SETPOINT_MODE_MASK);
+        ~(CCM_CLOCK_ROOT_AUTHEN_DOMAIN_MODE_MASK | CCM_CLOCK_ROOT_AUTHEN_SETPOINT_MODE_MASK);
 }
 
 /*!
@@ -3179,7 +3179,7 @@ static inline void CLOCK_ROOT_ConfigSetPoint(clock_root_t name,
  */
 static inline void CLOCK_ROOT_EnableSetPointControl(clock_root_t name)
 {
-    CCM->CLOCK_ROOT[name].AUTHEN = (CCM->CLOCK_ROOT[name].AUTHEN & ~CCM_CLOCK_ROOT_AUTHEN_DO***REMOVED***_MODE_MASK) |
+    CCM->CLOCK_ROOT[name].AUTHEN = (CCM->CLOCK_ROOT[name].AUTHEN & ~CCM_CLOCK_ROOT_AUTHEN_DOMAIN_MODE_MASK) |
                                    CCM_CLOCK_ROOT_AUTHEN_SETPOINT_MODE_MASK;
 }
 
@@ -3206,7 +3206,7 @@ static inline void CLOCK_ROOT_ControlByDomainMode(clock_root_t name, uint8_t dom
 {
     CCM->CLOCK_ROOT[name].AUTHEN = (CCM->CLOCK_ROOT[name].AUTHEN & ~(CCM_CLOCK_ROOT_AUTHEN_SETPOINT_MODE_MASK |
                                                                      CCM_CLOCK_ROOT_AUTHEN_WHITE_LIST_MASK)) |
-                                   CCM_CLOCK_ROOT_AUTHEN_DO***REMOVED***_MODE_MASK | CCM_CLOCK_ROOT_AUTHEN_WHITE_LIST(domainId);
+                                   CCM_CLOCK_ROOT_AUTHEN_DOMAIN_MODE_MASK | CCM_CLOCK_ROOT_AUTHEN_WHITE_LIST(domainId);
 }
 
 /*!
@@ -3271,7 +3271,7 @@ static inline bool CLOCK_LPCG_IsSetPointImplemented(clock_lpcg_t name)
 static inline void CLOCK_LPCG_ControlByUnassignedMode(clock_lpcg_t name)
 {
     CCM->LPCG[name].AUTHEN &=
-        ~(CCM_LPCG_AUTHEN_CPULPM_MASK | CCM_LPCG_AUTHEN_DO***REMOVED***_MODE_MASK | CCM_LPCG_AUTHEN_SETPOINT_MODE_MASK);
+        ~(CCM_LPCG_AUTHEN_CPULPM_MASK | CCM_LPCG_AUTHEN_DOMAIN_MODE_MASK | CCM_LPCG_AUTHEN_SETPOINT_MODE_MASK);
 }
 
 /*!
@@ -3313,7 +3313,7 @@ void CLOCK_LPCG_ControlByCpuLowPowerMode(clock_lpcg_t name,
  */
 static inline void CLOCK_LPCG_SetCurrentClockLevel(clock_lpcg_t name, clock_level_t level)
 {
-    CCM->LPCG[name].DO***REMOVED***r = (CCM->LPCG[name].DO***REMOVED***r & ~CCM_LPCG_DO***REMOVED***_LEVEL_MASK) | CCM_LPCG_DO***REMOVED***_LEVEL(level);
+    CCM->LPCG[name].DOMAINr = (CCM->LPCG[name].DOMAINr & ~CCM_LPCG_DOMAIN_LEVEL_MASK) | CCM_LPCG_DOMAIN_LEVEL(level);
 }
 
 /*!
@@ -3329,7 +3329,7 @@ static inline void CLOCK_LPCG_ControlByDomainMode(clock_lpcg_t name, uint8_t dom
     CCM->LPCG[name].AUTHEN =
         (CCM->LPCG[name].AUTHEN &
          ~(CCM_LPCG_AUTHEN_SETPOINT_MODE_MASK | CCM_LPCG_AUTHEN_CPULPM_MASK | CCM_LPCG_AUTHEN_WHITE_LIST_MASK)) |
-        CCM_LPCG_AUTHEN_DO***REMOVED***_MODE_MASK | CCM_LPCG_AUTHEN_WHITE_LIST(domainId);
+        CCM_LPCG_AUTHEN_DOMAIN_MODE_MASK | CCM_LPCG_AUTHEN_WHITE_LIST(domainId);
 }
 
 /* @} */

@@ -53,8 +53,8 @@ __WEAK int32_t OS_Tick_Setup (uint32_t freq, IRQHandler_t handler) {
   }
 
   // Set SysTick Interrupt Priority
-#if   ((defined(__ARM_ARCH_8M_***REMOVED***__)   && (__ARM_ARCH_8M_***REMOVED***__   != 0)) || \
-       (defined(__ARM_ARCH_8_1M_***REMOVED***__) && (__ARM_ARCH_8_1M_***REMOVED***__ != 0)) || \
+#if   ((defined(__ARM_ARCH_8M_MAIN__)   && (__ARM_ARCH_8M_MAIN__   != 0)) || \
+       (defined(__ARM_ARCH_8_1M_MAIN__) && (__ARM_ARCH_8_1M_MAIN__ != 0)) || \
        (defined(__CORTEX_M)             && (__CORTEX_M             == 7U)))
   SCB->SHPR[11] = SYSTICK_IRQ_PRIORITY;
 #elif  (defined(__ARM_ARCH_8M_BASE__)   && (__ARM_ARCH_8M_BASE__   != 0))

@@ -66,7 +66,7 @@ parser.add_argument('-cores', nargs='?',type = str, help="Cores to keep")
 parser.add_argument('-toc', nargs='?',type = str, help="Yaml for the table of contents")
 
 # For runid or runid range
-parser.add_argument('others', nargs=argparse.RE***REMOVED***DER,help="Run ID")
+parser.add_argument('others', nargs=argparse.REMAINDER,help="Run ID")
 
 args = parser.parse_args()
 

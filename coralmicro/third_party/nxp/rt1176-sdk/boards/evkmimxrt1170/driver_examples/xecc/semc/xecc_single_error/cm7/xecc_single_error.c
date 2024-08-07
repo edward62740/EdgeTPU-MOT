@@ -154,7 +154,7 @@ int main(void)
     /* Write data into SDRAM. */
     sdram[0] = sdram_writeBuffer[0];
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     /* Disable D cache to avoid cache pre-fetch more data from external memory, which include ECC data.
        Otherwise, XECC will decode ECC data itself and generate another error interrupt. */
 #if (defined __CORTEX_M) && (__CORTEX_M == 7U)

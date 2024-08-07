@@ -32,7 +32,7 @@
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
-static void XRDC2_MakeDXACP(const xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT],
+static void XRDC2_MakeDXACP(const xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2_DOMAIN_COUNT],
                             uint32_t *w0,
                             uint32_t *w1);
 
@@ -44,16 +44,16 @@ static void XRDC2_MakeDXACP(const xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2
  * Code
  ******************************************************************************/
 
-static void XRDC2_MakeDXACP(const xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT],
+static void XRDC2_MakeDXACP(const xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2_DOMAIN_COUNT],
                             uint32_t *w0,
                             uint32_t *w1)
 {
-    uint32_t domain = (uint32_t)FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT;
+    uint32_t domain = (uint32_t)FSL_FEATURE_XRDC2_DOMAIN_COUNT;
 
     *w0 = 0U;
     *w1 = 0U;
 
-#if (FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT > 8)
+#if (FSL_FEATURE_XRDC2_DOMAIN_COUNT > 8)
     while (domain > 8U)
     {
         domain--;
@@ -206,7 +206,7 @@ void XRDC2_GetMemSlotAccessDefaultConfig(xrdc2_mem_slot_access_config_t *config)
 
     config->lockMode = kXRDC2_AccessConfigLockDisabled;
 
-    for (domain = 0; domain < (uint32_t)FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT; domain++)
+    for (domain = 0; domain < (uint32_t)FSL_FEATURE_XRDC2_DOMAIN_COUNT; domain++)
     {
         config->policy[domain] = kXRDC2_AccessPolicyNone;
     }
@@ -421,7 +421,7 @@ void XRDC2_GetMemAccessDefaultConfig(xrdc2_mem_access_config_t *config)
     config->endAddr   = 0xFFFFFFFFU;
     config->lockMode  = kXRDC2_AccessConfigLockDisabled;
 
-    for (domain = 0; domain < (uint32_t)FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT; domain++)
+    for (domain = 0; domain < (uint32_t)FSL_FEATURE_XRDC2_DOMAIN_COUNT; domain++)
     {
         config->policy[domain] = kXRDC2_AccessPolicyNone;
     }
@@ -684,7 +684,7 @@ void XRDC2_GetPeriphAccessDefaultConfig(xrdc2_periph_access_config_t *config)
 
     config->lockMode = kXRDC2_AccessConfigLockDisabled;
 
-    for (domain = 0; domain < (uint32_t)FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT; domain++)
+    for (domain = 0; domain < (uint32_t)FSL_FEATURE_XRDC2_DOMAIN_COUNT; domain++)
     {
         config->policy[domain] = kXRDC2_AccessPolicyNone;
     }

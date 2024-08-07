@@ -103,12 +103,12 @@ platform_result_t platform_spifi_init( const platform_spifi_t* spifi )
     platform_pin_set_alternate_function( &spifi->cs  );
 
     /* SPIFI base clock will be based on the main PLL rate and a divider */
-    spifiBaseClockRate = Chip_Clock_GetClockInputHz(CLKIN_***REMOVED***PLL);
+    spifiBaseClockRate = Chip_Clock_GetClockInputHz(CLKIN_MAINPLL);
 
     /* Setup SPIFI clock to run around 1Mhz. Use divider E for this, as it allows
      * higher divider values up to 256 maximum)
      */
-    Chip_Clock_SetDivider(CLK_IDIV_E, CLKIN_***REMOVED***PLL, ((spifiBaseClockRate / 1000000) + 1));
+    Chip_Clock_SetDivider(CLK_IDIV_E, CLKIN_MAINPLL, ((spifiBaseClockRate / 1000000) + 1));
     Chip_Clock_SetBaseClock(CLK_BASE_SPIFI, CLKIN_IDIVE, true, false);
 
     /* Initialize LPCSPIFILIB library, reset the interface */
@@ -125,7 +125,7 @@ platform_result_t platform_spifi_init( const platform_spifi_t* spifi )
 
     /* Setup SPIFI clock to at the maximum interface rate the detected device
        can use. This should be done after device init. */
-    Chip_Clock_SetDivider(CLK_IDIV_E, CLKIN_***REMOVED***PLL, ((spifiBaseClockRate / maxSpifiClock) + 1));
+    Chip_Clock_SetDivider(CLK_IDIV_E, CLKIN_MAINPLL, ((spifiBaseClockRate / maxSpifiClock) + 1));
 
     /* start by unlocking the device */
     if (spifiDevUnlockDevice(spifi_handle) != SPIFI_ERR_NONE) {

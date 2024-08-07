@@ -48,8 +48,8 @@
 #define REG_CMCC_CFG             (0x4007C004U) /**< \brief (CMCC) Cache Configuration Register */
 #define REG_CMCC_CTRL            (0x4007C008U) /**< \brief (CMCC) Cache Control Register */
 #define REG_CMCC_SR              (0x4007C00CU) /**< \brief (CMCC) Cache Status Register */
-#define REG_CMCC_***REMOVED***T0          (0x4007C020U) /**< \brief (CMCC) Cache Maintenance Register 0 */
-#define REG_CMCC_***REMOVED***T1          (0x4007C024U) /**< \brief (CMCC) Cache Maintenance Register 1 */
+#define REG_CMCC_MAINT0          (0x4007C020U) /**< \brief (CMCC) Cache Maintenance Register 0 */
+#define REG_CMCC_MAINT1          (0x4007C024U) /**< \brief (CMCC) Cache Maintenance Register 1 */
 #define REG_CMCC_MCFG            (0x4007C028U) /**< \brief (CMCC) Cache Monitor Configuration Register */
 #define REG_CMCC_MEN             (0x4007C02CU) /**< \brief (CMCC) Cache Monitor Enable Register */
 #define REG_CMCC_MCTRL           (0x4007C030U) /**< \brief (CMCC) Cache Monitor Control Register */
@@ -59,8 +59,8 @@
 #define REG_CMCC_CFG    (*(RwReg*)0x4007C004U) /**< \brief (CMCC) Cache Configuration Register */
 #define REG_CMCC_CTRL   (*(WoReg*)0x4007C008U) /**< \brief (CMCC) Cache Control Register */
 #define REG_CMCC_SR     (*(RoReg*)0x4007C00CU) /**< \brief (CMCC) Cache Status Register */
-#define REG_CMCC_***REMOVED***T0 (*(WoReg*)0x4007C020U) /**< \brief (CMCC) Cache Maintenance Register 0 */
-#define REG_CMCC_***REMOVED***T1 (*(WoReg*)0x4007C024U) /**< \brief (CMCC) Cache Maintenance Register 1 */
+#define REG_CMCC_MAINT0 (*(WoReg*)0x4007C020U) /**< \brief (CMCC) Cache Maintenance Register 0 */
+#define REG_CMCC_MAINT1 (*(WoReg*)0x4007C024U) /**< \brief (CMCC) Cache Maintenance Register 1 */
 #define REG_CMCC_MCFG   (*(RwReg*)0x4007C028U) /**< \brief (CMCC) Cache Monitor Configuration Register */
 #define REG_CMCC_MEN    (*(RwReg*)0x4007C02CU) /**< \brief (CMCC) Cache Monitor Enable Register */
 #define REG_CMCC_MCTRL  (*(WoReg*)0x4007C030U) /**< \brief (CMCC) Cache Monitor Control Register */

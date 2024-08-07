@@ -73,7 +73,7 @@
 /* Sent by the client in the Type 3 message to indicate that an anonymous
    context has been established. This also affects the response fields. */
 
-#define NTLMFLAG_NEGOTIATE_DO***REMOVED***_SUPPLIED       (1<<12)
+#define NTLMFLAG_NEGOTIATE_DOMAIN_SUPPLIED       (1<<12)
 /* Sent by the client in the Type 1 message to indicate that a desired
    authentication realm is included in the message. */
 
@@ -90,7 +90,7 @@
 /* Indicates that authenticated communication between the client and server
    should be signed with a "dummy" signature. */
 
-#define NTLMFLAG_TARGET_TYPE_DO***REMOVED***              (1<<16)
+#define NTLMFLAG_TARGET_TYPE_DOMAIN              (1<<16)
 /* Sent by the server in the Type 2 message to indicate that the target
    authentication realm is a domain. */
 

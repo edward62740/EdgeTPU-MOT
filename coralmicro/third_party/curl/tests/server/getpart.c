@@ -300,7 +300,7 @@ int getpart(char **outbuf, size_t *outlen,
   enum {
     STATE_OUTSIDE = 0,
     STATE_OUTER   = 1,
-    STATE_IN***REMOVED***  = 2,
+    STATE_INMAIN  = 2,
     STATE_INSUB   = 3,
     STATE_ILLEGAL = 4
   } state = STATE_OUTSIDE;
@@ -348,7 +348,7 @@ int getpart(char **outbuf, size_t *outlen,
 
       if((STATE_INSUB == state) && !strcmp(csub, ptag)) {
         /* end of current sub section */
-        state = STATE_IN***REMOVED***;
+        state = STATE_INMAIN;
         csub[0] = '\0';
         if(in_wanted_part) {
           /* end of wanted part */
@@ -363,7 +363,7 @@ int getpart(char **outbuf, size_t *outlen,
           break;
         }
       }
-      else if((STATE_IN***REMOVED*** == state) && !strcmp(cmain, ptag)) {
+      else if((STATE_INMAIN == state) && !strcmp(cmain, ptag)) {
         /* end of current main section */
         state = STATE_OUTER;
         cmain[0] = '\0';
@@ -437,10 +437,10 @@ int getpart(char **outbuf, size_t *outlen,
       else if(STATE_OUTER == state) {
         /* start of a main section */
         strcpy(cmain, ptag);
-        state = STATE_IN***REMOVED***;
+        state = STATE_INMAIN;
         continue;
       }
-      else if(STATE_IN***REMOVED*** == state) {
+      else if(STATE_INMAIN == state) {
         /* start of a sub section */
         strcpy(csub, ptag);
         state = STATE_INSUB;

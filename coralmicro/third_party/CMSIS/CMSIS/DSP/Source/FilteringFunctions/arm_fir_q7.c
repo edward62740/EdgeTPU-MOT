@@ -69,7 +69,7 @@
             *pOutput++ = (q7_t) __SSAT((acc[j] >> 7U), 8);                 \
         }
 
-#define FIR_Q7_***REMOVED***_CORE()                                                                  \
+#define FIR_Q7_MAIN_CORE()                                                                  \
 {                                                                                           \
      q7_t          *pState = S->pState;     /* State pointer */                             \
     const q7_t    *pCoeffs = S->pCoeffs;   /* Coefficient pointer */                        \
@@ -147,7 +147,7 @@ static void arm_fir_q7_49_64_mve(const arm_fir_instance_q7 * S,
 {
     #define NBTAPS 64
     #define NBVECTAPS (NBTAPS / 16)
-    FIR_Q7_***REMOVED***_CORE();
+    FIR_Q7_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -159,7 +159,7 @@ void arm_fir_q7_33_48_mve(const arm_fir_instance_q7 * S,
 {
     #define NBTAPS 48
     #define NBVECTAPS (NBTAPS / 16)
-    FIR_Q7_***REMOVED***_CORE();
+    FIR_Q7_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -170,7 +170,7 @@ static void arm_fir_q7_17_32_mve(const arm_fir_instance_q7 * S,
 {
     #define NBTAPS 32
     #define NBVECTAPS (NBTAPS / 16)
-    FIR_Q7_***REMOVED***_CORE();
+    FIR_Q7_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -182,7 +182,7 @@ void arm_fir_q7_1_16_mve(const arm_fir_instance_q7 * S,
 {
     #define NBTAPS 16
     #define NBVECTAPS (NBTAPS / 16)
-    FIR_Q7_***REMOVED***_CORE();
+    FIR_Q7_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }

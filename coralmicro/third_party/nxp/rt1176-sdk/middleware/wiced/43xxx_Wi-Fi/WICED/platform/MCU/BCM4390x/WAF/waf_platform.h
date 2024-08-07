@@ -111,7 +111,7 @@ void platform_erase_app_area        ( uint32_t physical_address, uint32_t size )
 /*
  * Instruct the tiny bootloader to load an application when returning from Deepsleep
  *
- *   For BOOTLOADER_LOAD_***REMOVED***_APP_FROM_EXTERNAL_LOCATION
+ *   For BOOTLOADER_LOAD_MAIN_APP_FROM_EXTERNAL_LOCATION
  *       - app_idx is one of DCT_APP0_INDEX, DCT_APP1_INDEX, etc.
  *
  * @param   app_idx : application index to load

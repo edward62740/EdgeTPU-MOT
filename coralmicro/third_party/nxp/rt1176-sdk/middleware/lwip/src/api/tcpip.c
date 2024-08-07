@@ -136,7 +136,7 @@ tcpip_thread(void *arg)
     tcpip_init_done(tcpip_init_done_arg);
   }
 
-  while (1) {                          /* ***REMOVED*** Loop */
+  while (1) {                          /* MAIN Loop */
     LWIP_TCPIP_THREAD_ALIVE();
     /* wait for a message, timeouts are processed while waiting */
     TCPIP_MBOX_FETCH(&tcpip_mbox, (void **)&msg);

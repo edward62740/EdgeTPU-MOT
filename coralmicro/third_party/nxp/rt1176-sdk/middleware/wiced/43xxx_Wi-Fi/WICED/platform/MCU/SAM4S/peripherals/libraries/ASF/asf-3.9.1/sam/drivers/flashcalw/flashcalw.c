@@ -1705,7 +1705,7 @@ void flashcalw_picocache_enable(void)
  */
 void flashcalw_picocache_disable(void)
 {
-	HCACHE->HCACHE_***REMOVED***T0 = HCACHE_***REMOVED***T0_INVALL_YES;
+	HCACHE->HCACHE_MAINT0 = HCACHE_MAINT0_INVALL_YES;
 	HCACHE->HCACHE_CTRL = HCACHE_CTRL_CEN_NO;
 
 	while (flashcalw_picocache_get_status() != HCACHE_SR_CSTS_DIS) {
@@ -1729,7 +1729,7 @@ uint32_t flashcalw_picocache_get_status(void)
  */
 void flashcalw_picocache_invalid_all(void)
 {
-	HCACHE->HCACHE_***REMOVED***T0 = HCACHE_***REMOVED***T0_INVALL_YES;
+	HCACHE->HCACHE_MAINT0 = HCACHE_MAINT0_INVALL_YES;
 }
 
 /**
@@ -1747,7 +1747,7 @@ void flashcalw_picocache_invalid_line(uint32_t index)
 	}
 
 	/* Invalid the line */
-	HCACHE->HCACHE_***REMOVED***T1 = index;
+	HCACHE->HCACHE_MAINT1 = index;
 
 	/* Enable the cache again */
 	HCACHE->HCACHE_CTRL = HCACHE_CTRL_CEN_YES;

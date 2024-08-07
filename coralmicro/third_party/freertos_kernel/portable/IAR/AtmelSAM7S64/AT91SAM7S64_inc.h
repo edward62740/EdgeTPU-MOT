@@ -307,8 +307,8 @@
 #define AT91C_CKGR_OSCBYPASS      (0x1 <<  1) // (CKGR) Main Oscillator Bypass
 #define AT91C_CKGR_OSCOUNT        (0xFF <<  8) // (CKGR) Main Oscillator Start-up Time
 // -------- CKGR_MCFR : (CKGR Offset: 0x4) Main Clock Frequency Register -------- 
-#define AT91C_CKGR_***REMOVED***F          (0xFFFF <<  0) // (CKGR) Main Clock Frequency
-#define AT91C_CKGR_***REMOVED***RDY        (0x1 << 16) // (CKGR) Main Clock Ready
+#define AT91C_CKGR_MAINF          (0xFFFF <<  0) // (CKGR) Main Clock Frequency
+#define AT91C_CKGR_MAINRDY        (0x1 << 16) // (CKGR) Main Clock Ready
 // -------- CKGR_PLLR : (CKGR Offset: 0xc) PLL B Register -------- 
 #define AT91C_CKGR_DIV            (0xFF <<  0) // (CKGR) Divider Selected
 #define 	AT91C_CKGR_DIV_0                    (0x0) // (CKGR) Divider output is 0
@@ -359,7 +359,7 @@
 // -------- PMC_MCKR : (PMC Offset: 0x30) Master Clock Register -------- 
 #define AT91C_PMC_CSS             (0x3 <<  0) // (PMC) Programmable Clock Selection
 #define 	AT91C_PMC_CSS_SLOW_CLK             (0x0) // (PMC) Slow Clock is selected
-#define 	AT91C_PMC_CSS_***REMOVED***_CLK             (0x1) // (PMC) Main Clock is selected
+#define 	AT91C_PMC_CSS_MAIN_CLK             (0x1) // (PMC) Main Clock is selected
 #define 	AT91C_PMC_CSS_PLL_CLK              (0x3) // (PMC) Clock from PLL is selected
 #define AT91C_PMC_PRES            (0x7 <<  2) // (PMC) Programmable Clock Prescaler
 #define 	AT91C_PMC_PRES_CLK                  (0x0 <<  2) // (PMC) Selected clock

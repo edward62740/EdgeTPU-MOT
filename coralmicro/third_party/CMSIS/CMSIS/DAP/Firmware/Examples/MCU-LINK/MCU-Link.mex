@@ -230,7 +230,7 @@
                   <setting id="SYSCON.FCCLKSEL3.sel" value="SYSCON.FROHFDIV" locked="false"/>
                   <setting id="SYSCON.FRGCTRL3_DIV.scale" value="256" locked="true"/>
                   <setting id="SYSCON.FROHFDIV.scale" value="2" locked="true"/>
-                  <setting id="SYSCON.***REMOVED***CLKSELB.sel" value="SYSCON.PLL0_BYPASS" locked="false"/>
+                  <setting id="SYSCON.MAINCLKSELB.sel" value="SYSCON.PLL0_BYPASS" locked="false"/>
                   <setting id="SYSCON.PLL0CLKSEL.sel" value="SYSCON.CLK_IN_EN" locked="false"/>
                   <setting id="SYSCON.PLL0M_MULT.scale" value="150" locked="true"/>
                   <setting id="SYSCON.PLL0N_DIV.scale" value="8" locked="true"/>

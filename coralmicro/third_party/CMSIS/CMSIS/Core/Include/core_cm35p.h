@@ -65,9 +65,9 @@
 #include "cmsis_version.h"
 
 /*  CMSIS CM35P definitions */
-#define __CM35P_CMSIS_VERSION_***REMOVED***  (__CM_CMSIS_VERSION_***REMOVED***)                  /*!< \deprecated [31:16] CMSIS HAL main version */
+#define __CM35P_CMSIS_VERSION_MAIN  (__CM_CMSIS_VERSION_MAIN)                  /*!< \deprecated [31:16] CMSIS HAL main version */
 #define __CM35P_CMSIS_VERSION_SUB   (__CM_CMSIS_VERSION_SUB)                   /*!< \deprecated [15:0]  CMSIS HAL sub version */
-#define __CM35P_CMSIS_VERSION       ((__CM35P_CMSIS_VERSION_***REMOVED*** << 16U) | \
+#define __CM35P_CMSIS_VERSION       ((__CM35P_CMSIS_VERSION_MAIN << 16U) | \
                                       __CM35P_CMSIS_VERSION_SUB           )    /*!< \deprecated CMSIS HAL version number */
 
 #define __CORTEX_M                 (35U)                                       /*!< Cortex-M Core */

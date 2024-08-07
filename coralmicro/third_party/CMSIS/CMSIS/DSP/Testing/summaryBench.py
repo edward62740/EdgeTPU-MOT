@@ -121,7 +121,7 @@ parser.add_argument('-b', nargs='?',type = str, default="FullBenchmark", help="F
 # Needed to find the currentConfig.csv and know the headers
 parser.add_argument('-r', nargs='?',type = str, default=None, help="Result file path")
 
-parser.add_argument('others', nargs=argparse.RE***REMOVED***DER)
+parser.add_argument('others', nargs=argparse.REMAINDER)
 
 args = parser.parse_args()
 

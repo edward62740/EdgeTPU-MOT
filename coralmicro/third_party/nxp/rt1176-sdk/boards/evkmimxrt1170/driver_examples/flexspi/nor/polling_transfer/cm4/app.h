@@ -46,7 +46,7 @@
  * If cache is enabled, this example should maintain the cache to make sure
  * CPU core accesses the memory, not cache only.
  */
-#define CACHE_***REMOVED***TAIN 1
+#define CACHE_MAINTAIN 1
 
 /*${macro:end}*/
 

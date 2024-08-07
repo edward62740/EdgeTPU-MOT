@@ -214,10 +214,10 @@ typedef struct {
 #define CKGR_MOR_MOSCSEL (0x1u << 24) /**< \brief (CKGR_MOR) Main Oscillator Selection */
 #define CKGR_MOR_CFDEN (0x1u << 25) /**< \brief (CKGR_MOR) Clock Failure Detector Enable */
 /* -------- CKGR_MCFR : (PMC Offset: 0x0024) Main Clock Frequency Register -------- */
-#define CKGR_MCFR_***REMOVED***F_Pos 0
-#define CKGR_MCFR_***REMOVED***F_Msk (0xffffu << CKGR_MCFR_***REMOVED***F_Pos) /**< \brief (CKGR_MCFR) Main Clock Frequency */
-#define CKGR_MCFR_***REMOVED***F(value) ((CKGR_MCFR_***REMOVED***F_Msk & ((value) << CKGR_MCFR_***REMOVED***F_Pos)))
-#define CKGR_MCFR_***REMOVED***FRDY (0x1u << 16) /**< \brief (CKGR_MCFR) Main Clock Ready */
+#define CKGR_MCFR_MAINF_Pos 0
+#define CKGR_MCFR_MAINF_Msk (0xffffu << CKGR_MCFR_MAINF_Pos) /**< \brief (CKGR_MCFR) Main Clock Frequency */
+#define CKGR_MCFR_MAINF(value) ((CKGR_MCFR_MAINF_Msk & ((value) << CKGR_MCFR_MAINF_Pos)))
+#define CKGR_MCFR_MAINFRDY (0x1u << 16) /**< \brief (CKGR_MCFR) Main Clock Ready */
 #define CKGR_MCFR_RCMEAS (0x1u << 20) /**< \brief (CKGR_MCFR) RC Oscillator Frequency Measure (write-only) */
 /* -------- CKGR_PLLAR : (PMC Offset: 0x0028) PLLA Register -------- */
 #define CKGR_PLLAR_DIVA_Pos 0
@@ -244,7 +244,7 @@ typedef struct {
 #define PMC_MCKR_CSS_Pos 0
 #define PMC_MCKR_CSS_Msk (0x3u << PMC_MCKR_CSS_Pos) /**< \brief (PMC_MCKR) Master Clock Source Selection */
 #define   PMC_MCKR_CSS_SLOW_CLK (0x0u << 0) /**< \brief (PMC_MCKR) Slow Clock is selected */
-#define   PMC_MCKR_CSS_***REMOVED***_CLK (0x1u << 0) /**< \brief (PMC_MCKR) Main Clock is selected */
+#define   PMC_MCKR_CSS_MAIN_CLK (0x1u << 0) /**< \brief (PMC_MCKR) Main Clock is selected */
 #define   PMC_MCKR_CSS_PLLA_CLK (0x2u << 0) /**< \brief (PMC_MCKR) PLLA Clock is selected */
 #define   PMC_MCKR_CSS_PLLB_CLK (0x3u << 0) /**< \brief (PMC_MCKR) PLLBClock is selected */
 #define PMC_MCKR_PRES_Pos 4
@@ -268,7 +268,7 @@ typedef struct {
 #define PMC_PCK_CSS_Pos 0
 #define PMC_PCK_CSS_Msk (0x7u << PMC_PCK_CSS_Pos) /**< \brief (PMC_PCK[3]) Master Clock Source Selection */
 #define   PMC_PCK_CSS_SLOW_CLK (0x0u << 0) /**< \brief (PMC_PCK[3]) Slow Clock is selected */
-#define   PMC_PCK_CSS_***REMOVED***_CLK (0x1u << 0) /**< \brief (PMC_PCK[3]) Main Clock is selected */
+#define   PMC_PCK_CSS_MAIN_CLK (0x1u << 0) /**< \brief (PMC_PCK[3]) Main Clock is selected */
 #define   PMC_PCK_CSS_PLLA_CLK (0x2u << 0) /**< \brief (PMC_PCK[3]) PLLA Clock is selected */
 #define   PMC_PCK_CSS_PLLB_CLK (0x3u << 0) /**< \brief (PMC_PCK[3]) PLLB Clock is selected */
 #define   PMC_PCK_CSS_MCK (0x4u << 0) /**< \brief (PMC_PCK[3]) Master Clock is selected */

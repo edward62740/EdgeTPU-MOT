@@ -55,7 +55,7 @@ extern "C" {
 
 #if PPP_DEBUG
 
-#define ***REMOVED***DEBUG(a)    LWIP_DEBUGF(LWIP_DBG_LEVEL_WARNING, a)
+#define MAINDEBUG(a)    LWIP_DEBUGF(LWIP_DBG_LEVEL_WARNING, a)
 #define SYSDEBUG(a)     LWIP_DEBUGF(LWIP_DBG_LEVEL_WARNING, a)
 #define FSMDEBUG(a)     LWIP_DEBUGF(LWIP_DBG_LEVEL_WARNING, a)
 #define LCPDEBUG(a)     LWIP_DEBUGF(LWIP_DBG_LEVEL_WARNING, a)
@@ -67,7 +67,7 @@ extern "C" {
 
 #else /* PPP_DEBUG */
 
-#define ***REMOVED***DEBUG(a)
+#define MAINDEBUG(a)
 #define SYSDEBUG(a)
 #define FSMDEBUG(a)
 #define LCPDEBUG(a)

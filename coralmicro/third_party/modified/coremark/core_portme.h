@@ -157,7 +157,7 @@ typedef size_t         ee_size_t;
 #define USE_SOCKET  0
 #endif
 
-/* Configuration : ***REMOVED***_HAS_NOARGC
+/* Configuration : MAIN_HAS_NOARGC
         Needed if platform does not support getting arguments to main.
 
         Valid values :
@@ -168,19 +168,19 @@ typedef size_t         ee_size_t;
         This flag only matters if MULTITHREAD has been defined to a value
    greater then 1.
 */
-#ifndef ***REMOVED***_HAS_NOARGC
-#define ***REMOVED***_HAS_NOARGC 1
+#ifndef MAIN_HAS_NOARGC
+#define MAIN_HAS_NOARGC 1
 #endif
 
-/* Configuration : ***REMOVED***_HAS_NORETURN
+/* Configuration : MAIN_HAS_NORETURN
         Needed if platform does not support returning a value from main.
 
         Valid values :
         0 - main returns an int, and return value will be 0.
         1 - platform does not support returning a value from main
 */
-#ifndef ***REMOVED***_HAS_NORETURN
-#define ***REMOVED***_HAS_NORETURN 1
+#ifndef MAIN_HAS_NORETURN
+#define MAIN_HAS_NORETURN 1
 #endif
 
 /* Variable : default_num_contexts
@@ -219,7 +219,7 @@ void RunCoreMark(char *buffer);
 void CoreMark_PrintToConsole(bool);
 
 
-#if ***REMOVED***_HAS_NOARGC
+#if MAIN_HAS_NOARGC
 void coremark_main(void);
 #else
 void coremark_main(int argc, char *argv[]);

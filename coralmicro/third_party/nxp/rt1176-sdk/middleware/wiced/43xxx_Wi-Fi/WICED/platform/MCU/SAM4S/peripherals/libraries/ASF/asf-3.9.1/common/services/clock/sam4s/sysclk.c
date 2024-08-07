@@ -94,12 +94,12 @@ void sysclk_set_source(uint32_t ul_src)
 		pmc_mck_set_source(PMC_MCKR_CSS_SLOW_CLK);
 		break;
 
-	case SYSCLK_SRC_***REMOVED***CK_4M_RC:
-	case SYSCLK_SRC_***REMOVED***CK_8M_RC:
-	case SYSCLK_SRC_***REMOVED***CK_12M_RC:
-	case SYSCLK_SRC_***REMOVED***CK_XTAL:
-	case SYSCLK_SRC_***REMOVED***CK_BYPASS:
-		pmc_mck_set_source(PMC_MCKR_CSS_***REMOVED***_CLK);
+	case SYSCLK_SRC_MAINCK_4M_RC:
+	case SYSCLK_SRC_MAINCK_8M_RC:
+	case SYSCLK_SRC_MAINCK_12M_RC:
+	case SYSCLK_SRC_MAINCK_XTAL:
+	case SYSCLK_SRC_MAINCK_BYPASS:
+		pmc_mck_set_source(PMC_MCKR_CSS_MAIN_CLK);
 		break;
 
 	case SYSCLK_SRC_PLLACK:
@@ -192,31 +192,31 @@ void sysclk_init(void)
 		pmc_switch_mck_to_sclk(CONFIG_SYSCLK_PRES);
 	}
 
-	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_***REMOVED***CK_4M_RC) {
-		/* Already running from SYSCLK_SRC_***REMOVED***CK_4M_RC */
+	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_4M_RC) {
+		/* Already running from SYSCLK_SRC_MAINCK_4M_RC */
 	}
 
-	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_***REMOVED***CK_8M_RC) {
-		osc_enable(OSC_***REMOVED***CK_8M_RC);
-		osc_wait_ready(OSC_***REMOVED***CK_8M_RC);
+	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_8M_RC) {
+		osc_enable(OSC_MAINCK_8M_RC);
+		osc_wait_ready(OSC_MAINCK_8M_RC);
 		pmc_switch_mck_to_mainck(CONFIG_SYSCLK_PRES);
 	}
 
-	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_***REMOVED***CK_12M_RC) {
-		osc_enable(OSC_***REMOVED***CK_12M_RC);
-		osc_wait_ready(OSC_***REMOVED***CK_12M_RC);
+	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_12M_RC) {
+		osc_enable(OSC_MAINCK_12M_RC);
+		osc_wait_ready(OSC_MAINCK_12M_RC);
 		pmc_switch_mck_to_mainck(CONFIG_SYSCLK_PRES);
 	}
 
-	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_***REMOVED***CK_XTAL) {
-		osc_enable(OSC_***REMOVED***CK_XTAL);
-		osc_wait_ready(OSC_***REMOVED***CK_XTAL);
+	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_XTAL) {
+		osc_enable(OSC_MAINCK_XTAL);
+		osc_wait_ready(OSC_MAINCK_XTAL);
 		pmc_switch_mck_to_mainck(CONFIG_SYSCLK_PRES);
 	}
 
-	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_***REMOVED***CK_BYPASS) {
-		osc_enable(OSC_***REMOVED***CK_BYPASS);
-		osc_wait_ready(OSC_***REMOVED***CK_BYPASS);
+	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_BYPASS) {
+		osc_enable(OSC_MAINCK_BYPASS);
+		osc_wait_ready(OSC_MAINCK_BYPASS);
 		pmc_switch_mck_to_mainck(CONFIG_SYSCLK_PRES);
 	}
 

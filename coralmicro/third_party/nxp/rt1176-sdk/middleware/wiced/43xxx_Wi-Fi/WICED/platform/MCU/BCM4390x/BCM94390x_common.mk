@@ -175,7 +175,7 @@ ifneq ($(APP),rom_test)
 GLOBAL_DEFINES += MIN_WM8533_DB_LEVEL=-53.0
 GLOBAL_DEFINES += MAX_WM8533_DB_LEVEL=6.0
 
-ifneq ($(***REMOVED***_COMPONENT_PROCESSING),1)
+ifneq ($(MAIN_COMPONENT_PROCESSING),1)
 $(info +-----------------------------------------------------------------------------------------------------+ )
 $(info | IMPORTANT NOTES                                                                                     | )
 $(info +-----------------------------------------------------------------------------------------------------+ )
@@ -188,7 +188,7 @@ $(info |    It is *critical* that applications using WICED Powersave API functio
 $(info |    reference clock to the sleep clock input pin of the WLAN chip. Please read the WICED Powersave   | )
 $(info |    Application Note located in the documentation directory if you plan to use powersave features.   | )
 $(info +-----------------------------------------------------------------------------------------------------+ )
-endif  # ($(***REMOVED***_COMPONENT_PROCESSING),1)
+endif  # ($(MAIN_COMPONENT_PROCESSING),1)
 
 ifeq ($(BEATS_AUDIO),1)
 GLOBAL_DEFINES += $(BEATS_GLOBAL_DEFINES)

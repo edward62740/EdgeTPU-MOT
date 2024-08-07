@@ -74,11 +74,11 @@ enum genclk_source {
 	GENCLK_PCK_SRC_SLCK_RC       = 0, //!< Internal 32kHz RC oscillator as PCK source clock
 	GENCLK_PCK_SRC_SLCK_XTAL     = 1, //!< External 32kHz crystal oscillator as PCK source clock
 	GENCLK_PCK_SRC_SLCK_BYPASS   = 2, //!< External 32kHz bypass oscillator as PCK source clock
-	GENCLK_PCK_SRC_***REMOVED***CK_4M_RC  = 3, //!< Internal 4MHz RC oscillator as PCK source clock
-	GENCLK_PCK_SRC_***REMOVED***CK_8M_RC  = 4, //!< Internal 8MHz RC oscillator as PCK source clock
-	GENCLK_PCK_SRC_***REMOVED***CK_12M_RC = 5, //!< Internal 12MHz RC oscillator as PCK source clock
-	GENCLK_PCK_SRC_***REMOVED***CK_XTAL   = 6, //!< External crystal oscillator as PCK source clock
-	GENCLK_PCK_SRC_***REMOVED***CK_BYPASS = 7, //!< External bypass oscillator as PCK source clock
+	GENCLK_PCK_SRC_MAINCK_4M_RC  = 3, //!< Internal 4MHz RC oscillator as PCK source clock
+	GENCLK_PCK_SRC_MAINCK_8M_RC  = 4, //!< Internal 8MHz RC oscillator as PCK source clock
+	GENCLK_PCK_SRC_MAINCK_12M_RC = 5, //!< Internal 12MHz RC oscillator as PCK source clock
+	GENCLK_PCK_SRC_MAINCK_XTAL   = 6, //!< External crystal oscillator as PCK source clock
+	GENCLK_PCK_SRC_MAINCK_BYPASS = 7, //!< External bypass oscillator as PCK source clock
 	GENCLK_PCK_SRC_PLLACK        = 8, //!< Use PLLACK as PCK source clock
 	GENCLK_PCK_SRC_PLLBCK        = 9, //!< Use PLLBCK as PCK source clock
 	GENCLK_PCK_SRC_MCK           = 10, //!< Use Master Clk as PCK source clock
@@ -139,12 +139,12 @@ static inline void genclk_config_set_source(struct genclk_config *p_cfg,
 		p_cfg->ctrl |= (PMC_PCK_CSS_SLOW_CLK);
 		break;
 
-	case GENCLK_PCK_SRC_***REMOVED***CK_4M_RC:
-	case GENCLK_PCK_SRC_***REMOVED***CK_8M_RC:
-	case GENCLK_PCK_SRC_***REMOVED***CK_12M_RC:
-	case GENCLK_PCK_SRC_***REMOVED***CK_XTAL:
-	case GENCLK_PCK_SRC_***REMOVED***CK_BYPASS:
-		p_cfg->ctrl |= (PMC_PCK_CSS_***REMOVED***_CLK);
+	case GENCLK_PCK_SRC_MAINCK_4M_RC:
+	case GENCLK_PCK_SRC_MAINCK_8M_RC:
+	case GENCLK_PCK_SRC_MAINCK_12M_RC:
+	case GENCLK_PCK_SRC_MAINCK_XTAL:
+	case GENCLK_PCK_SRC_MAINCK_BYPASS:
+		p_cfg->ctrl |= (PMC_PCK_CSS_MAIN_CLK);
 		break;
 
 	case GENCLK_PCK_SRC_PLLACK:
@@ -205,38 +205,38 @@ static inline void genclk_enable_source(enum genclk_source e_src)
 		}
 		break;
 
-	case GENCLK_PCK_SRC_***REMOVED***CK_4M_RC:
-		if (!osc_is_ready(OSC_***REMOVED***CK_4M_RC)) {
-			osc_enable(OSC_***REMOVED***CK_4M_RC);
-			osc_wait_ready(OSC_***REMOVED***CK_4M_RC);
+	case GENCLK_PCK_SRC_MAINCK_4M_RC:
+		if (!osc_is_ready(OSC_MAINCK_4M_RC)) {
+			osc_enable(OSC_MAINCK_4M_RC);
+			osc_wait_ready(OSC_MAINCK_4M_RC);
 		}
 		break;
 
-	case GENCLK_PCK_SRC_***REMOVED***CK_8M_RC:
-		if (!osc_is_ready(OSC_***REMOVED***CK_8M_RC)) {
-			osc_enable(OSC_***REMOVED***CK_8M_RC);
-			osc_wait_ready(OSC_***REMOVED***CK_8M_RC);
+	case GENCLK_PCK_SRC_MAINCK_8M_RC:
+		if (!osc_is_ready(OSC_MAINCK_8M_RC)) {
+			osc_enable(OSC_MAINCK_8M_RC);
+			osc_wait_ready(OSC_MAINCK_8M_RC);
 		}
 		break;
 
-	case GENCLK_PCK_SRC_***REMOVED***CK_12M_RC:
-		if (!osc_is_ready(OSC_***REMOVED***CK_12M_RC)) {
-			osc_enable(OSC_***REMOVED***CK_12M_RC);
-			osc_wait_ready(OSC_***REMOVED***CK_12M_RC);
+	case GENCLK_PCK_SRC_MAINCK_12M_RC:
+		if (!osc_is_ready(OSC_MAINCK_12M_RC)) {
+			osc_enable(OSC_MAINCK_12M_RC);
+			osc_wait_ready(OSC_MAINCK_12M_RC);
 		}
 		break;
 
-	case GENCLK_PCK_SRC_***REMOVED***CK_XTAL:
-		if (!osc_is_ready(OSC_***REMOVED***CK_XTAL)) {
-			osc_enable(OSC_***REMOVED***CK_XTAL);
-			osc_wait_ready(OSC_***REMOVED***CK_XTAL);
+	case GENCLK_PCK_SRC_MAINCK_XTAL:
+		if (!osc_is_ready(OSC_MAINCK_XTAL)) {
+			osc_enable(OSC_MAINCK_XTAL);
+			osc_wait_ready(OSC_MAINCK_XTAL);
 		}
 		break;
 
-	case GENCLK_PCK_SRC_***REMOVED***CK_BYPASS:
-		if (!osc_is_ready(OSC_***REMOVED***CK_BYPASS)) {
-			osc_enable(OSC_***REMOVED***CK_BYPASS);
-			osc_wait_ready(OSC_***REMOVED***CK_BYPASS);
+	case GENCLK_PCK_SRC_MAINCK_BYPASS:
+		if (!osc_is_ready(OSC_MAINCK_BYPASS)) {
+			osc_enable(OSC_MAINCK_BYPASS);
+			osc_wait_ready(OSC_MAINCK_BYPASS);
 		}
 		break;
 

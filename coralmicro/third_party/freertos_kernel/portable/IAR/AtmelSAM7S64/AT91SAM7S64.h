@@ -353,8 +353,8 @@ typedef struct _AT91S_CKGR {
 #define AT91C_CKGR_OSCBYPASS  ((unsigned int) 0x1 <<  1) // (CKGR) Main Oscillator Bypass
 #define AT91C_CKGR_OSCOUNT    ((unsigned int) 0xFF <<  8) // (CKGR) Main Oscillator Start-up Time
 // -------- CKGR_MCFR : (CKGR Offset: 0x4) Main Clock Frequency Register -------- 
-#define AT91C_CKGR_***REMOVED***F      ((unsigned int) 0xFFFF <<  0) // (CKGR) Main Clock Frequency
-#define AT91C_CKGR_***REMOVED***RDY    ((unsigned int) 0x1 << 16) // (CKGR) Main Clock Ready
+#define AT91C_CKGR_MAINF      ((unsigned int) 0xFFFF <<  0) // (CKGR) Main Clock Frequency
+#define AT91C_CKGR_MAINRDY    ((unsigned int) 0x1 << 16) // (CKGR) Main Clock Ready
 // -------- CKGR_PLLR : (CKGR Offset: 0xc) PLL B Register -------- 
 #define AT91C_CKGR_DIV        ((unsigned int) 0xFF <<  0) // (CKGR) Divider Selected
 #define 	AT91C_CKGR_DIV_0                    ((unsigned int) 0x0) // (CKGR) Divider output is 0
@@ -411,7 +411,7 @@ typedef struct _AT91S_PMC {
 // -------- PMC_MCKR : (PMC Offset: 0x30) Master Clock Register -------- 
 #define AT91C_PMC_CSS         ((unsigned int) 0x3 <<  0) // (PMC) Programmable Clock Selection
 #define 	AT91C_PMC_CSS_SLOW_CLK             ((unsigned int) 0x0) // (PMC) Slow Clock is selected
-#define 	AT91C_PMC_CSS_***REMOVED***_CLK             ((unsigned int) 0x1) // (PMC) Main Clock is selected
+#define 	AT91C_PMC_CSS_MAIN_CLK             ((unsigned int) 0x1) // (PMC) Main Clock is selected
 #define 	AT91C_PMC_CSS_PLL_CLK              ((unsigned int) 0x3) // (PMC) Clock from PLL is selected
 #define AT91C_PMC_PRES        ((unsigned int) 0x7 <<  2) // (PMC) Programmable Clock Prescaler
 #define 	AT91C_PMC_PRES_CLK                  ((unsigned int) 0x0 <<  2) // (PMC) Selected clock

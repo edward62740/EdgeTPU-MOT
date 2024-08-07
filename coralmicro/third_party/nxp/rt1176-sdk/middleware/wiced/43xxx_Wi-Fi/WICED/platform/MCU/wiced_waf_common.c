@@ -228,7 +228,7 @@ wiced_result_t wiced_waf_app_load( const image_location_t* app_header_location, 
 
     UNUSED_PARAMETER(app_header_location);
     (void)wiced_waf_app_area_erase;
-#ifdef BOOTLOADER_LOAD_***REMOVED***_APP_FROM_FILESYSTEM
+#ifdef BOOTLOADER_LOAD_MAIN_APP_FROM_FILESYSTEM
     if ( app_header_location->id == EXTERNAL_FILESYSTEM_FILE )
     {
         uint32_t i;
@@ -291,7 +291,7 @@ wiced_result_t wiced_waf_app_load( const image_location_t* app_header_location, 
         result = WICED_SUCCESS;
     }
 
-#endif /* BOOTLOADER_LOAD_***REMOVED***_APP_FROM_FILESYSTEM */
+#endif /* BOOTLOADER_LOAD_MAIN_APP_FROM_FILESYSTEM */
     if ( result == WICED_SUCCESS )
     {
         *(uint32_t *) destination = header.entry;

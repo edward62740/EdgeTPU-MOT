@@ -18,7 +18,7 @@ parser.add_argument('-e', action='store_true', help="Embedded test")
 
 parser.add_argument('-b', action='store_true', help="Benchmark mode to use different generated folders")
 
-parser.add_argument('others', nargs=argparse.RE***REMOVED***DER)
+parser.add_argument('others', nargs=argparse.REMAINDER)
 
 args = parser.parse_args()
 

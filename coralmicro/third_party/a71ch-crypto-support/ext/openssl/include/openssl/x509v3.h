@@ -694,7 +694,7 @@ STACK_OF(OPENSSL_STRING) *X509_get1_ocsp(X509 *x);
 /* Allow (non-partial) wildcards to match multiple labels. */
 # define X509_CHECK_FLAG_MULTI_LABEL_WILDCARDS 0x8
 /* Constraint verifier subdomain patterns to match a single labels. */
-# define X509_CHECK_FLAG_SINGLE_LABEL_SUBDO***REMOVED***S 0x10
+# define X509_CHECK_FLAG_SINGLE_LABEL_SUBDOMAINS 0x10
 /* Never check the subject CN */
 # define X509_CHECK_FLAG_NEVER_CHECK_SUBJECT    0x20
 /*
@@ -702,7 +702,7 @@ STACK_OF(OPENSSL_STRING) *X509_get1_ocsp(X509 *x);
  * This is a non-public flag, turned on implicitly when the subject
  * reference identity is a DNS name.
  */
-# define _X509_CHECK_FLAG_DOT_SUBDO***REMOVED***S 0x8000
+# define _X509_CHECK_FLAG_DOT_SUBDOMAINS 0x8000
 
 int X509_check_host(X509 *x, const char *chk, size_t chklen,
                     unsigned int flags, char **peername);

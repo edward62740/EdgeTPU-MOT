@@ -22,7 +22,7 @@
 #define EXAMPLE_SEMC_NAND_AXI_START_ADDRESS (0x9E000000U)
 #define EXAMPLE_SEMC_NAND_IPG_START_ADDRESS (0x00000000U)
 #define FLASH_PAGE_SIZE                     (2048)
-#define CACHE_***REMOVED***TAIN                      (1)
+#define CACHE_MAINTAIN                      (1)
 
 /*******************************************************************************
  * Prototypes
@@ -169,7 +169,7 @@ int main(void)
     PRINTF("\r\n***NAND Flash Erase Check Start!***\r\n");
     for (uint32_t pageIndex = 0; pageIndex < nandHandle.pagesInBlock; pageIndex++)
     {
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
         DCACHE_CleanInvalidateByRange(EXAMPLE_SEMC_NAND_AXI_START_ADDRESS, nandHandle.bytesInPageDataArea);
 #endif
 
@@ -205,7 +205,7 @@ int main(void)
         /* Read page data and check if the data read is equal to the data programed. */
         PRINTF("\r\n***NAND Flash Page Read Start!***\r\n");
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
         DCACHE_CleanInvalidateByRange(EXAMPLE_SEMC_NAND_AXI_START_ADDRESS, nandHandle.bytesInPageDataArea);
 #endif
 

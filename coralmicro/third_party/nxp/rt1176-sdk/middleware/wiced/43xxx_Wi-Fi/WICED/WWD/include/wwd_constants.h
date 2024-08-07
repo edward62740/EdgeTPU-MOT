@@ -667,7 +667,7 @@ typedef enum
     DOT11_IE_ID_AP_CHANNEL_REPORT                    = 51,
     DOT11_IE_ID_NEIGHBOR_REPORT                      = 52,
     DOT11_IE_ID_RCPI                                 = 53,
-    DOT11_IE_ID_MOBILITY_DO***REMOVED***                      = 54,
+    DOT11_IE_ID_MOBILITY_DOMAIN                      = 54,
     DOT11_IE_ID_FAST_BSS_TRANSITION                  = 55,
     DOT11_IE_ID_TIMEOUT_INTERVAL                     = 56,
     DOT11_IE_ID_RIC_DATA                             = 57,

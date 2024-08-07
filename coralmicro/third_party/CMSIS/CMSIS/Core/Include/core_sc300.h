@@ -63,9 +63,9 @@
 #include "cmsis_version.h"
 
 /* CMSIS SC300 definitions */
-#define __SC300_CMSIS_VERSION_***REMOVED***  (__CM_CMSIS_VERSION_***REMOVED***)                /*!< \deprecated [31:16] CMSIS HAL main version */
+#define __SC300_CMSIS_VERSION_MAIN  (__CM_CMSIS_VERSION_MAIN)                /*!< \deprecated [31:16] CMSIS HAL main version */
 #define __SC300_CMSIS_VERSION_SUB   (__CM_CMSIS_VERSION_SUB)                 /*!< \deprecated [15:0]  CMSIS HAL sub version */
-#define __SC300_CMSIS_VERSION       ((__SC300_CMSIS_VERSION_***REMOVED*** << 16U) | \
+#define __SC300_CMSIS_VERSION       ((__SC300_CMSIS_VERSION_MAIN << 16U) | \
                                       __SC300_CMSIS_VERSION_SUB           )  /*!< \deprecated CMSIS HAL version number */
 
 #define __CORTEX_SC                 (300U)                                   /*!< Cortex secure core */

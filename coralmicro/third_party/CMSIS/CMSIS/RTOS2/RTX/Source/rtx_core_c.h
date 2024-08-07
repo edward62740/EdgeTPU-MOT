@@ -37,8 +37,8 @@
      (!defined(__ARM_ARCH_7M__))        && \
      (!defined(__ARM_ARCH_7EM__))       && \
      (!defined(__ARM_ARCH_8M_BASE__))   && \
-     (!defined(__ARM_ARCH_8M_***REMOVED***__))   && \
-     (!defined(__ARM_ARCH_8_1M_***REMOVED***__)))
+     (!defined(__ARM_ARCH_8M_MAIN__))   && \
+     (!defined(__ARM_ARCH_8_1M_MAIN__)))
 #error "Unknown Arm Architecture!"
 #endif
 

@@ -3,7 +3,7 @@
 #endif
 
 #if defined(__18CXX)
-# define ID_VOID_***REMOVED***
+# define ID_VOID_MAIN
 #endif
 #if defined(__CLASSIC_C__)
 /* cv-qualifiers did not exist in K&R C */
@@ -859,7 +859,7 @@ const char* info_language_extensions_default = "INFO" ":" "extensions_default["
 
 /*--------------------------------------------------------------------------*/
 
-#ifdef ID_VOID_***REMOVED***
+#ifdef ID_VOID_MAIN
 void main() {}
 #else
 # if defined(__CLASSIC_C__)

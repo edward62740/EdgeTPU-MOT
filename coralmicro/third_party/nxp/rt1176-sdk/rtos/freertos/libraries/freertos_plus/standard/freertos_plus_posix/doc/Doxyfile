@@ -2,7 +2,7 @@
 PROJECT_NAME = "AWS IoT FreeRTOS+POSIX"
 
 # The main page for the documentation.
-USE_MDFILE_AS_***REMOVED***PAGE = doc/mainpage.txt
+USE_MDFILE_AS_MAINPAGE = doc/mainpage.txt
 
 # Documentation will be written to this directory.
 OUTPUT_DIRECTORY = doc

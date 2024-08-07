@@ -135,7 +135,7 @@ uint32_t pmc_osc_is_ready_32kxtal(void);
 //@}
 
 /**
- * \name Main Clock (***REMOVED***CK) oscillator and configuration
+ * \name Main Clock (MAINCK) oscillator and configuration
  *
  */
 //@{

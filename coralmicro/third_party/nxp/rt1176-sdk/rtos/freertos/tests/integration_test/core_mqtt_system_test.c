@@ -155,7 +155,7 @@
 /**
  * @brief Sample length of remaining serialized data.
  */
-#define MQTT_SAMPLE_RE***REMOVED***ING_LENGTH               ( 64 )
+#define MQTT_SAMPLE_REMAINING_LENGTH               ( 64 )
 
 /**
  * @brief Subtract this value from max value of global entry time

@@ -577,9 +577,9 @@ EM_RESULT timer_add_entity ( TIMER_ENTITY *timer )
     }
 
     /* Start timer. Set Timeout. This will also start the timer. */
-#ifdef EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME
+#ifdef EM_TIMER_SUPPORT_REMAINING_TIME
     new_timer->start_timestamp = xTaskGetTickCount();
-#endif /* EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME */
+#endif /* EM_TIMER_SUPPORT_REMAINING_TIME */
 
     ret = xTimerChangePeriod
           (
@@ -711,14 +711,14 @@ EM_RESULT timer_init_entity (TIMER_ENTITY *timer)
     timer->data_length = 0U;
     timer->next = NULL;
 
-#ifdef EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME
+#ifdef EM_TIMER_SUPPORT_REMAINING_TIME
     timer->start_timestamp = 0U;
-#endif /* EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME */
+#endif /* EM_TIMER_SUPPORT_REMAINING_TIME */
 
     return EM_SUCCESS;
 }
 
-#ifdef EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME
+#ifdef EM_TIMER_SUPPORT_REMAINING_TIME
 EM_RESULT EM_timer_get_remaining_time
           (
               EM_timer_handle   handle,
@@ -801,7 +801,7 @@ EM_RESULT EM_timer_get_remaining_time
 
     return retval;
 }
-#endif /* EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME */
+#endif /* EM_TIMER_SUPPORT_REMAINING_TIME */
 
 EM_RESULT EM_list_timer ( void )
 {

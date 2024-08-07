@@ -116,7 +116,7 @@ The function sets section access privileges
 \def SECTION_TEX1_SHIFT      
 \def SECTION_TEX2_SHIFT      
 \def SECTION_XN_SHIFT        
-\def SECTION_DO***REMOVED***_SHIFT    
+\def SECTION_DOMAIN_SHIFT    
 \def SECTION_P_SHIFT         
 \def SECTION_AP_SHIFT        
 \def SECTION_AP2_SHIFT       
@@ -141,7 +141,7 @@ The function sets section access privileges
 \def PAGE_TEX_SHIFT          
 \def PAGE_XN_4K_SHIFT        
 \def PAGE_XN_64K_SHIFT       
-\def PAGE_DO***REMOVED***_SHIFT       
+\def PAGE_DOMAIN_SHIFT       
 \def PAGE_P_SHIFT            
 \def PAGE_AP_SHIFT           
 \def PAGE_AP2_SHIFT          

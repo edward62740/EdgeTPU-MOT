@@ -75,7 +75,7 @@ typedef struct _domain_slot_config
     keymgr_allow_t allowNonSecure; /*!< Allow non-secure write access to domain control register or domain register. */
     keymgr_lock_t lockList;        /*!< Lock whitelist. SLOTx_CTRL[WHITE_LIST] cannot be changed. */
     uint8_t whiteList;             /*!< Domains that on the Whitelist can change given slot. */
-    /*!< Each field represents one domain. Bit0~Bit3 represent DO***REMOVED***0~DO***REMOVED***3 respectively. */
+    /*!< Each field represents one domain. Bit0~Bit3 represent DOMAIN0~DOMAIN3 respectively. */
 } domain_slot_config_t;
 
 /*******************************************************************************

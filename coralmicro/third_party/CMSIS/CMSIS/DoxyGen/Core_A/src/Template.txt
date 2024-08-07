@@ -299,9 +299,9 @@ The following shows the defines in the various core_<i>cpu</i>.h files that may 
 to verify a minimum version or ensure that the right processor core is used.
 
 \code
-#define __CA_CMSIS_VERSION_***REMOVED***  (5U)                                 /* [31:16] CMSIS Core main version */
+#define __CA_CMSIS_VERSION_MAIN  (5U)                                 /* [31:16] CMSIS Core main version */
 #define __CA_CMSIS_VERSION_SUB   (0U)                                 /* [15:0]  CMSIS Core sub version */
-#define __CA_CMSIS_VERSION       ((__CA_CMSIS_VERSION_***REMOVED*** << 16U) | \
+#define __CA_CMSIS_VERSION       ((__CA_CMSIS_VERSION_MAIN << 16U) | \
                                    __CA_CMSIS_VERSION_SUB          )  /* CMSIS Core version number */
 \endcode
 

@@ -1256,7 +1256,7 @@
 #define HCI_DATA_PICONET_BCAST          0x02
 
 /* Hold mode activity */
-#define HCI_***REMOVED***TAIN_CUR_POWER_STATE    0x00
+#define HCI_MAINTAIN_CUR_POWER_STATE    0x00
 #define HCI_SUSPEND_PAGE_SCAN           0x01
 #define HCI_SUSPEND_INQUIRY_SCAN        0x02
 #define HCI_SUSPEND_PERIODIC_INQUIRIES  0x04

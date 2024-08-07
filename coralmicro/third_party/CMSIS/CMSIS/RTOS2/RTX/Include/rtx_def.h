@@ -40,7 +40,7 @@
 #endif
 
 #ifdef  RTE_CMSIS_RTOS2_RTX5_ARMV8M_NS
-  #define DO***REMOVED***_NS             1
+  #define DOMAIN_NS             1
 #endif
 
 #endif  // RTX_DEF_H_

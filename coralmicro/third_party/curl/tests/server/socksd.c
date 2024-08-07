@@ -485,7 +485,7 @@ static curl_socket_t sockit(curl_socket_t fd)
   }
   /* ATYP:
      o  IP V4 address: X'01'
-     o  DO***REMOVED***NAME: X'03'
+     o  DOMAINNAME: X'03'
      o  IP V6 address: X'04'
   */
   type = buffer[SOCKS5_ATYP];

@@ -92,7 +92,7 @@ parser.add_argument('-b', nargs='?',type = str, default="FullBenchmark", help="F
 parser.add_argument('-e', action='store_true', help="Embedded test")
 parser.add_argument('-o', nargs='?',type = str, default="bench.csv", help="Output csv file using old format")
 
-parser.add_argument('others', nargs=argparse.RE***REMOVED***DER)
+parser.add_argument('others', nargs=argparse.REMAINDER)
 
 args = parser.parse_args()
 

@@ -100,7 +100,7 @@ void SRC_AssertSliceSoftwareReset(SRC_Type *base, src_reset_slice_name_t sliceNa
 }
 
 /*!
- * brief Locks the value of SETPOINT_MODE and DO***REMOVED***_MODE for the selected reset slice.
+ * brief Locks the value of SETPOINT_MODE and DOMAIN_MODE for the selected reset slice.
  *
  * param base SRC peripheral base address.
  * param sliceName The selected reset slice. See @ref src_reset_slice_name_t for more details.
@@ -147,7 +147,7 @@ void SRC_SetSliceDomainModeConfig(SRC_Type *base, src_reset_slice_name_t sliceNa
 {
     uint32_t domainConfigRegAddress;
 
-    domainConfigRegAddress = SRC_GET_SLICE_REGISTER_ADDRESS(base, sliceName, SRC_SLICE_DO***REMOVED***_CONFIG_REGISTER_OFFSET);
+    domainConfigRegAddress = SRC_GET_SLICE_REGISTER_ADDRESS(base, sliceName, SRC_SLICE_DOMAIN_CONFIG_REGISTER_OFFSET);
 
     if (domainConfig != 0UL)
     {

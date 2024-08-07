@@ -140,7 +140,7 @@ void SSARC_GroupInit(SSARC_LP_Type *base, uint8_t groupID, const ssarc_group_con
 
     uint32_t temp32;
 
-    temp32 = SSARC_LP_DESC_CTRL1_POWER_DO***REMOVED***(config->powerDomain) |
+    temp32 = SSARC_LP_DESC_CTRL1_POWER_DOMAIN(config->powerDomain) |
              SSARC_LP_DESC_CTRL1_SV_PRIORITY(config->savePriority) |
              SSARC_LP_DESC_CTRL1_RT_PRIORITY(config->restorePriority) | SSARC_LP_DESC_CTRL1_CPUD(config->cpuDomain);
     base->GROUPS[groupID].DESC_CTRL1 = temp32;

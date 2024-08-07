@@ -51,7 +51,7 @@
  * If cache is enabled, this example should maintain the cache to make sure
  * CPU core accesses the memory, not cache only.
  */
-#define CACHE_***REMOVED***TAIN 1
+#define CACHE_MAINTAIN 1
 
 /*${macro:end}*/
 
@@ -59,7 +59,7 @@
  * Variables
  ******************************************************************************/
 /*${variable:start}*/
-#if (defined CACHE_***REMOVED***TAIN) && (CACHE_***REMOVED***TAIN == 1)
+#if (defined CACHE_MAINTAIN) && (CACHE_MAINTAIN == 1)
 typedef struct _flexspi_cache_status
 {
     volatile bool DCacheEnableFlag;

@@ -36,8 +36,8 @@
  *
  */
 
-#ifndef LWIP_HDR_APPS_MDNS_DO***REMOVED***_H
-#define LWIP_HDR_APPS_MDNS_DO***REMOVED***_H
+#ifndef LWIP_HDR_APPS_MDNS_DOMAIN_H
+#define LWIP_HDR_APPS_MDNS_DOMAIN_H
 
 #include "lwip/apps/mdns_opts.h"
 #include "lwip/apps/mdns_priv.h"
@@ -77,4 +77,4 @@ err_t mdns_write_domain(struct mdns_outpacket *outpkt, struct mdns_domain *domai
 }
 #endif
 
-#endif /* LWIP_HDR_APPS_MDNS_DO***REMOVED***_H */
+#endif /* LWIP_HDR_APPS_MDNS_DOMAIN_H */

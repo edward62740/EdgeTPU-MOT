@@ -1,5 +1,5 @@
-#ifndef HEADER_CURL_TOOL_***REMOVED***_H
-#define HEADER_CURL_TOOL_***REMOVED***_H
+#ifndef HEADER_CURL_TOOL_MAIN_H
+#define HEADER_CURL_TOOL_MAIN_H
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -43,4 +43,4 @@
 #  define STDERR_FILENO  fileno(stderr)
 #endif
 
-#endif /* HEADER_CURL_TOOL_***REMOVED***_H */
+#endif /* HEADER_CURL_TOOL_MAIN_H */

@@ -258,11 +258,11 @@ typedef struct
   * @}
   */  
   
-/** @defgroup CRYP_D***REMOVED*** DMA Input phase management enable state
+/** @defgroup CRYP_DMAIN DMA Input phase management enable state
   * @{
   */
-#define CRYP_D***REMOVED***_DISABLE             ((uint32_t)0x00000000)    /*!< Disable DMA Input phase management */
-#define CRYP_D***REMOVED***_ENABLE              AES_CR_D***REMOVED***EN            /*!< Enable DMA Input phase management  */
+#define CRYP_DMAIN_DISABLE             ((uint32_t)0x00000000)    /*!< Disable DMA Input phase management */
+#define CRYP_DMAIN_ENABLE              AES_CR_DMAINEN            /*!< Enable DMA Input phase management  */
 /**
   * @}
   */
@@ -555,8 +555,8 @@ typedef struct
   * @param __MODE__: CRYP input data DMA mode.
   * @retval SET (__MODE__ is valid) or RESET (__MODE__ is invalid)
   */  
-#define IS_CRYP_D***REMOVED***(__MODE__) (((__MODE__) == CRYP_D***REMOVED***_DISABLE) || \
-                                 ((__MODE__) == CRYP_D***REMOVED***_ENABLE)) 
+#define IS_CRYP_DMAIN(__MODE__) (((__MODE__) == CRYP_DMAIN_DISABLE) || \
+                                 ((__MODE__) == CRYP_DMAIN_ENABLE)) 
 
 /**
   * @brief Verify the CRYP output data DMA mode.

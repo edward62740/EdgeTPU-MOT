@@ -156,7 +156,7 @@ typedef enum
     /** The client is subscribed to the maximum possible number of subscriptions  */
     MQTT_MAX_SUBSCRIPTIONS_REACHED_ERROR = -34,
     /** Failed to decode the remaining packet length on incoming packet */
-    MQTT_DECODE_RE***REMOVED***ING_LENGTH_ERROR = -35,
+    MQTT_DECODE_REMAINING_LENGTH_ERROR = -35,
     /** Connect request failed with the server returning an unknown error */
     MQTT_CONNACK_UNKNOWN_ERROR = -36,
     /** Connect request failed with the server returning an unacceptable protocol version error */

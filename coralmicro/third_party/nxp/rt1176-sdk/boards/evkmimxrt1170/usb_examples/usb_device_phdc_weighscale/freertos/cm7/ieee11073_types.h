@@ -157,7 +157,7 @@ struct _production_spec
 } STRUCT_UNPACKED;
 typedef struct _production_spec production_spec_t;
 
-#define ON_***REMOVED***S         0x8000U
+#define ON_MAINS         0x8000U
 #define ON_BATTERY       0x4000U
 #define CHARGING_FULL    0x0080U
 #define CHARGING_TRICKLE 0x0040U

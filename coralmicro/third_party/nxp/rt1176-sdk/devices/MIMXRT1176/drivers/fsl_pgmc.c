@@ -53,7 +53,7 @@ void PGMC_BPC_ControlPowerDomainByCpuPowerMode(PGMC_BPC_Type *base,
 
     uint32_t tmp32 = base->BPC_SSAR_SAVE_CTRL;
 
-    base->BPC_MODE = PGMC_BPC_BPC_MODE_DO***REMOVED***_ASSIGN(option->assignDomain) |
+    base->BPC_MODE = PGMC_BPC_BPC_MODE_DOMAIN_ASSIGN(option->assignDomain) |
                      PGMC_BPC_BPC_MODE_CTRL_MODE(kPGMC_ControlledByCpuPowerMode);
     switch (mode)
     {

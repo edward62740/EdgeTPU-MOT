@@ -28,8 +28,8 @@
 RTX_STACK_CHECK EQU      0
                 ENDIF
 
-                IF       :LNOT::DEF:DO***REMOVED***_NS
-DO***REMOVED***_NS       EQU      0
+                IF       :LNOT::DEF:DOMAIN_NS
+DOMAIN_NS       EQU      0
                 ENDIF
 
 I_T_RUN_OFS     EQU      20                     ; osRtxInfo.thread.run offset
@@ -62,7 +62,7 @@ SVC_Handler     PROC
                 IMPORT   osRtxThreadStackCheck
                 IMPORT   osRtxKernelErrorNotify
             ENDIF
-            IF DO***REMOVED***_NS != 0
+            IF DOMAIN_NS != 0
                 IMPORT   TZ_LoadContext_S
                 IMPORT   TZ_StoreContext_S
             ENDIF
@@ -97,7 +97,7 @@ SVC_Context
                 CBZ      R1,SVC_ContextRestore  ; Branch if running thread is deleted
 
 SVC_ContextSave
-            IF DO***REMOVED***_NS != 0
+            IF DOMAIN_NS != 0
                 LDR      R0,[R1,#TCB_TZM_OFS]   ; Load TrustZone memory identifier
                 CBZ      R0,SVC_ContextSave_NS  ; Branch if there is no secure context
                 PUSH     {R1,R2,R3,R7}          ; Save registers
@@ -109,7 +109,7 @@ SVC_ContextSave
 
 SVC_ContextSave_NS
                 MRS      R0,PSP                 ; Get PSP
-            IF DO***REMOVED***_NS != 0
+            IF DOMAIN_NS != 0
                 MOV      R3,LR                  ; Get EXC_RETURN
                 LSLS     R3,R3,#25              ; Check domain of interrupted thread
                 BMI      SVC_ContextSaveSP      ; Branch if secure
@@ -140,7 +140,7 @@ SVC_ContextSaveSP
                 B        SVC_ContextRestore     ; Branch to context restore handling
 
 SVC_ContextSaveRegs
-              IF DO***REMOVED***_NS != 0
+              IF DOMAIN_NS != 0
                 MOV      R0,R1                  ; osRtxInfo.thread.run.curr
                 ADDS     R0,R0,#TCB_SF_OFS      ; Adjust address
                 LDRB     R3,[R0]                ; Load stack frame information
@@ -171,7 +171,7 @@ SVC_ContextSaveSP
             ENDIF
 
 SVC_ContextRestore
-            IF DO***REMOVED***_NS != 0
+            IF DOMAIN_NS != 0
                 LDR      R0,[R2,#TCB_TZM_OFS]   ; Load TrustZone memory identifier
                 CBZ      R0,SVC_ContextRestore_NS ; Branch if there is no secure context
                 PUSH     {R2,R3}                ; Save registers
@@ -190,7 +190,7 @@ SVC_ContextRestore_NS
                 ORRS     R3,R3,R0
                 MOV      LR,R3                  ; Set EXC_RETURN
                 LDR      R0,[R2,#TCB_SP_OFS]    ; Load SP
-            IF DO***REMOVED***_NS != 0
+            IF DOMAIN_NS != 0
                 LSLS     R3,R3,#25              ; Check domain of interrupted thread
                 BMI      SVC_ContextRestoreSP   ; Branch if secure
             ENDIF

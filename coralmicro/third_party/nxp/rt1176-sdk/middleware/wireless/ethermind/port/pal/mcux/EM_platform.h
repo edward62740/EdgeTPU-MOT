@@ -25,7 +25,7 @@
 
 /* --------------------------------------------- Global Definitions */
 #define EM_ENABLE_PAL_OS
-#define EM_PLATFORM_***REMOVED***
+#define EM_PLATFORM_MAIN
 
 #define EM_HAVE_STATIC_DECL
 #define EM_HAVE_CONST_DECL

@@ -70,26 +70,26 @@
 /**
  * @brief The Remaining Length field of MQTT disconnect packets, per MQTT spec.
  */
-#define MQTT_DISCONNECT_RE***REMOVED***ING_LENGTH            ( ( uint8_t ) 0 )
+#define MQTT_DISCONNECT_REMAINING_LENGTH            ( ( uint8_t ) 0 )
 
 /*
  * Constants relating to CONNACK packets, defined by MQTT 3.1.1 spec.
  */
-#define MQTT_PACKET_CONNACK_RE***REMOVED***ING_LENGTH        ( ( uint8_t ) 2U )    /**< @brief A CONNACK packet always has a "Remaining length" of 2. */
+#define MQTT_PACKET_CONNACK_REMAINING_LENGTH        ( ( uint8_t ) 2U )    /**< @brief A CONNACK packet always has a "Remaining length" of 2. */
 #define MQTT_PACKET_CONNACK_SESSION_PRESENT_MASK    ( ( uint8_t ) 0x01U ) /**< @brief The "Session Present" bit is always the lowest bit. */
 
 /*
  * UNSUBACK, PUBACK, PUBREC, PUBREL, and PUBCOMP always have a remaining length
  * of 2.
  */
-#define MQTT_PACKET_SIMPLE_ACK_RE***REMOVED***ING_LENGTH     ( ( uint8_t ) 2 ) /**< @brief PUBACK, PUBREC, PUBREl, PUBCOMP, UNSUBACK Remaining length. */
-#define MQTT_PACKET_PINGRESP_RE***REMOVED***ING_LENGTH       ( 0U )            /**< @brief A PINGRESP packet always has a "Remaining length" of 0. */
+#define MQTT_PACKET_SIMPLE_ACK_REMAINING_LENGTH     ( ( uint8_t ) 2 ) /**< @brief PUBACK, PUBREC, PUBREl, PUBCOMP, UNSUBACK Remaining length. */
+#define MQTT_PACKET_PINGRESP_REMAINING_LENGTH       ( 0U )            /**< @brief A PINGRESP packet always has a "Remaining length" of 0. */
 
 /**
  * @brief Per the MQTT 3.1.1 spec, the largest "Remaining Length" of an MQTT
  * packet is this value, 256 MB.
  */
-#define MQTT_MAX_RE***REMOVED***ING_LENGTH                   ( 268435455UL )
+#define MQTT_MAX_REMAINING_LENGTH                   ( 268435455UL )
 
 /**
  * @brief Set a bit in an 8-bit unsigned integer.
@@ -128,14 +128,14 @@
  *
  * This value is greater than what is allowed by the MQTT specification.
  */
-#define MQTT_RE***REMOVED***ING_LENGTH_INVALID             ( ( size_t ) 268435456 )
+#define MQTT_REMAINING_LENGTH_INVALID             ( ( size_t ) 268435456 )
 
 /**
  * @brief The minimum remaining length for a QoS 0 PUBLISH.
  *
  * Includes two bytes for topic name length and one byte for topic name.
  */
-#define MQTT_MIN_PUBLISH_RE***REMOVED***ING_LENGTH_QOS0    ( 3U )
+#define MQTT_MIN_PUBLISH_REMAINING_LENGTH_QOS0    ( 3U )
 
 /*-----------------------------------------------------------*/
 
@@ -558,7 +558,7 @@ static bool calculatePublishPacketSize( const MQTTPublishInfo_t * pPublishInfo,
     /* Calculate the maximum allowed size of the payload for the given parameters.
      * This calculation excludes the "Remaining length" encoding, whose size is not
      * yet known. */
-    payloadLimit = MQTT_MAX_RE***REMOVED***ING_LENGTH - packetSize - 1U;
+    payloadLimit = MQTT_MAX_REMAINING_LENGTH - packetSize - 1U;
 
     /* Ensure that the given payload fits within the calculated limit. */
     if( pPublishInfo->payloadLength > payloadLimit )
@@ -568,7 +568,7 @@ static bool calculatePublishPacketSize( const MQTTPublishInfo_t * pPublishInfo,
                     "remaining length of MQTT 3.1.1 packet( %lu ).",
                     ( unsigned long ) pPublishInfo->payloadLength,
                     ( unsigned long ) payloadLimit,
-                    MQTT_MAX_RE***REMOVED***ING_LENGTH ) );
+                    MQTT_MAX_REMAINING_LENGTH ) );
         status = false;
     }
     else
@@ -589,7 +589,7 @@ static bool calculatePublishPacketSize( const MQTTPublishInfo_t * pPublishInfo,
                         "remaining length of MQTT 3.1.1 packet( %lu ).",
                         ( unsigned long ) pPublishInfo->payloadLength,
                         ( unsigned long ) payloadLimit,
-                        MQTT_MAX_RE***REMOVED***ING_LENGTH ) );
+                        MQTT_MAX_REMAINING_LENGTH ) );
             status = false;
         }
         else
@@ -717,7 +717,7 @@ static size_t getRemainingLength( TransportRecv_t recvFunc,
     {
         if( multiplier > 2097152U ) /* 128 ^ 3 */
         {
-            remainingLength = MQTT_RE***REMOVED***ING_LENGTH_INVALID;
+            remainingLength = MQTT_REMAINING_LENGTH_INVALID;
         }
         else
         {
@@ -731,24 +731,24 @@ static size_t getRemainingLength( TransportRecv_t recvFunc,
             }
             else
             {
-                remainingLength = MQTT_RE***REMOVED***ING_LENGTH_INVALID;
+                remainingLength = MQTT_REMAINING_LENGTH_INVALID;
             }
         }
 
-        if( remainingLength == MQTT_RE***REMOVED***ING_LENGTH_INVALID )
+        if( remainingLength == MQTT_REMAINING_LENGTH_INVALID )
         {
             break;
         }
     } while( ( encodedByte & 0x80U ) != 0U );
 
     /* Check that the decoded remaining length conforms to the MQTT specification. */
-    if( remainingLength != MQTT_RE***REMOVED***ING_LENGTH_INVALID )
+    if( remainingLength != MQTT_REMAINING_LENGTH_INVALID )
     {
         expectedSize = remainingLengthEncodedSize( remainingLength );
 
         if( bytesDecoded != expectedSize )
         {
-            remainingLength = MQTT_RE***REMOVED***ING_LENGTH_INVALID;
+            remainingLength = MQTT_REMAINING_LENGTH_INVALID;
         }
     }
 
@@ -932,10 +932,10 @@ static MQTTStatus_t deserializeConnack( const MQTTPacketInfo_t * pConnack,
 
     /* According to MQTT 3.1.1, the second byte of CONNACK must specify a
      * "Remaining length" of 2. */
-    if( pConnack->remainingLength != MQTT_PACKET_CONNACK_RE***REMOVED***ING_LENGTH )
+    if( pConnack->remainingLength != MQTT_PACKET_CONNACK_REMAINING_LENGTH )
     {
         LogError( ( "CONNACK does not have remaining length of %u.",
-                    ( unsigned int ) MQTT_PACKET_CONNACK_RE***REMOVED***ING_LENGTH ) );
+                    ( unsigned int ) MQTT_PACKET_CONNACK_REMAINING_LENGTH ) );
 
         status = MQTTBadResponse;
     }
@@ -1048,12 +1048,12 @@ static MQTTStatus_t calculateSubscriptionPacketSize( const MQTTSubscribeInfo_t *
     /* At this point, the "Remaining length" has been calculated. Return error
      * if the "Remaining length" exceeds what is allowed by MQTT 3.1.1. Otherwise,
      * set the output parameter.*/
-    if( packetSize > MQTT_MAX_RE***REMOVED***ING_LENGTH )
+    if( packetSize > MQTT_MAX_REMAINING_LENGTH )
     {
         LogError( ( "Subscription packet length of %lu exceeds"
                     "the MQTT 3.1.1 maximum packet length of %lu.",
                     ( unsigned long ) packetSize,
-                    MQTT_MAX_RE***REMOVED***ING_LENGTH ) );
+                    MQTT_MAX_REMAINING_LENGTH ) );
         status = MQTTBadParameter;
     }
 
@@ -1255,7 +1255,7 @@ static MQTTStatus_t deserializePublish( const MQTTPacketInfo_t * pIncomingPacket
          * topic name. */
         status = checkPublishRemainingLength( pIncomingPacket->remainingLength,
                                               pPublishInfo->qos,
-                                              MQTT_MIN_PUBLISH_RE***REMOVED***ING_LENGTH_QOS0 );
+                                              MQTT_MIN_PUBLISH_REMAINING_LENGTH_QOS0 );
     }
 
     if( status == MQTTSuccess )
@@ -1332,10 +1332,10 @@ static MQTTStatus_t deserializeSimpleAck( const MQTTPacketInfo_t * pAck,
     assert( pPacketIdentifier != NULL );
 
     /* Check that the "Remaining length" of the received ACK is 2. */
-    if( pAck->remainingLength != MQTT_PACKET_SIMPLE_ACK_RE***REMOVED***ING_LENGTH )
+    if( pAck->remainingLength != MQTT_PACKET_SIMPLE_ACK_REMAINING_LENGTH )
     {
         LogError( ( "ACK does not have remaining length of %u.",
-                    ( unsigned int ) MQTT_PACKET_SIMPLE_ACK_RE***REMOVED***ING_LENGTH ) );
+                    ( unsigned int ) MQTT_PACKET_SIMPLE_ACK_REMAINING_LENGTH ) );
 
         status = MQTTBadResponse;
     }
@@ -1366,10 +1366,10 @@ static MQTTStatus_t deserializePingresp( const MQTTPacketInfo_t * pPingresp )
     assert( pPingresp != NULL );
 
     /* Check the "Remaining length" (second byte) of the received PINGRESP is 0. */
-    if( pPingresp->remainingLength != MQTT_PACKET_PINGRESP_RE***REMOVED***ING_LENGTH )
+    if( pPingresp->remainingLength != MQTT_PACKET_PINGRESP_REMAINING_LENGTH )
     {
         LogError( ( "PINGRESP does not have remaining length of %u.",
-                    MQTT_PACKET_PINGRESP_RE***REMOVED***ING_LENGTH ) );
+                    MQTT_PACKET_PINGRESP_REMAINING_LENGTH ) );
 
         status = MQTTBadResponse;
     }
@@ -1868,7 +1868,7 @@ MQTTStatus_t MQTT_GetPublishPacketSize( const MQTTPublishInfo_t * pPublishInfo,
         {
             LogError( ( "PUBLISH packet remaining length exceeds %lu, which is the "
                         "maximum size allowed by MQTT 3.1.1.",
-                        MQTT_MAX_RE***REMOVED***ING_LENGTH ) );
+                        MQTT_MAX_REMAINING_LENGTH ) );
             status = MQTTBadParameter;
         }
     }
@@ -2083,7 +2083,7 @@ MQTTStatus_t MQTT_SerializeAck( const MQTTFixedBuffer_t * pFixedBuffer,
             case MQTT_PACKET_TYPE_PUBREL:
             case MQTT_PACKET_TYPE_PUBCOMP:
                 pFixedBuffer->pBuffer[ 0 ] = packetType;
-                pFixedBuffer->pBuffer[ 1 ] = MQTT_PACKET_SIMPLE_ACK_RE***REMOVED***ING_LENGTH;
+                pFixedBuffer->pBuffer[ 1 ] = MQTT_PACKET_SIMPLE_ACK_REMAINING_LENGTH;
                 pFixedBuffer->pBuffer[ 2 ] = UINT16_HIGH_BYTE( packetId );
                 pFixedBuffer->pBuffer[ 3 ] = UINT16_LOW_BYTE( packetId );
                 break;
@@ -2156,7 +2156,7 @@ MQTTStatus_t MQTT_SerializeDisconnect( const MQTTFixedBuffer_t * pFixedBuffer )
     if( status == MQTTSuccess )
     {
         pFixedBuffer->pBuffer[ 0 ] = MQTT_PACKET_TYPE_DISCONNECT;
-        pFixedBuffer->pBuffer[ 1 ] = MQTT_DISCONNECT_RE***REMOVED***ING_LENGTH;
+        pFixedBuffer->pBuffer[ 1 ] = MQTT_DISCONNECT_REMAINING_LENGTH;
     }
 
     return status;
@@ -2369,7 +2369,7 @@ MQTTStatus_t MQTT_GetIncomingPacketTypeAndLength( TransportRecv_t readFunc,
             pIncomingPacket->remainingLength = getRemainingLength( readFunc,
                                                                    pNetworkContext );
 
-            if( pIncomingPacket->remainingLength == MQTT_RE***REMOVED***ING_LENGTH_INVALID )
+            if( pIncomingPacket->remainingLength == MQTT_REMAINING_LENGTH_INVALID )
             {
                 status = MQTTBadResponse;
             }

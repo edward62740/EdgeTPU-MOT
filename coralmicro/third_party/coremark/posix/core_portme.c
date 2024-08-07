@@ -225,7 +225,7 @@ portable_init(core_portable *p, int *argc, char *argv[])
     {
         ee_printf("ERROR! Please define ee_u32 to a 32b unsigned type!\n");
     }
-#if (***REMOVED***_HAS_NOARGC && (SEED_METHOD == SEED_ARG))
+#if (MAIN_HAS_NOARGC && (SEED_METHOD == SEED_ARG))
     ee_printf(
         "ERROR! Main has no argc, but SEED_METHOD defined to SEED_ARG!\n");
 #endif

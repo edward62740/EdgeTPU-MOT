@@ -64,7 +64,7 @@
       <toolchainSetting id_refs="com.nxp.mcuxpresso">
         <option id="gnu.c.compiler.option.preprocessor.def.symbols" type="stringList">
           <value>PRINTF_FLOAT_ENABLE=1</value>
-          <value>CACHE_***REMOVED***TAIN=1</value>
+          <value>CACHE_MAINTAIN=1</value>
           <value>CPU_MIMXRT1176DVMAA_cm4</value>
           <value>SDK_DEBUGCONSOLE=1</value>
           <value>XIP_BOOT_HEADER_ENABLE=0</value>

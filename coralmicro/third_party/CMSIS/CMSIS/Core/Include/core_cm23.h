@@ -65,9 +65,9 @@
 #include "cmsis_version.h"
 
 /*  CMSIS definitions */
-#define __CM23_CMSIS_VERSION_***REMOVED***  (__CM_CMSIS_VERSION_***REMOVED***)                   /*!< \deprecated [31:16] CMSIS HAL main version */
+#define __CM23_CMSIS_VERSION_MAIN  (__CM_CMSIS_VERSION_MAIN)                   /*!< \deprecated [31:16] CMSIS HAL main version */
 #define __CM23_CMSIS_VERSION_SUB   (__CM_CMSIS_VERSION_SUB)                    /*!< \deprecated [15:0]  CMSIS HAL sub version */
-#define __CM23_CMSIS_VERSION       ((__CM23_CMSIS_VERSION_***REMOVED*** << 16U) | \
+#define __CM23_CMSIS_VERSION       ((__CM23_CMSIS_VERSION_MAIN << 16U) | \
                                      __CM23_CMSIS_VERSION_SUB           )      /*!< \deprecated CMSIS HAL version number */
 
 #define __CORTEX_M                 (23U)                                       /*!< Cortex-M Core */

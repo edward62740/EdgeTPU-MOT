@@ -1153,7 +1153,7 @@ The application itself shows how to isolate network stack threads from the user 
 The MCBSTM32F400.azone file of that project has the following configuration settings:
   - Project mode is set to \c Execution.
   - \ref zTUICreate "Added the zones" \c Net, \c Main, \c RTX, \c Blinky, \c Timer, \c Idle
-  - \ref zTUIMemAdd "Created the memory regions" \c CODE, \c RAM_SHARED, \c RAM_NET, \c RAM_***REMOVED***, \c RAM_PRIVILEGED,
+  - \ref zTUIMemAdd "Created the memory regions" \c CODE, \c RAM_SHARED, \c RAM_NET, \c RAM_MAIN, \c RAM_PRIVILEGED,
     \c RAM_EVR, \c RAM_BSD, \c RAM_LED, \c RAM_ADC, \c RAM_TIMER, and \c RAM_IDLE
   - Selected various memory regions and peripherals for using in the different zones:
     \image html MCB400_zones.png
@@ -1245,7 +1245,7 @@ LR_CODE REGION_CODE_START REGION_CODE_SIZE {
   RW_RAM_LED REGION_RAM_LED_START REGION_RAM_LED_SIZE {
     led.o (+RW +ZI)
   }
-  RW_RAM_***REMOVED*** REGION_RAM_***REMOVED***_START REGION_RAM_***REMOVED***_SIZE {
+  RW_RAM_MAIN REGION_RAM_MAIN_START REGION_RAM_MAIN_SIZE {
     app.o (+RW +ZI)
   }
   RW_RAM_IDLE REGION_RAM_IDLE_START REGION_RAM_IDLE_SIZE {

@@ -69,7 +69,7 @@
 #define MDC_ATTRIBUTE_TIME_ABSOLUTE_ADJUST (2658U)               /*!< Data and time adjustment */
 #define MDC_ATTRIBUTE_POWER_STATUS (2389U)                       /*!< Power status */
 #define MDC_ATTRIBUTE_VALUE_BATTERY_CHARGE (2460U)               /*!< Battery level */
-#define MDC_ATTRIBUTE_TIME_BATTERY_RE***REMOVED*** (2440U)                /*!< Remaining battery time */
+#define MDC_ATTRIBUTE_TIME_BATTERY_REMAIN (2440U)                /*!< Remaining battery time */
 #define MDC_ATTRIBUTE_REGULATORY_CERTIFICATION_DATA_LIST (2635U) /*!< Regulatory and certification data list */
 #define MDC_ATTRIBUTE_SYSTEM_TYPE_SPECIFICATION_LIST (2650U)     /*!< System type specification list */
 #define MDC_ATTRIBUTE_CONFIRM_TIMEOUT                                            \

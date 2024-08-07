@@ -72,7 +72,7 @@ typedef struct _osa_state
 {
 #if (defined(FSL_OSA_TASK_ENABLE) && (FSL_OSA_TASK_ENABLE > 0U))
     list_label_t taskList;
-#if (defined(FSL_OSA_***REMOVED***_FUNC_ENABLE) && (FSL_OSA_***REMOVED***_FUNC_ENABLE > 0U))
+#if (defined(FSL_OSA_MAIN_FUNC_ENABLE) && (FSL_OSA_MAIN_FUNC_ENABLE > 0U))
     OSA_TASK_HANDLE_DEFINE(mainTaskHandle);
 #endif
 #endif
@@ -1041,7 +1041,7 @@ void OSA_InstallIntHandler(uint32_t IRQNumber, void (*handler)(void))
 *************************************************************************************
 ********************************************************************************** */
 #if (defined(FSL_OSA_TASK_ENABLE) && (FSL_OSA_TASK_ENABLE > 0U))
-#if (defined(FSL_OSA_***REMOVED***_FUNC_ENABLE) && (FSL_OSA_***REMOVED***_FUNC_ENABLE > 0U))
+#if (defined(FSL_OSA_MAIN_FUNC_ENABLE) && (FSL_OSA_MAIN_FUNC_ENABLE > 0U))
 static OSA_TASK_DEFINE(startup_task, gMainThreadPriority_c, 1, gMainThreadStackSize_c, 0);
 
 int main(void)
@@ -1056,7 +1056,7 @@ int main(void)
     OSA_Start();
     return 0;
 }
-#endif /*(defined(FSL_OSA_***REMOVED***_FUNC_ENABLE) && (FSL_OSA_***REMOVED***_FUNC_ENABLE > 0U))*/
+#endif /*(defined(FSL_OSA_MAIN_FUNC_ENABLE) && (FSL_OSA_MAIN_FUNC_ENABLE > 0U))*/
 #endif /* FSL_OSA_TASK_ENABLE */
 
 /*FUNCTION**********************************************************************

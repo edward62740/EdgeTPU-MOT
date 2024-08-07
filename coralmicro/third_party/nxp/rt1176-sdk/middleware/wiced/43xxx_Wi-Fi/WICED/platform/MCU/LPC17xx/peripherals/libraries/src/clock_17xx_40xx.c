@@ -73,7 +73,7 @@ void Chip_Clock_SetupPLL(CHIP_SYSCTL_PLL_T pllNum, uint32_t msel, uint32_t psel)
 
 #if defined(CHIP_LPC175X_6X)
 	/* PLL0 and PLL1 are slightly different */
-	if (pllNum == SYSCTL_***REMOVED***_PLL) {
+	if (pllNum == SYSCTL_MAIN_PLL) {
 		pllcfg = (msel) | (psel << 16);
 	}
 	else {
@@ -144,16 +144,16 @@ void Chip_Clock_SetCPUClockSource(CHIP_SYSCTL_CCLKSRC_T src)
 {
 #if defined(CHIP_LPC175X_6X)
 	/* LPC175x/6x CPU clock source is based on PLL connect status */
-	if (src == SYSCTL_CCLKSRC_***REMOVED***PLL) {
+	if (src == SYSCTL_CCLKSRC_MAINPLL) {
 		/* Connect PLL0 */
-		Chip_Clock_EnablePLL(SYSCTL_***REMOVED***_PLL, SYSCTL_PLL_CONNECT);
+		Chip_Clock_EnablePLL(SYSCTL_MAIN_PLL, SYSCTL_PLL_CONNECT);
 	}
 	else {
-		Chip_Clock_DisablePLL(SYSCTL_***REMOVED***_PLL, SYSCTL_PLL_CONNECT);
+		Chip_Clock_DisablePLL(SYSCTL_MAIN_PLL, SYSCTL_PLL_CONNECT);
 	}
 #else
 	/* LPC177x/8x and 407x/8x CPU clock source is based on CCLKSEL */
-	if (src == SYSCTL_CCLKSRC_***REMOVED***PLL) {
+	if (src == SYSCTL_CCLKSRC_MAINPLL) {
 		/* Connect PLL0 */
 		LPC_SYSCTL->CCLKSEL |= (1 << 8);
 	}
@@ -170,7 +170,7 @@ CHIP_SYSCTL_CCLKSRC_T Chip_Clock_GetCPUClockSource(void)
 #if defined(CHIP_LPC175X_6X)
 	/* LPC175x/6x CPU clock source is based on PLL connect status */
 	if (Chip_Clock_IsMainPLLConnected()) {
-		src = SYSCTL_CCLKSRC_***REMOVED***PLL;
+		src = SYSCTL_CCLKSRC_MAINPLL;
 	}
 	else {
 		src = SYSCTL_CCLKSRC_SYSCLK;
@@ -178,7 +178,7 @@ CHIP_SYSCTL_CCLKSRC_T Chip_Clock_GetCPUClockSource(void)
 #else
 	/* LPC177x/8x and 407x/8x CPU clock source is based on CCLKSEL */
 	if (LPC_SYSCTL->CCLKSEL & (1 << 8)) {
-		src = SYSCTL_CCLKSRC_***REMOVED***PLL;
+		src = SYSCTL_CCLKSRC_MAINPLL;
 	}
 	else {
 		src = SYSCTL_CCLKSRC_SYSCLK;
@@ -320,7 +320,7 @@ uint32_t Chip_Clock_GetSYSCLKRate(void)
 	case (uint32_t) SYSCTL_PLLCLKSRC_IRC:
 		return Chip_Clock_GetIntOscRate();
 
-	case (uint32_t) SYSCTL_PLLCLKSRC_***REMOVED***OSC:
+	case (uint32_t) SYSCTL_PLLCLKSRC_MAINOSC:
 		return Chip_Clock_GetMainOscRate();
 
 #if defined(CHIP_LPC175X_6X)
@@ -344,8 +344,8 @@ uint32_t Chip_Clock_GetMainPllOutClockRate(void)
 		uint32_t msel, nsel;
 
 		/* PLL0 rate is (FIN * 2 * MSEL) / NSEL, get MSEL and NSEL */
-		msel = 1 + (LPC_SYSCTL->PLL[SYSCTL_***REMOVED***_PLL].PLLCFG & 0x7FFF);
-		nsel = 1 + ((LPC_SYSCTL->PLL[SYSCTL_***REMOVED***_PLL].PLLCFG >> 16) & 0xFF);
+		msel = 1 + (LPC_SYSCTL->PLL[SYSCTL_MAIN_PLL].PLLCFG & 0x7FFF);
+		nsel = 1 + ((LPC_SYSCTL->PLL[SYSCTL_MAIN_PLL].PLLCFG >> 16) & 0xFF);
 		clkhr = (Chip_Clock_GetMainPllInClockRate() * 2 * msel) / nsel;
 	}
 #else
@@ -353,7 +353,7 @@ uint32_t Chip_Clock_GetMainPllOutClockRate(void)
 		uint32_t msel;
 
 		/* PLL0 rate is (FIN * MSEL) */
-		msel = 1 + (LPC_SYSCTL->PLL[SYSCTL_***REMOVED***_PLL].PLLCFG & 0x1F);
+		msel = 1 + (LPC_SYSCTL->PLL[SYSCTL_MAIN_PLL].PLLCFG & 0x1F);
 		clkhr = (Chip_Clock_GetMainPllInClockRate() * msel);
 	}
 #endif
@@ -388,7 +388,7 @@ uint32_t Chip_Clock_GetUSBPllOutClockRate(void)
 uint32_t Chip_Clock_GetMainClockRate(void)
 {
 	switch (Chip_Clock_GetCPUClockSource()) {
-	case SYSCTL_CCLKSRC_***REMOVED***PLL:
+	case SYSCTL_CCLKSRC_MAINPLL:
 		return Chip_Clock_GetMainPllOutClockRate();
 
 	case SYSCTL_CCLKSRC_SYSCLK:
@@ -429,7 +429,7 @@ uint32_t Chip_Clock_GetUSBClockRate(void)
 		clkrate = Chip_Clock_GetSYSCLKRate();
 		break;
 
-	case SYSCTL_USBCLKSRC_***REMOVED***PLL:
+	case SYSCTL_USBCLKSRC_MAINPLL:
 		clkrate = Chip_Clock_GetMainPllOutClockRate();
 		break;
 
@@ -477,7 +477,7 @@ uint32_t Chip_Clock_GetSPIFIClockRate(void)
 		clkrate = Chip_Clock_GetSYSCLKRate();
 		break;
 
-	case SYSCTL_SPIFICLKSRC_***REMOVED***PLL:
+	case SYSCTL_SPIFICLKSRC_MAINPLL:
 		clkrate = Chip_Clock_GetMainPllOutClockRate();
 		break;
 

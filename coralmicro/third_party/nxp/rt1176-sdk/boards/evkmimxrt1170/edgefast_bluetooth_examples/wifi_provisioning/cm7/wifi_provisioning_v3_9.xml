@@ -137,7 +137,7 @@
           <value>gNvStorageIncluded_d=1</value>
           <value>gNvTableKeptInRam_d=1</value>
           <value>IOT_WIFI_ENABLE_SAVE_NETWORK=1</value>
-          <value>FSL_OSA_***REMOVED***_FUNC_ENABLE=0</value>
+          <value>FSL_OSA_MAIN_FUNC_ENABLE=0</value>
           <value>HAL_UART_ADAPTER_FIFO=1</value>
           <value>FSL_FEATURE_FLASH_PAGE_SIZE_BYTES=4096</value>
           <value>gMemManagerLight=0</value>

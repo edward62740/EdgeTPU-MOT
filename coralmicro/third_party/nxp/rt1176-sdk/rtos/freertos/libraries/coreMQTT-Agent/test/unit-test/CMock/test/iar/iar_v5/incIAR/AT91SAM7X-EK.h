@@ -55,7 +55,7 @@
 /*--------------*/
 /* Clocks       */
 /*--------------*/
-#define AT91B_***REMOVED***_OSC        18432000               // Main Oscillator ***REMOVED***CK
+#define AT91B_MAIN_OSC        18432000               // Main Oscillator MAINCK
 #define AT91B_MCK             ((18432000*73/14)/2)   // Output PLL Clock
 
 #endif /* AT91SAM7X-EK_H */

@@ -1,7 +1,7 @@
-#ifndef _***REMOVED***_H_
-#define _***REMOVED***_H_
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 int AppMain(void);
 int main(void);
 
-#endif // _***REMOVED***_H_
+#endif // _MAIN_H_

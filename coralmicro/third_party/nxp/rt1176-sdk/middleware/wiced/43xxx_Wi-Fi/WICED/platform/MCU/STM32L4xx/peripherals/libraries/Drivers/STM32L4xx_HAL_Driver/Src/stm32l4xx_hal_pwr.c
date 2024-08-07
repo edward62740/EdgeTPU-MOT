@@ -206,7 +206,7 @@ void HAL_PWR_DisableBkUpAccess(void)
       (+) Entry:                                                         
           The Sleep mode / Low-power Sleep mode is entered thru HAL_PWR_EnterSLEEPMode() API
           in specifying whether or not the regulator is forced to low-power mode and if exit is interrupt or event-triggered. 
-          (++) PWR_***REMOVED***REGULATOR_ON: Sleep mode (regulator in main mode).              
+          (++) PWR_MAINREGULATOR_ON: Sleep mode (regulator in main mode).              
           (++) PWR_LOWPOWERREGULATOR_ON: Low-power sleep (regulator in low power mode).
           In the latter case, the system clock frequency must have been decreased below 2 MHz beforehand.           
           (++) PWR_SLEEPENTRY_WFI: enter SLEEP mode with WFI instruction
@@ -230,7 +230,7 @@ void HAL_PWR_DisableBkUpAccess(void)
           (++) HAL_PWREx_EnterSTOP0Mode() for mode 0 or HAL_PWREx_EnterSTOP1Mode() for mode 1 or for porting reasons HAL_PWR_EnterSTOPMode().
           (++) HAL_PWREx_EnterSTOP2Mode() for mode 2.  
       (+) Regulator setting (applicable to HAL_PWR_EnterSTOPMode() only):
-          (++) PWR_***REMOVED***REGULATOR_ON
+          (++) PWR_MAINREGULATOR_ON
           (++) PWR_LOWPOWERREGULATOR_ON
       (+) Exit (interrupt or event-triggered, specified when entering STOP mode):
           (++) PWR_STOPENTRY_WFI: enter Stop mode with WFI instruction
@@ -439,7 +439,7 @@ void HAL_PWR_DisableWakeUpPin(uint32_t WakeUpPinx)
   * @note  In Sleep/Low-power Sleep mode, all I/O pins keep the same state as in Run mode.
   * @param Regulator: Specifies the regulator state in Sleep/Low-power Sleep mode.
   *          This parameter can be one of the following values:
-  *            @arg @ref PWR_***REMOVED***REGULATOR_ON Sleep mode (regulator in main mode)
+  *            @arg @ref PWR_MAINREGULATOR_ON Sleep mode (regulator in main mode)
   *            @arg @ref PWR_LOWPOWERREGULATOR_ON Low-power Sleep mode (regulator in low-power mode) 
   * @note  Low-power Sleep mode is entered from Low-power Run mode. Therefore, if not yet 
   *        in Low-power Run mode before calling HAL_PWR_EnterSLEEPMode() with Regulator set 
@@ -465,7 +465,7 @@ void HAL_PWR_EnterSLEEPMode(uint32_t Regulator, uint8_t SLEEPEntry)
   assert_param(IS_PWR_SLEEP_ENTRY(SLEEPEntry));
 
   /* Set Regulator parameter */
-  if (Regulator == PWR_***REMOVED***REGULATOR_ON)
+  if (Regulator == PWR_MAINREGULATOR_ON)
   {
     /* If in low-power run mode at this point, exit it */
     if (HAL_IS_BIT_SET(PWR->SR2, PWR_SR2_REGLPF))
@@ -526,7 +526,7 @@ void HAL_PWR_EnterSLEEPMode(uint32_t Regulator, uint8_t SLEEPEntry)
   *         is higher although the startup time is reduced.
   * @param Regulator: Specifies the regulator state in Stop mode.
   *          This parameter can be one of the following values:
-  *            @arg @ref PWR_***REMOVED***REGULATOR_ON  Stop 0 mode (main regulator ON)
+  *            @arg @ref PWR_MAINREGULATOR_ON  Stop 0 mode (main regulator ON)
   *            @arg @ref PWR_LOWPOWERREGULATOR_ON  Stop 1 mode (low power regulator ON) 
   * @param STOPEntry: Specifies Stop 0 or Stop 1 mode is entered with WFI or WFE instruction.
   *          This parameter can be one of the following values:

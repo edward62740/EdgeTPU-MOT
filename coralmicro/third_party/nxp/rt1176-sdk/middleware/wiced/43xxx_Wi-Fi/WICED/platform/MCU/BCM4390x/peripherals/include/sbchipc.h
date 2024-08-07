@@ -1732,12 +1732,12 @@ typedef volatile struct {
 #define	PMU_XTALFREQ_REG_MEASURE_SHIFT	31
 
 /* Divider allocation in 4716/47162/5356/5357 */
-#define	PMU5_***REMOVED***PLL_CPU		1
-#define	PMU5_***REMOVED***PLL_MEM		2
-#define	PMU5_***REMOVED***PLL_SI			3
+#define	PMU5_MAINPLL_CPU		1
+#define	PMU5_MAINPLL_MEM		2
+#define	PMU5_MAINPLL_SI			3
 
 /* 4706 PMU */
-#define PMU4706_***REMOVED***PLL_PLL0	0
+#define PMU4706_MAINPLL_PLL0	0
 #define PMU6_4706_PROCPLL_OFF	4	/* The CPU PLL */
 #define PMU6_4706_PROC_P2DIV_MASK		0x000f0000
 #define PMU6_4706_PROC_P2DIV_SHIFT	16
@@ -1889,7 +1889,7 @@ typedef volatile struct {
 #define PMU17_PLLCTL0_BBPLL_DISBL_CLK		8
 
 /* PLL usage in 4716/47162 */
-#define	PMU4716_***REMOVED***PLL_PLL0		12
+#define	PMU4716_MAINPLL_PLL0		12
 
 /* PLL usage in 4335 */
 #define PMU4335_PLL0_PC2_P1DIV_MASK			0x000f0000
@@ -1901,8 +1901,8 @@ typedef volatile struct {
 
 
 /* PLL usage in 5356/5357 */
-#define	PMU5356_***REMOVED***PLL_PLL0		0
-#define	PMU5357_***REMOVED***PLL_PLL0		0
+#define	PMU5356_MAINPLL_PLL0		0
+#define	PMU5357_MAINPLL_PLL0		0
 
 /* 4716/47162 resources */
 #define RES4716_PROC_PLL_ON		0x00000040

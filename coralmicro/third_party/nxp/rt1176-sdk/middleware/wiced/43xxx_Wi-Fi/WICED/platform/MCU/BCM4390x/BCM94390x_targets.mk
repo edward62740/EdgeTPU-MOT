@@ -467,7 +467,7 @@ endif
 
 $(FS_IMAGE): $(STRIPPED_LINK_OUTPUT_FILE) display_map_summary $(STAGING_DIR).d
 	$(QUIET)$(ECHO) Creating Filesystem BCM94390x_targets.mk ...
-ifeq (1, $(BOOTLOADER_LOAD_***REMOVED***_APP_FROM_FILESYSTEM))
+ifeq (1, $(BOOTLOADER_LOAD_MAIN_APP_FROM_FILESYSTEM))
 	$(QUIET)$(CP) $(STRIPPED_LINK_OUTPUT_FILE) $(STAGING_DIR)app.elf
 else
 	$(QUIET)$(RM) $(STAGING_DIR)app.elf

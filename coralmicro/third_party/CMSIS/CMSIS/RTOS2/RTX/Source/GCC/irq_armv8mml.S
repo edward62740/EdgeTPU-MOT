@@ -28,8 +28,8 @@
 
         #include "rtx_def.h"
 
-        #ifndef  DO***REMOVED***_NS
-        #define  DO***REMOVED***_NS    0
+        #ifndef  DOMAIN_NS
+        #define  DOMAIN_NS    0
         #endif
 
         #if (defined(__ARM_FP) && (__ARM_FP > 0))
@@ -113,7 +113,7 @@ SVC_FP_LazyState:
       .endif
 
 SVC_ContextSave:
-    #if (DO***REMOVED***_NS != 0)
+    #if (DOMAIN_NS != 0)
         ldr      r0,[r1,#TCB_TZM_OFS]   // Load TrustZone memory identifier
         cbz      r0,SVC_ContextSave_NS  // Branch if there is no secure context
         push     {r1,r2,r12,lr}         // Save registers and EXC_RETURN
@@ -122,7 +122,7 @@ SVC_ContextSave:
     #endif
 
 SVC_ContextSave_NS:
-    #if (DO***REMOVED***_NS != 0)
+    #if (DOMAIN_NS != 0)
         tst      lr,#0x40               // Check domain of interrupted thread
         bne      SVC_ContextSaveSP      // Branch if secure
     #endif
@@ -162,7 +162,7 @@ SVC_ContextSaveSP:
 
 SVC_ContextSaveRegs:
         ldrb     lr,[r1,#TCB_SF_OFS]    // Load stack frame information
-      #if (DO***REMOVED***_NS != 0)
+      #if (DOMAIN_NS != 0)
         tst      lr,#0x40               // Check domain of interrupted thread
         bne      SVC_ContextRestore     // Branch if secure
       #endif
@@ -186,7 +186,7 @@ SVC_ContextSaveSP:
     #endif // RTX_STACK_CHECK
 
 SVC_ContextRestore:
-    #if (DO***REMOVED***_NS != 0)
+    #if (DOMAIN_NS != 0)
         ldr      r0,[r2,#TCB_TZM_OFS]   // Load TrustZone memory identifier
         cbz      r0,SVC_ContextRestore_NS // Branch if there is no secure context
         push     {r2,r3}                // Save registers
@@ -200,7 +200,7 @@ SVC_ContextRestore_NS:
         msr      psplim,r1              // Set PSPLIM
         ldrb     r1,[r2,#TCB_SF_OFS]    // Load stack frame information
         orn      lr,r1,#0xFF            // Set EXC_RETURN
-    #if (DO***REMOVED***_NS != 0)
+    #if (DOMAIN_NS != 0)
         tst      lr,#0x40               // Check domain of interrupted thread
         bne      SVC_ContextRestoreSP   // Branch if secure
     #endif

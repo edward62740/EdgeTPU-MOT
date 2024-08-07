@@ -45,8 +45,8 @@
 #endif
 
   /* __ARM_ARCH_8M_BASE__  not applicable */
-  /* __ARM_ARCH_8M_***REMOVED***__  not applicable */
-  /* __ARM_ARCH_8_1M_***REMOVED***__  not applicable */
+  /* __ARM_ARCH_8M_MAIN__  not applicable */
+  /* __ARM_ARCH_8_1M_MAIN__  not applicable */
 
 /* CMSIS compiler control DSP macros */
 #if ((defined (__ARM_ARCH_7EM__) && (__ARM_ARCH_7EM__ == 1))     )

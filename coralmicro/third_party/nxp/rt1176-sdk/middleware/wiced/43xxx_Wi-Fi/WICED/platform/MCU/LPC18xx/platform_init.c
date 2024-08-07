@@ -103,7 +103,7 @@ static const struct CLK_BASE_STATES InitClkStates[] =
 {
     {CLK_BASE_PHY_TX, CLKIN_ENET_TX, true, false},
     {CLK_BASE_PHY_RX, CLKIN_ENET_RX, true, false},
-    {CLK_BASE_SDIO,   CLKIN_***REMOVED***PLL, true, false},
+    {CLK_BASE_SDIO,   CLKIN_MAINPLL, true, false},
 };
 
 /******************************************************
@@ -146,9 +146,9 @@ WEAK void platform_init_system_clocks( void )
                                     InitClkStates[i].autoblock_enab, InitClkStates[i].powerdn);
         }
     #if (CPU_CLOCK_HZ >= 180000000)
-        Chip_Clock_SetDivider(CLK_IDIV_E, CLKIN_***REMOVED***PLL, 5);
+        Chip_Clock_SetDivider(CLK_IDIV_E, CLKIN_MAINPLL, 5);
     #else
-        Chip_Clock_SetDivider(CLK_IDIV_E, CLKIN_***REMOVED***PLL, 4);
+        Chip_Clock_SetDivider(CLK_IDIV_E, CLKIN_MAINPLL, 4);
     #endif
         Chip_Clock_SetBaseClock(CLK_BASE_SPIFI, CLKIN_IDIVE, true, false);
         SystemCoreClockUpdate( );

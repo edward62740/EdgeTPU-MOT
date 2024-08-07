@@ -35,6 +35,8 @@ namespace coralmicro
 
         constexpr char kModelPath[] =
             "/ssdlite_mobiledet_coco_qat_postprocess_edgetpu.tflite";
+
+
         constexpr int kTensorArenaSize = 8 * 1024 * 1024;
         STATIC_TENSOR_ARENA_IN_SDRAM(tensor_arena, kTensorArenaSize);
         static std::vector<uint8_t> *img_ptr;
@@ -262,11 +264,14 @@ namespace coralmicro
                     // size_t num_classes = 80; // For COCO dataset
                     std::vector<float> bboxes, ids, scores;
                     size_t count = 0;
-                    // ProcessOutput(output, output_size, bboxes, ids, scores, count, num_classes);
+
+                    // USE THIS SECTION FOR YOLO inference
+                    // ProcessYoloOutput(output, output_size, bboxes, ids, scores, count, num_classes);
 
                     // Call the GetDetectionResults function
                     float threshold = 0.53f;
                     size_t top_k = 5;
+                    
                     /*results = tensorflow::GetDetectionResults(bboxes.data(), ids.data(), scores.data(), count, threshold, top_k);
                     for (const auto &obj : results)
                     {
@@ -274,7 +279,7 @@ namespace coralmicro
                     }
                     */
 
-                    results = tensorflow::GetDetectionResults(&interpreter, 0.6, 10);
+                    results = tensorflow::GetDetectionResults(&interpreter, 0.6, 15);
 
                     LedSet(coralmicro::Led::kTpu, false);
                     if (!results.empty())
@@ -341,8 +346,7 @@ namespace coralmicro
                 {
                     int class_id = static_cast<int>(bbox_list[i][0]);
                     std::string class_label = coco_labels[class_id + 1];
-                    bbox_string += "{\"id\":\"" + std::to_string(class_id) + "  " + class_label;
-                    bbox_string += " " + std::to_string(bbox_list[i][1]).substr(0,5);
+                    bbox_string += "{\"id\":\"" + std::to_string(class_id);
                     bbox_string += "\",";
                     bbox_string += "\"score\":" + std::to_string(bbox_list[i][1]) + ",";
                     bbox_string += "\"xmin\":" + std::to_string(bbox_list[i][3]) + ",";

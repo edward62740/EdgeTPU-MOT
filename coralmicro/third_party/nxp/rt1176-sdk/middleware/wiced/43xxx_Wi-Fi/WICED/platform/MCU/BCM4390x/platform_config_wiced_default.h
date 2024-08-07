@@ -48,8 +48,8 @@ extern "C" {
 
 /* The main app is stored in external serial flash */
 /* Value for this should be in the platforms/<platform_name>/toplevel.mk */
-#ifndef BOOTLOADER_LOAD_***REMOVED***_APP_FROM_EXTERNAL_LOCATION
-#define BOOTLOADER_LOAD_***REMOVED***_APP_FROM_EXTERNAL_LOCATION
+#ifndef BOOTLOADER_LOAD_MAIN_APP_FROM_EXTERNAL_LOCATION
+#define BOOTLOADER_LOAD_MAIN_APP_FROM_EXTERNAL_LOCATION
 #endif
 
 

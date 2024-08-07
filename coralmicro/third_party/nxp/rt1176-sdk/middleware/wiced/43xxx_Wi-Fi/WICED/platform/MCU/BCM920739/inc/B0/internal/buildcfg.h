@@ -28,12 +28,12 @@ void * mpaf_memmove( void * destination, const void * source, int num );
 #define AVRC_INCLUDED   FALSE
 #define AVDT_INCLUDED   FALSE
 
-#define AT91_***REMOVED***_INCLUDED   FALSE
+#define AT91_MAIN_INCLUDED   FALSE
 #define AT91_DRV_INCLUDED   TRUE
 #define AT91_LIB_INCLUDED   TRUE
 #define AT91_GKI_INCLUDED   TRUE
 #define UNV_INCLUDED   FALSE
-#define BBY_***REMOVED***_INCLUDED   FALSE
+#define BBY_MAIN_INCLUDED   FALSE
 
 #define A2D_INCLUDED   FALSE 
 #define A2D_SBC_INCLUDED   FALSE

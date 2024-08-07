@@ -34,7 +34,7 @@
 #define APP_RDC_MEM_END_ADDR  0x20400000
 
 /* The RDC domain ID for ARM core is fixed value. */
-#define APP_ASSIGN_DO***REMOVED***_ID_BY_RDC 0
+#define APP_ASSIGN_DOMAIN_ID_BY_RDC 0
 
 /*
  * Master index:
@@ -70,12 +70,12 @@ typedef enum
 /* For some platforms, the core's domain ID
  * is not configured by RDC, for example, it
  * is fixed value and not configurable.
- * In this case, APP_ASSIGN_DO***REMOVED***_ID_BY_RDC
+ * In this case, APP_ASSIGN_DOMAIN_ID_BY_RDC
  * could be over-written to 0, and a function
  * APP_AssignCoreDomain assigns the core's domain.
  */
-#ifndef APP_ASSIGN_DO***REMOVED***_ID_BY_RDC
-#define APP_ASSIGN_DO***REMOVED***_ID_BY_RDC 1
+#ifndef APP_ASSIGN_DOMAIN_ID_BY_RDC
+#define APP_ASSIGN_DOMAIN_ID_BY_RDC 1
 #endif
 
 /*******************************************************************************
@@ -214,7 +214,7 @@ int main(void)
     RDC_Init(APP_RDC);
     RDC_SEMA42_Init(APP_RDC_SEMA42);
 
-#if APP_ASSIGN_DO***REMOVED***_ID_BY_RDC
+#if APP_ASSIGN_DOMAIN_ID_BY_RDC
     /* Assign current master domain. */
     RDC_GetDefaultMasterDomainAssignment(&assignment);
     assignment.domainId = APP_CUR_MASTER_DID;

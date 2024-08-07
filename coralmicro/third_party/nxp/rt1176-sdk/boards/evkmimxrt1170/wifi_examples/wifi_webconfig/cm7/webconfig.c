@@ -606,7 +606,7 @@ int main(void)
     /* Create the main Task */
     if (xTaskCreate(main_task, "main_task", 2048, NULL, configMAX_PRIORITIES - 4, &g_BoardState.mainTask) != pdPASS)
     {
-        PRINTF("[!] ***REMOVED*** Task creation failed!\r\n");
+        PRINTF("[!] MAIN Task creation failed!\r\n");
         while (1)
             ;
     }

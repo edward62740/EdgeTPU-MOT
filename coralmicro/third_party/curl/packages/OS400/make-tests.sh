@@ -126,7 +126,7 @@ do      DB2PGM=`db2_name "${PGM}"`
                 MODULES="`echo \"${MODULES}\" |
                     sed \"s/[^ ][^ ]*/${TARGETLIB}\/&/g\"`"
                 CMD="CRTPGM PGM(${TARGETLIB}/${DB2PGM})"
-                CMD="${CMD} ENTMOD(QADRT/QADRT***REMOVED***2)"
+                CMD="${CMD} ENTMOD(QADRT/QADRTMAIN2)"
                 CMD="${CMD} MODULE(${MODULES})"
                 CMD="${CMD} BNDSRVPGM(${TARGETLIB}/${SRVPGM} QADRTTS)"
                 CMD="${CMD} TGTRLS(${TGTRLS})"

@@ -99,17 +99,17 @@ WEAK void platform_init_system_clocks( void )
 
     /* PLL0 clock source is 12MHz oscillator, PLL1 can only be the
      main oscillator */
-    Chip_Clock_SetMainPllSource( SYSCTL_PLLCLKSRC_***REMOVED***OSC );
+    Chip_Clock_SetMainPllSource( SYSCTL_PLLCLKSRC_MAINOSC );
 
     /* Setup PLL0 for a 480MHz clock. It is divided by CPU Clock Divider to create CPU Clock.
      Input clock rate (FIN) is main oscillator = 12MHz
      FCCO is selected for PLL Output and it must be between 275 MHz to 550 MHz.
      FCCO = (2 * M * FIN) / N = integer multiplier of CPU Clock (120MHz) = 480MHz
      N = 1, M = 480 * 1/(2*12) = 20 */
-    Chip_Clock_SetupPLL( SYSCTL_***REMOVED***_PLL, PLL_M_CONSTANT - 1, PLL_N_CONSTANT - 1 );/* Multiply by PLL_M_CONSTANT, Divide by PLL_N_CONSTANT */
+    Chip_Clock_SetupPLL( SYSCTL_MAIN_PLL, PLL_M_CONSTANT - 1, PLL_N_CONSTANT - 1 );/* Multiply by PLL_M_CONSTANT, Divide by PLL_N_CONSTANT */
 
     /* Enable PLL0 */
-    Chip_Clock_EnablePLL( SYSCTL_***REMOVED***_PLL, SYSCTL_PLL_ENABLE );
+    Chip_Clock_EnablePLL( SYSCTL_MAIN_PLL, SYSCTL_PLL_ENABLE );
 
     /* Change the CPU Clock Divider setting for the operation with PLL0.
      Divide value = (480/120) = 4 */
@@ -120,7 +120,7 @@ WEAK void platform_init_system_clocks( void )
     }
 
     /* Connect PLL0 */
-    Chip_Clock_EnablePLL( SYSCTL_***REMOVED***_PLL, SYSCTL_PLL_ENABLE | SYSCTL_PLL_CONNECT );
+    Chip_Clock_EnablePLL( SYSCTL_MAIN_PLL, SYSCTL_PLL_ENABLE | SYSCTL_PLL_CONNECT );
 
     /* Wait for PLL0 to be connected */
     while ( !Chip_Clock_IsMainPLLConnected( ) )

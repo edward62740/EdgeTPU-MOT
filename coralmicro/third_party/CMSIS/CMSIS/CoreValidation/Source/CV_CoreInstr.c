@@ -380,8 +380,8 @@ void TC_CoreInstr_USAT (void) {
 void TC_CoreInstr_RRX (void) {
 #if ((defined (__ARM_ARCH_7M__        ) && (__ARM_ARCH_7M__        == 1)) || \
      (defined (__ARM_ARCH_7EM__       ) && (__ARM_ARCH_7EM__       == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
-     (defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1))    )
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
+     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))    )
 
   volatile uint32_t  value  = 0U;
   volatile uint32_t  result = 0U;
@@ -397,9 +397,9 @@ void TC_CoreInstr_RRX (void) {
 /*=======0=========1=========2=========3=========4=========5=========6=========7=========8=========9=========0=========1====*/
 #if ((defined (__ARM_ARCH_7M__        ) && (__ARM_ARCH_7M__        == 1)) || \
      (defined (__ARM_ARCH_7EM__       ) && (__ARM_ARCH_7EM__       == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__   ) && (__ARM_ARCH_8M_BASE__   == 1)) || \
-     (defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) || \
+     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) || \
      (defined(__CORTEX_A)                                               )    )
 
 /// Exclusive byte value
@@ -496,9 +496,9 @@ Checks exclusive load and store instructions:
 void TC_CoreInstr_LoadStoreExclusive (void) {
 #if ((defined (__ARM_ARCH_7M__        ) && (__ARM_ARCH_7M__        == 1)) || \
      (defined (__ARM_ARCH_7EM__       ) && (__ARM_ARCH_7EM__       == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__   ) && (__ARM_ARCH_8M_BASE__   == 1)) || \
-     (defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) || \
+     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) || \
      (defined(__CORTEX_A)                                               )    )
   uint8_t  u8,  u8Inv;
   uint16_t u16, u16Inv;
@@ -595,8 +595,8 @@ void TC_CoreInstr_LoadStoreExclusive (void) {
 /*=======0=========1=========2=========3=========4=========5=========6=========7=========8=========9=========0=========1====*/
 #if ((defined (__ARM_ARCH_7M__        ) && (__ARM_ARCH_7M__        == 1)) || \
      (defined (__ARM_ARCH_7EM__       ) && (__ARM_ARCH_7EM__       == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
-     (defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1))    )
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
+     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))    )
 
 /// byte value unprivileged access
 static volatile uint8_t TC_CoreInstr_LoadStoreUnpriv_byte = 0x47U;
@@ -619,8 +619,8 @@ Checks load/store unprivileged instructions:
 void TC_CoreInstr_LoadStoreUnpriv (void) {
 #if ((defined (__ARM_ARCH_7M__        ) && (__ARM_ARCH_7M__        == 1)) || \
      (defined (__ARM_ARCH_7EM__       ) && (__ARM_ARCH_7EM__       == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
-     (defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1))    )
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
+     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))    )
   uint8_t  u8     = 0U;
   uint16_t u16    = 0U;
   uint32_t u32    = 0U;
@@ -647,8 +647,8 @@ void TC_CoreInstr_LoadStoreUnpriv (void) {
 }
 
 /*=======0=========1=========2=========3=========4=========5=========6=========7=========8=========9=========0=========1====*/
-#if ((defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
+#if ((defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) || \
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__   ) && (__ARM_ARCH_8M_BASE__   == 1))    )
 
 /// byte value unprivileged access
@@ -670,8 +670,8 @@ Checks Load-Acquire and Store-Release instructions:
 - STLB, STLH, STL
 */
 void TC_CoreInstr_LoadStoreAcquire (void) {
-#if ((defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
+#if ((defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) || \
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__   ) && (__ARM_ARCH_8M_BASE__   == 1))    )
   uint8_t  u8     = 0U;
   uint16_t u16    = 0U;
@@ -699,8 +699,8 @@ void TC_CoreInstr_LoadStoreAcquire (void) {
 }
 
 /*=======0=========1=========2=========3=========4=========5=========6=========7=========8=========9=========0=========1====*/
-#if ((defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
+#if ((defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) || \
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__   ) && (__ARM_ARCH_8M_BASE__   == 1))    )
 
 /// byte value unprivileged access
@@ -722,8 +722,8 @@ Checks Load-Acquire and Store-Release exclusive instructions:
 - STLEXB, STLEXH, STLEX
 */
 void TC_CoreInstr_LoadStoreAcquireExclusive (void) {
-#if ((defined (__ARM_ARCH_8_1M_***REMOVED***__ ) && (__ARM_ARCH_8_1M_***REMOVED***__ == 1)) || \
-     (defined (__ARM_ARCH_8M_***REMOVED***__   ) && (__ARM_ARCH_8M_***REMOVED***__   == 1)) || \
+#if ((defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1)) || \
+     (defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__   ) && (__ARM_ARCH_8M_BASE__   == 1))    )
   uint8_t  u8     = 0U;
   uint16_t u16    = 0U;

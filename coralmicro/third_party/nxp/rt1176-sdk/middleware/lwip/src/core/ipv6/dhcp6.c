@@ -98,7 +98,7 @@ enum dhcp6_option_idx {
   DHCP6_OPTION_IDX_SERVER_ID,
 #if LWIP_DHCP6_PROVIDE_DNS_SERVERS
   DHCP6_OPTION_IDX_DNS_SERVER,
-  DHCP6_OPTION_IDX_DO***REMOVED***_LIST,
+  DHCP6_OPTION_IDX_DOMAIN_LIST,
 #endif /* LWIP_DHCP_PROVIDE_DNS_SERVERS */
 #if LWIP_DHCP6_GET_NTP_SRV
   DHCP6_OPTION_IDX_NTP_SERVER,
@@ -454,7 +454,7 @@ dhcp6_information_request(struct netif *netif, struct dhcp6 *dhcp6)
   const u16_t requested_options[] = {
 #if LWIP_DHCP6_PROVIDE_DNS_SERVERS
     DHCP6_OPTION_DNS_SERVERS,
-    DHCP6_OPTION_DO***REMOVED***_LIST
+    DHCP6_OPTION_DOMAIN_LIST
 #endif
 #if LWIP_DHCP6_GET_NTP_SRV
     , DHCP6_OPTION_SNTP_SERVERS
@@ -673,9 +673,9 @@ dhcp6_parse_reply(struct pbuf *p, struct dhcp6 *dhcp6)
         dhcp6_got_option(dhcp6, DHCP6_OPTION_IDX_DNS_SERVER);
         dhcp6_set_option(dhcp6, DHCP6_OPTION_IDX_DNS_SERVER, val_offset, len);
         break;
-      case (DHCP6_OPTION_DO***REMOVED***_LIST):
-        dhcp6_got_option(dhcp6, DHCP6_OPTION_IDX_DO***REMOVED***_LIST);
-        dhcp6_set_option(dhcp6, DHCP6_OPTION_IDX_DO***REMOVED***_LIST, val_offset, len);
+      case (DHCP6_OPTION_DOMAIN_LIST):
+        dhcp6_got_option(dhcp6, DHCP6_OPTION_IDX_DOMAIN_LIST);
+        dhcp6_set_option(dhcp6, DHCP6_OPTION_IDX_DOMAIN_LIST, val_offset, len);
         break;
 #endif /* LWIP_DHCP6_PROVIDE_DNS_SERVERS */
 #if LWIP_DHCP6_GET_NTP_SRV

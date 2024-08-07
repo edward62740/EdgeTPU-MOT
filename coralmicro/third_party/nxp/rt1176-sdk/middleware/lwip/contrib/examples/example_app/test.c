@@ -661,7 +661,7 @@ main_loop(void)
   netconn_thread_init();
 #endif
 
-  /* ***REMOVED*** LOOP for driver update (and timers if NO_SYS) */
+  /* MAIN LOOP for driver update (and timers if NO_SYS) */
   while (!LWIP_EXAMPLE_APP_ABORT()) {
 #if NO_SYS
     /* handle timers (already done in tcpip.c when NO_SYS=0) */

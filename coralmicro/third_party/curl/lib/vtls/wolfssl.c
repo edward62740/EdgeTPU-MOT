@@ -647,14 +647,14 @@ wolfssl_connect_step2(struct Curl_easy *data, struct connectdata *conn,
     /* There is no easy way to override only the CN matching.
      * This will enable the override of both mismatching SubjectAltNames
      * as also mismatching CN fields */
-    else if(DO***REMOVED***_NAME_MISMATCH == detail) {
+    else if(DOMAIN_NAME_MISMATCH == detail) {
 #if 1
       failf(data, " subject alt name(s) or common name do not match \"%s\"",
             dispname);
       return CURLE_PEER_FAILED_VERIFICATION;
 #else
       /* When the wolfssl_check_domain_name() is used and you desire to
-       * continue on a DO***REMOVED***_NAME_MISMATCH, i.e. 'conn->ssl_config.verifyhost
+       * continue on a DOMAIN_NAME_MISMATCH, i.e. 'conn->ssl_config.verifyhost
        * == 0', CyaSSL version 2.4.0 will fail with an INCOMPLETE_DATA
        * error. The only way to do this is currently to switch the
        * Wolfssl_check_domain_name() in and out based on the

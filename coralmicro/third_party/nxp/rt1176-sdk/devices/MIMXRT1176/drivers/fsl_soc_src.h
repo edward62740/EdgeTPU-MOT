@@ -27,7 +27,7 @@
 #define SRC_SLICE_AUTHENTICATION_REGISTER_OFFSET  (0x0U)
 #define SRC_SLICE_CONTROL_REGISTER_OFFSET         (0x4U)
 #define SRC_SLICE_SETPOINT_CONFIG_REGISTER_OFFSET (0x8U)
-#define SRC_SLICE_DO***REMOVED***_CONFIG_REGISTER_OFFSET   (0x0CU)
+#define SRC_SLICE_DOMAIN_CONFIG_REGISTER_OFFSET   (0x0CU)
 #define SRC_SLICE_STATUS_REGISTER_OFFSET          (0x10U)
 
 #define SRC_GET_SLICE_REGISTER_ADDRESS(base, sliceName, registerOffset) \
@@ -40,7 +40,7 @@
 #define SRC_WHITE_LIST_VALUE(coreName)  (1UL << (uint32_t)(coreName))
 #define SRC_ASSIGN_LIST_VALUE(coreName) (1UL << (uint32_t)(coreName))
 
-#define SRC_SLICE_AUTHEN_DO***REMOVED***_MODE_MASK   (0x1U)
+#define SRC_SLICE_AUTHEN_DOMAIN_MODE_MASK   (0x1U)
 #define SRC_SLICE_AUTHEN_SETPOINT_MODE_MASK (0x2U)
 
 #define SRC_SLICE_AUTHEN_LOCK_MODE_MASK  (0x80U)
@@ -595,7 +595,7 @@ static inline void SRC_EnableSetPointTransferReset(SRC_Type *base, src_reset_sli
     {
         /* If the setpoint mode transfer reset is enabled, domain mode transfer reset should be disabled. */
         *(volatile uint32_t *)authRegAddr =
-            ((*(volatile uint32_t *)authRegAddr) & (~SRC_SLICE_AUTHEN_DO***REMOVED***_MODE_MASK)) |
+            ((*(volatile uint32_t *)authRegAddr) & (~SRC_SLICE_AUTHEN_DOMAIN_MODE_MASK)) |
             SRC_SLICE_AUTHEN_SETPOINT_MODE_MASK;
     }
     else
@@ -624,11 +624,11 @@ static inline void SRC_EnableDomainModeTransferReset(SRC_Type *base, src_reset_s
         /* If the domain mode transfer reset is enabled, setpoint mode transfer reset should be disabled. */
         *(volatile uint32_t *)authRegAddr =
             ((*(volatile uint32_t *)authRegAddr) & (~SRC_SLICE_AUTHEN_SETPOINT_MODE_MASK)) |
-            SRC_SLICE_AUTHEN_DO***REMOVED***_MODE_MASK;
+            SRC_SLICE_AUTHEN_DOMAIN_MODE_MASK;
     }
     else
     {
-        *(volatile uint32_t *)authRegAddr &= ~SRC_SLICE_AUTHEN_DO***REMOVED***_MODE_MASK;
+        *(volatile uint32_t *)authRegAddr &= ~SRC_SLICE_AUTHEN_DOMAIN_MODE_MASK;
     }
 }
 
@@ -652,7 +652,7 @@ void SRC_SetSliceSetPointConfig(SRC_Type *base, src_reset_slice_name_t sliceName
 void SRC_SetSliceDomainModeConfig(SRC_Type *base, src_reset_slice_name_t sliceName, uint32_t domainConfig);
 
 /*!
- * @brief Locks the value of SETPOINT_MODE and DO***REMOVED***_MODE for the selected reset slice.
+ * @brief Locks the value of SETPOINT_MODE and DOMAIN_MODE for the selected reset slice.
  *
  * @param base SRC peripheral base address.
  * @param sliceName The selected reset slice. See @ref src_reset_slice_name_t for more details.

@@ -294,7 +294,7 @@ void spi_soft_reset(UINT32 new_cfg_reg_value, tSPIFFY_REG *spiffyRegPtr)
         if (spiffyRegPtr == (tSPIFFY_REG *)spiffy_cfg_adr)
         {
             // pulse spiffy1 transport clock domain reset
-            REG32(cr_pulse_reset_peri_adr) = CR_PULSE_RESET_SPIFFY_TRANSPORT_CLK_DO***REMOVED***;
+            REG32(cr_pulse_reset_peri_adr) = CR_PULSE_RESET_SPIFFY_TRANSPORT_CLK_DOMAIN;
         }
 #ifdef SPIFFY2_HW
         //for new version of spiffy v9
@@ -319,7 +319,7 @@ void spi_soft_reset(UINT32 new_cfg_reg_value, tSPIFFY_REG *spiffyRegPtr)
             REG32(dc_ptu_aux_hc_sel_adr) = HW_PTU_HC_SEL_SPIFFY; //0x20
 #else
             // pulse spiffy2 transport clock domain reset
-            REG32(cr_pulse_reset_peri_adr) = CR_PULSE_RESET_SPIFFY2_TRANSPORT_CLK_DO***REMOVED***;
+            REG32(cr_pulse_reset_peri_adr) = CR_PULSE_RESET_SPIFFY2_TRANSPORT_CLK_DOMAIN;
 #endif
         }
 #endif

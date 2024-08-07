@@ -2097,7 +2097,7 @@ static void CRYP_Authentication_DMAInCplt(DMA_HandleTypeDef *hdma)
   CRYP_HandleTypeDef* hcryp = (CRYP_HandleTypeDef*)((DMA_HandleTypeDef*)hdma)->Parent;
   
   /* Disable the DMA transfer for input request  */
-  CLEAR_BIT(hcryp->Instance->CR, AES_CR_D***REMOVED***EN);
+  CLEAR_BIT(hcryp->Instance->CR, AES_CR_DMAINEN);
 
   if (hcryp->Init.GCMCMACPhase == CRYP_HEADER_PHASE)
   { 
@@ -2671,7 +2671,7 @@ static void CRYP_Authentication_SetDMAConfig(CRYP_HandleTypeDef *hcryp, uint32_t
   HAL_DMA_Start_IT(hcryp->hdmain, inputaddr, (uint32_t)&hcryp->Instance->DINR, Size/4);
   
   /* Enable the DMA input request */
-  SET_BIT(hcryp->Instance->CR, AES_CR_D***REMOVED***EN);
+  SET_BIT(hcryp->Instance->CR, AES_CR_DMAINEN);
 
   
   if (outputaddr != 0) 
@@ -2843,7 +2843,7 @@ static void CRYP_SetDMAConfig(CRYP_HandleTypeDef *hcryp, uint32_t inputaddr, uin
   HAL_DMA_Start_IT(hcryp->hdmaout, (uint32_t)&hcryp->Instance->DOUTR, outputaddr, Size/4);
 
   /* Enable In and Out DMA requests */
-  SET_BIT(hcryp->Instance->CR, (AES_CR_D***REMOVED***EN | AES_CR_DMAOUTEN));
+  SET_BIT(hcryp->Instance->CR, (AES_CR_DMAINEN | AES_CR_DMAOUTEN));
   
   /* Enable the CRYP peripheral */
   __HAL_CRYP_ENABLE(hcryp);
@@ -2917,7 +2917,7 @@ static void CRYP_DMAInCplt(DMA_HandleTypeDef *hdma)
   CRYP_HandleTypeDef* hcryp = (CRYP_HandleTypeDef*)((DMA_HandleTypeDef*)hdma)->Parent;
   
   /* Disable the DMA transfer for input request  */
-  CLEAR_BIT(hcryp->Instance->CR, AES_CR_D***REMOVED***EN);
+  CLEAR_BIT(hcryp->Instance->CR, AES_CR_DMAINEN);
   
   /* Call input data transfer complete callback */
   HAL_CRYP_InCpltCallback(hcryp);

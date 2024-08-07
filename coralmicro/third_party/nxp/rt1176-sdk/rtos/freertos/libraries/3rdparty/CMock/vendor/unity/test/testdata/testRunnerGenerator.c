@@ -174,7 +174,7 @@ void extest_ShouldHandleCExceptionInTest(void)
 }
 #endif
 
-#ifdef USE_ANOTHER_***REMOVED***
+#ifdef USE_ANOTHER_MAIN
 int custom_main(void);
 
 int main(void)

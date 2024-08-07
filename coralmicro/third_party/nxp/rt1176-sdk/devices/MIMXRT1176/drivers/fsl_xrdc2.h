@@ -115,7 +115,7 @@ typedef enum _xrdc2_access_config_lock
 typedef struct _xrdc2_periph_access_config
 {
     xrdc2_access_config_lock_t lockMode;                          /*!< PDACn lock configuration.      */
-    xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT]; /*!< Access policy for each domain. */
+    xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2_DOMAIN_COUNT]; /*!< Access policy for each domain. */
 } xrdc2_periph_access_config_t;
 
 /*!
@@ -126,7 +126,7 @@ typedef struct _xrdc2_mem_access_config
     uint32_t startAddr;                  /*!< Memory region start address, should be 4k aligned. */
     uint32_t endAddr;                    /*!< Memory region end address, (endAddr + 1) should be 4k aligned. */
     xrdc2_access_config_lock_t lockMode; /*!< MRGDn lock configuration.      */
-    xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT]; /*!< Access policy for each domain. */
+    xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2_DOMAIN_COUNT]; /*!< Access policy for each domain. */
 } xrdc2_mem_access_config_t;
 
 /*!
@@ -135,7 +135,7 @@ typedef struct _xrdc2_mem_access_config
 typedef struct _xrdc2_mem_slot_access_config
 {
     xrdc2_access_config_lock_t lockMode;                          /*!< Descriptor lock configuration.      */
-    xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT]; /*!< Access policy for each domain. */
+    xrdc2_access_policy_t policy[FSL_FEATURE_XRDC2_DOMAIN_COUNT]; /*!< Access policy for each domain. */
 } xrdc2_mem_slot_access_config_t;
 
 /*******************************************************************************

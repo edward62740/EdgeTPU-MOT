@@ -63,7 +63,7 @@ static void run_test(UnityTestFunction func, const char* name, int line_num)
     UnityConcludeTest();
 }
 
-/*=======***REMOVED***=====*/
+/*=======MAIN=====*/
 int main(void)
 {
     UnityBegin("TestCases/test_arm_depthwise_conv_s8/test_arm_depthwise_conv_s8.c");

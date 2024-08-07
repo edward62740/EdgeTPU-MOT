@@ -231,7 +231,7 @@ then    MODULES=
 
         if [ "${LINK}" ]
         then    CMD="CRTPGM PGM(${TARGETLIB}/TFORMDATA)"
-                CMD="${CMD} ENTMOD(QADRT/QADRT***REMOVED***2)"
+                CMD="${CMD} ENTMOD(QADRT/QADRTMAIN2)"
                 CMD="${CMD} MODULE("
 
                 for MODULE in ${MODULES}

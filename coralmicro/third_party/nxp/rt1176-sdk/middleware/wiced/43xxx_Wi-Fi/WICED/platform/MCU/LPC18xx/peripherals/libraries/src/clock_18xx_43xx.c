@@ -394,7 +394,7 @@ uint32_t Chip_Clock_GetClockInputHz(CHIP_CGU_CLKIN_T input)
 		rate = audio_usb_pll_freq[CGU_AUDIO_PLL];
 		break;
 
-	case CLKIN_***REMOVED***PLL:
+	case CLKIN_MAINPLL:
 		rate = Chip_Clock_GetMainPLLHz();
 		break;
 

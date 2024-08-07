@@ -40,9 +40,9 @@
  ******************************************************************************/
 
 /*  CMSIS CA definitions */
-#define __CA_CMSIS_VERSION_***REMOVED***  (1U)                                      /*!< \brief [31:16] CMSIS-Core(A) main version   */
+#define __CA_CMSIS_VERSION_MAIN  (1U)                                      /*!< \brief [31:16] CMSIS-Core(A) main version   */
 #define __CA_CMSIS_VERSION_SUB   (1U)                                      /*!< \brief [15:0]  CMSIS-Core(A) sub version    */
-#define __CA_CMSIS_VERSION       ((__CA_CMSIS_VERSION_***REMOVED*** << 16U) | \
+#define __CA_CMSIS_VERSION       ((__CA_CMSIS_VERSION_MAIN << 16U) | \
                                    __CA_CMSIS_VERSION_SUB          )       /*!< \brief CMSIS-Core(A) version number         */
 
 #if defined ( __CC_ARM )
@@ -1696,8 +1696,8 @@ __STATIC_INLINE void PTIM_ClearEventFlag(void)
 #define SECTION_XN_MASK         (0xFFFFFFEF)
 #define SECTION_XN_SHIFT        (4)
 
-#define SECTION_DO***REMOVED***_MASK     (0xFFFFFE1F)
-#define SECTION_DO***REMOVED***_SHIFT    (5)
+#define SECTION_DOMAIN_MASK     (0xFFFFFE1F)
+#define SECTION_DOMAIN_SHIFT    (5)
 
 #define SECTION_P_MASK          (0xFFFFFDFF)
 #define SECTION_P_SHIFT         (9)
@@ -1748,8 +1748,8 @@ __STATIC_INLINE void PTIM_ClearEventFlag(void)
 #define PAGE_XN_64K_MASK        (0xFFFF7FFF)
 #define PAGE_XN_64K_SHIFT       (15)
 
-#define PAGE_DO***REMOVED***_MASK        (0xFFFFFE1F)
-#define PAGE_DO***REMOVED***_SHIFT       (5)
+#define PAGE_DOMAIN_MASK        (0xFFFFFE1F)
+#define PAGE_DOMAIN_SHIFT       (5)
 
 #define PAGE_P_MASK             (0xFFFFFDFF)
 #define PAGE_P_SHIFT            (9)
@@ -2034,8 +2034,8 @@ __STATIC_INLINE int MMU_XNSection(uint32_t *descriptor_l1, mmu_execute_Type xn)
 */
 __STATIC_INLINE int MMU_DomainSection(uint32_t *descriptor_l1, uint8_t domain)
 {
-  *descriptor_l1 &= SECTION_DO***REMOVED***_MASK;
-  *descriptor_l1 |= ((domain & 0xF) << SECTION_DO***REMOVED***_SHIFT);
+  *descriptor_l1 &= SECTION_DOMAIN_MASK;
+  *descriptor_l1 |= ((domain & 0xF) << SECTION_DOMAIN_SHIFT);
   return 0;
 }
 
@@ -2164,8 +2164,8 @@ __STATIC_INLINE int MMU_XNPage(uint32_t *descriptor_l2, mmu_execute_Type xn, mmu
 */
 __STATIC_INLINE int MMU_DomainPage(uint32_t *descriptor_l1, uint8_t domain)
 {
-  *descriptor_l1 &= PAGE_DO***REMOVED***_MASK;
-  *descriptor_l1 |= ((domain & 0xf) << PAGE_DO***REMOVED***_SHIFT);
+  *descriptor_l1 &= PAGE_DOMAIN_MASK;
+  *descriptor_l1 |= ((domain & 0xf) << PAGE_DOMAIN_SHIFT);
   return 0;
 }
 

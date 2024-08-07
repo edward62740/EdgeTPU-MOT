@@ -43,7 +43,7 @@
 #define FLASH_BUSY_STATUS_POL    1
 #define FLASH_BUSY_STATUS_OFFSET 0
 
-#define CACHE_***REMOVED***TAIN 1
+#define CACHE_MAINTAIN 1
 
 /*${macro:end}*/
 

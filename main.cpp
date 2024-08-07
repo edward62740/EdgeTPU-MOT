@@ -88,10 +88,6 @@ namespace coralmicro
         xSemaphoreGive(shared::bbox_mutex);
       }
 
-      // TODO: Figure out the multi-request or race condition bug that is causing
-      // the bbox_info_bytes to be corrupted. The workaround is to have the
-      // client timeout if it doesn't get a response in some amount of time.
-
       return bbox_info_bytes;
     }
 

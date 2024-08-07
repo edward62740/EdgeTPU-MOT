@@ -28,8 +28,8 @@
 
         #include "rtx_def.h"
 
-        #ifndef  DO***REMOVED***_NS
-        #define  DO***REMOVED***_NS    0
+        #ifndef  DOMAIN_NS
+        #define  DOMAIN_NS    0
         #endif
 
         .equ     I_T_RUN_OFS, 20        // osRtxInfo.thread.run offset
@@ -89,7 +89,7 @@ SVC_Context:
         cbz      r1,SVC_ContextRestore  // Branch if running thread is deleted
 
 SVC_ContextSave:
-    #if (DO***REMOVED***_NS != 0)
+    #if (DOMAIN_NS != 0)
         ldr      r0,[r1,#TCB_TZM_OFS]   // Load TrustZone memory identifier
         cbz      r0,SVC_ContextSave_NS  // Branch if there is no secure context
         push     {r1,r2,r3,r7}          // Save registers
@@ -101,7 +101,7 @@ SVC_ContextSave:
 
 SVC_ContextSave_NS:
         mrs      r0,psp                 // Get PSP
-    #if (DO***REMOVED***_NS != 0)
+    #if (DOMAIN_NS != 0)
         mov      r3,lr                  // Get EXC_RETURN
         lsls     r3,r3,#25              // Check domain of interrupted thread
         bmi      SVC_ContextSaveSP      // Branch if secure
@@ -132,7 +132,7 @@ SVC_ContextSaveSP:
         b        SVC_ContextRestore     // Branch to context restore handling
 
 SVC_ContextSaveRegs:
-      #if (DO***REMOVED***_NS != 0)
+      #if (DOMAIN_NS != 0)
         mov      r0,r1                  // osRtxInfo.thread.run.curr
         adds     r0,r0,#TCB_SF_OFS      // Adjust address
         ldrb     r3,[r0]                // Load stack frame information
@@ -163,7 +163,7 @@ SVC_ContextSaveSP:
     #endif // RTX_STACK_CHECK
 
 SVC_ContextRestore:
-    #if (DO***REMOVED***_NS != 0)
+    #if (DOMAIN_NS != 0)
         ldr      r0,[r2,#TCB_TZM_OFS]   // Load TrustZone memory identifier
         cbz      r0,SVC_ContextRestore_NS // Branch if there is no secure context
         push     {r2,r3}                // Save registers
@@ -182,7 +182,7 @@ SVC_ContextRestore_NS:
         orrs     r3,r3,r0
         mov      lr,r3                  // Set EXC_RETURN
         ldr      r0,[r2,#TCB_SP_OFS]    // Load SP
-    #if (DO***REMOVED***_NS != 0)
+    #if (DOMAIN_NS != 0)
         lsls     r3,r3,#25              // Check domain of interrupted thread
         bmi      SVC_ContextRestoreSP   // Branch if secure
     #endif

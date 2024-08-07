@@ -201,7 +201,7 @@ static IotMqttError_t _getIncomingPacket( void * pNetworkConnection,
     pIncomingPacket->remainingLength = getRemainingLength( pNetworkConnection,
                                                            pMqttConnection->pNetworkInterface );
 
-    if( pIncomingPacket->remainingLength == MQTT_RE***REMOVED***ING_LENGTH_INVALID )
+    if( pIncomingPacket->remainingLength == MQTT_REMAINING_LENGTH_INVALID )
     {
         IOT_SET_AND_GOTO_CLEANUP( IOT_MQTT_BAD_RESPONSE );
     }

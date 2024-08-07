@@ -22,7 +22,7 @@
 
 #define EXAMPLE_SSARC_GROUP_ID         0U
 #define EXAMPLE_SSARC_DESCRIPTOR_ID    0U
-#define EXAMPLE_SSARC_GROUP_CPU_DO***REMOVED*** kSSARC_CM7Core
+#define EXAMPLE_SSARC_GROUP_CPU_DOMAIN kSSARC_CM7Core
 
 
 /*******************************************************************************
@@ -61,7 +61,7 @@ int main(void)
     groupConfig.restoreOrder    = kSSARC_ProcessFromStartToEnd;
     groupConfig.restorePriority = 0U;
     groupConfig.powerDomain     = kSSARC_LPSRMIXPowerDomain;
-    groupConfig.cpuDomain       = EXAMPLE_SSARC_GROUP_CPU_DO***REMOVED***;
+    groupConfig.cpuDomain       = EXAMPLE_SSARC_GROUP_CPU_DOMAIN;
     SSARC_GroupInit(SSARC_LP, EXAMPLE_SSARC_GROUP_ID, &groupConfig);
 
     descriptorConfig.size      = kSSARC_DescriptorRegister32bitWidth;

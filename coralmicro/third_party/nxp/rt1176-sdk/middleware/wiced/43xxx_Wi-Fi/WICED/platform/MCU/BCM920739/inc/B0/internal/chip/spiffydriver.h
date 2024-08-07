@@ -399,10 +399,10 @@ enum
 
     // main60hz_ctl[4]=1       - P24 presents m_spi_clk (from spiffy1) when output data muxing is 3			
     // main60hz_ctl[4:3]=2'b10 - P27 presents m_spi_mosi (from spiffy1) when output data muxing is 3         
-    ***REMOVED***60HZ_SPI_MASK                   = (SPIFFYD_BIT_3 | SPIFFYD_BIT_4),
-    ***REMOVED***60HZ_SPI_MISO_P27               = SPIFFYD_BIT_4,
-    ***REMOVED***60HZ_SPI_MISO_P2                = SPIFFYD_BIT_4,
-    ***REMOVED***60HZ_SPI_MISO_P24               = SPIFFYD_BIT_4,
+    MAIN60HZ_SPI_MASK                   = (SPIFFYD_BIT_3 | SPIFFYD_BIT_4),
+    MAIN60HZ_SPI_MISO_P27               = SPIFFYD_BIT_4,
+    MAIN60HZ_SPI_MISO_P2                = SPIFFYD_BIT_4,
+    MAIN60HZ_SPI_MISO_P24               = SPIFFYD_BIT_4,
 };
 
 typedef struct

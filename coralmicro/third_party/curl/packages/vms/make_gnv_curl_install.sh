@@ -34,7 +34,7 @@ export GNV_CC_NO_INC_PRIMARY=1
 #
 #
 # POSIX exit mode is needed for Unix shells.
-export GNV_CC_***REMOVED***_POSIX_EXIT=1
+export GNV_CC_MAIN_POSIX_EXIT=1
 make
 cd ../..
 # adjust the libcurl.pc file, GNV currently ignores the Lib: line.

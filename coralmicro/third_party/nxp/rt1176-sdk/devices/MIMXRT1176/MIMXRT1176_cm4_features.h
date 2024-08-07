@@ -469,7 +469,7 @@
 /* @brief Clut RAM offset, see datail in RM */
 #define FSL_FEATURE_LCDIFV2_CLUT_RAM_OFFSET (0x2000)
 /* @brief Init doamin count, register INIT[n]_ENABLE. */
-#define FSL_FEATURE_LCDIFV2_INT_DO***REMOVED***_COUNT (2)
+#define FSL_FEATURE_LCDIFV2_INT_DOMAIN_COUNT (2)
 /* @brief Layer count */
 #define FSL_FEATURE_LCDIFV2_LAYER_COUNT (8)
 /* @brief CSC count in layer, register CSC_COEF[n]. */
@@ -860,7 +860,7 @@
 /* XRDC2 module features */
 
 /* @brief XRDC2 supports how many domains */
-#define FSL_FEATURE_XRDC2_DO***REMOVED***_COUNT (16)
+#define FSL_FEATURE_XRDC2_DOMAIN_COUNT (16)
 
 #endif /* _MIMXRT1176_cm4_FEATURES_H_ */
 

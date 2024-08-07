@@ -428,8 +428,8 @@ typedef struct {
 
 
 /* FLASHC.FLASH_CTL */
-#define FLASHC_FLASH_CTL_***REMOVED***_WS_Pos            0UL
-#define FLASHC_FLASH_CTL_***REMOVED***_WS_Msk            0xFUL
+#define FLASHC_FLASH_CTL_MAIN_WS_Pos            0UL
+#define FLASHC_FLASH_CTL_MAIN_WS_Msk            0xFUL
 #define FLASHC_FLASH_CTL_REMAP_Pos              8UL
 #define FLASHC_FLASH_CTL_REMAP_Msk              0x100UL
 /* FLASHC.FLASH_PWR_CTL */

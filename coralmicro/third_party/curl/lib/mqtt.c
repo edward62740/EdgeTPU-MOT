@@ -545,12 +545,12 @@ static size_t mqtt_decode_len(unsigned char *buf,
 #ifdef CURLDEBUG
 static const char *statenames[]={
   "MQTT_FIRST",
-  "MQTT_RE***REMOVED***ING_LENGTH",
+  "MQTT_REMAINING_LENGTH",
   "MQTT_CONNACK",
   "MQTT_SUBACK",
   "MQTT_SUBACK_COMING",
   "MQTT_PUBWAIT",
-  "MQTT_PUB_RE***REMOVED***",
+  "MQTT_PUB_REMAIN",
 
   "NOT A STATE"
 };
@@ -605,7 +605,7 @@ static CURLcode mqtt_read_publish(struct Curl_easy *data, bool *done)
     /* we are expecting PUBLISH or SUBACK */
     packet = mq->firstbyte & 0xf0;
     if(packet == MQTT_MSG_PUBLISH)
-      mqstate(data, MQTT_PUB_RE***REMOVED***, MQTT_NOSTATE);
+      mqstate(data, MQTT_PUB_REMAIN, MQTT_NOSTATE);
     else if(packet == MQTT_MSG_SUBACK) {
       mqstate(data, MQTT_SUBACK_COMING, MQTT_NOSTATE);
       goto MQTT_SUBACK_COMING;
@@ -634,7 +634,7 @@ static CURLcode mqtt_read_publish(struct Curl_easy *data, bool *done)
     data->req.size = remlen;
     mq->npacket = remlen; /* get this many bytes */
     /* FALLTHROUGH */
-  case MQTT_PUB_RE***REMOVED***: {
+  case MQTT_PUB_REMAIN: {
     /* read rest of packet, but no more. Cap to buffer size */
     struct SingleRequest *k = &data->req;
     size_t rest = mq->npacket;
@@ -724,9 +724,9 @@ static CURLcode mqtt_doing(struct Curl_easy *data, bool *done)
     Curl_debug(data, CURLINFO_HEADER_IN, (char *)&mq->firstbyte, 1);
     /* remember the first byte */
     mq->npacket = 0;
-    mqstate(data, MQTT_RE***REMOVED***ING_LENGTH, MQTT_NOSTATE);
+    mqstate(data, MQTT_REMAINING_LENGTH, MQTT_NOSTATE);
     /* FALLTHROUGH */
-  case MQTT_RE***REMOVED***ING_LENGTH:
+  case MQTT_REMAINING_LENGTH:
     do {
       result = Curl_read(data, sockfd, (char *)&byte, 1, &nread);
       if(!nread)
@@ -776,7 +776,7 @@ static CURLcode mqtt_doing(struct Curl_easy *data, bool *done)
 
   case MQTT_SUBACK:
   case MQTT_PUBWAIT:
-  case MQTT_PUB_RE***REMOVED***:
+  case MQTT_PUB_REMAIN:
     result = mqtt_read_publish(data, done);
     break;
 

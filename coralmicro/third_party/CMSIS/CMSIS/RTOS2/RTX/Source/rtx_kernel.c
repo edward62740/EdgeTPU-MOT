@@ -105,7 +105,7 @@ static osStatus_t svcRtxKernelInitialize (void) {
     return osError;
   }
 
-#if (DO***REMOVED***_NS == 1)
+#if (DOMAIN_NS == 1)
   // Initialize Secure Process Stack
   if (TZ_InitContextSystem_S() == 0U) {
     EvrRtxKernelError(osRtxErrorTZ_InitContext_S);

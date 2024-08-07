@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef __APPL_PERIPHERAL_IPSP_***REMOVED***_H__
-#define __APPL_PERIPHERAL_IPSP_***REMOVED***_H__
+#ifndef __APPL_PERIPHERAL_IPSP_MAIN_H__
+#define __APPL_PERIPHERAL_IPSP_MAIN_H__
 
 /*******************************************************************************
  * Definitions
@@ -18,4 +18,4 @@
 
 void peripheral_ipsp_task(void *param);
 
-#endif /* __APPL_PERIPHERAL_IPSP_***REMOVED***_H__ */
+#endif /* __APPL_PERIPHERAL_IPSP_MAIN_H__ */

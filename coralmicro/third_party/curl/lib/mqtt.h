@@ -28,12 +28,12 @@ extern const struct Curl_handler Curl_handler_mqtt;
 
 enum mqttstate {
   MQTT_FIRST,             /* 0 */
-  MQTT_RE***REMOVED***ING_LENGTH,  /* 1 */
+  MQTT_REMAINING_LENGTH,  /* 1 */
   MQTT_CONNACK,           /* 2 */
   MQTT_SUBACK,            /* 3 */
   MQTT_SUBACK_COMING,     /* 4 - the SUBACK remainder */
   MQTT_PUBWAIT,    /* 5 - wait for publish */
-  MQTT_PUB_RE***REMOVED***,  /* 6 - wait for the remainder of the publish */
+  MQTT_PUB_REMAIN,  /* 6 - wait for the remainder of the publish */
 
   MQTT_NOSTATE /* 7 - never used an actual state */
 };

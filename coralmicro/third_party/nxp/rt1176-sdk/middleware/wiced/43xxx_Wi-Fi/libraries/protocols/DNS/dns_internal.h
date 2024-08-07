@@ -63,7 +63,7 @@ extern "C" {
 #define DNS_MESSAGE_RECURSION_AVAILABLE     0x0080
 #define DNS_MESSAGE_RESPONSE_CODE           0x000F
 
-#define DNS_MESSAGE_RCODE_NXDO***REMOVED***          (0x3)           /* Name does not exist */
+#define DNS_MESSAGE_RCODE_NXDOMAIN          (0x3)           /* Name does not exist */
 
 #define RR_CACHE_FLUSH   0x8000
 

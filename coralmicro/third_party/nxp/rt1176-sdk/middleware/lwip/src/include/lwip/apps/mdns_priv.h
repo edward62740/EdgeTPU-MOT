@@ -49,7 +49,7 @@ extern "C" {
 #if LWIP_MDNS_RESPONDER
 
 #define MDNS_READNAME_ERROR 0xFFFF
-#define NUM_DO***REMOVED***_OFFSETS 10
+#define NUM_DOMAIN_OFFSETS 10
 
 #define SRV_PRIORITY 0
 #define SRV_WEIGHT   0
@@ -124,7 +124,7 @@ struct mdns_outpacket {
   u16_t additional;
   /** Offsets for written domain names in packet.
    *  Used for compression */
-  u16_t domain_offsets[NUM_DO***REMOVED***_OFFSETS];
+  u16_t domain_offsets[NUM_DOMAIN_OFFSETS];
 };
 
 /** mDNS output message */

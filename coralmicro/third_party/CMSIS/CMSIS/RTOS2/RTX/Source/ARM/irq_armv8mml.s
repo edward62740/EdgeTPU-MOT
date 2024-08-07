@@ -28,8 +28,8 @@
 RTX_STACK_CHECK EQU      0
                 ENDIF
 
-                IF       :LNOT::DEF:DO***REMOVED***_NS
-DO***REMOVED***_NS       EQU      0
+                IF       :LNOT::DEF:DOMAIN_NS
+DOMAIN_NS       EQU      0
                 ENDIF
 
                 IF       ({FPU}="FPv5-SP") || ({FPU}="FPv5_D16")
@@ -70,7 +70,7 @@ SVC_Handler     PROC
                 IMPORT   osRtxThreadStackCheck
                 IMPORT   osRtxKernelErrorNotify
             ENDIF
-            IF DO***REMOVED***_NS != 0
+            IF DOMAIN_NS != 0
                 IMPORT   TZ_LoadContext_S
                 IMPORT   TZ_StoreContext_S
             ENDIF
@@ -115,7 +115,7 @@ SVC_FP_LazyState
               ENDIF
 
 SVC_ContextSave
-            IF DO***REMOVED***_NS != 0
+            IF DOMAIN_NS != 0
                 LDR      R0,[R1,#TCB_TZM_OFS]   ; Load TrustZone memory identifier
                 CBZ      R0,SVC_ContextSave_NS  ; Branch if there is no secure context
                 PUSH     {R1,R2,R12,LR}         ; Save registers and EXC_RETURN
@@ -124,7 +124,7 @@ SVC_ContextSave
             ENDIF
 
 SVC_ContextSave_NS
-            IF DO***REMOVED***_NS != 0
+            IF DOMAIN_NS != 0
                 TST      LR,#0x40               ; Check domain of interrupted thread
                 BNE      SVC_ContextSaveSP      ; Branch if secure
             ENDIF
@@ -164,7 +164,7 @@ SVC_ContextSaveSP
 
 SVC_ContextSaveRegs
                 LDRB     LR,[R1,#TCB_SF_OFS]    ; Load stack frame information
-              IF DO***REMOVED***_NS != 0
+              IF DOMAIN_NS != 0
                 TST      LR,#0x40               ; Check domain of interrupted thread
                 BNE      SVC_ContextRestore     ; Branch if secure
               ENDIF
@@ -188,7 +188,7 @@ SVC_ContextSaveSP
             ENDIF
 
 SVC_ContextRestore
-            IF DO***REMOVED***_NS != 0
+            IF DOMAIN_NS != 0
                 LDR      R0,[R2,#TCB_TZM_OFS]   ; Load TrustZone memory identifier
                 CBZ      R0,SVC_ContextRestore_NS; Branch if there is no secure context
                 PUSH     {R2,R3}                ; Save registers
@@ -203,7 +203,7 @@ SVC_ContextRestore_NS
                 LDRB     R1,[R2,#TCB_SF_OFS]    ; Load stack frame information
                 ORN      LR,R1,#0xFF            ; Set EXC_RETURN
 
-            IF DO***REMOVED***_NS != 0
+            IF DOMAIN_NS != 0
                 TST      LR,#0x40               ; Check domain of interrupted thread
                 BNE      SVC_ContextRestoreSP   ; Branch if secure
             ENDIF

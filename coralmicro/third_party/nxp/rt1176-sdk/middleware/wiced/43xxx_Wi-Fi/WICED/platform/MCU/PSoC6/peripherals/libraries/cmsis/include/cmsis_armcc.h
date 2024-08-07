@@ -45,7 +45,7 @@
 #endif
 
   /* __ARM_ARCH_8M_BASE__  not applicable */
-  /* __ARM_ARCH_8M_***REMOVED***__  not applicable */
+  /* __ARM_ARCH_8M_MAIN__  not applicable */
 
 
 /* CMSIS compiler specific defines */

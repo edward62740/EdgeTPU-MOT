@@ -61,10 +61,10 @@ typedef int32_t IRQn_ID_t;
 #define IRQ_MODE_TYPE_IRQ           (0x00UL << IRQ_MODE_TYPE_Pos)     ///< Type: interrupt source triggers CPU IRQ line
 #define IRQ_MODE_TYPE_FIQ           (0x01UL << IRQ_MODE_TYPE_Pos)     ///< Type: interrupt source triggers CPU FIQ line
 
-#define IRQ_MODE_DO***REMOVED***_Pos         (4U)
-#define IRQ_MODE_DO***REMOVED***_Msk         (0x01UL << IRQ_MODE_DO***REMOVED***_Pos)
-#define IRQ_MODE_DO***REMOVED***_NONSECURE   (0x00UL << IRQ_MODE_DO***REMOVED***_Pos)   ///< Domain: interrupt is targeting non-secure domain
-#define IRQ_MODE_DO***REMOVED***_SECURE      (0x01UL << IRQ_MODE_DO***REMOVED***_Pos)   ///< Domain: interrupt is targeting secure domain
+#define IRQ_MODE_DOMAIN_Pos         (4U)
+#define IRQ_MODE_DOMAIN_Msk         (0x01UL << IRQ_MODE_DOMAIN_Pos)
+#define IRQ_MODE_DOMAIN_NONSECURE   (0x00UL << IRQ_MODE_DOMAIN_Pos)   ///< Domain: interrupt is targeting non-secure domain
+#define IRQ_MODE_DOMAIN_SECURE      (0x01UL << IRQ_MODE_DOMAIN_Pos)   ///< Domain: interrupt is targeting secure domain
 
 #define IRQ_MODE_CPU_Pos            (5U)
 #define IRQ_MODE_CPU_Msk            (0xFFUL << IRQ_MODE_CPU_Pos)

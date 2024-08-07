@@ -24,7 +24,7 @@
 #==========================================================================
 #
 # POSIX exit mode is needed for Unix shells.
-export GNV_CC_***REMOVED***_POSIX_EXIT=1
+export GNV_CC_MAIN_POSIX_EXIT=1
 #
 # Where to look for the helper files.
 export GNV_OPT_DIR=.

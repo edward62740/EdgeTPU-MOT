@@ -3088,7 +3088,7 @@ while(1) {
 
     if($input !~ /^CNCT/) {
         # we wait for a connected client
-        logmsg "***REMOVED*** sockfilt said: $input";
+        logmsg "MAIN sockfilt said: $input";
         next;
     }
     logmsg "====> Client connect\n";
@@ -3139,7 +3139,7 @@ while(1) {
         sysread_or_die(\*SFREAD, \$i, 5);
 
         if($i !~ /^DATA/) {
-            logmsg "***REMOVED*** sockfilt said $i";
+            logmsg "MAIN sockfilt said $i";
             if($i =~ /^DISC/) {
                 # disconnect
                 last;

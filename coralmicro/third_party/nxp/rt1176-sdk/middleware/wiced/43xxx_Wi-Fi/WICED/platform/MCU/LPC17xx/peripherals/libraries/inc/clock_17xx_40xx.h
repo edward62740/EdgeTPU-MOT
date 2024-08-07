@@ -47,7 +47,7 @@ extern "C" {
  * build-time option is configured by the use of a definition passed to the compiler
  * during the build process or by adding the definition to the sys_config.h file.<br>
  *
- * <b>CRYSTAL_***REMOVED***_FREQ_IN</b><br>
+ * <b>CRYSTAL_MAIN_FREQ_IN</b><br>
  * This define is the external crystal frequency used for the main oscillator.<br>
  *
  * <b>CRYSTAL_32K_FREQ_IN</b><br>
@@ -358,7 +358,7 @@ STATIC INLINE uint32_t Chip_Clock_GetEMCClockDiv(void)
  */
 typedef enum CHIP_SYSCTL_CCLKSRC {
 	SYSCTL_CCLKSRC_SYSCLK,		/*!< Select Sysclk as the input to the CPU clock divider. */
-	SYSCTL_CCLKSRC_***REMOVED***PLL,		/*!< Select the output of the Main PLL as the input to the CPU clock divider. */
+	SYSCTL_CCLKSRC_MAINPLL,		/*!< Select the output of the Main PLL as the input to the CPU clock divider. */
 } CHIP_SYSCTL_CCLKSRC_T;
 
 /**
@@ -406,7 +406,7 @@ uint32_t Chip_Clock_GetCPUClockDiv(void);
  */
 typedef enum CHIP_SYSCTL_USBCLKSRC {
 	SYSCTL_USBCLKSRC_SYSCLK,		/*!< SYSCLK clock as USB divider source */
-	SYSCTL_USBCLKSRC_***REMOVED***PLL,		/*!< PLL0 clock as USB divider source */
+	SYSCTL_USBCLKSRC_MAINPLL,		/*!< PLL0 clock as USB divider source */
 	SYSCTL_USBCLKSRC_USBPLL,		/*!< PLL1 clock as USB divider source */
 	SYSCTL_USBCLKSRC_RESERVED
 } CHIP_SYSCTL_USBCLKSRC_T;
@@ -452,7 +452,7 @@ uint32_t Chip_Clock_GetUSBClockDiv(void);
  */
 typedef enum CHIP_SYSCTL_PLLCLKSRC {
 	SYSCTL_PLLCLKSRC_IRC,			/*!< PLL is sourced from the internal oscillator (IRC) */
-	SYSCTL_PLLCLKSRC_***REMOVED***OSC,		/*!< PLL is sourced from the main oscillator */
+	SYSCTL_PLLCLKSRC_MAINOSC,		/*!< PLL is sourced from the main oscillator */
 #if defined(CHIP_LPC175X_6X)
 	SYSCTL_PLLCLKSRC_RTC,			/*!< PLL is sourced from the RTC oscillator */
 #else
@@ -592,7 +592,7 @@ STATIC INLINE uint32_t Chip_Clock_GetPCLKDiv(void)
  */
 typedef enum CHIP_SYSCTL_SPIFICLKSRC {
 	SYSCTL_SPIFICLKSRC_SYSCLK,		/*!< SYSCLK clock as SPIFI divider source */
-	SYSCTL_SPIFICLKSRC_***REMOVED***PLL,		/*!< PLL0 clock as SPIFI divider source */
+	SYSCTL_SPIFICLKSRC_MAINPLL,		/*!< PLL0 clock as SPIFI divider source */
 	SYSCTL_SPIFICLKSRC_USBPLL,		/*!< PLL1 clock as SPIFI divider source */
 	SYSCTL_SPIFICLKSRC_RESERVED
 } CHIP_SYSCTL_SPIFICLKSRC_T;
@@ -657,7 +657,7 @@ STATIC INLINE uint32_t Chip_Clock_GetLCDClockDiv(void)
  */
 typedef enum {
 	SYSCTL_CLKOUTSRC_CPU,			/*!< CPU clock as CLKOUT source */
-	SYSCTL_CLKOUTSRC_***REMOVED***OSC,		/*!< Main oscillator clock as CLKOUT source */
+	SYSCTL_CLKOUTSRC_MAINOSC,		/*!< Main oscillator clock as CLKOUT source */
 	SYSCTL_CLKOUTSRC_IRC,			/*!< IRC oscillator clock as CLKOUT source */
 	SYSCTL_CLKOUTSRC_USB,			/*!< USB clock as CLKOUT source */
 	SYSCTL_CLKOUTSRC_RTC,			/*!< RTC clock as CLKOUT source */
@@ -718,7 +718,7 @@ STATIC INLINE bool Chip_Clock_IsCLKOUTEnabled(void)
  */
 STATIC INLINE uint32_t Chip_Clock_GetMainOscRate(void)
 {
-	return CRYSTAL_***REMOVED***_FREQ_IN;
+	return CRYSTAL_MAIN_FREQ_IN;
 }
 
 /**

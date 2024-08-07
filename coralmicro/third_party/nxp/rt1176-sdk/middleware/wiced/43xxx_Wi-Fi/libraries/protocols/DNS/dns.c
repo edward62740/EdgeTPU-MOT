@@ -294,7 +294,7 @@ wiced_result_t dns_client_hostname_lookup( const char* hostname, wiced_resolved_
                 /* Check if the message is a response (otherwise its a query) */
                 if ( ntohs( iter.header->flags ) & DNS_MESSAGE_IS_A_RESPONSE )
                 {
-                    if ( ( ntohs(iter.header->flags ) & DNS_MESSAGE_RESPONSE_CODE ) == DNS_MESSAGE_RCODE_NXDO***REMOVED*** )
+                    if ( ( ntohs(iter.header->flags ) & DNS_MESSAGE_RESPONSE_CODE ) == DNS_MESSAGE_RCODE_NXDOMAIN )
                     {
                         /*
                          * The DNS server is telling us that this host doesn't exist ... time to bail.

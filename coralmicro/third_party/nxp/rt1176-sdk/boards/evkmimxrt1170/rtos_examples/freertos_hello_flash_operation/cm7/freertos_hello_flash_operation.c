@@ -274,7 +274,7 @@ static void flash_operation_task(void *pvParameters)
     }
 
     /* Invalidate the D cache before reading data from QSPI Flash */
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     DCACHE_InvalidateByRange(EXAMPLE_FLEXSPI_AMBA_BASE + EXAMPLE_SECTOR * SECTOR_SIZE, FLASH_PAGE_SIZE);
 #endif
     memcpy(nor_read_buffer, (void *)(EXAMPLE_FLEXSPI_AMBA_BASE + EXAMPLE_SECTOR * SECTOR_SIZE), FLASH_PAGE_SIZE);
@@ -297,7 +297,7 @@ static void flash_operation_task(void *pvParameters)
     /* Clean program buffer to maker sure program data is valid before program execution for SDRAM target, because heap
      * is cacheable in SDRAM target. */
 #if defined(USE_SDRAM) && USE_SDRAM
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     DCACHE_CleanByRange((uint32_t)nor_program_buffer, FLASH_PAGE_SIZE);
 #endif
 #endif
@@ -331,7 +331,7 @@ static void flash_operation_task(void *pvParameters)
     PRINTF("Page program successfully !\r\n");
 
     /* clean the D cache before reading data from QSPI Flash */
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     DCACHE_InvalidateByRange(EXAMPLE_FLEXSPI_AMBA_BASE + EXAMPLE_SECTOR * SECTOR_SIZE, FLASH_PAGE_SIZE);
 #endif
     /* the below read sector API can be used in both Code in QSPI mode and Code in SRAM mode */

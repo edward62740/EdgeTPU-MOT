@@ -266,7 +266,7 @@ RUNNER_TESTS = [
 
   { :name => 'CustomMain',
     :testfile => 'testdata/testRunnerGenerator.c',
-    :testdefines => ['TEST', "USE_ANOTHER_***REMOVED***"],
+    :testdefines => ['TEST', "USE_ANOTHER_MAIN"],
     :options => {
       :main_name => "custom_main",
     },
@@ -593,7 +593,7 @@ RUNNER_TESTS = [
 
   { :name => 'CustomMain',
     :testfile => 'testdata/testRunnerGeneratorWithMocks.c',
-    :testdefines => ['TEST', "USE_ANOTHER_***REMOVED***"],
+    :testdefines => ['TEST', "USE_ANOTHER_MAIN"],
     :options => {
       :main_name => "custom_main",
     },

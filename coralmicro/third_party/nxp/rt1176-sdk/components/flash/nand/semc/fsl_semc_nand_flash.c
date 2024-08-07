@@ -10,7 +10,7 @@
 #include <stdbool.h>
 #include "fsl_nand_flash.h"
 #include "fsl_semc_nand_flash.h"
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
 #include "fsl_cache.h"
 #endif
 
@@ -852,7 +852,7 @@ status_t Nand_Flash_Read_Page_Partial(
         }
     }
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
 #if __CORTEX_M == 7
     if (SCB_CCR_DC_Msk == (SCB_CCR_DC_Msk & SCB->CCR))
     {
@@ -1016,7 +1016,7 @@ status_t Nand_Flash_Read_Page(nand_handle_t *handle, uint32_t pageIndex, uint8_t
         }
     }
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
 #if __CORTEX_M == 7
     if (SCB_CCR_DC_Msk == (SCB_CCR_DC_Msk & SCB->CCR))
     {

@@ -91,16 +91,16 @@ static void ntlm_print_flags(FILE *handle, unsigned long flags)
     fprintf(handle, "NTLMFLAG_UNKNOWN_10 ");
   if(flags & NTLMFLAG_NEGOTIATE_ANONYMOUS)
     fprintf(handle, "NTLMFLAG_NEGOTIATE_ANONYMOUS ");
-  if(flags & NTLMFLAG_NEGOTIATE_DO***REMOVED***_SUPPLIED)
-    fprintf(handle, "NTLMFLAG_NEGOTIATE_DO***REMOVED***_SUPPLIED ");
+  if(flags & NTLMFLAG_NEGOTIATE_DOMAIN_SUPPLIED)
+    fprintf(handle, "NTLMFLAG_NEGOTIATE_DOMAIN_SUPPLIED ");
   if(flags & NTLMFLAG_NEGOTIATE_WORKSTATION_SUPPLIED)
     fprintf(handle, "NTLMFLAG_NEGOTIATE_WORKSTATION_SUPPLIED ");
   if(flags & NTLMFLAG_NEGOTIATE_LOCAL_CALL)
     fprintf(handle, "NTLMFLAG_NEGOTIATE_LOCAL_CALL ");
   if(flags & NTLMFLAG_NEGOTIATE_ALWAYS_SIGN)
     fprintf(handle, "NTLMFLAG_NEGOTIATE_ALWAYS_SIGN ");
-  if(flags & NTLMFLAG_TARGET_TYPE_DO***REMOVED***)
-    fprintf(handle, "NTLMFLAG_TARGET_TYPE_DO***REMOVED*** ");
+  if(flags & NTLMFLAG_TARGET_TYPE_DOMAIN)
+    fprintf(handle, "NTLMFLAG_TARGET_TYPE_DOMAIN ");
   if(flags & NTLMFLAG_TARGET_TYPE_SERVER)
     fprintf(handle, "NTLMFLAG_TARGET_TYPE_SERVER ");
   if(flags & NTLMFLAG_TARGET_TYPE_SHARE)

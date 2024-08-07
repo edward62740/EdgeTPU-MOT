@@ -283,23 +283,23 @@ const char* platform_audio_device_get_sample_rates_string(platform_audio_sample_
         /* if you add to this, make sure built_rates_string[PLATFORM_AUDIO_RATES_STRING_MAX] is big enough! */
     built_rates_string[0] = '\0';
 
-#define BUILT_RATE_STRING_BYTES_RE***REMOVED***ING (sizeof(built_rates_string) - strlen(built_rates_string) - 1)
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_8KHZ)      ?  " 8"     : "  "     ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_11_025KHZ) ?  " 11.025": "       "), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_12KHZ)     ?  " 12"    : "   "    ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_16KHZ)     ?  " 16"    : "   "    ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_22_05KHZ)  ?  " 22.05" : "      " ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_24KHZ)     ?  " 24"    : "   "    ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_32KHZ)     ?  " 32"    : "   "    ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_44_1KHZ)   ?  " 44.1"  : "     "  ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_48KHZ)     ?  " 48"    : "   "    ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_64KHZ)     ?  " 64"    : "   "    ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_88_2KHZ)   ?  " 88.2"  : "     "  ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_96KHZ)     ?  " 96"    : "   "    ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_128KHZ)    ? " 128"    : "    "   ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_176_4KHZ)  ? " 176.4"  : "      " ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_192KHZ)    ? " 192"    : "    "   ), BUILT_RATE_STRING_BYTES_RE***REMOVED***ING);
-#undef BUILT_RATE_STRING_BYTES_RE***REMOVED***ING
+#define BUILT_RATE_STRING_BYTES_REMAINING (sizeof(built_rates_string) - strlen(built_rates_string) - 1)
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_8KHZ)      ?  " 8"     : "  "     ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_11_025KHZ) ?  " 11.025": "       "), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_12KHZ)     ?  " 12"    : "   "    ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_16KHZ)     ?  " 16"    : "   "    ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_22_05KHZ)  ?  " 22.05" : "      " ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_24KHZ)     ?  " 24"    : "   "    ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_32KHZ)     ?  " 32"    : "   "    ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_44_1KHZ)   ?  " 44.1"  : "     "  ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_48KHZ)     ?  " 48"    : "   "    ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_64KHZ)     ?  " 64"    : "   "    ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_88_2KHZ)   ?  " 88.2"  : "     "  ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_96KHZ)     ?  " 96"    : "   "    ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_128KHZ)    ? " 128"    : "    "   ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_176_4KHZ)  ? " 176.4"  : "      " ), BUILT_RATE_STRING_BYTES_REMAINING);
+    strncat(built_rates_string, ((sample_rates & PLATFORM_AUDIO_SAMPLE_RATE_192KHZ)    ? " 192"    : "    "   ), BUILT_RATE_STRING_BYTES_REMAINING);
+#undef BUILT_RATE_STRING_BYTES_REMAINING
 
     return built_rates_string;
 }
@@ -314,14 +314,14 @@ const char* platform_audio_device_get_sample_sizes_string(platform_audio_sample_
     /* if you add to this, make sure built_sizes_string[PLATFORM_AUDIO_SIZES_STRING_MAX]    is big enough! */
     built_sizes_string[0] = '\0';
 
-#define BUILT_SIZES_STRING_BYTES_RE***REMOVED***ING (sizeof(built_sizes_string) - strlen(built_sizes_string) - 1)
-    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_8_BIT)  ?  " 8" :  "  "), BUILT_SIZES_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_10_BIT) ? " 10" : "   "), BUILT_SIZES_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_16_BIT) ? " 16" : "   "), BUILT_SIZES_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_20_BIT) ? " 20" : "   "), BUILT_SIZES_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_24_BIT) ? " 24" : "   "), BUILT_SIZES_STRING_BYTES_RE***REMOVED***ING);
-    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_32_BIT) ? " 32" : "   "), BUILT_SIZES_STRING_BYTES_RE***REMOVED***ING);
-#undef BUILT_SIZES_STRING_BYTES_RE***REMOVED***ING
+#define BUILT_SIZES_STRING_BYTES_REMAINING (sizeof(built_sizes_string) - strlen(built_sizes_string) - 1)
+    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_8_BIT)  ?  " 8" :  "  "), BUILT_SIZES_STRING_BYTES_REMAINING);
+    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_10_BIT) ? " 10" : "   "), BUILT_SIZES_STRING_BYTES_REMAINING);
+    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_16_BIT) ? " 16" : "   "), BUILT_SIZES_STRING_BYTES_REMAINING);
+    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_20_BIT) ? " 20" : "   "), BUILT_SIZES_STRING_BYTES_REMAINING);
+    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_24_BIT) ? " 24" : "   "), BUILT_SIZES_STRING_BYTES_REMAINING);
+    strncat(built_sizes_string, ((sample_sizes & PLATFORM_AUDIO_SAMPLE_SIZE_32_BIT) ? " 32" : "   "), BUILT_SIZES_STRING_BYTES_REMAINING);
+#undef BUILT_SIZES_STRING_BYTES_REMAINING
 
     return built_sizes_string;
 }

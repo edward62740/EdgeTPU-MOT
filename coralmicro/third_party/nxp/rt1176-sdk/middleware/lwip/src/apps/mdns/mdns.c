@@ -2667,7 +2667,7 @@ mdns_search_service(const char *name, const char *service, enum mdns_sd_proto pr
   if (name) {
     LWIP_ERROR("mdns_search_service: Name too long", (strlen(name) <= MDNS_LABEL_MAXLEN), return ERR_VAL);
   }
-  LWIP_ERROR("mdns_search_service: Service too long", (strlen(service) < MDNS_DO***REMOVED***_MAXLEN), return ERR_VAL);
+  LWIP_ERROR("mdns_search_service: Service too long", (strlen(service) < MDNS_DOMAIN_MAXLEN), return ERR_VAL);
   LWIP_ERROR("mdns_search_service: Bad reqid pointer", request_id, return ERR_VAL);
   LWIP_ERROR("mdns_search_service: Bad proto (need TCP or UDP)", (proto == DNSSD_PROTO_TCP || proto == DNSSD_PROTO_UDP), return ERR_VAL);
   for (slot = 0; slot < MDNS_MAX_REQUESTS; slot++) {

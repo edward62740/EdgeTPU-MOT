@@ -62,7 +62,7 @@
 /** @defgroup SYSCFG_BootMode Boot Mode
   * @{
   */
-#define SYSCFG_BOOT_***REMOVED***FLASH          ((uint32_t)0x00000000)
+#define SYSCFG_BOOT_MAINFLASH          ((uint32_t)0x00000000)
 #define SYSCFG_BOOT_SYSTEMFLASH        SYSCFG_MEMRMP_MEM_MODE_0
 
 #if defined (STM32L471xx) || defined (STM32L475xx) || defined (STM32L476xx) || defined (STM32L485xx) || defined (STM32L486xx) || \
@@ -409,7 +409,7 @@
   * @brief  Return the boot mode as configured by user.
   * @retval The boot mode as configured by user. The returned value can be one
   *         of the following values:
-  *           @arg @ref SYSCFG_BOOT_***REMOVED***FLASH
+  *           @arg @ref SYSCFG_BOOT_MAINFLASH
   *           @arg @ref SYSCFG_BOOT_SYSTEMFLASH
   @if STM32L486xx
   *           @arg @ref SYSCFG_BOOT_FMC

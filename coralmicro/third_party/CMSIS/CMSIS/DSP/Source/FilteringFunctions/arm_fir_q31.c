@@ -105,7 +105,7 @@
         }
 
                       
-#define FIR_Q31_***REMOVED***_CORE()                                                              \
+#define FIR_Q31_MAIN_CORE()                                                              \
 {                                                                                        \
     q31_t *pRefStatePtr = S->pState + 2*ROUND_UP(blockSize, 4);                          \
     q31_t      *pState = pRefStatePtr; /* State pointer */                               \
@@ -382,7 +382,7 @@ static void arm_fir_q31_5_8_mve(const arm_fir_instance_q31 * S,
 {
     #define NBTAPS 8
     #define NBVECTAPS (NBTAPS / 4)
-    FIR_Q31_***REMOVED***_CORE();
+    FIR_Q31_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -394,7 +394,7 @@ static void arm_fir_q31_9_12_mve(const arm_fir_instance_q31 * S,
 {
     #define NBTAPS 12
     #define NBVECTAPS (NBTAPS / 4)
-    FIR_Q31_***REMOVED***_CORE();
+    FIR_Q31_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -406,7 +406,7 @@ static void arm_fir_q31_13_16_mve(const arm_fir_instance_q31 * S,
 {
     #define NBTAPS 16
     #define NBVECTAPS (NBTAPS / 4)
-    FIR_Q31_***REMOVED***_CORE();
+    FIR_Q31_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -418,7 +418,7 @@ static void arm_fir_q31_17_20_mve(const arm_fir_instance_q31 * S,
 {
     #define NBTAPS 20
     #define NBVECTAPS (NBTAPS / 4)
-    FIR_Q31_***REMOVED***_CORE();
+    FIR_Q31_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -430,7 +430,7 @@ static void arm_fir_q31_21_24_mve(const arm_fir_instance_q31 * S,
 {
     #define NBTAPS 24
     #define NBVECTAPS (NBTAPS / 4)
-    FIR_Q31_***REMOVED***_CORE();
+    FIR_Q31_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }
@@ -442,7 +442,7 @@ static void arm_fir_q31_25_28_mve(const arm_fir_instance_q31 * S,
 {
     #define NBTAPS 28
     #define NBVECTAPS (NBTAPS / 4)
-    FIR_Q31_***REMOVED***_CORE();
+    FIR_Q31_MAIN_CORE();
     #undef NBVECTAPS
     #undef NBTAPS
 }

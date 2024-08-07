@@ -300,7 +300,7 @@
   */
 
 /* Private macro -------------------------------------------------------------*/
-#define I2C_GET_DMA_RE***REMOVED***_DATA(__HANDLE__) ((((__HANDLE__)->State) == HAL_I2C_STATE_BUSY_TX)   ? \
+#define I2C_GET_DMA_REMAIN_DATA(__HANDLE__) ((((__HANDLE__)->State) == HAL_I2C_STATE_BUSY_TX)   ? \
                                             ((uint32_t)(((DMA_Channel_TypeDef *)(__HANDLE__)->hdmatx->Instance)->CNDTR)) : \
                                             ((uint32_t)(((DMA_Channel_TypeDef *)(__HANDLE__)->hdmarx->Instance)->CNDTR)))
 
@@ -3595,7 +3595,7 @@ static HAL_StatusTypeDef I2C_Slave_ISR_DMA(struct __I2C_HandleTypeDef *hi2c, uin
     /* if yes, normal use case, a NACK is sent by the MASTER when Transfer is finished */
     /* Mean XferCount == 0 */
     /* So clear Flag NACKF only */
-    if (I2C_GET_DMA_RE***REMOVED***_DATA(hi2c) == 0U)
+    if (I2C_GET_DMA_REMAIN_DATA(hi2c) == 0U)
     {
       /* Clear NACK Flag */
       __HAL_I2C_CLEAR_FLAG(hi2c, I2C_FLAG_AF);
@@ -4055,7 +4055,7 @@ static void I2C_ITSlaveCplt(I2C_HandleTypeDef *hi2c, uint32_t ITFlags)
   if (((hi2c->Instance->CR1 & I2C_CR1_TXDMAEN) == I2C_CR1_TXDMAEN) ||
       ((hi2c->Instance->CR1 & I2C_CR1_RXDMAEN) == I2C_CR1_RXDMAEN))
   {
-    hi2c->XferCount = I2C_GET_DMA_RE***REMOVED***_DATA(hi2c);
+    hi2c->XferCount = I2C_GET_DMA_REMAIN_DATA(hi2c);
   }
 
   /* All data are not transferred, so set error code accordingly */

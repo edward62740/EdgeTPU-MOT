@@ -19,7 +19,7 @@
 #define EXAMPLE_SEMC_START_ADDRESS (0x80000000U)
 #define EXAMPLE_SEMC_CLK_FREQ      CLOCK_GetRootClockFreq(kCLOCK_Root_Semc)
 
-#define CACHE_***REMOVED***TAIN 0x00U
+#define CACHE_MAINTAIN 0x00U
 
 
 #define SEMC_EXAMPLE_DATALEN    (0x1000U)
@@ -111,7 +111,7 @@ status_t BOARD_InitSEMC(void)
     return SEMC_ConfigureSDRAM(SEMC, kSEMC_SDRAM_CS0, &sdramconfig, clockFrq);
 }
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
 #include "fsl_cache.h"
 #endif
 
@@ -129,7 +129,7 @@ int main(void)
     /* Config cacheable attribute for SDRAM memory */
     APP_ConfigMPU();
 
-#if !(defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN)
+#if !(defined(CACHE_MAINTAIN) && CACHE_MAINTAIN)
     /* Disable code bus cache and system bus cache */
     if (LMEM_PCCCR_ENCACHE_MASK == (LMEM_PCCCR_ENCACHE_MASK & LMEM->PCCCR))
     {
@@ -176,7 +176,7 @@ void SEMC_SDRAMReadWrite32Bit(void)
 
     PRINTF("\r\n SEMC SDRAM Read 32 bit Data Start, Start Address 0x%x, Data Length %d !\r\n", sdram, datalen);
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     DCACHE_InvalidateByRange(EXAMPLE_SEMC_START_ADDRESS, 4U * SEMC_EXAMPLE_DATALEN);
 #endif
 
@@ -228,7 +228,7 @@ static void SEMC_SDRAMReadWrite16Bit(void)
 
     PRINTF("\r\n SEMC SDRAM Read 16 bit Data Start, Start Address 0x%x, Data Length %d !\r\n", sdram, datalen);
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     DCACHE_InvalidateByRange(EXAMPLE_SEMC_START_ADDRESS, 4U * SEMC_EXAMPLE_DATALEN);
 #endif
 
@@ -280,7 +280,7 @@ static void SEMC_SDRAMReadWrite8Bit(void)
 
     PRINTF("\r\n SEMC SDRAM Read 8 bit Data Start, Start Address 0x%x, Data Length %d !\r\n", sdram, datalen);
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     DCACHE_InvalidateByRange(EXAMPLE_SEMC_START_ADDRESS, 4U * SEMC_EXAMPLE_DATALEN);
 #endif
 

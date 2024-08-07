@@ -57,7 +57,7 @@ enum mdns_sd_proto {
 #define MDNS_PROBING_SUCCESSFUL 1
 
 #define MDNS_LABEL_MAXLEN  63
-#define MDNS_DO***REMOVED***_MAXLEN 256
+#define MDNS_DOMAIN_MAXLEN 256
 
 struct mdns_host;
 struct mdns_service;
@@ -65,7 +65,7 @@ struct mdns_service;
 /* Domain structs */
 struct mdns_domain {
   /* Encoded domain name */
-  u8_t name[MDNS_DO***REMOVED***_MAXLEN];
+  u8_t name[MDNS_DOMAIN_MAXLEN];
   /* Total length of domain name, including zero */
   u16_t length;
   /* Set if compression of this domain is not allowed */

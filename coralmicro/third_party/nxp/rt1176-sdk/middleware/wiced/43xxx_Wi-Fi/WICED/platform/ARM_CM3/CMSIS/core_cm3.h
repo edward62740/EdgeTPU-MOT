@@ -68,9 +68,9 @@
  */
 
 /*  CMSIS CM3 definitions */
-#define __CM3_CMSIS_VERSION_***REMOVED***  (0x03)                                   /*!< [31:16] CMSIS HAL main version   */
+#define __CM3_CMSIS_VERSION_MAIN  (0x03)                                   /*!< [31:16] CMSIS HAL main version   */
 #define __CM3_CMSIS_VERSION_SUB   (0x20)                                   /*!< [15:0]  CMSIS HAL sub version    */
-#define __CM3_CMSIS_VERSION       ((__CM3_CMSIS_VERSION_***REMOVED*** << 16) | \
+#define __CM3_CMSIS_VERSION       ((__CM3_CMSIS_VERSION_MAIN << 16) | \
                                     __CM3_CMSIS_VERSION_SUB          )     /*!< CMSIS HAL version number         */
 
 #define __CORTEX_M                (0x03)                                   /*!< Cortex-M Core                    */

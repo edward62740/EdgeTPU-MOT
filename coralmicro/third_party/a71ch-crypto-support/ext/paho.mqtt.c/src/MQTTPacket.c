@@ -328,13 +328,13 @@ int MQTTPacket_decode(networkHandles* net, size_t* value)
 	char c;
 	int multiplier = 1;
 	int len = 0;
-#define MAX_NO_OF_RE***REMOVED***ING_LENGTH_BYTES 4
+#define MAX_NO_OF_REMAINING_LENGTH_BYTES 4
 
 	FUNC_ENTRY;
 	*value = 0;
 	do
 	{
-		if (++len > MAX_NO_OF_RE***REMOVED***ING_LENGTH_BYTES)
+		if (++len > MAX_NO_OF_REMAINING_LENGTH_BYTES)
 		{
 			rc = SOCKET_ERROR;	/* bad data */
 			goto exit;
@@ -1014,14 +1014,14 @@ int MQTTPacket_VBIdecode(int (*getcharfn)(char*, int), unsigned int* value)
 	char c;
 	int multiplier = 1;
 	int len = 0;
-#define MAX_NO_OF_RE***REMOVED***ING_LENGTH_BYTES 4
+#define MAX_NO_OF_REMAINING_LENGTH_BYTES 4
 
 	*value = 0;
 	do
 	{
 		int rc = MQTTPACKET_READ_ERROR;
 
-		if (++len > MAX_NO_OF_RE***REMOVED***ING_LENGTH_BYTES)
+		if (++len > MAX_NO_OF_REMAINING_LENGTH_BYTES)
 		{
 			rc = MQTTPACKET_READ_ERROR;	/* bad data */
 			goto exit;

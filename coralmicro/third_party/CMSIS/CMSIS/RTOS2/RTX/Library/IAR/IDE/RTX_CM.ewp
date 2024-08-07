@@ -4465,7 +4465,7 @@
                     <state>NDEBUG</state>
                     <state>CMSIS_device_header="ARMv8MBL.h"</state>
                     <state>EVR_RTX_DISABLE</state>
-                    <state>DO***REMOVED***_NS=1</state>
+                    <state>DOMAIN_NS=1</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -6590,7 +6590,7 @@
                     <state>NDEBUG</state>
                     <state>CMSIS_device_header="ARMv8MML.h"</state>
                     <state>EVR_RTX_DISABLE</state>
-                    <state>DO***REMOVED***_NS=1</state>
+                    <state>DOMAIN_NS=1</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -8715,7 +8715,7 @@
                     <state>NDEBUG</state>
                     <state>CMSIS_device_header="ARMv8MML_SP.h"</state>
                     <state>EVR_RTX_DISABLE</state>
-                    <state>DO***REMOVED***_NS=1</state>
+                    <state>DOMAIN_NS=1</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -10840,7 +10840,7 @@
                     <state>NDEBUG</state>
                     <state>CMSIS_device_header="ARMv81MML_DSP_DP_MVE_FP.h"</state>
                     <state>EVR_RTX_DISABLE</state>
-                    <state>DO***REMOVED***_NS=1</state>
+                    <state>DOMAIN_NS=1</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -12965,7 +12965,7 @@
                     <state>NDEBUG</state>
                     <state>CMSIS_device_header="ARMv81MML_DSP_DP_MVE_FP.h"</state>
                     <state>EVR_RTX_DISABLE</state>
-                    <state>DO***REMOVED***_NS=1</state>
+                    <state>DOMAIN_NS=1</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>

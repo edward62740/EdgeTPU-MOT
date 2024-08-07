@@ -61,9 +61,9 @@
  */
 
 /*  CMSIS ARMv8MML definitions */
-#define __ARMv8MML_CMSIS_VERSION_***REMOVED***  ( 5U)                                       /*!< [31:16] CMSIS HAL main version */
+#define __ARMv8MML_CMSIS_VERSION_MAIN  ( 5U)                                       /*!< [31:16] CMSIS HAL main version */
 #define __ARMv8MML_CMSIS_VERSION_SUB   ( 0U)                                       /*!< [15:0]  CMSIS HAL sub version */
-#define __ARMv8MML_CMSIS_VERSION       ((__ARMv8MML_CMSIS_VERSION_***REMOVED*** << 16U) | \
+#define __ARMv8MML_CMSIS_VERSION       ((__ARMv8MML_CMSIS_VERSION_MAIN << 16U) | \
                                          __ARMv8MML_CMSIS_VERSION_SUB           )  /*!< CMSIS HAL version number */
 
 #define __CORTEX_M                     (81U)                                       /*!< Cortex-M Core */

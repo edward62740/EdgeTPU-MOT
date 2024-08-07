@@ -41,7 +41,7 @@ ssscli uses PEM, DER and HEX data formats for keys and certificates. Refer :ref:
 '''
 
 # List commands to be written in the rst
-***REMOVED***_COMMANDS = ["", "connect", "disconnect", "set", "get", "generate", "erase", "cloud", "a71ch",
+MAIN_COMMANDS = ["", "connect", "disconnect", "set", "get", "generate", "erase", "cloud", "a71ch",
                  "se05x", "refpem", "sign", "verify", "encrypt", "decrypt", "policy"]
 SET_COMMANDS = ["aes", "hmac", "cert", "ecc pair", "ecc pub", "rsa pair", "rsa pub"]
 GET_COMMANDS = ["aes", "cert", "ecc pair", "ecc pub", "rsa pair", "rsa pub"]
@@ -103,7 +103,7 @@ def main():
     # ssscli group of commands
     out_file.write(get_cmd_header("ssscli"))
     out_file.write(str.encode("These are the top level commands accepted by the ssscli Tool.\n\n"))
-    write_commands(out_file, ***REMOVED***_COMMANDS)
+    write_commands(out_file, MAIN_COMMANDS)
 
     # set commands
     out_file.write(get_cmd_header("Set"))

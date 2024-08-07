@@ -46,7 +46,7 @@
 #    pragma GCC diagnostic ignored "-Wpadded"
 #endif
 // end catch_suppress_warnings.h
-#if defined(CATCH_CONFIG_***REMOVED***) || defined(CATCH_CONFIG_RUNNER)
+#if defined(CATCH_CONFIG_MAIN) || defined(CATCH_CONFIG_RUNNER)
 #  define CATCH_IMPL
 #  define CATCH_CONFIG_ALL_PARTS
 #endif
@@ -84,9 +84,9 @@
 // end catch_platform.h
 
 #ifdef CATCH_IMPL
-#  ifndef CLARA_CONFIG_***REMOVED***
-#    define CLARA_CONFIG_***REMOVED***_NOT_DEFINED
-#    define CLARA_CONFIG_***REMOVED***
+#  ifndef CLARA_CONFIG_MAIN
+#    define CLARA_CONFIG_MAIN_NOT_DEFINED
+#    define CLARA_CONFIG_MAIN
 #  endif
 #endif
 
@@ -17353,12 +17353,12 @@ namespace Catch {
 // end catch_impl.hpp
 #endif
 
-#ifdef CATCH_CONFIG_***REMOVED***
+#ifdef CATCH_CONFIG_MAIN
 // start catch_default_main.hpp
 
 #ifndef __OBJC__
 
-#if defined(CATCH_CONFIG_WCHAR) && defined(CATCH_PLATFORM_WINDOWS) && defined(_UNICODE) && !defined(DO_NOT_USE_W***REMOVED***)
+#if defined(CATCH_CONFIG_WCHAR) && defined(CATCH_PLATFORM_WINDOWS) && defined(_UNICODE) && !defined(DO_NOT_USE_WMAIN)
 // Standard C/C++ Win32 Unicode wmain entry point
 extern "C" int wmain (int argc, wchar_t * argv[], wchar_t * []) {
 #else
@@ -17394,8 +17394,8 @@ int main (int argc, char * const argv[]) {
 
 #if !defined(CATCH_CONFIG_IMPL_ONLY)
 
-#ifdef CLARA_CONFIG_***REMOVED***_NOT_DEFINED
-#  undef CLARA_CONFIG_***REMOVED***
+#ifdef CLARA_CONFIG_MAIN_NOT_DEFINED
+#  undef CLARA_CONFIG_MAIN
 #endif
 
 #if !defined(CATCH_CONFIG_DISABLE)

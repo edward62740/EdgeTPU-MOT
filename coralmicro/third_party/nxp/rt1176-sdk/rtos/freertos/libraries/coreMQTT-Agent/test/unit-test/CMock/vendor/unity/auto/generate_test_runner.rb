@@ -362,7 +362,7 @@ class UnityTestRunnerGenerator
   end
 
   def create_main(output, filename, tests, used_mocks)
-    output.puts("\n/*=======***REMOVED***=====*/")
+    output.puts("\n/*=======MAIN=====*/")
     main_name = @options[:main_name].to_sym == :auto ? "main_#{filename.gsub('.c', '')}" : (@options[:main_name]).to_s
     if @options[:cmdline_args]
       if main_name != 'main'

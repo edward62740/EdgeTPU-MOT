@@ -225,7 +225,7 @@ static const oid_x520_attr_t oid_x520_attr_type[] =
         "pseudonym",
     },
     {
-        { ADD_LEN( MBEDTLS_OID_DO***REMOVED***_COMPONENT ), "id-domainComponent",           "Domain component" },
+        { ADD_LEN( MBEDTLS_OID_DOMAIN_COMPONENT ), "id-domainComponent",           "Domain component" },
         "DC",
     },
     {

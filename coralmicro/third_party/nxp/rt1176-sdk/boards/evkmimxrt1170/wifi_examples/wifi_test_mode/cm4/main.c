@@ -43,8 +43,8 @@
  * Code
  ******************************************************************************/
 
-const int TASK_***REMOVED***_PRIO       = OS_PRIO_3;
-const int TASK_***REMOVED***_STACK_SIZE = 800;
+const int TASK_MAIN_PRIO       = OS_PRIO_3;
+const int TASK_MAIN_STACK_SIZE = 800;
 
 portSTACK_TYPE *task_main_stack = NULL;
 TaskHandle_t task_main_task_handler;
@@ -264,7 +264,7 @@ int main(void)
     printSeparator();
 
     result =
-        xTaskCreate(task_main, "main", TASK_***REMOVED***_STACK_SIZE, task_main_stack, TASK_***REMOVED***_PRIO, &task_main_task_handler);
+        xTaskCreate(task_main, "main", TASK_MAIN_STACK_SIZE, task_main_stack, TASK_MAIN_PRIO, &task_main_task_handler);
     assert(pdPASS == result);
 
     vTaskStartScheduler();

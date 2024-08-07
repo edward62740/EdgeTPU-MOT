@@ -63,7 +63,7 @@ mDNSResponder has the following query timeline:
   Query 3: time = 4s
 */
 #define GETADDR_TIMEOUT_MS  5000
-#define LOCAL_DO***REMOVED***        ".local"
+#define LOCAL_DOMAIN        ".local"
 
 /* Only consume .local hosts */
 #ifndef CONSUME_LOCAL_ONLY
@@ -93,11 +93,11 @@ lwip_dnssd_gethostbyname(const char *name, ip_addr_t *addr, u8_t addrtype, err_t
 
 #if CONSUME_LOCAL_ONLY
   /* check if this is a .local host. If it is, then we consume the query */
-  p = strstr(name, LOCAL_DO***REMOVED***);
+  p = strstr(name, LOCAL_DOMAIN);
   if (p == NULL) {
     return 0; /* not consumed */
   }
-  p += (sizeof(LOCAL_DO***REMOVED***) - 1);
+  p += (sizeof(LOCAL_DOMAIN) - 1);
   /* check to make sure .local isn't a substring (only allow .local\0 or .local.\0) */
   if ((*p != '.' && *p != '\0') ||
       (*p == '.' && *(p + 1) != '\0')) {

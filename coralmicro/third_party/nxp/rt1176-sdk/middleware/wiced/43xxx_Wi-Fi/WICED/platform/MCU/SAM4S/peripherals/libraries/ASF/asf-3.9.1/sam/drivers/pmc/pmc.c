@@ -144,7 +144,7 @@ uint32_t pmc_switch_mck_to_mainck(uint32_t ul_pres)
 	uint32_t ul_timeout;
 
 	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_CSS_Msk)) |
-			PMC_MCKR_CSS_***REMOVED***_CLK;
+			PMC_MCKR_CSS_MAIN_CLK;
 	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
 			--ul_timeout) {
 		if (ul_timeout == 0) {
@@ -437,7 +437,7 @@ uint32_t pmc_osc_is_ready_main_xtal(void)
 /**
  * \brief Switch main clock source selection to external Xtal/Bypass.
  *
- * \note The function may switch MCK to SCLK if MCK source is ***REMOVED***CK to avoid
+ * \note The function may switch MCK to SCLK if MCK source is MAINCK to avoid
  *       any system crash.
  *
  * \note If used in Xtal mode, the Xtal is automatically enabled.
@@ -484,7 +484,7 @@ void pmc_osc_disable_xtal(uint32_t ul_bypass)
 }
 
 /**
- * \brief Check if the ***REMOVED***CK is ready. Depending on MOSCEL, ***REMOVED***CK can be one
+ * \brief Check if the MAINCK is ready. Depending on MOSCEL, MAINCK can be one
  * of Xtal, bypass or internal RC.
  *
  * \retval 1 Xtal is ready.
@@ -812,7 +812,7 @@ uint32_t pmc_switch_pck_to_mainck(uint32_t ul_id, uint32_t ul_pres)
 {
 	uint32_t ul_timeout;
 
-	PMC->PMC_PCK[ul_id] = PMC_PCK_CSS_***REMOVED***_CLK | ul_pres;
+	PMC->PMC_PCK[ul_id] = PMC_PCK_CSS_MAIN_CLK | ul_pres;
 	for (ul_timeout = PMC_TIMEOUT;
 	!(PMC->PMC_SR & (PMC_SR_PCKRDY0 << ul_id)); --ul_timeout) {
 		if (ul_timeout == 0) {

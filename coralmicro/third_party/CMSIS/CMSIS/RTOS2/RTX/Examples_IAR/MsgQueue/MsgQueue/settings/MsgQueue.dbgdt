@@ -4,7 +4,7 @@
         <ChildIdMap>
             <TB_CMSISPACK>34048</TB_CMSISPACK>
             <TB_DEBUG>34049</TB_DEBUG>
-            <TB_***REMOVED***2>34050</TB_***REMOVED***2>
+            <TB_MAIN2>34050</TB_MAIN2>
             <WIN_AUTO>34051</WIN_AUTO>
             <WIN_BREAKPOINTS>34052</WIN_BREAKPOINTS>
             <WIN_BUILD>34053</WIN_BUILD>

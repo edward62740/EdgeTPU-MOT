@@ -4,8 +4,8 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-#ifndef __APPL_SPP_***REMOVED***_H__
-#define __APPL_SPP_***REMOVED***_H__
+#ifndef __APPL_SPP_MAIN_H__
+#define __APPL_SPP_MAIN_H__
 
 /*******************************************************************************
  * Definitions
@@ -17,4 +17,4 @@
 
 void spp_task(void *param);
 
-#endif /* __APPL_SPP_***REMOVED***_H__ */
+#endif /* __APPL_SPP_MAIN_H__ */

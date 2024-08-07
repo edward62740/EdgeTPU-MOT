@@ -244,13 +244,13 @@ The macro \ref _FLD2VAL uses the \#define's <i>_Pos</i> and <i>_Msk</i> of the r
 
 /*  CMSIS CA definitions */
 /**
-\def __CA_CMSIS_VERSION_***REMOVED***  
+\def __CA_CMSIS_VERSION_MAIN  
 \details
 Use this define to query the major version of CMSIS-Core(A) component. 
 
 \b Example:
 \code
-#if __CA_CMSIS_VERSION_***REMOVED*** < 5
+#if __CA_CMSIS_VERSION_MAIN < 5
 #error This code needs at least CMSIS-Core(A) version 5!
 #endif
 \endcode
@@ -261,7 +261,7 @@ Use this define to query the minor version of CMSIS-Core(A) component.
 
 \b Example:
 \code
-#if __CA_CMSIS_VERSION_***REMOVED*** < 5
+#if __CA_CMSIS_VERSION_MAIN < 5
 #error This code needs at least CMSIS-Core(A) version 5!
 #else
 #if __CA_CMSIS_VERSION_SUB < 1
@@ -276,7 +276,7 @@ Use this define to query the full version of CMSIS-Core(A) component.
 
 | Bits    | Name          | Function                |
 | :------ | :------------ | :-----------------------|
-| [31:16] | ***REMOVED***          | __CA_CMSIS_VERSION_***REMOVED*** |
+| [31:16] | MAIN          | __CA_CMSIS_VERSION_MAIN |
 | [15:0]  | SUB           | __CA_CMSIS_VERSION_SUB  |
 
 

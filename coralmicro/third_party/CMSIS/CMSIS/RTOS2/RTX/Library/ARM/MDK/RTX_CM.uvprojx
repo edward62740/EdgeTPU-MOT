@@ -2729,7 +2729,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>EVR_RTX_DISABLE DO***REMOVED***_NS=1</Define>
+              <Define>EVR_RTX_DISABLE DOMAIN_NS=1</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\Library;..\..\..\Include;..\..\..\..\Include</IncludePath>
             </VariousControls>
@@ -2747,7 +2747,7 @@
             <ClangAsOpt>1</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>DO***REMOVED***_NS=1</Define>
+              <Define>DOMAIN_NS=1</Define>
               <Undefine></Undefine>
               <IncludePath>.;..\..\..\Library;..\..\..\Include</IncludePath>
             </VariousControls>
@@ -3925,7 +3925,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>EVR_RTX_DISABLE DO***REMOVED***_NS=1</Define>
+              <Define>EVR_RTX_DISABLE DOMAIN_NS=1</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\Library;..\..\..\Include;..\..\..\..\Include</IncludePath>
             </VariousControls>
@@ -3943,7 +3943,7 @@
             <ClangAsOpt>1</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>DO***REMOVED***_NS=1</Define>
+              <Define>DOMAIN_NS=1</Define>
               <Undefine></Undefine>
               <IncludePath>.;..\..\..\Library;..\..\..\Include</IncludePath>
             </VariousControls>
@@ -5121,7 +5121,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>EVR_RTX_DISABLE DO***REMOVED***_NS=1</Define>
+              <Define>EVR_RTX_DISABLE DOMAIN_NS=1</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\Library;..\..\..\Include;..\..\..\..\Include</IncludePath>
             </VariousControls>
@@ -5139,7 +5139,7 @@
             <ClangAsOpt>1</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>DO***REMOVED***_NS=1</Define>
+              <Define>DOMAIN_NS=1</Define>
               <Undefine></Undefine>
               <IncludePath>.;..\..\..\Library;..\..\..\Include</IncludePath>
             </VariousControls>

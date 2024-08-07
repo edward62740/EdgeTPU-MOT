@@ -1051,7 +1051,7 @@ static SECStatus BadCertHandler(void *arg, PRFileDesc *sock)
   /* remember the cert verification result */
   SSL_SET_OPTION_LVALUE(certverifyresult) = err;
 
-  if(err == SSL_ERROR_BAD_CERT_DO***REMOVED*** && !SSL_CONN_CONFIG(verifyhost))
+  if(err == SSL_ERROR_BAD_CERT_DOMAIN && !SSL_CONN_CONFIG(verifyhost))
     /* we are asked not to verify the host name */
     return SECSuccess;
 
@@ -2176,7 +2176,7 @@ static CURLcode nss_do_connect(struct Curl_easy *data,
     if(PR_GetError() == PR_WOULD_BLOCK_ERROR)
       /* blocking direction is updated by nss_update_connecting_state() */
       return CURLE_AGAIN;
-    else if(SSL_SET_OPTION(certverifyresult) == SSL_ERROR_BAD_CERT_DO***REMOVED***)
+    else if(SSL_SET_OPTION(certverifyresult) == SSL_ERROR_BAD_CERT_DOMAIN)
       result = CURLE_PEER_FAILED_VERIFICATION;
     else if(SSL_SET_OPTION(certverifyresult) != 0)
       result = CURLE_PEER_FAILED_VERIFICATION;

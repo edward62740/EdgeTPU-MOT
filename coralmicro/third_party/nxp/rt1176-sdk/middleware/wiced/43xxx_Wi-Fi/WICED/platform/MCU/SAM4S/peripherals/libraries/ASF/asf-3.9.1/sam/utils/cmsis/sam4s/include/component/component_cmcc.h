@@ -56,8 +56,8 @@ typedef struct {
   WoReg CMCC_CTRL;    /**< \brief (Cmcc Offset: 0x08) Cache Control Register */
   RoReg CMCC_SR;      /**< \brief (Cmcc Offset: 0x0C) Cache Status Register */
   RoReg Reserved1[4];
-  WoReg CMCC_***REMOVED***T0;  /**< \brief (Cmcc Offset: 0x20) Cache Maintenance Register 0 */
-  WoReg CMCC_***REMOVED***T1;  /**< \brief (Cmcc Offset: 0x24) Cache Maintenance Register 1 */
+  WoReg CMCC_MAINT0;  /**< \brief (Cmcc Offset: 0x20) Cache Maintenance Register 0 */
+  WoReg CMCC_MAINT1;  /**< \brief (Cmcc Offset: 0x24) Cache Maintenance Register 1 */
   RwReg CMCC_MCFG;    /**< \brief (Cmcc Offset: 0x28) Cache Monitor Configuration Register */
   RwReg CMCC_MEN;     /**< \brief (Cmcc Offset: 0x2C) Cache Monitor Enable Register */
   WoReg CMCC_MCTRL;   /**< \brief (Cmcc Offset: 0x30) Cache Monitor Control Register */
@@ -95,18 +95,18 @@ typedef struct {
 #define CMCC_CTRL_CEN (0x1u << 0) /**< \brief (CMCC_CTRL) Cache Controller Enable */
 /* -------- CMCC_SR : (CMCC Offset: 0x0C) Cache Status Register -------- */
 #define CMCC_SR_CSTS (0x1u << 0) /**< \brief (CMCC_SR) Cache Controller Status */
-/* -------- CMCC_***REMOVED***T0 : (CMCC Offset: 0x20) Cache Maintenance Register 0 -------- */
-#define CMCC_***REMOVED***T0_INVALL (0x1u << 0) /**< \brief (CMCC_***REMOVED***T0) Cache Controller Invalidate All */
-/* -------- CMCC_***REMOVED***T1 : (CMCC Offset: 0x24) Cache Maintenance Register 1 -------- */
-#define CMCC_***REMOVED***T1_INDEX_Pos 4
-#define CMCC_***REMOVED***T1_INDEX_Msk (0xfu << CMCC_***REMOVED***T1_INDEX_Pos) /**< \brief (CMCC_***REMOVED***T1) Invalidate Index */
-#define CMCC_***REMOVED***T1_INDEX(value) ((CMCC_***REMOVED***T1_INDEX_Msk & ((value) << CMCC_***REMOVED***T1_INDEX_Pos)))
-#define CMCC_***REMOVED***T1_WAY_Pos 30
-#define CMCC_***REMOVED***T1_WAY_Msk (0x3u << CMCC_***REMOVED***T1_WAY_Pos) /**< \brief (CMCC_***REMOVED***T1) Invalidate Way */
-#define   CMCC_***REMOVED***T1_WAY_WAY0 (0x0u << 30) /**< \brief (CMCC_***REMOVED***T1) Way 0 is selection for index invalidation */
-#define   CMCC_***REMOVED***T1_WAY_WAY1 (0x1u << 30) /**< \brief (CMCC_***REMOVED***T1) Way 1 is selection for index invalidation */
-#define   CMCC_***REMOVED***T1_WAY_WAY2 (0x2u << 30) /**< \brief (CMCC_***REMOVED***T1) Way 2 is selection for index invalidation */
-#define   CMCC_***REMOVED***T1_WAY_WAY3 (0x3u << 30) /**< \brief (CMCC_***REMOVED***T1) Way 3 is selection for index invalidation */
+/* -------- CMCC_MAINT0 : (CMCC Offset: 0x20) Cache Maintenance Register 0 -------- */
+#define CMCC_MAINT0_INVALL (0x1u << 0) /**< \brief (CMCC_MAINT0) Cache Controller Invalidate All */
+/* -------- CMCC_MAINT1 : (CMCC Offset: 0x24) Cache Maintenance Register 1 -------- */
+#define CMCC_MAINT1_INDEX_Pos 4
+#define CMCC_MAINT1_INDEX_Msk (0xfu << CMCC_MAINT1_INDEX_Pos) /**< \brief (CMCC_MAINT1) Invalidate Index */
+#define CMCC_MAINT1_INDEX(value) ((CMCC_MAINT1_INDEX_Msk & ((value) << CMCC_MAINT1_INDEX_Pos)))
+#define CMCC_MAINT1_WAY_Pos 30
+#define CMCC_MAINT1_WAY_Msk (0x3u << CMCC_MAINT1_WAY_Pos) /**< \brief (CMCC_MAINT1) Invalidate Way */
+#define   CMCC_MAINT1_WAY_WAY0 (0x0u << 30) /**< \brief (CMCC_MAINT1) Way 0 is selection for index invalidation */
+#define   CMCC_MAINT1_WAY_WAY1 (0x1u << 30) /**< \brief (CMCC_MAINT1) Way 1 is selection for index invalidation */
+#define   CMCC_MAINT1_WAY_WAY2 (0x2u << 30) /**< \brief (CMCC_MAINT1) Way 2 is selection for index invalidation */
+#define   CMCC_MAINT1_WAY_WAY3 (0x3u << 30) /**< \brief (CMCC_MAINT1) Way 3 is selection for index invalidation */
 /* -------- CMCC_MCFG : (CMCC Offset: 0x28) Cache Monitor Configuration Register -------- */
 #define CMCC_MCFG_MODE_Pos 0
 #define CMCC_MCFG_MODE_Msk (0x3u << CMCC_MCFG_MODE_Pos) /**< \brief (CMCC_MCFG) Cache Controller Monitor Counter Mode */

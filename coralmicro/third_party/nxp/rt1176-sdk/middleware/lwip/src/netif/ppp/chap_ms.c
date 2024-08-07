@@ -36,7 +36,7 @@
  *   preferred is set by option "ms-lanman". Default is to use NT.
  *   The hash text (StdText) was taken from Win95 RASAPI32.DLL.
  *
- *   You should also use DO***REMOVED***\\USERNAME as described in README.MSCHAP80
+ *   You should also use DOMAIN\\USERNAME as described in README.MSCHAP80
  */
 
 /*

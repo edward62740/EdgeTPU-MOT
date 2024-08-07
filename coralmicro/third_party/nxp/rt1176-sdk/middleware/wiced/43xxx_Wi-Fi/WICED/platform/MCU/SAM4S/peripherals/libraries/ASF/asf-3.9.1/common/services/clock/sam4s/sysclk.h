@@ -83,8 +83,8 @@
  *   #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLLACK
  *
  *   // Fpll0 = (Fclk * PLL_mul) / PLL_div
- *   #define CONFIG_PLL0_SOURCE          PLL_SRC_***REMOVED***CK_XTAL
- *   #define CONFIG_PLL0_MUL             (120000000UL / BOARD_FREQ_***REMOVED***CK_XTAL)
+ *   #define CONFIG_PLL0_SOURCE          PLL_SRC_MAINCK_XTAL
+ *   #define CONFIG_PLL0_MUL             (120000000UL / BOARD_FREQ_MAINCK_XTAL)
  *   #define CONFIG_PLL0_DIV             1
  *
  *   // Fbus = Fsys / BUS_div
@@ -95,13 +95,13 @@
  *  -# Configure the main system clock to use the output of the PLL module as its source:
  *   \code #define CONFIG_SYSCLK_SOURCE          SYSCLK_SRC_PLLACK \endcode
  *  -# Configure the PLL module to use the fast external fast crystal oscillator as its source:
- *   \code #define CONFIG_PLL0_SOURCE            PLL_SRC_***REMOVED***CK_XTAL \endcode
+ *   \code #define CONFIG_PLL0_SOURCE            PLL_SRC_MAINCK_XTAL \endcode
  *  -# Configure the PLL module to multiply the external fast crystal oscillator frequency up to 120MHz:
  *   \code
- *   #define CONFIG_PLL0_MUL             (120000000UL / BOARD_FREQ_***REMOVED***CK_XTAL)
+ *   #define CONFIG_PLL0_MUL             (120000000UL / BOARD_FREQ_MAINCK_XTAL)
  *   #define CONFIG_PLL0_DIV             1
  *   \endcode
- *   \note For user boards, \c BOARD_FREQ_***REMOVED***CK_XTAL should be defined in the board \c conf_board.h configuration
+ *   \note For user boards, \c BOARD_FREQ_MAINCK_XTAL should be defined in the board \c conf_board.h configuration
  *         file as the frequency of the fast crystal attached to the microcontroller.
  *  -# Configure the main clock to run at the full 120MHz, disable scaling of the main system clock speed:
  *    \code
@@ -140,8 +140,8 @@
  *   #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLLACK
  *
  *   // Fpll0 = (Fclk * PLL_mul) / PLL_div
- *   #define CONFIG_PLL0_SOURCE          PLL_SRC_***REMOVED***CK_XTAL
- *   #define CONFIG_PLL0_MUL             (120000000UL / BOARD_FREQ_***REMOVED***CK_XTAL)
+ *   #define CONFIG_PLL0_SOURCE          PLL_SRC_MAINCK_XTAL
+ *   #define CONFIG_PLL0_MUL             (120000000UL / BOARD_FREQ_MAINCK_XTAL)
  *   #define CONFIG_PLL0_DIV             1
  *
  *   // Fbus = Fsys / BUS_div
@@ -152,8 +152,8 @@
  *   #define CONFIG_USBCLK_DIV           1
  *
  *   // Fpll1 = (Fclk * PLL_mul) / PLL_div
- *   #define CONFIG_PLL1_SOURCE          PLL_SRC_***REMOVED***CK_XTAL
- *   #define CONFIG_PLL1_MUL             (48000000UL / BOARD_FREQ_***REMOVED***CK_XTAL)
+ *   #define CONFIG_PLL1_SOURCE          PLL_SRC_MAINCK_XTAL
+ *   #define CONFIG_PLL1_MUL             (48000000UL / BOARD_FREQ_MAINCK_XTAL)
  *   #define CONFIG_PLL1_DIV             1
  *   \endcode
  *
@@ -161,13 +161,13 @@
  *  -# Configure the main system clock to use the output of the PLL0 module as its source:
  *   \code #define CONFIG_SYSCLK_SOURCE          SYSCLK_SRC_PLLACK \endcode
  *  -# Configure the PLL0 module to use the fast external fast crystal oscillator as its source:
- *   \code #define CONFIG_PLL0_SOURCE            PLL_SRC_***REMOVED***CK_XTAL \endcode
+ *   \code #define CONFIG_PLL0_SOURCE            PLL_SRC_MAINCK_XTAL \endcode
  *  -# Configure the PLL0 module to multiply the external fast crystal oscillator frequency up to 120MHz:
  *   \code
- *   #define CONFIG_PLL0_MUL             (120000000UL / BOARD_FREQ_***REMOVED***CK_XTAL)
+ *   #define CONFIG_PLL0_MUL             (120000000UL / BOARD_FREQ_MAINCK_XTAL)
  *   #define CONFIG_PLL0_DIV             1
  *   \endcode
- *   \note For user boards, \c BOARD_FREQ_***REMOVED***CK_XTAL should be defined in the board \c conf_board.h configuration
+ *   \note For user boards, \c BOARD_FREQ_MAINCK_XTAL should be defined in the board \c conf_board.h configuration
  *         file as the frequency of the fast crystal attached to the microcontroller.
  *  -# Configure the main clock to run at the full 120MHz, disable scaling of the main system clock speed:
  *    \code
@@ -178,10 +178,10 @@
  *  -# Configure the USB module clock to use the output of the PLL1 module as its source:
  *   \code #define CONFIG_SYSCLK_SOURCE          USBCLK_SRC_PLL1 \endcode
  *  -# Configure the PLL1 module to use the fast external fast crystal oscillator as its source:
- *   \code #define CONFIG_PLL1_SOURCE            PLL_SRC_***REMOVED***CK_XTAL \endcode
+ *   \code #define CONFIG_PLL1_SOURCE            PLL_SRC_MAINCK_XTAL \endcode
  *  -# Configure the PLL1 module to multiply the external fast crystal oscillator frequency up to 48MHz:
  *   \code
- *   #define CONFIG_PLL1_MUL             (48000000UL / BOARD_FREQ_***REMOVED***CK_XTAL)
+ *   #define CONFIG_PLL1_MUL             (48000000UL / BOARD_FREQ_MAINCK_XTAL)
  *   #define CONFIG_PLL1_DIV             1
  *   \endcode
  */
@@ -209,7 +209,7 @@ extern "C" {
  * initialization.
  */
 #ifndef CONFIG_SYSCLK_SOURCE
-# define CONFIG_SYSCLK_SOURCE   SYSCLK_SRC_***REMOVED***CK_4M_RC
+# define CONFIG_SYSCLK_SOURCE   SYSCLK_SRC_MAINCK_4M_RC
 #endif
 /**
  * \def CONFIG_SYSCLK_PRES
@@ -232,11 +232,11 @@ extern "C" {
 #define SYSCLK_SRC_SLCK_RC              0       //!< Internal 32kHz RC oscillator as master source clock
 #define SYSCLK_SRC_SLCK_XTAL            1       //!< External 32kHz crystal oscillator as master source clock
 #define SYSCLK_SRC_SLCK_BYPASS          2       //!< External 32kHz bypass oscillator as master source clock
-#define SYSCLK_SRC_***REMOVED***CK_4M_RC         3       //!< Internal 4MHz RC oscillator as master source clock
-#define SYSCLK_SRC_***REMOVED***CK_8M_RC         4       //!< Internal 8MHz RC oscillator as master source clock
-#define SYSCLK_SRC_***REMOVED***CK_12M_RC        5       //!< Internal 12MHz RC oscillator as master source clock
-#define SYSCLK_SRC_***REMOVED***CK_XTAL          6       //!< External crystal oscillator as master source clock
-#define SYSCLK_SRC_***REMOVED***CK_BYPASS        7       //!< External bypass oscillator as master source clock
+#define SYSCLK_SRC_MAINCK_4M_RC         3       //!< Internal 4MHz RC oscillator as master source clock
+#define SYSCLK_SRC_MAINCK_8M_RC         4       //!< Internal 8MHz RC oscillator as master source clock
+#define SYSCLK_SRC_MAINCK_12M_RC        5       //!< Internal 12MHz RC oscillator as master source clock
+#define SYSCLK_SRC_MAINCK_XTAL          6       //!< External crystal oscillator as master source clock
+#define SYSCLK_SRC_MAINCK_BYPASS        7       //!< External bypass oscillator as master source clock
 #define SYSCLK_SRC_PLLACK               8       //!< Use PLLACK as master source clock
 #define SYSCLK_SRC_PLLBCK               9       //!< Use PLLBCK as master source clock
 //@}
@@ -314,7 +314,7 @@ static inline uint32_t sysclk_get_main_hz(void)
 {
 #if (defined CONFIG_SYSCLK_DEFAULT_RETURNS_SLOW_OSC)
 	if (!sysclk_initialized ) {
-		return OSC_***REMOVED***CK_4M_RC_HZ;
+		return OSC_MAINCK_4M_RC_HZ;
 	}
 #endif
 
@@ -325,16 +325,16 @@ static inline uint32_t sysclk_get_main_hz(void)
 		return OSC_SLCK_32K_XTAL_HZ;
 	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_SLCK_BYPASS) {
 		return OSC_SLCK_32K_BYPASS_HZ;
-	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_***REMOVED***CK_4M_RC) {
-		return OSC_***REMOVED***CK_4M_RC_HZ;
-	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_***REMOVED***CK_8M_RC) {
-		return OSC_***REMOVED***CK_8M_RC_HZ;
-	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_***REMOVED***CK_12M_RC) {
-		return OSC_***REMOVED***CK_12M_RC_HZ;
-	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_***REMOVED***CK_XTAL) {
-		return OSC_***REMOVED***CK_XTAL_HZ;
-	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_***REMOVED***CK_BYPASS) {
-		return OSC_***REMOVED***CK_BYPASS_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_4M_RC) {
+		return OSC_MAINCK_4M_RC_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_8M_RC) {
+		return OSC_MAINCK_8M_RC_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_12M_RC) {
+		return OSC_MAINCK_12M_RC_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_XTAL) {
+		return OSC_MAINCK_XTAL_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_BYPASS) {
+		return OSC_MAINCK_BYPASS_HZ;
 	}
 #ifdef CONFIG_PLL0_SOURCE
 	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_PLLACK) {

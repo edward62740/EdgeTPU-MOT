@@ -53,7 +53,7 @@
 #define FLEXSPI_TX_DMA_CHANNEL 0U
 #define FLEXSPI_RX_DMA_CHANNEL 1U
 
-#define CACHE_***REMOVED***TAIN 1
+#define CACHE_MAINTAIN 1
 
 /*${macro:end}*/
 

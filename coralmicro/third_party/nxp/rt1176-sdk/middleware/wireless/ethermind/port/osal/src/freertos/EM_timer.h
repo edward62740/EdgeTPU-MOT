@@ -17,7 +17,7 @@
 /* --------------------------------------------------- Header File Inclusion */
 #include "EM_os.h"
 
-#define EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME
+#define EM_TIMER_SUPPORT_REMAINING_TIME
 
 /* --------------------------------------------------- Global Definitions */
 /* Maximum number of timer entities */
@@ -87,10 +87,10 @@ typedef struct timer_entity_struct
     /* Timeout Value asked by the User */
     UINT32 timeout;
 
-#ifdef EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME
+#ifdef EM_TIMER_SUPPORT_REMAINING_TIME
     /* Start Time Stamp - used to calculate remaining time */
     TickType_t start_timestamp;
-#endif /* EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME */
+#endif /* EM_TIMER_SUPPORT_REMAINING_TIME */
 
     /* Length of the data */
     UINT16 data_length;
@@ -138,15 +138,15 @@ EM_RESULT EM_restart_timer
 
 EM_RESULT EM_stop_timer ( EM_timer_handle handle );
 
-#ifdef EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME
+#ifdef EM_TIMER_SUPPORT_REMAINING_TIME
 EM_RESULT EM_timer_get_remaining_time
           (
               EM_timer_handle   handle,
               UINT32          * remaining_time_ms
           );
-#else /* EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME */
+#else /* EM_TIMER_SUPPORT_REMAINING_TIME */
 #define EM_timer_get_remaining_time(a, b)
-#endif /* EM_TIMER_SUPPORT_RE***REMOVED***ING_TIME */
+#endif /* EM_TIMER_SUPPORT_REMAINING_TIME */
 
 EM_RESULT EM_is_active_timer ( EM_timer_handle handle );
 

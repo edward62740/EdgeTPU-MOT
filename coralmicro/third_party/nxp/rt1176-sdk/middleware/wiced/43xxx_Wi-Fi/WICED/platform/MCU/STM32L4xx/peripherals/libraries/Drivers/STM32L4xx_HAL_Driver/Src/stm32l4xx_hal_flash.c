@@ -800,7 +800,7 @@ static void FLASH_Program_Fast(uint32_t Address, uint32_t DataAddress)
   __IO uint32_t *src_addr = (__IO uint32_t*)DataAddress;
 
   /* Check the parameters */
-  assert_param(IS_FLASH_***REMOVED***_MEM_ADDRESS(Address));
+  assert_param(IS_FLASH_MAIN_MEM_ADDRESS(Address));
 
   /* Set FSTPG bit */
   SET_BIT(FLASH->CR, FLASH_CR_FSTPG);

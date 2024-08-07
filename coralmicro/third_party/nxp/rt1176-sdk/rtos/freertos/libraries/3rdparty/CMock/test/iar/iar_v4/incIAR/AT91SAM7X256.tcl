@@ -170,8 +170,8 @@ set AT91C_CKGR_MOSCEN     [expr 0x1 <<  0 ]
 set AT91C_CKGR_OSCBYPASS  [expr 0x1 <<  1 ]
 set AT91C_CKGR_OSCOUNT    [expr 0xFF <<  8 ]
 # -------- CKGR_MCFR : (CKGR Offset: 0x4) Main Clock Frequency Register -------- 
-set AT91C_CKGR_***REMOVED***F      [expr 0xFFFF <<  0 ]
-set AT91C_CKGR_***REMOVED***RDY    [expr 0x1 << 16 ]
+set AT91C_CKGR_MAINF      [expr 0xFFFF <<  0 ]
+set AT91C_CKGR_MAINRDY    [expr 0x1 << 16 ]
 # -------- CKGR_PLLR : (CKGR Offset: 0xc) PLL B Register -------- 
 set AT91C_CKGR_DIV        [expr 0xFF <<  0 ]
 set 	AT91C_CKGR_DIV_0                    0x0
@@ -217,8 +217,8 @@ set AT91C_CKGR_MOSCEN     [expr 0x1 <<  0 ]
 set AT91C_CKGR_OSCBYPASS  [expr 0x1 <<  1 ]
 set AT91C_CKGR_OSCOUNT    [expr 0xFF <<  8 ]
 # -------- CKGR_MCFR : (PMC Offset: 0x24) Main Clock Frequency Register -------- 
-set AT91C_CKGR_***REMOVED***F      [expr 0xFFFF <<  0 ]
-set AT91C_CKGR_***REMOVED***RDY    [expr 0x1 << 16 ]
+set AT91C_CKGR_MAINF      [expr 0xFFFF <<  0 ]
+set AT91C_CKGR_MAINRDY    [expr 0x1 << 16 ]
 # -------- CKGR_PLLR : (PMC Offset: 0x2c) PLL B Register -------- 
 set AT91C_CKGR_DIV        [expr 0xFF <<  0 ]
 set 	AT91C_CKGR_DIV_0                    0x0
@@ -237,7 +237,7 @@ set 	AT91C_CKGR_USBDIV_2                    [expr 0x2 << 28 ]
 # -------- PMC_MCKR : (PMC Offset: 0x30) Master Clock Register -------- 
 set AT91C_PMC_CSS         [expr 0x3 <<  0 ]
 set 	AT91C_PMC_CSS_SLOW_CLK             0x0
-set 	AT91C_PMC_CSS_***REMOVED***_CLK             0x1
+set 	AT91C_PMC_CSS_MAIN_CLK             0x1
 set 	AT91C_PMC_CSS_PLL_CLK              0x3
 set AT91C_PMC_PRES        [expr 0x7 <<  2 ]
 set 	AT91C_PMC_PRES_CLK                  [expr 0x0 <<  2 ]
@@ -250,7 +250,7 @@ set 	AT91C_PMC_PRES_CLK_64               [expr 0x6 <<  2 ]
 # -------- PMC_PCKR : (PMC Offset: 0x40) Programmable Clock Register -------- 
 set AT91C_PMC_CSS         [expr 0x3 <<  0 ]
 set 	AT91C_PMC_CSS_SLOW_CLK             0x0
-set 	AT91C_PMC_CSS_***REMOVED***_CLK             0x1
+set 	AT91C_PMC_CSS_MAIN_CLK             0x1
 set 	AT91C_PMC_CSS_PLL_CLK              0x3
 set AT91C_PMC_PRES        [expr 0x7 <<  2 ]
 set 	AT91C_PMC_PRES_CLK                  [expr 0x0 <<  2 ]

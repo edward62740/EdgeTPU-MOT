@@ -9,7 +9,7 @@
 
 #include "fsl_flexspi.h"
 #include "app.h"
-#if (defined CACHE_***REMOVED***TAIN) && (CACHE_***REMOVED***TAIN == 1)
+#if (defined CACHE_MAINTAIN) && (CACHE_MAINTAIN == 1)
 #include "fsl_cache.h"
 #endif
 
@@ -30,7 +30,7 @@ extern const uint32_t customLUT[CUSTOM_LUT_LENGTH];
 /*******************************************************************************
  * Code
  ******************************************************************************/
-#if (defined CACHE_***REMOVED***TAIN) && (CACHE_***REMOVED***TAIN == 1)
+#if (defined CACHE_MAINTAIN) && (CACHE_MAINTAIN == 1)
 void flexspi_nor_disable_cache(flexspi_cache_status_t *cacheStatus)
 {
 #if (defined __CORTEX_M) && (__CORTEX_M == 7U)
@@ -189,7 +189,7 @@ status_t flexspi_nor_enable_quad_mode(FLEXSPI_Type *base)
     status_t status;
     uint32_t writeValue = FLASH_QUAD_ENABLE;
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_cache_status_t cacheStatus;
     flexspi_nor_disable_cache(&cacheStatus);
 #endif
@@ -222,7 +222,7 @@ status_t flexspi_nor_enable_quad_mode(FLEXSPI_Type *base)
     /* Do software reset. */
     FLEXSPI_SoftwareReset(base);
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_nor_enable_cache(cacheStatus);
 #endif
 
@@ -240,7 +240,7 @@ status_t flexspi_nor_set_read_parameter(
                                    ((uint32_t)enableWrap << WRAP_ENABLE_REG_SHIFT) |
                                    ((uint32_t)burstLength << BURST_LEGNTH_REG_SHIFT);
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_cache_status_t cacheStatus;
     flexspi_nor_disable_cache(&cacheStatus);
 #endif
@@ -272,7 +272,7 @@ status_t flexspi_nor_set_read_parameter(
     /* Do software reset. */
     FLEXSPI_SoftwareReset(base);
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_nor_enable_cache(cacheStatus);
 #endif
 
@@ -285,7 +285,7 @@ status_t flexspi_nor_flash_erase_sector(FLEXSPI_Type *base, uint32_t address)
     status_t status;
     flexspi_transfer_t flashXfer;
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_cache_status_t cacheStatus;
     flexspi_nor_disable_cache(&cacheStatus);
 #endif
@@ -321,7 +321,7 @@ status_t flexspi_nor_flash_erase_sector(FLEXSPI_Type *base, uint32_t address)
     /* Do software reset. */
     FLEXSPI_SoftwareReset(base);
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_nor_enable_cache(cacheStatus);
 #endif
 
@@ -333,7 +333,7 @@ status_t flexspi_nor_flash_program(FLEXSPI_Type *base, uint32_t dstAddr, const u
     status_t status;
     flexspi_transfer_t flashXfer;
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_cache_status_t cacheStatus;
     flexspi_nor_disable_cache(&cacheStatus);
 #endif
@@ -372,7 +372,7 @@ status_t flexspi_nor_flash_program(FLEXSPI_Type *base, uint32_t dstAddr, const u
     FLEXSPI_SoftwareReset(base);
 #endif
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_nor_enable_cache(cacheStatus);
 #endif
 
@@ -384,7 +384,7 @@ status_t flexspi_nor_flash_page_program(FLEXSPI_Type *base, uint32_t dstAddr, co
     status_t status;
     flexspi_transfer_t flashXfer;
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_cache_status_t cacheStatus;
     flexspi_nor_disable_cache(&cacheStatus);
 #endif
@@ -432,7 +432,7 @@ status_t flexspi_nor_flash_page_program(FLEXSPI_Type *base, uint32_t dstAddr, co
     FLEXSPI_SoftwareReset(base);
 #endif
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_nor_enable_cache(cacheStatus);
 #endif
 
@@ -472,7 +472,7 @@ status_t flexspi_nor_erase_chip(FLEXSPI_Type *base)
     status_t status;
     flexspi_transfer_t flashXfer;
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_cache_status_t cacheStatus;
     flexspi_nor_disable_cache(&cacheStatus);
 #endif
@@ -500,7 +500,7 @@ status_t flexspi_nor_erase_chip(FLEXSPI_Type *base)
 
     status = flexspi_nor_wait_bus_busy(base);
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_nor_enable_cache(cacheStatus);
 #endif
 
@@ -511,7 +511,7 @@ void flexspi_nor_flash_init(FLEXSPI_Type *base)
 {
     flexspi_config_t config;
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_cache_status_t cacheStatus;
     flexspi_nor_disable_cache(&cacheStatus);
 #endif
@@ -538,7 +538,7 @@ void flexspi_nor_flash_init(FLEXSPI_Type *base)
     /* Do software reset. */
     FLEXSPI_SoftwareReset(base);
 
-#if defined(CACHE_***REMOVED***TAIN) && CACHE_***REMOVED***TAIN
+#if defined(CACHE_MAINTAIN) && CACHE_MAINTAIN
     flexspi_nor_enable_cache(cacheStatus);
 #endif
 }

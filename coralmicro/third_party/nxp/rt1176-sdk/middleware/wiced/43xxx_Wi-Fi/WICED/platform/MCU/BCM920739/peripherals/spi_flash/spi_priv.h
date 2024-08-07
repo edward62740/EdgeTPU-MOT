@@ -102,9 +102,9 @@ extern "C"
 
 
 // cr_pulse_reset_peri_adr[6]: spiffy_rst_clock_domain
-#define CR_PULSE_RESET_SPIFFY_TRANSPORT_CLK_DO***REMOVED*** (1 << 6)
+#define CR_PULSE_RESET_SPIFFY_TRANSPORT_CLK_DOMAIN (1 << 6)
 // cr_pulse_reset_peri_adr[24]: spiffy2_rst_clock_domain
-#define CR_PULSE_RESET_SPIFFY2_TRANSPORT_CLK_DO***REMOVED*** (1 << 24)
+#define CR_PULSE_RESET_SPIFFY2_TRANSPORT_CLK_DOMAIN (1 << 24)
 
 // Memory mapped structure of spiffy block
 typedef struct

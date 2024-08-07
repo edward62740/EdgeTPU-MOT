@@ -127,7 +127,7 @@ typedef enum {
 #define DHCP6_OPTION_RECONF_ACCEPT  20
 /* More options see https://www.iana.org/assignments/dhcpv6-parameters/dhcpv6-parameters.xhtml */
 #define DHCP6_OPTION_DNS_SERVERS    23 /* RFC 3646 */
-#define DHCP6_OPTION_DO***REMOVED***_LIST    24 /* RFC 3646 */
+#define DHCP6_OPTION_DOMAIN_LIST    24 /* RFC 3646 */
 #define DHCP6_OPTION_SNTP_SERVERS   31 /* RFC 4075 */
 
 

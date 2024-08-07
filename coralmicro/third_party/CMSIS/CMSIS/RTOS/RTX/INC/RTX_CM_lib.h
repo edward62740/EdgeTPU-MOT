@@ -120,11 +120,11 @@ static __inline OS_RESULT os_mut_wait (OS_ID mutex, uint16_t timeout) {
 #if (OS_TIMERS != 0)
 #define OS_TASK_CNT (OS_TASKCNT + 1)
 #define OS_PRIV_CNT (OS_PRIVCNT + 2)
-#define OS_STACK_SZ (4*(OS_PRIVSTKSIZE+OS_***REMOVED***STKSIZE+OS_TIMERSTKSZ))
+#define OS_STACK_SZ (4*(OS_PRIVSTKSIZE+OS_MAINSTKSIZE+OS_TIMERSTKSZ))
 #else
 #define OS_TASK_CNT  OS_TASKCNT
 #define OS_PRIV_CNT (OS_PRIVCNT + 1)
-#define OS_STACK_SZ (4*(OS_PRIVSTKSIZE+OS_***REMOVED***STKSIZE))
+#define OS_STACK_SZ (4*(OS_PRIVSTKSIZE+OS_MAINSTKSIZE))
 #endif
 
 #ifndef OS_STKINIT
@@ -401,7 +401,7 @@ osEvent __osMailGet (osMailQId queue_id, uint32_t millisec) {
 extern int main (void);
 extern
 const osThreadDef_t os_thread_def_main;
-const osThreadDef_t os_thread_def_main = {(os_pthread)main, osPriorityNormal, 1U, 4*OS_***REMOVED***STKSIZE };
+const osThreadDef_t os_thread_def_main = {(os_pthread)main, osPriorityNormal, 1U, 4*OS_MAINSTKSIZE };
 
 
 #if defined (__CC_ARM)

@@ -713,7 +713,7 @@ static OtaErr_t setImageStateWithReason( OtaImageState_t stateToSet,
      * If the platform image state couldn't be set correctly, force fail the update by setting the
      * image state to "Rejected" unless it's already in "Aborted".
      */
-    if( ( OTA_PAL_***REMOVED***_ERR( palStatus ) != OtaPalSuccess ) && ( state != OtaImageStateAborted ) )
+    if( ( OTA_PAL_MAIN_ERR( palStatus ) != OtaPalSuccess ) && ( state != OtaImageStateAborted ) )
     {
         /* Intentionally override state since we failed within this function. */
         state = OtaImageStateRejected;
@@ -750,7 +750,7 @@ static OtaErr_t setImageStateWithReason( OtaImageState_t stateToSet,
                    ", state=%d"
                    ", reason=%d",
                    OTA_Err_strerror( err ),
-                   OTA_PalStatus_strerror( OTA_PAL_***REMOVED***_ERR( palStatus ) ),
+                   OTA_PalStatus_strerror( OTA_PAL_MAIN_ERR( palStatus ) ),
                    stateToSet,
                    reasonToSet ) );
     }
@@ -2416,7 +2416,7 @@ static OtaFileContext_t * getFileContextFromJob( const char * pRawMsg,
             /* Create/Open the OTA file on the file system. */
             palStatus = otaAgent.pOtaInterface->pal.createFile( pUpdateFile );
 
-            if( OTA_PAL_***REMOVED***_ERR( palStatus ) != OtaPalSuccess )
+            if( OTA_PAL_MAIN_ERR( palStatus ) != OtaPalSuccess )
             {
                 err = setImageStateWithReason( OtaImageStateAborted, palStatus );
                 ( void ) otaClose( pUpdateFile ); /* Ignore false result since we're setting the pointer to null on the next line. */
@@ -2646,7 +2646,7 @@ static IngestResult_t ingestDataBlockCleanup( OtaFileContext_t * pFileContext,
         if( pFileContext->pFile != NULL )
         {
             *pCloseResult = otaAgent.pOtaInterface->pal.closeFile( pFileContext );
-            otaPalMainErr = OTA_PAL_***REMOVED***_ERR( *pCloseResult );
+            otaPalMainErr = OTA_PAL_MAIN_ERR( *pCloseResult );
             otaPalSubErr = OTA_PAL_SUB_ERR( *pCloseResult );
 
             if( otaPalMainErr == OtaPalSuccess )
@@ -3280,9 +3280,9 @@ OtaErr_t OTA_ActivateNewImage( void )
                 "activateNewImage returned error: "
                 "Manual reset required: "
                 "OtaPalStatus_t=%s",
-                OTA_PalStatus_strerror( OTA_PAL_***REMOVED***_ERR( palStatus ) ) ) );
+                OTA_PalStatus_strerror( OTA_PAL_MAIN_ERR( palStatus ) ) ) );
 
-    return OTA_PAL_***REMOVED***_ERR( palStatus ) == OtaPalSuccess ? OtaErrNone : OtaErrActivateFailed;
+    return OTA_PAL_MAIN_ERR( palStatus ) == OtaPalSuccess ? OtaErrNone : OtaErrActivateFailed;
 }
 
 /*

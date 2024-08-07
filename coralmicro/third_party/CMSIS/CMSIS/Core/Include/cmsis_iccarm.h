@@ -58,11 +58,11 @@
 
 /* Define compiler macros for CPU architecture, used in CMSIS 5.
  */
-#if __ARM_ARCH_6M__ || __ARM_ARCH_7M__ || __ARM_ARCH_7EM__ || __ARM_ARCH_8M_BASE__ || __ARM_ARCH_8M_***REMOVED***__
+#if __ARM_ARCH_6M__ || __ARM_ARCH_7M__ || __ARM_ARCH_7EM__ || __ARM_ARCH_8M_BASE__ || __ARM_ARCH_8M_MAIN__
 /* Macros already defined */
 #else
-  #if defined(__ARM8M_***REMOVED***LINE__) || defined(__ARM8EM_***REMOVED***LINE__)
-    #define __ARM_ARCH_8M_***REMOVED***__ 1
+  #if defined(__ARM8M_MAINLINE__) || defined(__ARM8EM_MAINLINE__)
+    #define __ARM_ARCH_8M_MAIN__ 1
   #elif defined(__ARM8M_BASELINE__)
     #define __ARM_ARCH_8M_BASE__ 1
   #elif defined(__ARM_ARCH_PROFILE) && __ARM_ARCH_PROFILE == 'M'
@@ -80,7 +80,7 @@
 
 /* Alternativ core deduction for older ICCARM's */
 #if !defined(__ARM_ARCH_6M__) && !defined(__ARM_ARCH_7M__) && !defined(__ARM_ARCH_7EM__) && \
-    !defined(__ARM_ARCH_8M_BASE__) && !defined(__ARM_ARCH_8M_***REMOVED***__)
+    !defined(__ARM_ARCH_8M_BASE__) && !defined(__ARM_ARCH_8M_MAIN__)
   #if defined(__ARM6M__) && (__CORE__ == __ARM6M__)
     #define __ARM_ARCH_6M__ 1
   #elif defined(__ARM7M__) && (__CORE__ == __ARM7M__)
@@ -89,10 +89,10 @@
     #define __ARM_ARCH_7EM__  1
   #elif defined(__ARM8M_BASELINE__) && (__CORE == __ARM8M_BASELINE__)
     #define __ARM_ARCH_8M_BASE__ 1
-  #elif defined(__ARM8M_***REMOVED***LINE__) && (__CORE == __ARM8M_***REMOVED***LINE__)
-    #define __ARM_ARCH_8M_***REMOVED***__ 1
-  #elif defined(__ARM8EM_***REMOVED***LINE__) && (__CORE == __ARM8EM_***REMOVED***LINE__)
-    #define __ARM_ARCH_8M_***REMOVED***__ 1
+  #elif defined(__ARM8M_MAINLINE__) && (__CORE == __ARM8M_MAINLINE__)
+    #define __ARM_ARCH_8M_MAIN__ 1
+  #elif defined(__ARM8EM_MAINLINE__) && (__CORE == __ARM8EM_MAINLINE__)
+    #define __ARM_ARCH_8M_MAIN__ 1
   #else
     #error "Unknown target."
   #endif
@@ -333,7 +333,7 @@ __STATIC_FORCEINLINE void __TZ_set_STACKSEAL_S (uint32_t* stackTop) {
 
   #define __get_IPSR()                (__arm_rsr("IPSR"))
   #define __get_MSP()                 (__arm_rsr("MSP"))
-  #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+  #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
        (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
     // without main extensions, the non-secure MSPLIM is RAZ/WI
     #define __get_MSPLIM()            (0U)
@@ -343,7 +343,7 @@ __STATIC_FORCEINLINE void __TZ_set_STACKSEAL_S (uint32_t* stackTop) {
   #define __get_PRIMASK()             (__arm_rsr("PRIMASK"))
   #define __get_PSP()                 (__arm_rsr("PSP"))
 
-  #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+  #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
        (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
     // without main extensions, the non-secure PSPLIM is RAZ/WI
     #define __get_PSPLIM()            (0U)
@@ -365,7 +365,7 @@ __STATIC_FORCEINLINE void __set_CONTROL(uint32_t control)
   #define __set_FAULTMASK(VALUE)      (__arm_wsr("FAULTMASK", (VALUE)))
   #define __set_MSP(VALUE)            (__arm_wsr("MSP", (VALUE)))
 
-  #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+  #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
        (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
     // without main extensions, the non-secure MSPLIM is RAZ/WI
     #define __set_MSPLIM(VALUE)       ((void)(VALUE))
@@ -374,7 +374,7 @@ __STATIC_FORCEINLINE void __set_CONTROL(uint32_t control)
   #endif
   #define __set_PRIMASK(VALUE)        (__arm_wsr("PRIMASK", (VALUE)))
   #define __set_PSP(VALUE)            (__arm_wsr("PSP", (VALUE)))
-  #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+  #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
        (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
     // without main extensions, the non-secure PSPLIM is RAZ/WI
     #define __set_PSPLIM(VALUE)       ((void)(VALUE))
@@ -403,7 +403,7 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
   #define __TZ_get_FAULTMASK_NS()     (__arm_rsr("FAULTMASK_NS"))
   #define __TZ_set_FAULTMASK_NS(VALUE)(__arm_wsr("FAULTMASK_NS", (VALUE)))
 
-  #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+  #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
        (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
     // without main extensions, the non-secure PSPLIM is RAZ/WI
     #define __TZ_get_PSPLIM_NS()      (0U)
@@ -650,13 +650,13 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
     return (op1 >> op2) | (op1 << ((sizeof(op1)*8)-op2));
   }
 
-  #if ((defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) || \
+  #if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
        (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
 
    __IAR_FT uint32_t __get_MSPLIM(void)
     {
       uint32_t res;
-    #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+    #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
          (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
       // without main extensions, the non-secure MSPLIM is RAZ/WI
       res = 0U;
@@ -668,7 +668,7 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
 
     __IAR_FT void   __set_MSPLIM(uint32_t value)
     {
-    #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+    #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
          (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
       // without main extensions, the non-secure MSPLIM is RAZ/WI
       (void)value;
@@ -680,7 +680,7 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
     __IAR_FT uint32_t __get_PSPLIM(void)
     {
       uint32_t res;
-    #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+    #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
          (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
       // without main extensions, the non-secure PSPLIM is RAZ/WI
       res = 0U;
@@ -692,7 +692,7 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
 
     __IAR_FT void   __set_PSPLIM(uint32_t value)
     {
-    #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+    #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
          (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
       // without main extensions, the non-secure PSPLIM is RAZ/WI
       (void)value;
@@ -788,7 +788,7 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
     __IAR_FT uint32_t   __TZ_get_PSPLIM_NS(void)
     {
       uint32_t res;
-    #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+    #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
          (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
       // without main extensions, the non-secure PSPLIM is RAZ/WI
       res = 0U;
@@ -800,7 +800,7 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
 
     __IAR_FT void   __TZ_set_PSPLIM_NS(uint32_t value)
     {
-    #if (!(defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) && \
+    #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
          (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
       // without main extensions, the non-secure PSPLIM is RAZ/WI
       (void)value;
@@ -821,7 +821,7 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
       __asm volatile("MSR      MSPLIM_NS,%0" :: "r" (value));
     }
 
-  #endif /* __ARM_ARCH_8M_***REMOVED***__ or __ARM_ARCH_8M_BASE__ */
+  #endif /* __ARM_ARCH_8M_MAIN__ or __ARM_ARCH_8M_BASE__ */
 
 #endif   /* __ICCARM_INTRINSICS_VERSION__ == 2 */
 
@@ -904,7 +904,7 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
 
 #endif /* (__CORTEX_M >= 0x03) */
 
-#if ((defined (__ARM_ARCH_8M_***REMOVED***__ ) && (__ARM_ARCH_8M_***REMOVED***__ == 1)) || \
+#if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
      (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
 
 
@@ -986,7 +986,7 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
     return res;
   }
 
-#endif /* __ARM_ARCH_8M_***REMOVED***__ or __ARM_ARCH_8M_BASE__ */
+#endif /* __ARM_ARCH_8M_MAIN__ or __ARM_ARCH_8M_BASE__ */
 
 #undef __IAR_FT
 #undef __IAR_M0_FAMILY

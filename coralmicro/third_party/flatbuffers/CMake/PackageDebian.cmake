@@ -9,7 +9,7 @@ if (UNIX)
     SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY
         "FlatBuffers is an efficient cross platform serialization library for C++, with support for Java, C# and Go. It was created at Google specifically for game development and other performance-critical applications.")
     SET(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://github.com/google/flatbuffers")
-    SET(CPACK_DEBIAN_PACKAGE_***REMOVED***TAINER "Vitaly Isaev <vitalyisaev2@gmail.com>")
+    SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Vitaly Isaev <vitalyisaev2@gmail.com>")
 
     SET(CPACK_PACKAGE_VERSION_MAJOR ${VERSION_MAJOR})
     SET(CPACK_PACKAGE_VERSION_MINOR ${VERSION_MINOR})

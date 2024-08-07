@@ -76,7 +76,7 @@ void resetTest(void)
 }
 
 
-/*=======***REMOVED***=====*/
+/*=======MAIN=====*/
 int main(void)
 {
   suite_setup();

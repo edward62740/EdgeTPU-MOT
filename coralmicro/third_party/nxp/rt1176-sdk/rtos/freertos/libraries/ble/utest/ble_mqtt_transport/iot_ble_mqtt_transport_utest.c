@@ -1372,7 +1372,7 @@ size_t checkSubackPacket( StreamBufferHandle_t xStreamBuffer,
     uint8_t * bytes = ( uint8_t * ) pvTxData;
 
     TEST_ASSERT_EQUAL_INT( IOT_BLE_MQTT_MSG_TYPE_SUBACK << 4, bytes[ 0 ] ); /* ENCODE_PACKET_TYPE( IOT_BLE_MQTT_MSG_TYPE_SUBACK ) */
-    TEST_ASSERT_EQUAL_INT( 3U, bytes[ 1 ] );                                /* SUB_ACK_RE***REMOVED***ING_LENGTH */
+    TEST_ASSERT_EQUAL_INT( 3U, bytes[ 1 ] );                                /* SUB_ACK_REMAINING_LENGTH */
     TEST_ASSERT_EQUAL_INT( 0U, bytes[ 2 ] );
     TEST_ASSERT_EQUAL_INT( 1U, bytes[ 3 ] );
     TEST_ASSERT_EQUAL_INT( MQTTBLESuccess, bytes[ 4 ] ); /*  statusCode */
